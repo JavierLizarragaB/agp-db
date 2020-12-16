@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_mongoengine import MongoEngine
 from flask_login import LoginManager
@@ -13,6 +14,7 @@ bootstrap = Bootstrap()
 def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config)
+    app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 
     db.init_app(app)
     login.init_app(app)

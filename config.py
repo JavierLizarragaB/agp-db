@@ -5,11 +5,12 @@ class Config:
     ENV = "production"
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY", "secret")
+    WTF_CSRF_SECRET_KEY = SECRET_KEY
 
 
     # Mongoengine settings
     MONGODB_SETTINGS = {
-        "db": os.getenv("MONGO_DB"),
+        "db": os.getenv("MONGO_DBNAME"),
         "host": os.getenv("MONGO_URI")
     }
 
