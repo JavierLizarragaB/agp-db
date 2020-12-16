@@ -14,6 +14,7 @@ flask-login = "*"
 flask-wtf = "*"
 flask-mongoengine = "*"
 bootstrap-flask = "*"
+flask-bootstrap4 = "*"
 
 [requires]
 python_version = "3.8"

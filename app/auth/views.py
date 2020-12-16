@@ -14,7 +14,7 @@ def login():
 
     if form.validate_on_submit():
         
-        if form.data.username == "pescoboza" and form.data.password == "heriberto123":
+        if form.username.data == "pescoboza" and form.password.data == "heriberto123":
 
             user = User.create_new_user("pescoboza", "heriberto123")
             login_user(user)
@@ -23,4 +23,4 @@ def login():
         else:
             flash("Invalid login.")
 
-    return render_template("auth/login.html")
+    return render_template("auth/login.html", form=form)

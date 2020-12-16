@@ -5,7 +5,7 @@ from flask_bootstrap import Bootstrap
 
 
 
-# db = MongoEngine()
+db = MongoEngine()
 login = LoginManager()
 login.login_view = "auth.login"
 bootstrap = Bootstrap()
@@ -14,7 +14,7 @@ def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config)
 
-    # db.init_app(app)
+    db.init_app(app)
     login.init_app(app)
     bootstrap.init_app(app)
 

@@ -7,9 +7,18 @@ class Config:
     SECRET_KEY = os.getenv("SECRET_KEY", "secret")
 
 
+    # Mongoengine settings
+    MONGODB_SETTINGS = {
+        "db": os.getenv("MONGO_DB"),
+        "host": os.getenv("MONGO_URI")
+    }
+
+
 class DevelopmentConfig(Config):
     ENV = "development"
     DEBUG = True
+
+    
 
 
 class TestConfig(Config):
