@@ -1,22 +1,25 @@
 import os
 
 
-class ProductionConfig:
-    SECRET_KEY = os.getenv("SECRET_KEY")
+class Config:
+    ENV = "production"
+    DEBUG = False
+    SECRET_KEY = os.getenv("SECRET_KEY", "secret")
 
 
-class DevelopmentConfig(ProductionConfig):
-    SECRET_KEY = "secret"
+class DevelopmentConfig(Config):
+    ENV = "development"
+    DEBUG = True
 
 
-class TestingConfig(ProductionConfig):
+class TestConfig(Config):
     pass
 
 
 config = {
-    "production": ProductionConfig,
+    "production": Config,
     "development": DevelopmentConfig,
-    "testing": TestingConfig
+    "testing": TestConfig
 }
 
 current_config = config.get(os.getenv("FLASK_ENV"), "development")

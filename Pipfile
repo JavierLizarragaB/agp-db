@@ -10,6 +10,10 @@ pylint = "*"
 [packages]
 flask = "*"
 python-dotenv = "*"
+flask-login = "*"
+flask-wtf = "*"
+flask-mongoengine = "*"
+bootstrap-flask = "*"
 
 [requires]
 python_version = "3.8"

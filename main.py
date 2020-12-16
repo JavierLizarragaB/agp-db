@@ -1,6 +1,7 @@
+from dotenv import load_dotenv
+
 from app import create_app
 from config import current_config
-from dotenv import load_dotenv
 
 load_dotenv()
 
