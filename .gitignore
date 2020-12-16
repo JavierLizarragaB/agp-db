@@ -1,0 +1,8 @@
+# VS Code config
+.vscode/
+
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
