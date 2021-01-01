@@ -10,6 +10,9 @@ coverage/
 # production
 build/
 
+# linter cache
+.eslintcache
+
 # misc
 .DS_Store
 .env.local
@@ -27,7 +30,7 @@ __pycache__/
 
 
 # Virtual environment
-.venv/
+.venv/*
 
 # Environment variables
 .env
