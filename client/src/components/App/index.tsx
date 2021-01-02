@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Layout from '../Layout';
+
 import Test from '../Test';
 
 const ROUTES = {
@@ -11,9 +13,11 @@ const ROUTES = {
 function App() {
     return (
         <Router>
-            <Switch>
-                <Route path={ROUTES.TEST} component={Test} />
-            </Switch>
+            <Layout>
+                <Switch>
+                    <Route path={ROUTES.TEST} component={Test} />
+                </Switch>
+            </Layout>
         </Router>
     );
 }
