@@ -1,0 +1,5 @@
+:root {
+    --primary: var(#57DCC4);
+    --hover: var(#64FFE3);
+    --active: var(#3EB7A1);
+}
