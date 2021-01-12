@@ -1,0 +1,4 @@
+runtime: python38
+entrypoint: server/gunicorn -b $PORT server/main:app
+env_variables:
+    FLASK_ENV: "production"

@@ -1,0 +1,13 @@
+# IDE config
+.vscode/
+
+# npm dependencies
+node_modules/
+
+# Python caching
+__pycache__/
+
+# pipenv development stuff
+.venv/
+Pipfile
+Pipfile.lock
