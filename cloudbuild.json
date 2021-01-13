@@ -1,16 +1,20 @@
 {
     "steps": [{
-            "id": "build_react_app",
-            "name": "node",
-            "dir": "client",
-            "entrypoint": "npm",
-            "args": ["run", "build"]
-        },
-        {
-            "id": "deploy",
-            "name": "gcr.io/google.com/cloudsdktool/cloud-sdk",
-            "entrypoint": "gcloud",
-            "args": ["app", "deploy"]
-        }
-    ]
+        "id": "install_react_app_dependencies",
+        "name": "node",
+        "dir": "client",
+        "entrypoint": "npm",
+        "args": ["install"]
+    }, {
+        "id": "build_react_app",
+        "name": "node",
+        "dir": "client",
+        "entrypoint": "npm",
+        "args": ["run", "build"]
+    }, {
+        "id": "deploy",
+        "name": "gcr.io/google.com/cloudsdktool/cloud-sdk",
+        "entrypoint": "gcloud",
+        "args": ["app", "deploy"]
+    }]
 }
