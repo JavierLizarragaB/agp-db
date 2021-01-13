@@ -1,4 +1,4 @@
 runtime: python38
-entrypoint: gunicorn -b :$PORT server/main:app
+entrypoint: gunicorn --chdir ./server -b :$PORT main:app
 env_variables:
     FLASK_ENV: "production"
