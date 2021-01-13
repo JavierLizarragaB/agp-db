@@ -5,6 +5,7 @@ class Config:
     ENV = "production"
     DEBUG = False
     SECRET_KEY = os.getenv("SECRET_KEY", "secret")
+    FLASK_TOKEN = os.getenv("FLASK_TOKEN", "abc123")
     WTF_CSRF_SECRET_KEY = SECRET_KEY
 
 

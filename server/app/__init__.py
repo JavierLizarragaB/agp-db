@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from flask import Flask
 from flask_mongoengine import MongoEngine
 from flask_login import LoginManager
@@ -7,6 +8,7 @@ from flask_admin import Admin
 from flask_admin.contrib.mongoengine import ModelView
 
 
+load_dotenv()  # Load environment variables
 db = MongoEngine()
 login = LoginManager()
 login.login_view = "auth.login"
@@ -32,13 +34,12 @@ def create_app(config):
     app.register_blueprint(main_bp)
 
     from .api import api as api_bp
-    app.register_blueprint(api_bp)
+    app.register_blueprint(api_bp, url_prefix="/api")
 
     # from .auth import auth as auth_bp
     # app.register_blueprint(auth_bp)
 
     if os.getenv("FLASK_ENV") == "development":
-        print(app.static_url_path)
         print(app.url_map)
 
     return app
