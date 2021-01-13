@@ -18,7 +18,7 @@ class Test extends Component<any, TestState> {
 
     componentDidMount() {
         axios
-            .get<Time>('./time')
+            .get<Time>('./api/time')
             .then((res) => {
                 this.setState({ time: res.data.time });
             })

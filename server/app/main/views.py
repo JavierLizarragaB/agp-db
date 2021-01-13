@@ -3,9 +3,20 @@ from flask import render_template, current_app
 from . import main
 
 
-@main.route("/")
-def index():
+def send_react_spa():
+    """Return the react index.html with a token from backend."""
     return render_template("main/index.html", flask_token=current_app.config.get("FLASK_TOKEN"))
+
+
+@main.route('/', defaults={"path": ''})
+@main.route('/<path:path>')
+def index(path):
+    return send_react_spa()
+
+
+# @main.errorhandler(404)
+# def pass_not_found_to_client(error):
+#     return send_react_spa()
 
 
 @main.route("/path")
@@ -14,8 +25,3 @@ def path():
         "static_folder": main.static_folder,
         "static_url_path": main.static_url_path
     }
-
-
-@main.errorhandler(404)
-def pass_not_found_to_client():
-    return render_template("main/index.html", flask_token=current_app.config.get("FLASK_TOKEN"))
