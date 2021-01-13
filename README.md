@@ -34,6 +34,26 @@
     - N: Install node modules dependencies: `npm install`
 10. Start the client application: `npm start`
 
+## Installing dependencies
+
+### Client
+
+1. Get in the client dir: `cd client`
+2. Install node packages with npm:
+    - For production dependencies: `npm install package-name`
+    - For development dependencies (testers, debuggers, @types, etc.): `npm install -D package-name`
+3. Add a commit describing added dependencies starting with the `:heavy_plus_sign:` emoji
+
+### Server
+
+1. Get in the server dir: `cd server`
+2. Run the command to install virtual environment packages and update requirements.txt:
+
+    - For production dependencies: <br> `pipenv install package_name && pipenv lock --requirements > ../requirements.txt`
+    - For development dependencies (testers, linters, debuggers, etc.): <br> `pipenv install package_name && pipenv lock --requirements > ../requirements.txt`
+
+3. Add a commit describing added dependencies starting with the `:heavy_plus_sign:` emoji
+
 ## Contributing
 
 -   Stay tuned for repository updates

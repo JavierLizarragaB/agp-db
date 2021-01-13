@@ -14,11 +14,6 @@ def index(path):
     return send_react_spa()
 
 
-# @main.errorhandler(404)
-# def pass_not_found_to_client(error):
-#     return send_react_spa()
-
-
 @main.route("/path")
 def path():
     return {
