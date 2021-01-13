@@ -1,7 +1,8 @@
-import time
+from datetime import datetime
 
 from . import api
 
+
 @api.route("/time", methods=["GET"])
-def get_time():
-    return {"time": time.time()}
+def time():
+    return {"time": str(datetime.now())}
