@@ -16,6 +16,7 @@ flask-mongoengine = "*"
 bootstrap-flask = "*"
 flask-bootstrap4 = "*"
 flask-admin = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
