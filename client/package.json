@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start-api": "cd ../server/.venv && bin/flask run --no-debugger",
-    "prebuild": "rm -r ../server/app/static/react && node recreateBuildDir.js",
+    "prebuild": "node recreateBuildDir.js",
     "build": "react-scripts build",
     "postbuild": "mv build react && mv react ../server/app/static/ && cp ../server/app/static/react/index.html ../server/app/templates/main/ && echo [INFO] The compiled React app is at /server/app/static/react/ && echo [INFO] index.html is at /server/app/templates/main/",
     "test": "react-scripts test",

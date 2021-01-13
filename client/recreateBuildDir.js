@@ -3,4 +3,5 @@
 const fs = require('fs');
 const path = require('path');
 const dir = path.resolve(__dirname, '../server/app/static/react');
-!fs.existsSync(dir) && fs.mkdirSync(dir);
+fs.existsSync(dir) && fs.rmSync(dir, { recursive: true, force: true });
+fs.mkdirSync(dir);
