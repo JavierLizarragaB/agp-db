@@ -8,7 +8,10 @@ node_modules/
 coverage/
 
 # production
-build/
+client/build/
+server/app/static/react/*
+!server/app/static/react/README.txt
+server/app/templates/main/index.html
 
 # linter cache
 .eslintcache

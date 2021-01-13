@@ -1,7 +1,6 @@
 # Load environment variable first
 from dotenv import load_dotenv
-load_dotenv()
-
+load_dotenv()  # nopep8
 
 from app import create_app
 from config import current_config
