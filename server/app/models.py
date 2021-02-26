@@ -6,10 +6,10 @@ from . import login
 
 
 class User(UserMixin, me.Document):
-    meta = {"collection": "user"}
+    meta = {"collection": "usuario"}
 
-    username = me.StringField(required=True)
-    password = me.StringField(required=True)
+    username = me.StringField(required=True, db_field="usuario")
+    password = me.StringField(required=True, db_field="contrasena")
 
     def __str__(self):
         return "User {}".format(self.username)
@@ -25,3 +25,21 @@ class User(UserMixin, me.Document):
 @login.user_loader
 def load_user(id):
     return User.objects(id=id).first()
+
+
+class Patient(me.Document):
+    meta: {"collection": "pacientes"}
+
+    folio = me.StringField(required=True, db_field="folio")
+    first_name = me.StringField(required=True, db_field="primer_nombre")
+    second_name = me.StringField(required=False, db_field="segundo_nombre")
+    paternal_lastname = me.StringField(
+        required=False, db_field="apellido_paterno")
+    maternal_lastname = me.StringField(
+        required=False, db_field="apellido_materno")
+
+    def __str__(self):
+        return f"Patient({self.first_name + ' ' + self.paternal_lastname})"
+
+    def __repr__(self):
+        return self.__str__()

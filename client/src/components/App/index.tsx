@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-import Layout from '../Layout';
 import axios from 'axios';
+import * as ROUTES from '../../constants/routes';
+import Layout from '../Layout';
+
+import PatientPage from '../../pages/PatientPage';
 
 // import Test from '../Test';
-
-const ROUTES = {
-    INDEX: '/',
-    TEST: '/test',
-};
 
 const Test: React.FC = () => {
     const [time, setTime] = useState('No ha llegado');
@@ -43,6 +40,7 @@ function App() {
         <BrowserRouter>
             <Layout>
                 <Switch>
+                    <Route path={ROUTES.PATIENT} component={PatientPage} />
                     <Route path={'/test'} component={() => <h4>Hello</h4>} />
                     <Route path={'/hora-paciente'} component={Test} />
                 </Switch>
