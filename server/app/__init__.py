@@ -21,7 +21,7 @@ def create_app(config):
     app.config.from_object(config)
     app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 
-    # db.init_app(app)
+    db.init_app(app)
     # login.init_app(app)
     # bootstrap.init_app(app)
 
