@@ -27,6 +27,16 @@ const PatientPage: React.FC = () => {
 
     return (
         <div>
+            <p>
+                Cuando actualicen esto recuerden actualizar los tipos en "client/src/serverTypes.d.ts". Díganle a
+                backend que actualice también los modelos de paciente en "server/app/models.py". Favor de poner
+                db_field=*nombre_en_español* a los campos. Para autenticar rutas:
+            </p>
+            <p>
+                @Javi: Autenticación con JWT:{' '}
+                <a href="https://www.youtube.com/watch?v=J5bIPtEbS0Q">https://www.youtube.com/watch?v=J5bIPtEbS0Q</a>
+            </p>
+            <p>Spooky Scary Skeletons</p>
             <PatientForm onSubmit={handleSubmitPatient} />
             <PatientsTable data={patients} />
         </div>
