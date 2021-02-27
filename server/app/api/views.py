@@ -11,14 +11,24 @@ def time():
 
 
 @api.route("/paciente/<id>", methods=["GET"])
-def get_patient(id):
+def get_patient_by_mdb_id(id):
     """GET Lookup patient by database id."""
 
-    patient = Patients.objects(_id=id).first()
+    patient = Patients.objects(id=id).first()
     if patient:
         return (patient.to_json(), 200)
 
     return ("Patient not found", 404)
+
+
+@api.route("/paciente", methods=["GET"])
+def get_patient_by_folio():
+    folio = request.args.get("folio")
+    if folio == None:
+        return ("No folio number query param: ?folio=<value>", 403)
+
+    patient = Patients.objects(folio=folio).first()
+    return (jsonify(patient), 200)
 
 
 @api.route("/paciente", methods=["POST"])
