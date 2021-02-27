@@ -4,6 +4,7 @@ import axios from 'axios';
 import * as ROUTES from '../../constants/routes';
 import Layout from '../Layout';
 
+import HomePage from '../../pages/HomePage';
 import PatientPage from '../../pages/PatientPage';
 
 // import Test from '../Test';
@@ -40,9 +41,10 @@ function App() {
         <BrowserRouter>
             <Layout>
                 <Switch>
-                    <Route path={ROUTES.PATIENT} component={PatientPage} />
-                    <Route path={'/test'} component={() => <h4>Hello</h4>} />
-                    <Route path={'/hora-paciente'} component={Test} />
+                    <Route exact path={ROUTES.INDEX} component={HomePage} />
+                    <Route exact path={ROUTES.PATIENT} component={PatientPage} />
+                    <Route exact path={'/test'} component={() => <h4>Hello</h4>} />
+                    <Route exact path={'/hora-paciente'} component={Test} />
                 </Switch>
             </Layout>
         </BrowserRouter>
