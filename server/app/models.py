@@ -33,12 +33,16 @@ class Patients(Document):
 
     folio = StringField(required=True, unique=True, db_field="folio")
     first_name = StringField(required=True, db_field="primer_nombre")
-    second_name = StringField(required=False, db_field="segundo_nombre")
     paternal_last_name = StringField(
         required=False, db_field="apellido_paterno")
     maternal_last_name = StringField(
         required=False, db_field="apellido_materno")
-
+    sex = StringField(
+      	required=True, db_field="sexo")
+    companions = ListField(StringField(), required=False, db_field"acompañante")
+    medical_forms = ListField(StringField(), required=False, db_field="formularios_medicos")
+    social_forms = ListField(StringField(), required=False, db_field="formularios_socioeconomicos")
+    
     def __str__(self):
         return f"Patient({self.first_name + ' ' + self.paternal_last_name})"
 
