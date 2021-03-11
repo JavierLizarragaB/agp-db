@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mongoengine import Document
-from mongoengine import StringField, IntField
+from mongoengine import StringField, IntField, ListField
 from flask_login import UserMixin
 
 from . import login
@@ -43,7 +43,12 @@ class Patients(Document):
         required=False, db_field="apellido_paterno")
     maternal_last_name = StringField(
         required=False, db_field="apellido_materno")
-
+    sex = StringField(
+        required=True, db_field="sexo")
+    companions = ListField(StringField(), required=False, db_field="acompañante")
+    medical_forms = ListField(StringField(), required=False, db_field="formularios_medicos")
+    social_forms = ListField(StringField(), required=False, db_field="formularios_socioeconomicos")
+    
     def __str__(self):
         return f"Patient({self.name + ' ' + self.paternal_last_name})"
 
