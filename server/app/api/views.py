@@ -39,10 +39,7 @@ def post_patient():
         return ("JSON missing!", 400)
 
     folio = json.get("folio")
-    first_name = json.get("first_name")
-    second_name = json.get("second_name")
-    if second_name == "":
-        second_name = None
+    name = json.get("name")
     paternal_last_name = json.get("paternal_last_name")
     maternal_last_name = json.get("maternal_last_name")
 
@@ -50,14 +47,13 @@ def post_patient():
         patient = Patients.objects(folio=folio).first()
 
         if patient:
-            patient.first_name = first_name
-            patient.second_name = second_name
+            patient.name = name
             patient.paternal_last_name = paternal_last_name
             patient.maternal_last_name = maternal_last_name
         else:
             patient = Patients(
                 folio=folio,
-                first_name=first_name,
+                name=name,
                 second_name=second_name,
                 paternal_last_name=paternal_last_name,
                 maternal_last_name=maternal_last_name
