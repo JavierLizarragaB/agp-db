@@ -22,7 +22,7 @@ def token_required(f):
         print(ticket)
         print(current_app.config['SECRET_KEY'])
         try:
-            jwt.decode(ticket, current_app.config['SECRET_KEY'])
+            jwt.decode(ticket, current_app.config['SECRET_KEY'], algorithms=["HS256"])
         except:
             flash("Credenciales inválidas.->")
             return redirect(url_for("auth.login"))
@@ -34,7 +34,7 @@ def token_required(f):
 @token_required
 def private():
     flash("yes yes route.")
-    return redirect(url_for("auth.private"))
+    return render_template("auth/private.html")
 
 @auth.route("/login", methods=["GET", "POST"])
 def login():
@@ -49,9 +49,9 @@ def login():
             return redirect(url_for("auth.login"))
 
         login_user(user)
-        token = jwt.encode({'user' : user.username, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=280)}, current_app.config['SECRET_KEY'])
-        print(token)
-        print(current_app.config['SECRET_KEY'])
+        token = jwt.encode({'user' : user.username, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=280)}, current_app.config['SECRET_KEY'], algorithm="HS256")
+        flash(token)
+        
         flash("Ha iniciado sesión como {}.".format(user.username))
         return redirect(url_for("auth.login"))
         
