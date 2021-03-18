@@ -26,9 +26,10 @@ def create_app(config):
     # bootstrap.init_app(app)
 
     # Add flask-admin views
-    # admin.init_app(app)
-    # from .models import User
-    # admin.add_view(ModelView(User, "Usuarios"))
+    admin.init_app(app)
+    from .models import User, Patients
+    admin.add_view(ModelView(User, "Usuarios"))
+    # admin.add_view(ModelView(Patients, "Pacientes"))
 
     from .main import main as main_bp
     app.register_blueprint(main_bp)

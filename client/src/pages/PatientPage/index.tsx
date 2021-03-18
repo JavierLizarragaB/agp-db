@@ -36,6 +36,8 @@ const PatientPage: React.FC = () => {
                 @Javi: Autenticación con JWT:{' '}
                 <a href="https://www.youtube.com/watch?v=J5bIPtEbS0Q">https://www.youtube.com/watch?v=J5bIPtEbS0Q</a>
             </p>
+            <p>Spooky Scary Skeletons</p>
+
             <PatientForm onSubmit={handleSubmitPatient} />
             <PatientsTable data={patients} />
         </div>
@@ -47,10 +49,9 @@ const REQ_FIELD_MSG = 'Campo requerido';
 const PatientForm: React.FC<{ onSubmit: (values: Patient) => void }> = ({ onSubmit: handleSubmitProp }) => {
     const handleSubmit = useCallback(
         (values: Patient) => {
-            const { first_name, second_name, paternal_last_name, maternal_last_name, folio } = values;
-            const postData: Patient = { first_name, paternal_last_name, maternal_last_name, folio };
-            if (second_name) postData.second_name = second_name;
-
+            const { name, paternal_last_name, maternal_last_name, folio } = values;
+            const postData: Patient = {name, paternal_last_name, maternal_last_name, folio };
+            
             handleSubmitProp(postData);
         },
         [handleSubmitProp],
@@ -62,16 +63,14 @@ const PatientForm: React.FC<{ onSubmit: (values: Patient) => void }> = ({ onSubm
                 initialValues={
                     {
                         folio: '',
-                        first_name: '',
-                        second_name: '',
+                        name: '',
                         paternal_last_name: '',
                         maternal_last_name: '',
                     } as Patient
                 }
                 validationSchema={Yup.object({
                     folio: Yup.string().required(REQ_FIELD_MSG),
-                    first_name: Yup.string().required(REQ_FIELD_MSG),
-                    second_name: Yup.string(),
+                    name: Yup.string().required(REQ_FIELD_MSG),
                     paternal_last_name: Yup.string().required(REQ_FIELD_MSG),
                     maternal_last_name: Yup.string().required(REQ_FIELD_MSG),
                 })}
@@ -79,16 +78,10 @@ const PatientForm: React.FC<{ onSubmit: (values: Patient) => void }> = ({ onSubm
             >
                 {({ isValid, errors, touched }) => (
                     <Form>
-                        <label htmlFor="first_name">Primer nombre*</label>
+                        <label htmlFor="name">Nombre*</label>
                         <br />
-                        <Field id="first_name" name="first_name" type="text" placeholder="Primer nombre" />
-                        {errors.first_name && touched.first_name && <div>{errors.first_name}</div>}
-                        <br />
-
-                        <label htmlFor="second_name">Segundo nombre</label>
-                        <br />
-                        <Field id="second_name" name="second_name" type="text" placeholder="Segundo nombre" />
-                        {errors.second_name && touched.second_name && <div>{errors.second_name}</div>}
+                        <Field id="name" name="name" type="text" placeholder="Nombre" />
+                        {errors.name && touched.name && <div>{errors.name}</div>}
                         <br />
 
                         <label htmlFor="paternal_lastnane">Apellido paterno*</label>
