@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mongoengine import Document
-from mongoengine import StringField, IntField, ListField
+from mongoengine import StringField, IntField, ListField, BooleanField, DateField
 from flask_login import UserMixin
 
 from . import login
@@ -51,6 +51,24 @@ class Patients(Document):
     
     def __str__(self):
         return f"Patient({self.name + ' ' + self.paternal_last_name})"
+
+    def __repr__(self):
+        return self.__str__()
+
+
+class SocioeconomicForm(Document):
+    meta = {"collection": "formato_socioeconomico"}
+
+    record_num = IntField(required=True, unique=True, db_field="num_expediente")
+    chemotherapy = BooleanField(required=True, db_field="quimioterapia")
+    hostel = BooleanField(required=True, db_field="albergue")
+    admission_date = DateField(required=True, db_field="fecha_ingreso")
+    discharge_date = DateField(required=True, db_field="fecha_egreso")
+    ##General data
+    
+    
+    def __str__(self):
+        return f"SocioeconomicForm({self.record_num})"
 
     def __repr__(self):
         return self.__str__()
