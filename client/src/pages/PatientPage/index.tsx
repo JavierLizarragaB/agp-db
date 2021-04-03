@@ -37,6 +37,7 @@ const PatientPage: React.FC = () => {
                 <a href="https://www.youtube.com/watch?v=J5bIPtEbS0Q">https://www.youtube.com/watch?v=J5bIPtEbS0Q</a>
             </p>
             <p>Spooky Scary Skeletons</p>
+
             <PatientForm onSubmit={handleSubmitPatient} />
             <PatientsTable data={patients} />
         </div>
