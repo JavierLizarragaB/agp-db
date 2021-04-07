@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mongoengine import Document, EmbeddedDocument
-from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentListField, EmbeddedDocumentField
+from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentListField, EmbeddedDocumentField, ReferenceField
 from flask_login import UserMixin
 from datetime import datetime
 
@@ -61,7 +61,20 @@ class LivingPlace(EmbeddedDocument):
     place_distribution = ListField(StringField(), required=True, db_field="distribucion_vivienda")
     place_person_per_room = StringField(required=True, db_field="personas_por_cuarto_vivienda")
     place_location = StringField(required=True, db_field="zona_vivienda")
-    place_hazzards = StringField(required=False, db_field="exposicion_biomasas_vivienda")
+
+
+class Outcome(EmbeddedDocument):
+    outcome_electric_power = IntField(required=True, db_field="energia_electrica_egreso")
+    outcome_water = IntField(required=True, db_field="agua_egreso")
+    outcome_gas = IntField(required=True, db_field="gas_egreso")
+    outcome_phone = IntField(required=True, db_field="telefono_egreso")
+    outcome_food = IntField(required=True, db_field="alimentos_egreso")
+    outcome_rent = IntField(required=True, db_field="renta_egreso")
+    outcome_transportation = IntField(required=True, db_field="transporte_egreso")
+    outcome_education = IntField(required=True, db_field="educacion_egreso")
+    outcome_clothing = IntField(required=True, db_field="vestimenta_egreso")
+    outcome_recreational = IntField(required=True, db_field="diversion_egreso")
+    outcome_other = IntField(required=True, db_field="otros_egreso")
 
 
 class SocioeconomicForm(Document):
@@ -89,7 +102,7 @@ class SocioeconomicForm(Document):
     ##Temporal address
     tmp_street = StringField(required=True, db_field="calle_temp")
     tmp_num = IntField(required=True, db_field="num_temp")
-    tmp_suburb = StringField(required=True, db_field="colonia_temp")
+    tmp_suburb = StringField(required=True, db_field="colonia_temp") ######Falta Localidaaaad!!!!!
     tmp_municipality = StringField(required=True, db_field="muicipio_temp")
     tmp_zip_code = IntField(required=True, db_field="cp_temp")
     tmp_phone = IntField(required=True, db_field="tel_temp")
@@ -110,6 +123,15 @@ class SocioeconomicForm(Document):
     diet = EmbeddedDocumentField(Diet, required=True, db_field="dieta")
     ##Living place
     living_place = EmbeddedDocumentField(LivingPlace, required=True, db_field="vivienda")
+    ##Household goods
+    electrodomestics = StringField(required=True, db_field="electrodomesticos")
+    air_conditioner = StringField(required=True, db_field="refrigeracion")
+    trnasportation = StringField(required=True, db_field="transporte")
+    car_brand = StringField(required=False, db_field="marca_auto")
+    car_model = StringField(required=False, db_field="modelo_auto")
+    ##geographic area
+    geographic_area = StringField(required=True, db_field="area_geografica")
+    ##Outcome
 
     
     def __str__(self):
@@ -132,7 +154,7 @@ class Patients(Document):
         required=True, db_field="sexo")
     ##companions = ListField(EmbeddedDocumentField(), required=False, db_field="acompañante")
     ##medical_forms = ListField(EmbeddedDocumentField(), required=False, db_field="formularios_medicos")
-    social_forms = EmbeddedDocumentListField(SocioeconomicForm, required=False, db_field="formularios_socioeconomicos")
+    social_forms = ListField(ReferenceField(SocioeconomicForm, required=False, db_field="formularios_socioeconomicos"))
     
     def __str__(self):
         return f"Patient({self.name + ' ' + self.paternal_last_name})"
