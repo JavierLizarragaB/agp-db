@@ -140,6 +140,62 @@ class SocioeconomicForm(Document):
     def __repr__(self):
         return self.__str__()
 
+##Embedded documents for medical form
+class EmergencyContact(EmbeddedDocument):
+    emergency_name = StringField(required=True, db_field="emergencia_nombre")
+    emergency_phone = IntField(required=True, db_field="emergencia_tel")
+    emergency_relationship = StringField(required=True, db_field="emergencia_parentesco")
+class FamilyHistory(EmbeddedDocument):
+    relationship = StringField(required=True, db_field="parentesco")
+    living = BooleanField(required=True, db_field="vive")
+    diseases = ListField(StringField(), required=False, db_field="enfermedades")
+    cause_of_death = StringField(required=False, db_field="causa_defuncion")
+class LivingPlaceMedical(EmbeddedDocument):
+    place_type = StringField(required=True, db_field="tipo_vivienda")
+    place_material = StringField(required=True, db_field="material_vivienda")
+    place_inhabitants = IntField(required=True, db_field="habitantes_vivienda")
+    place_rooms = IntField(required=True, db_field="habitaciones_vivienda")
+    place_hazards = StringField(required=False, db_field="exposicion_biomasas_vivienda")
+
+class MedicalForm(Document):
+    meta = {"collection": "formato_medico"}
+
+    ##Date and record number
+    date_modified = DateField(default=datetime.datetime.utcnow, db_field="ultima_modificacion")
+    record_num = IntField(required=True, unique=True, db_field="num_expediente")
+    ##General data
+    name = StringField(required=True, db_field="nombre")
+    sex = StringField(required=True, db_field="sexo")
+    birth_date = DateField(required=True, db_field="fecha_naciemiento")
+    age = IntField(required=True, db_field="edad")
+    birth_place = StringField(required=True, db_field="lugar_nacimiento")
+    email = StringField(required=True, db_field="correo")
+    ##Address
+    street = StringField(required=True, db_field="calle")
+    num = IntField(required=True, db_field="num")
+    suburb = StringField(required=True, db_field="colonia")
+    locality = StringField(required=True, db_field="colonia") #localidad??
+    municipality = StringField(required=True, db_field="muicipio")
+    zip_code = IntField(required=True, db_field="cp")
+    phone = IntField(required=True, db_field="tel")
+    phone2 = IntField(required=False, db_field="tel2")
+    ##Derechohabiencia ???
+    insurance = StringField(required=True, db_field="derechohabiencia")
+    #Scholarship
+    scholarship = StringField(required=True, db_field="escolaridad")
+    ##More general data
+    ocupation = StringField(required=True, db_field="ocupacion")
+    religion = StringField(required=True, db_field="religion")
+    civil_state = StringField(required=True, db_field="estado_civil")
+    ##Emergency contact
+    emergency_contact = EmbeddedDocumentField(EmergencyContact, required=True, db_field="emergencia_contacto")
+    ##Hereditary family history
+    family_history = EmbeddedDocumentListField(FamilyHistory, required=True, db_field="antecedentas_familiares")
+    
+    ##Non-pathological personal history
+    living_place = EmbeddedDocumentField(LivingPlaceMedical, required=True, db_field="vivienda")
+
+
 
 class Patients(Document):
     meta = {"collection": "pacientes"}
