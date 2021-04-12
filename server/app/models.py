@@ -156,6 +156,78 @@ class LivingPlaceMedical(EmbeddedDocument):
     place_inhabitants = IntField(required=True, db_field="habitantes_vivienda")
     place_rooms = IntField(required=True, db_field="habitaciones_vivienda")
     place_hazards = StringField(required=False, db_field="exposicion_biomasas_vivienda")
+class DietMedical(EmbeddedDocument):
+    quality_perception = StringField(required=True, db_field="percepcion_calidad")
+    meals_day = IntField(required=True, db_field="comidas_dia")
+    ## Preparacion alimentos????
+    water_quantity = IntField(required=True, db_field="cantidad_agua") ##Int???
+class Hygiene(EmbeddedDocument):
+    showers_week = IntField(required=True, db_field="baños_semana")
+    teeth_brushing_day = IntField(required=True, db_field="lavar_dientes_dia")
+    ## Higiene del hogar????
+class Animals(EmbeddedDocument):
+    vaccinated = BooleanField(required=True, db_field="vacunados")
+    ticks = BooleanField(required=True, db_field="garrapatas")
+    diseases = ListField(StringField(), required=False, db_field="enfermedades")
+    ## Higiene del hogar????
+class NonPathological(EmbeddedDocument):
+    living_place = EmbeddedDocumentField(LivingPlaceMedical, required=True, db_field="vivienda")
+    diet = EmbeddedDocumentField(DietMedical, required=True, db_field="alimentacion")
+    hygiene = EmbeddedDocumentField(Hygiene, required=True, db_field="higiene")
+    ## actividad fisica ??
+    ## pasatiempo??
+    animals = EmbeddedDocumentField(Animals, required=True, db_field="animales")
+    ## cartilla vacunacion ??
+class ChronicDegenerativeDisease(EmbeddedDocument):
+    disease_name = StringField(required=True, db_field="nombre_enfermedad")
+    time_since_diagnosis = IntField(required=True, db_field="tiempo_desde_diagnostico") ##Int???
+    treatment = StringField(required=True, db_field="tratamiento")
+    complications = StringField(required=True, db_field="complicaciones")
+    adherance_treatment = StringField(required=True, db_field="apego_tratamiento")
+class DrugUse(EmbeddedDocument):
+    starting_age = IntField(required=True, db_field="edad_inicio")
+    quantity = IntField(required=True, db_field="cantidad")
+    frequency = StringField(required=True, db_field="frecuencia")
+class MaleSexualHealth(EmbeddedDocument):
+    start_sexual_life = IntField(required=False, db_field="inicio_vida_sexual")
+    sexual_partners = IntField(required=False, db_field="parejas_sexuales")
+    std = ListField(StringField(), required=False, db_field="ets")
+    contraceptive_methos = ListField(StringField(), required=False, db_field="metodos_anticonceptivos")
+class CancerTest(EmbeddedDocument):
+    date = DateField(required=True, db_field="fecha")
+    resultado = BooleanField(required=True, db_field="resultado")
+class FemaleSexualHealth(EmbeddedDocument):
+    menarche = DateField(required=False, db_field="menarca")
+    ## ritmo ??
+    start_sexual_life = IntField(required=False, db_field="inicio_vida_sexual")
+    high_risk_partners = IntField(required=False, db_field="parejas_alto_riesgo")
+    sexual_partners = IntField(required=False, db_field="parejas_sexuales")
+    std = ListField(StringField(), required=False, db_field="ets")
+    gestations = IntField(required=False, db_field="gestas")
+    deliveries = IntField(required=False, db_field="partos")
+    abortions = IntField(required=False, db_field="abortos")
+    date_last_delivery = DateField(required=False, db_field="fecha_ultimo_parto")
+    age_first_pregnancy = IntField(required=False, db_field="edad_primer_embarazo")
+    family_planning_methods = ListField(StringField(), required=False, db_field="metodos_planificacion_familiar")
+    date_last_menstruation = DateField(required=False, db_field="fecha_ultima_regla")
+    ## Menopausia ??
+    breastfeeding = BooleanField(required=True, db_field="lactancia_materna")
+    last_pap_smear = EmbeddedDocument(CancerTest, required=False, db_field="ultimo_papanicolaou")
+    last_hybrid_test = EmbeddedDocument(CancerTest, required=False, db_field="ultima_prueba_hibridos")
+    last_mammography = EmbeddedDocument(CancerTest, required=False, db_field="ultima_mamografia")
+class Pathological(EmbeddedDocument):
+    chronic_degenerative_diseases = EmbeddedDocumentListField(FamilyHistory, required=False, db_field="enfermedades_cronicodegenerativas")
+    infectious_contagious_diseases = ListField(StringField(), required=False, db_field="enfermedades_infectocontagiosas")
+    surgeries = ListField(StringField(), required=False, db_field="cirugias")
+    jail = BooleanField(required=True, db_field="carcel")
+    blood_transfusions = BooleanField(required=True, db_field="transfusiones_sanguineas") ## Bool ??
+    allergies = ListField(StringField(), required=False, db_field="alergias")
+    trauma = ListField(StringField(), required=False, db_field="traumatismos")
+    alcoholism = EmbeddedDocument(DrugUse, required=False, db_field="alcoholismo")
+    smoking = EmbeddedDocument(DrugUse, required=False, db_field="tabaquismo")
+    drug_addictions = EmbeddedDocument(DrugUse, required=False, db_field="toxicomanias")
+    ## Generic Embedded Document !!
+    sexual_health = GenricEmbeddedDocument(required=True, db_field="salud_sexual")
 
 class MedicalForm(Document):
     meta = {"collection": "formato_medico"}
@@ -193,9 +265,10 @@ class MedicalForm(Document):
     family_history = EmbeddedDocumentListField(FamilyHistory, required=True, db_field="antecedentas_familiares")
     
     ##Non-pathological personal history
-    living_place = EmbeddedDocumentField(LivingPlaceMedical, required=True, db_field="vivienda")
+    non_pathological_history = EmbeddedDocumentField(NonPathological, required=True, db_field="antecedentes_no_patologicos")
 
-
+    ##Pathological personal history
+    pathological_history = EmbeddedDocumentField(Pathological, required=True, db_field="antecedentes_patologicos")
 
 class Patients(Document):
     meta = {"collection": "pacientes"}
