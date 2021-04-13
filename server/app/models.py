@@ -44,6 +44,23 @@ class FamilyStructure(EmbeddedDocument):
     family_member_income = StringField(required=True, db_field="ingreso_familiar")
 
 
+class Address(EmbeddedDocument):
+    street = StringField(required=True, db_field="calle")
+    num = IntField(required=True, db_field="num")
+    suburb = StringField(required=True, db_field="colonia")
+    locality = StringField(required=True, db_field="localidad")
+    municipality = StringField(required=True, db_field="muicipio")
+    zip_code = IntField(required=True, db_field="cp")
+    phone = IntField(required=True, db_field="tel")
+    phone2 = IntField(required=False, db_field="tel2")
+
+
+class ResponsableFamilyMember(EmbeddedDocument):
+    responsable_name = StringField(required=True, db_field="nombre_responsable")
+    responsable_address = EmbeddedDocumentField(Address, db_field="direccion_responsable")
+    responsable_relationship = StringField(required=True, db_field="parentesco_responsable")
+
+
 class Diet(EmbeddedDocument):
     red_meat = StringField(required=True, db_field="carnes_rojas")
     chicken = StringField(required=True, db_field="pollo")
@@ -63,6 +80,14 @@ class LivingPlace(EmbeddedDocument):
     place_location = StringField(required=True, db_field="zona_vivienda")
 
 
+class HouseholdGoods(EmbeddedDocument):
+    electrodomestics = StringField(required=True, db_field="electrodomesticos")
+    air_conditioner = StringField(required=True, db_field="refrigeracion")
+    trnasportation = StringField(required=True, db_field="transporte")
+    car_brand = StringField(required=False, db_field="marca_auto")
+    car_model = StringField(required=False, db_field="modelo_auto")
+
+
 class Outcome(EmbeddedDocument):
     outcome_electric_power = IntField(required=True, db_field="energia_electrica_egreso")
     outcome_water = IntField(required=True, db_field="agua_egreso")
@@ -76,6 +101,12 @@ class Outcome(EmbeddedDocument):
     outcome_recreational = IntField(required=True, db_field="diversion_egreso")
     outcome_other = IntField(required=True, db_field="otros_egreso")
 
+
+class SubstanceAbuse(EmbeddedDocument):
+    household_member_substance = StringField(required=True, db_field="consume_miembro_vivienda")
+    substance_consumed = StringField(required=False, db_field="sustancia_consumida")
+    consuming_member = StringField(required=False,  db_field="miembro_consumidor")
+    consuming_frequency = StringField(required=False, db_field="frecuencia_consumo")
 
 class SocioeconomicForm(Document):
     meta = {"collection": "formato_socioeconomico"}
@@ -100,39 +131,35 @@ class SocioeconomicForm(Document):
     ######????Servicio Medico????
     ######????DX Medico????
     ##Temporal address
-    tmp_street = StringField(required=True, db_field="calle_temp")
-    tmp_num = IntField(required=True, db_field="num_temp")
-    tmp_suburb = StringField(required=True, db_field="colonia_temp") ######Falta Localidaaaad!!!!!
-    tmp_municipality = StringField(required=True, db_field="muicipio_temp")
-    tmp_zip_code = IntField(required=True, db_field="cp_temp")
-    tmp_phone = IntField(required=True, db_field="tel_temp")
-    tmp_phone2 = IntField(required=False, db_field="tel_temp2")
-    ##Responsable address
-    responsable_family_member = StringField(required=True, db_field="familiar_responsable")
-    street = StringField(required=True, db_field="calle")
-    num = IntField(required=True, db_field="num")
-    suburb = StringField(required=True, db_field="colonia")
-    municipality = StringField(required=True, db_field="muicipio")
-    zip_code = IntField(required=True, db_field="cp")
-    phone = IntField(required=True, db_field="tel")
-    phone2 = IntField(required=False, db_field="tel2")
-    relationship = StringField(required=True, db_field="parentesco")
+    temp_address = EmbeddedDocumentField(Address, required=True, db_field="direccion_temporal")
+    ##Responsable
+    responsable_family_member = EmbeddedDocumentField(ResponsableFamilyMember, required=True, db_field="familiar_responsable")
     ##Family Structure
     family_structure = EmbeddedDocumentListField(FamilyStructure, required=False, db_field="estructura_familiar")
     ##Diet
     diet = EmbeddedDocumentField(Diet, required=True, db_field="dieta")
     ##Living place
     living_place = EmbeddedDocumentField(LivingPlace, required=True, db_field="vivienda")
+    ##Family sick members
+    sick_members = StringField(required=True, db_field="familiares_enfermos")
     ##Household goods
-    electrodomestics = StringField(required=True, db_field="electrodomesticos")
-    air_conditioner = StringField(required=True, db_field="refrigeracion")
-    trnasportation = StringField(required=True, db_field="transporte")
-    car_brand = StringField(required=False, db_field="marca_auto")
-    car_model = StringField(required=False, db_field="modelo_auto")
+    household_goods = EmbeddedDocumentField(HouseholdGoods, required=True, db_field="bienes_hogar")
     ##geographic area
     geographic_area = StringField(required=True, db_field="area_geografica")
     ##Outcome
-
+    outcome = EmbeddedDocumentField(Outcome, required=True, db_field="egresos")
+    ##Substance abuse
+    substance_abuse = EmbeddedDocumentField(SubstanceAbuse, required=True, db_field="consume_sustancias_toxicas")
+    ##AGP questions
+    heard_from_us = StringField(required=True, db_field="conocio_agrupacion")
+    past_help = StringField(required=True, db_field="apoyo_anterior")
+    help_type = StringField(required=False, db_field="tipo_apoyo")
+    observations = StringField(required=False, db_field="observaciones")
+    social_plan =StringField(required=True, db_field="plan_social")
+    socioeconomic_classification1 = StringField(required=True, db_field="clasificacion_socioeconomica1")
+    socioeconomic_classification2 = StringField(required=True, db_field="clasificacion_socioeconomica2")
+    socioeconomic_classification3 = StringField(required=True, db_field="clasificacion_socioeconomica3")
+    social_worker = StringField(required=True, db_field="trabajador_social")
     
     def __str__(self):
         return f"SocioeconomicForm({self.record_num})"
