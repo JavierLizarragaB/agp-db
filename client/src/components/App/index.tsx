@@ -1,4 +1,5 @@
-import React from 'react';
+export {}
+/*import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import logo from './img/papanico.png'; 
@@ -101,3 +102,4 @@ function App() {
 export default App;
 
 
+*/

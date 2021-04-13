@@ -1,0 +1,113 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.btn-custom {
+  color: #ffffff;
+  background: #F7ADA4;
+}
+
+.inner {
+  background: #FDEDC6;
+  width: 50%;  
+}
+
+.datos-paciente{
+  background: #ffff;
+  min-height: 100%;
+  margin-bottom: -50px;
+  margin-top: -50px;
+}
+
+.push {
+  height: 0px;
+}
+
+.logoAGP {
+  display: block;
+  margin-top: 100px;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.foot {
+  background: #D1F1F3;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  position: sticky;
+  
+
+}
+
+.mapita {
+  margin:auto;
+  width: 90%;
+  border-radius: 8px;
+  max-width: 90%;
+  height: auto;
+  margin-top: 8%;
+}
+
+.tel {
+  width: 27%;
+  margin-top: 5%;
+  margin-bottom: 10px;
+}
+
+.ubi {
+  width: 30%;
+  margin-top: 5%;
+  margin-bottom: 10px;
+}
+
+.hora {
+  width: 19%;
+  margin-top: 4%;
+  margin-bottom: 10%;
+}
+
+.text {
+  font-size: large;
+  font-weight: 700;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+span {
+  color: #F7ADA4;
+}
+
+/*
+.dropdown {
+    width: 100px;
+    padding: 0px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: left;
+}
+*/
+
+
+
+
