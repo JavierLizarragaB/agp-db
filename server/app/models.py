@@ -1,5 +1,5 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_mongoengine import Document, EmbeddedDocument, GenericEmbeddedDocument
+from mongoengine import Document, EmbeddedDocument
 from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentListField, EmbeddedDocumentField, ReferenceField
 from flask_login import UserMixin
 from datetime import datetime
@@ -111,7 +111,7 @@ class SubstanceAbuse(EmbeddedDocument):
 class SocioeconomicForm(Document):
     meta = {"collection": "formato_socioeconomico"}
 
-    date_modified = DateField(default=datetime.datetime.utcnow, db_field="ultima_modificacion")
+    date_modified = DateField(default=datetime.utcnow, db_field="ultima_modificacion")
     record_num = IntField(required=True, unique=True, db_field="num_expediente")
     chemotherapy = BooleanField(required=True, db_field="quimioterapia")
     hostel = BooleanField(required=True, db_field="albergue")
@@ -239,9 +239,9 @@ class FemaleSexualHealth(EmbeddedDocument):
     date_last_menstruation = DateField(required=False, db_field="fecha_ultima_regla")
     ## Menopausia ??
     breastfeeding = BooleanField(required=True, db_field="lactancia_materna")
-    last_pap_smear = EmbeddedDocument(CancerTest, required=False, db_field="ultimo_papanicolaou")
-    last_hybrid_test = EmbeddedDocument(CancerTest, required=False, db_field="ultima_prueba_hibridos")
-    last_mammography = EmbeddedDocument(CancerTest, required=False, db_field="ultima_mamografia")
+    last_pap_smear = EmbeddedDocumentField(CancerTest, required=False, db_field="ultimo_papanicolaou")
+    last_hybrid_test = EmbeddedDocumentField(CancerTest, required=False, db_field="ultima_prueba_hibridos")
+    last_mammography = EmbeddedDocumentField(CancerTest, required=False, db_field="ultima_mamografia")
 class Pathological(EmbeddedDocument):
     chronic_degenerative_diseases = EmbeddedDocumentListField(FamilyHistory, required=False, db_field="enfermedades_cronicodegenerativas")
     infectious_contagious_diseases = ListField(StringField(), required=False, db_field="enfermedades_infectocontagiosas")
@@ -250,11 +250,11 @@ class Pathological(EmbeddedDocument):
     blood_transfusions = BooleanField(required=True, db_field="transfusiones_sanguineas") ## Bool ??
     allergies = ListField(StringField(), required=False, db_field="alergias")
     trauma = ListField(StringField(), required=False, db_field="traumatismos")
-    alcoholism = EmbeddedDocument(DrugUse, required=False, db_field="alcoholismo")
-    smoking = EmbeddedDocument(DrugUse, required=False, db_field="tabaquismo")
-    drug_addictions = EmbeddedDocument(DrugUse, required=False, db_field="toxicomanias")
+    alcoholism = EmbeddedDocumentField(DrugUse, required=False, db_field="alcoholismo")
+    smoking = EmbeddedDocumentField(DrugUse, required=False, db_field="tabaquismo")
+    drug_addictions = EmbeddedDocumentField(DrugUse, required=False, db_field="toxicomanias")
     ## Generic Embedded Document !!
-    sexual_health = GenricEmbeddedDocument(required=True, db_field="salud_sexual")
+    ##sexual_health = EmbeddedDocumentField(required=True, db_field="salud_sexual")
 class Skin(EmbeddedDocument):
     color_changes = ListField(StringField(), required=False, db_field="cambios_coloracion")
     other_changes = ListField(StringField(), required=False, db_field="otros_cambios")
@@ -343,17 +343,17 @@ class PsychicSystem(EmbeddedDocument):
     hallucinations = BooleanField(required=True, db_field="alucinaciones")
     delirium = BooleanField(required=True, db_field="delirio")
 class ApparatusAndSystems(EmbeddedDocument):
-    skin = EmbeddedDocument(Skin, required=False, db_field="piel")
-    ophthalmic_system = EmbeddedDocument(OphthalmicSystem, required=False, db_field="sistema_oftalmologico")
-    ent_system = EmbeddedDocument(OphthalmicSystem, required=True, db_field="sistema_otorrinolaringologico")
-    digestive_system = EmbeddedDocument(DigestiveSystem, required=True, db_field="sistema_digestivo")
-    respiratory_apparatus = EmbeddedDocument(RespiratoryApparatus, required=True, db_field="aparato_respiratorio")
-    cardiovascular_apparatus = EmbeddedDocument(CardiovascularApparatus, required=True, db_field="aparato_cardiovascular")
-    genitourinary_system = EmbeddedDocument(GenitourinarySystem, required=True, db_field="sistema_genitourinario")
-    musculoskeletal_system = EmbeddedDocument(MusculoskeletalSystem, required=True, db_field="sistema_musculo_esqueletico")
-    hematological_system = EmbeddedDocument(HematologicalSystem, required=True, db_field="sistema_hematologico")
-    nervous_system = EmbeddedDocument(NervousSystem, required=True, db_field="sistema_hematologico")
-    psychic_system = EmbeddedDocument(PsychicSystem, required=True, db_field="sistema_psiquico")
+    skin = EmbeddedDocumentField(Skin, required=False, db_field="piel")
+    ophthalmic_system = EmbeddedDocumentField(OphthalmicSystem, required=False, db_field="sistema_oftalmologico")
+    ent_system = EmbeddedDocumentField(OphthalmicSystem, required=True, db_field="sistema_otorrinolaringologico")
+    digestive_system = EmbeddedDocumentField(DigestiveSystem, required=True, db_field="sistema_digestivo")
+    respiratory_apparatus = EmbeddedDocumentField(RespiratoryApparatus, required=True, db_field="aparato_respiratorio")
+    cardiovascular_apparatus = EmbeddedDocumentField(CardiovascularApparatus, required=True, db_field="aparato_cardiovascular")
+    genitourinary_system = EmbeddedDocumentField(GenitourinarySystem, required=True, db_field="sistema_genitourinario")
+    musculoskeletal_system = EmbeddedDocumentField(MusculoskeletalSystem, required=True, db_field="sistema_musculo_esqueletico")
+    hematological_system = EmbeddedDocumentField(HematologicalSystem, required=True, db_field="sistema_hematologico")
+    nervous_system = EmbeddedDocumentField(NervousSystem, required=True, db_field="sistema_nervioso")
+    psychic_system = EmbeddedDocumentField(PsychicSystem, required=True, db_field="sistema_psiquico")
 class FollowUp(EmbeddedDocument):
     treatment_changes = ListField(StringField(), required=False, db_field="cambios_tratamiento")
     current_symptoms = ListField(StringField(), required=True, db_field="sintomas_actuales")
@@ -365,7 +365,7 @@ class MedicalForm(Document):
     meta = {"collection": "formato_medico"}
 
     ##Date and record number
-    date_modified = DateField(default=datetime.datetime.utcnow, db_field="ultima_modificacion")
+    date_modified = DateField(default=datetime.utcnow, db_field="ultima_modificacion")
     record_num = IntField(required=True, unique=True, db_field="num_expediente")
     ##General data
     name = StringField(required=True, db_field="nombre")
@@ -378,7 +378,7 @@ class MedicalForm(Document):
     street = StringField(required=True, db_field="calle")
     num = IntField(required=True, db_field="num")
     suburb = StringField(required=True, db_field="colonia")
-    locality = StringField(required=True, db_field="colonia") #localidad??
+    locality = StringField(required=True, db_field="localidad") #localidad??
     municipality = StringField(required=True, db_field="muicipio")
     zip_code = IntField(required=True, db_field="cp")
     phone = IntField(required=True, db_field="tel")
@@ -428,8 +428,8 @@ class Patients(Document):
     sex = StringField(
         required=True, db_field="sexo")
     ##companions = ListField(EmbeddedDocumentField(), required=False, db_field="acompañante")
-    medical_forms = ListField(ReferenceField(MedicalForm, required=False, db_field="formularios_medicos"))
-    social_forms = ListField(ReferenceField(SocioeconomicForm, required=False, db_field="formularios_socioeconomicos"))
+    ##medical_forms = ListField(ReferenceField(MedicalForm, required=False, db_field="formularios_medicos"))
+    ##social_forms = ListField(ReferenceField(SocioeconomicForm, required=False, db_field="formularios_socioeconomicos"))
     
     def __str__(self):
         return f"Patient({self.name + ' ' + self.paternal_last_name})"

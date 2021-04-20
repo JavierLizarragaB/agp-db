@@ -18,10 +18,10 @@ function App() {
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          <Link className="navbar-brand" to={"/sign-in"}>Inicio de Sesión</Link> <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <Link className="navbar-brand" to={"/log-in"}>Inicio de Sesión</Link> <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link className="nav-link" to={"/sign-in"}><b>Ingresar</b></Link>
+                <Link className="nav-link" to={"/log-in"}><b>Ingresar</b></Link>
               </li>
               <li>
                 <Link className="nav-link" to={"/Datos-Paciente"}><b>Datos del Paciente</b></Link>
@@ -38,7 +38,7 @@ function App() {
         <div className="inner">
           <Switch>
             <Route exact path='/' component={Login} />
-            <Route path="/sign-in" component={Login} />
+            <Route path="/log-in" component={Login} />
             <Route path="/Datos-Paciente" component={DatosPaciente} />
           </Switch>
         </div>

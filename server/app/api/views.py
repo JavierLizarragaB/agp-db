@@ -1,8 +1,9 @@
 from flask import request, jsonify
 from datetime import datetime
+from flask_cors import CORS
 
 from . import api
-from ..models import Patients
+from ..models import Patients, User
 
 
 @api.route("/time", methods=["GET"])
@@ -54,7 +55,6 @@ def post_patient():
             patient = Patients(
                 folio=folio,
                 name=name,
-                second_name=second_name,
                 paternal_last_name=paternal_last_name,
                 maternal_last_name=maternal_last_name
             )
@@ -74,3 +74,17 @@ def get_all_patients():
     """GET Returns all the patients."""
     patients = Patients.objects().order_by("folio")
     return (jsonify(patients), 200)
+
+@api.route("/sign-in", methods=["POST"])
+def get_user():
+    """GET User by email"""
+    person = User.objects(req.body.user=user).first()
+    validate=False
+        
+    if person.password==passwrd:
+        validate = True
+    
+    if user == None or validate==False:
+        return ("No se encuentra esa combinacion de usuario y contrasena", 403)
+
+    return (jsonify(user), 200)

@@ -1,19 +1,32 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import Axios from 'axios';
 
+export const Login = () =>{
 
-export default class Login extends Component {
-    render() {
+        const [user, getUser] = useState('')
+        const [passwrd, getPasswrd] = useState('')
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            Axios.post('/login', {
+                user,
+                passwrd
+            }).then((response) => {
+                console.log(response);
+            });
+        };
+        
         return (
             <form>
 
                 <div className="form-group">
                     <label><b>Correo</b></label>
-                    <input type="email" className="form-control" required />
+                    <input type="email" className="form-control" onChange={(e) => {getUser(e.target.value)}} placeholder="Correo" autoFocus required />
                 </div>
 
                 <div className="form-group">
                     <label><b>Contraseña</b></label>
-                    <input type="password" className="form-control" required />
+                    <input type="password" className="form-control" onChange={(e) => {getPasswrd(e.target.value)}} placeholder="Contraseña" required />
                 </div>
 
                 <div className="form-group">
@@ -23,7 +36,7 @@ export default class Login extends Component {
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-custom btn-lg btn-block"><b>Ingresar</b></button>
+                <button onClick={handleSubmit} className="btn btn-custom btn-lg btn-block"><b>Ingresar</b></button>
                 <p className="forgot-password text-right">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                 </p>
@@ -32,4 +45,5 @@ export default class Login extends Component {
             </form>
         );
     }
-}
+
+export default Login;
