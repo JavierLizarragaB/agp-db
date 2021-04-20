@@ -1,5 +1,5 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_mongoengine import Document, EmbeddedDocument
+from flask_mongoengine import Document, EmbeddedDocument, GenericEmbeddedDocument
 from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentListField, EmbeddedDocumentField, ReferenceField
 from flask_login import UserMixin
 from datetime import datetime
@@ -411,7 +411,7 @@ class MedicalForm(Document):
     follow_up = EmbeddedDocumentField(FollowUp, required=True, db_field="seguimiento")
 
     def __str__(self):
-    return f"MedicalForm({self.record_num})"
+        return f"MedicalForm({self.record_num})"
 
     def __repr__(self):
         return self.__str__()
