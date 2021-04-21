@@ -8,6 +8,7 @@ class Config:
     FLASK_TOKEN = os.getenv("FLASK_TOKEN", "abc123")
     WTF_CSRF_SECRET_KEY = SECRET_KEY
     JSON_AS_ASCII = False  # Support UTF-8 in json responses
+    ##CORS_HEADERS = 'Content-Type'
 
     # Mongoengine settings
     MONGODB_SETTINGS = {

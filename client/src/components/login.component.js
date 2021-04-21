@@ -6,19 +6,31 @@ export const Login = () =>{
         const [user, getUser] = useState('')
         const [passwrd, getPasswrd] = useState('')
 
+        const [loginStatus, setLoginStatus] = useState("");
+
+
         const handleSubmit = (e) => {
             e.preventDefault();
-            Axios.post('/login', {
-                user,
-                passwrd
+            Axios.post('./api/log-in', {
+                    user,
+                    passwrd
             }).then((response) => {
                 console.log(response);
-            });
+            
+
+            if(response.data.message){
+                setLoginStatus(response.data.message)
+            } else {
+                setLoginStatus(response.data)
+            }
+        });
         };
         
+        
         return (
+            
             <form>
-
+                <h5>Sesion iniciada: {loginStatus}</h5>
                 <div className="form-group">
                     <label><b>Correo</b></label>
                     <input type="email" className="form-control" onChange={(e) => {getUser(e.target.value)}} placeholder="Correo" autoFocus required />
