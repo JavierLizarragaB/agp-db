@@ -10,7 +10,7 @@ import hora from './img/hora.png';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./components/login.component";
-import SignUp from "./components/signup.component";
+import Signin from "./components/signup.component";
 import DatosPaciente from "./components/datospaciente.component";
 
 function App() {
@@ -39,6 +39,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={Login} />
             <Route path="/log-in" component={Login} />
+            <Route path="/admin-sign-in" component={Signin} />
             <Route path="/Datos-Paciente" component={DatosPaciente} />
           </Switch>
         </div>

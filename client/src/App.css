@@ -31,6 +31,10 @@
   width: 50%;  
 }
 
+.outer {
+  margin-bottom: 75px;
+}
+
 .datos-paciente{
   background: #ffff;
   min-height: 100%;
@@ -54,8 +58,7 @@
   background: #D1F1F3;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   position: sticky;
-  
-
+  width: 100%;
 }
 
 .mapita {

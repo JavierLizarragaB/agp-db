@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
-export default class DatosPaciente extends Component {
-    render() {
-        return (
+export const DatosPaciente = () =>{
+    return(
             <div class="datos-paciente">
                 <form>
                     
@@ -164,10 +163,8 @@ export default class DatosPaciente extends Component {
                 </form>
                 <div class="push"></div>
             </div>
-
+    );
             
-
-            
-        );
-    }
 }
+
+export default DatosPaciente;

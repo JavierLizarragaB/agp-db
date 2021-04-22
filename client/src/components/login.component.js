@@ -21,7 +21,7 @@ export const Login = () =>{
             if(response.data.message){
                 setLoginStatus(response.data.message)
             } else {
-                setLoginStatus(response.data)
+                setLoginStatus("Sesion iniciada por: " + response.data)
             }
         });
         };
@@ -30,7 +30,7 @@ export const Login = () =>{
         return (
             
             <form>
-                <h5>Sesion iniciada: {loginStatus}</h5>
+                <label>{loginStatus}</label>
                 <div className="form-group">
                     <label><b>Correo</b></label>
                     <input type="email" className="form-control" onChange={(e) => {getUser(e.target.value)}} placeholder="Correo" autoFocus required />

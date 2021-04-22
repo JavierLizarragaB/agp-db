@@ -85,9 +85,31 @@ def get_user():
     person = User.objects(username=json.get("user")).first()    
     
     if person == None:
-        return ({ 'message': "Correo o contrasena incorrectos"}, 403)
+        return ({ 'message': "Correo o contrasena incorrectos"}, 200)
     
     if person.password==json.get("passwrd"):
         return (person.username, 200)
-    return ({ 'message': "Correo o contrasena incorrectos"}, 403)
+    return ({ 'message': "Correo o contrasena incorrectos"}, 200)
+    
+@api.route("/admin-sign-in", methods=["POST"])
+def set_user():
+    """Post User"""
+    json = request.get_json()
+    person = User.objects(username=json.get("user")).first()  
+    
+    if person != None:
+        return ({ 'message': "Correo ya utilizado"}, 200)
+    try:
+        person=User(
+            username=json.get("user"),
+            user_name=json.get("name"),
+            user_paternal_last_name=json.get("lastName"),
+            password=json.get("passwrd"),
+            type=1
+        ) 
+        person.save()
+        return (person.username, 200)
+    except Exception as e:
+        print(e)
+        return (e.__str__(), 500)
     
