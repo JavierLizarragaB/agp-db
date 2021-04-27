@@ -93,17 +93,17 @@ def get_user():
 def set_user():
     """Post User"""
     json = request.get_json()
-    person = User.objects(username=json.get("user")).first()  
+    person = User.objects(username=json.get("email")).first()  
     
     if person != None:
         return ({ 'message': "Correo ya utilizado"}, 200)
     try:
         person=User(
-            username=json.get("user"),
+            username=json.get("email"),
             user_name=json.get("name"),
-            user_paternal_last_name=json.get("lastName"),
-            password=json.get("passwrd"),
-            type=1
+            user_paternal_last_name=json.get("lame"),
+            password=json.get("password"),
+            type=int(json.get("type"))
         ) 
         person.save()
         return (person.username, 200)
@@ -114,5 +114,6 @@ def set_user():
 @api.route("/user-panel/todos", methods=["GET"])
 def get_users():
     """All User"""
-    users = User.objects()
+    params = request.args.get("type")
+    users = User.objects(type=int(params))
     return (jsonify(users), 200)

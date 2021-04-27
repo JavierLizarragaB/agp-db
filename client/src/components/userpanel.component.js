@@ -11,7 +11,7 @@ export const Userpanel = () =>{
     const [lname, setLName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [type, setType] = useState('')
+    const [type, setType] = useState(1)
     const [RegStatus, setRegStatus] = useState('')
 
     const [users, setUsers] = useState([])
@@ -19,9 +19,9 @@ export const Userpanel = () =>{
     const handleSubmit = (e) => {
         e.preventDefault();
         if(mname!=''){
+            var name = fname + ' '+mname;
             var userjson = {
-                fname,
-                mname,
+                name,
                 lname,
                 email,
                 password,
@@ -45,9 +45,14 @@ export const Userpanel = () =>{
     });
     };
 
+    const handleClick = (value) => {
+        setType(value);
+        getUsers();
+    }
+
     const getUsers = () => {
-        Axios.get('./api/user-panel/todos').then((response) => {
-            console.log(response.data);
+        Axios.get('./api/user-panel/todos', { params: {type}}).then((response) => {
+            console.log(type);
             setUsers(response.data);
         });
     }
@@ -77,9 +82,9 @@ export const Userpanel = () =>{
             <div className="row">
                 <div className="col-md-4">
                     <div className="row">
-                        <button className="btn btn-custom" onClick={e => setType(e.target.value), getUsers} 
+                        <button className="btn btn-custom" onClick={e => handleClick(e.target.value)} 
                                     value="2">Medico</button>
-                        <button className="btn btn-custom" onClick={e => setType(e.target.value), getUsers} 
+                        <button className="btn btn-custom" onClick={e => handleClick(e.target.value)} 
                                     value="1">Trabajador Social</button>
                     </div>
                     <form onSubmit={handleSubmit} className="card card-body">
