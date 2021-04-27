@@ -1,11 +1,9 @@
 from flask import request, jsonify, current_app
 from datetime import datetime
-##from flask_cors import CORS
 
 from . import api
 from ..models import Patients, User
 
-##cors = CORS(current_app)
 
 
 
@@ -91,7 +89,7 @@ def get_user():
         return (person.username, 200)
     return ({ 'message': "Correo o contrasena incorrectos"}, 200)
     
-@api.route("/user-panel", methods=["POST"])
+@api.route("/user-panel/signup", methods=["POST"])
 def set_user():
     """Post User"""
     json = request.get_json()
@@ -113,3 +111,8 @@ def set_user():
         print(e)
         return (e.__str__(), 500)
     
+@api.route("/user-panel/todos", methods=["GET"])
+def get_users():
+    """All User"""
+    users = User.objects()
+    return (jsonify(users), 200)
