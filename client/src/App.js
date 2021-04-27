@@ -1,104 +1,27 @@
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import logo from './img/papanico.png'; 
-import mapa from './img/agp-mapa.png';
-import loc from './img/loc.png';
-import tel from './img/tel.png';
-import hora from './img/hora.png';
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 import Login from "./components/login.component";
-import Signin from "./components/signup.component";
+import UserPanel from "./components/userpanel.component";
 import DatosPaciente from "./components/datospaciente.component";
+import Inicio from "./components/Inicio/index";
 
 function App() {
   return (<Router>
     <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          <Link className="navbar-brand" to={"/log-in"}>Inicio de Sesión</Link> <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/log-in"}><b>Ingresar</b></Link>
-              </li>
-              <li>
-                <Link className="nav-link" to={"/Datos-Paciente"}><b>Datos del Paciente</b></Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
 
-      <div className="outer">
       <div>
-        <img className="logoAGP" src={logo} />
+        <Switch>
+          <Route exact path='/' component={Login} />
+          <Route path="/log-in" component={Login} />
+          <Route path="/user-panel" component={UserPanel} />
+          <Route path="/datos-paciente" component={DatosPaciente} />
+          <Route path="/inicio" component={Inicio} />
+        </Switch>
       </div>
-        <div className="inner">
-          <Switch>
-            <Route exact path='/' component={Login} />
-            <Route path="/log-in" component={Login} />
-            <Route path="/admin-sign-in" component={Signin} />
-            <Route path="/Datos-Paciente" component={DatosPaciente} />
-          </Switch>
-        </div>
-      </div>
-    <footer className="foot">
-        <div className="row">
-          <div className="col-lg-4">
-            <img className="mapita" src={mapa} />
-          </div>
-          <div className="col-lg-4">
-            <img className="ubi" src={loc}/> 
-            <div className="text">
-              Olivares, Luis Encinas, 83138 Hermosillo, Son
-            </div>
-
-            <img className="tel" src={tel} />
-            
-            <div className="text">
-              <span> TELÉFONO </span> 662 216 4883
-            
-            </div>
-            
-          </div>
-          <div className="col-lg-4 text">
-            <img className="hora" src={hora} />
-
-            <div className="row">
-              <div className="col-lg-12">
-              <span> HORARIO </span>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-6">
-                Lunes - Viernes
-              </div>
-              <div className="col-lg-6">
-                8:00 - 13:00
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-6">
-                Sábado
-              </div>
-              <div className="col-lg-6">
-                Cerrado
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-6">
-                Domingo
-              </div>
-              <div className="col-lg-6">
-                Cerrado
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="copy">&copy; 2021 - Agrupación George Papanicolau</div>
-      </footer>
       
     </div></Router>
   );

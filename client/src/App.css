@@ -31,6 +31,7 @@
   width: 50%;  
 }
 
+
 .outer {
   margin-bottom: 75px;
 }
@@ -48,16 +49,20 @@
 
 .logoAGP {
   display: block;
-  margin-top: 100px;
-  width: 35%;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  width: 500px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.logoAGP-up {
+  width: 250px;
 }
 
 .foot {
   background: #D1F1F3;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  position: sticky;
   width: 100%;
 }
 

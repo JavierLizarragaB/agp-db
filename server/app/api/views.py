@@ -91,7 +91,7 @@ def get_user():
         return (person.username, 200)
     return ({ 'message': "Correo o contrasena incorrectos"}, 200)
     
-@api.route("/admin-sign-in", methods=["POST"])
+@api.route("/user-panel", methods=["POST"])
 def set_user():
     """Post User"""
     json = request.get_json()
