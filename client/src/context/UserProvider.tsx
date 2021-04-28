@@ -1,4 +1,4 @@
-import React, { Component, createContext, useContext } from 'react';
+import React, { useEffect, Component, createContext, useContext } from 'react';
 
 const errCb = () => {
     throw new Error('User context methods not initialized yet!');
@@ -7,9 +7,11 @@ const errCb = () => {
 interface UserCtxState {
     firstName: string;
     email: string;
+    lastName: string;
+    roles: string[];
 }
 
-type Setter = (newState: { [K in keyof UserCtxState]: UserCtxState[K] }) => void;
+type Setter = (newState: Partial<{ [K in keyof UserCtxState]: UserCtxState[K] }>) => void;
 
 interface UserCtxMethods {
     set: Setter;
@@ -18,8 +20,10 @@ interface UserCtxMethods {
 type UserCtxModel = UserCtxState & UserCtxMethods;
 
 const initialState: UserCtxModel = {
-    firstName: 'Pedro',
-    email: 'psescoboza@gmail.com',
+    firstName: '',
+    lastName: '',
+    email: '',
+    roles: [],
 
     set: errCb as any,
 };
@@ -42,7 +46,7 @@ export default class UserProvider extends Component<{}, UserCtxModel> {
         this.state = {
             ...initialState,
 
-            set: (newState: { [K in keyof UserCtxState]: UserCtxState[K] }) => this.setState(newState),
+            set: (newState: Partial<{ [K in keyof UserCtxState]: UserCtxState[K] }>) => this.setState(newState as any),
         };
     }
 
@@ -52,3 +56,41 @@ export default class UserProvider extends Component<{}, UserCtxModel> {
 }
 
 export const useUserCtx = () => useContext(UserCtx);
+
+export const Example = () => {
+    const { set: setUserValue, firstName, email } = useUserCtx();
+
+    useEffect(() => {
+        setUserValue({ firstName: 'Paulina', email: 'abc@email.com' });
+    }, [setUserValue]);
+
+    return (
+        <div>
+            <p>{`Nombre: ${firstName}`}</p>
+            <br />
+            <p>{`Email: ${email}`}</p>
+
+            <form>
+                <label htmlFor="firstName">Cambiar nombre</label>{' '}
+                <input
+                    name="firstName"
+                    type="text"
+                    onChange={(e) => {
+                        e.preventDefault();
+                        setUserValue({ firstName: e.target.value });
+                    }}
+                />{' '}
+                <br />
+                <label htmlFor="email">Cambiar nombre</label>{' '}
+                <input
+                    name="email"
+                    type="text"
+                    onChange={(e) => {
+                        e.preventDefault();
+                        setUserValue({ email: e.target.value });
+                    }}
+                />
+            </form>
+        </div>
+    );
+};
