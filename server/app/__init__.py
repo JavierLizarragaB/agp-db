@@ -15,7 +15,6 @@ login.login_view = "auth.login"
 bootstrap = Bootstrap()
 admin = Admin(name="AGP DB",  template_mode="bootstrap4")
 
-
 def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config)

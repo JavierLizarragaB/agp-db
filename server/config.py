@@ -1,6 +1,7 @@
 import os
 
 
+
 class Config:
     ENV = "production"
     DEBUG = False
