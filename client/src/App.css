@@ -126,4 +126,26 @@ span {
   color: #F7ADA4;
 }
 
+.thead-custom {
+  background-color: #FDEDC6;
+}
 
+.btn-space {
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+.container-space {
+  padding-left: 250px;
+  padding-top: 50px;
+}
+
+.nav-item {
+  display: flex;
+  margin-left: 70%;
+  font-size: 22px;
+}
+
+.nav-item:hover {
+  font-weight: bold;
+}

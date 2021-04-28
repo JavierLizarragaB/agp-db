@@ -7,7 +7,8 @@ import Axios from 'axios';
 export const Userpanel = () => {
     const [fname, setFName] = useState('');
     const [mname, setMName] = useState('');
-    const [lname, setLName] = useState('');
+    const [lpname, setLPName] = useState('');
+    const [lmname, setLMName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [type, setType] = useState(1);
@@ -21,15 +22,18 @@ export const Userpanel = () => {
             var name = fname + ' ' + mname;
             var userjson = {
                 name,
-                lname,
+                lpname,
+                lmname,
                 email,
                 password,
                 type,
             };
         } else {
+            var name = fname;
             var userjson = {
-                fname,
-                lname,
+                name,
+                lpname,
+                lmname,
                 email,
                 password,
                 type,
@@ -74,20 +78,20 @@ export const Userpanel = () => {
                         <img className="logoAGP-up" src={logo} />
                     </div>
 
-                    <Link className="navbar-brand" to={'/inicio'}>
+                    <Link className="navbar-brand nav-item" to={'/inicio'}>
                         Inicio
                     </Link>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo02"></div>
                 </div>
             </nav>
 
-            <div className="row">
+            <div className="row container-space">
                 <div className="col-md-4">
                     <div className="row">
-                        <button className="btn btn-custom" onClick={(e) => handleClick(e.target.value)} value="2">
+                        <button className="btn btn-custom col-md-5 btn-space" onClick={(e) => handleClick(e.target.value)} value="2">
                             Medico
                         </button>
-                        <button className="btn btn-custom" onClick={(e) => handleClick(e.target.value)} value="1">
+                        <button className="btn btn-custom col-md-5" onClick={(e) => handleClick(e.target.value)} value="1">
                             Trabajador Social
                         </button>
                     </div>
@@ -116,10 +120,20 @@ export const Userpanel = () => {
                             <div className="form-group">
                                 <input 
                                     type="text" 
-                                    onChange={e => setLName(e.target.value)} 
-                                    value={lname}
+                                    onChange={e => setLPName(e.target.value)} 
+                                    value={lpname}
                                     className="form-control"
-                                    placeholder="Apellidos"
+                                    placeholder="Apellido Paterno"
+                                    autoFocus 
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input 
+                                    type="text" 
+                                    onChange={e => setLMName(e.target.value)} 
+                                    value={lmname}
+                                    className="form-control"
+                                    placeholder="Apellido Materno"
                                     autoFocus 
                                 />
                             </div>
@@ -147,12 +161,12 @@ export const Userpanel = () => {
                     </form>
                 </div>
                 <div className="col-md-6">
-                    <table className="table table-striped">
-                        <thead>
+                    <table className="table table-bordered table-hover">
+                        <thead className="thead-custom">
                             <tr>
                                 <th>Nombre</th>
+                                <th>Apellidos</th>
                                 <th>Correo</th>
-                                <th>Contraseña</th>
                                 <th>Operaciones</th>
                             </tr>
                         </thead>
@@ -161,10 +175,10 @@ export const Userpanel = () => {
                                 /* Conseguir id de usuarios */
                                 <tr key={user._id.$_oid}>
                                     <td>
-                                        {user.nombre} {user.apellido_paterno} {user.apellido_materno}
+                                        {user.nombre} 
                                     </td>
+                                    <td>{user.apellido_paterno} {user.apellido_materno}</td>
                                     <td>{user.usuario}</td>
-                                    <td>{user.contrasena}</td>
                                     <td>
                                         <button className="btn btn-secondary btn-sm btn-block">Editar</button>
                                         <button className="btn btn-danger btn-sm btn-block" onClick={deleteUser}>
