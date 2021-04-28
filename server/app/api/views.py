@@ -101,7 +101,7 @@ def set_user():
         person=User(
             username=json.get("email"),
             user_name=json.get("name"),
-            user_paternal_last_name=json.get("lame"),
+            user_paternal_last_name=json.get("lname"),
             password=json.get("password"),
             type=int(json.get("type"))
         ) 
