@@ -1,38 +1,70 @@
-import React, { useEffect, useState } from "react";
-import { useStore } from "react-redux";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useStore } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import logo from '../img/papanico.png';
-/* Axios? */
+import Axios from 'axios';
 
-export const Signin = () =>{
+export const Userpanel = () => {
+    const [fname, setFName] = useState('');
+    const [mname, setMName] = useState('');
+    const [lname, setLName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [type, setType] = useState(1);
+    const [RegStatus, setRegStatus] = useState('');
 
-    const [fname, setFName] = useState('')
-    const [mname, setMName] = useState('')
-    const [lname, setLName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([]);
 
     const handleSubmit = (e) => {
-        console.log(e)
-        /* Agregar datos de backend */
+        e.preventDefault();
+        if (mname != '') {
+            var name = fname + ' ' + mname;
+            var userjson = {
+                name,
+                lname,
+                email,
+                password,
+                type,
+            };
+        } else {
+            var userjson = {
+                fname,
+                lname,
+                email,
+                password,
+                type,
+            };
+        }
+        Axios.post('./api/user-panel/signup', userjson).then((response) => {
+            console.log(response);
+
+            if (response.data.message) {
+                setRegStatus(response.data.message);
+            } else {
+                setRegStatus('Usuario ' + response.data + ' creado.');
+            }
+        });
     };
 
-    const getUsers = async () => {
-        /* Introducir servicios de backend */
-        const res = await fetch('%{API}/user-panel')
-        const data = await res.json();
-        setUsers(data)
-    }
+    const handleClick = (value) => {
+        setType(value);
+        getUsers();
+    };
+
+    const getUsers = () => {
+        Axios.get('./api/user-panel/todos', { params: { type } }).then((response) => {
+            console.log(type);
+            setUsers(response.data);
+        });
+    };
 
     useEffect(() => {
         getUsers();
-    }, [])
+    }, []);
 
     const deleteUser = (id) => {
         /* Datos de base de datos */
-    }
+    };
 
     return (
         <div>
@@ -41,18 +73,23 @@ export const Signin = () =>{
                     <div>
                         <img className="logoAGP-up" src={logo} />
                     </div>
-                    
-                <Link className="navbar-brand" to={"/inicio"}>Inicio</Link> 
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                </div>
+
+                    <Link className="navbar-brand" to={'/inicio'}>
+                        Inicio
+                    </Link>
+                    <div className="collapse navbar-collapse" id="navbarTogglerDemo02"></div>
                 </div>
             </nav>
-            
+
             <div className="row">
                 <div className="col-md-4">
                     <div className="row">
-                        <button className="btn btn-custom">Medico</button>
-                        <button className="btn btn-custom">Trabajador Social</button>
+                        <button className="btn btn-custom" onClick={(e) => handleClick(e.target.value)} value="2">
+                            Medico
+                        </button>
+                        <button className="btn btn-custom" onClick={(e) => handleClick(e.target.value)} value="1">
+                            Trabajador Social
+                        </button>
                     </div>
                     <form onSubmit={handleSubmit} className="card card-body bg-custom">
                             <h4 className="h4-custom">Registro</h4>
@@ -120,20 +157,17 @@ export const Signin = () =>{
                             </tr>
                         </thead>
                         <tbody>
-                            {users.map(user => (
+                            {users.map((user) => (
                                 /* Conseguir id de usuarios */
-                                <tr key={user._id}>
-                                    <td>${user.fname} ${user.mname} ${user.lname}</td>
-                                    <td>${user.email}</td>
-                                    <td>${user.password}</td>
+                                <tr key={user._id.$_oid}>
                                     <td>
-                                        <button className="btn btn-secondary btn-sm btn-block">
-                                            Editar
-                                        </button>
-                                        <button 
-                                            className="btn btn-danger btn-sm btn-block"
-                                            onClick={deleteUser}
-                                            >
+                                        {user.nombre} {user.apellido_paterno} {user.apellido_materno}
+                                    </td>
+                                    <td>{user.usuario}</td>
+                                    <td>{user.contrasena}</td>
+                                    <td>
+                                        <button className="btn btn-secondary btn-sm btn-block">Editar</button>
+                                        <button className="btn btn-danger btn-sm btn-block" onClick={deleteUser}>
                                             Borrar
                                         </button>
                                     </td>
@@ -144,7 +178,7 @@ export const Signin = () =>{
                 </div>
             </div>
         </div>
-        );
-    }
+    );
+};
 
-    export default Signin;
+export default Userpanel;
