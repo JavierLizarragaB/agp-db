@@ -54,9 +54,10 @@ export const Signin = () =>{
                         <button className="btn btn-custom">Medico</button>
                         <button className="btn btn-custom">Trabajador Social</button>
                     </div>
-                    <form onSubmit={handleSubmit} className="card card-body">
-                           <div className="form-group">
-                               <input 
+                    <form onSubmit={handleSubmit} className="card card-body bg-custom">
+                            <h4 className="h4-custom">Registro</h4>
+                            <div className="form-group">
+                                <input 
                                     type="text" 
                                     onChange={e => setFName(e.target.value)} 
                                     value={fname}
@@ -64,9 +65,9 @@ export const Signin = () =>{
                                     placeholder="Nombre"
                                     autoFocus 
                                 />
-                           </div>
-                           <div className="form-group">
-                               <input 
+                            </div>
+                            <div className="form-group">
+                                <input 
                                     type="text" 
                                     onChange={e => setMName(e.target.value)} 
                                     value={mname}
@@ -74,9 +75,9 @@ export const Signin = () =>{
                                     placeholder="Segundo Nombre (Opcional)"
                                     autoFocus 
                                 />
-                           </div>
-                           <div className="form-group">
-                               <input 
+                            </div>
+                            <div className="form-group">
+                                <input 
                                     type="text" 
                                     onChange={e => setLName(e.target.value)} 
                                     value={lname}
@@ -84,28 +85,28 @@ export const Signin = () =>{
                                     placeholder="Apellidos"
                                     autoFocus 
                                 />
-                           </div>
-                           <div className="form-group">
-                               <input 
+                            </div>
+                            <div className="form-group">
+                                <input 
                                     type="email" 
                                     onChange={e => setEmail(e.target.value)} 
                                     value={email}
                                     className="form-control"
                                     placeholder="Correo"
                                 />
-                           </div>
-                           <div className="form-group">
-                               <input 
+                            </div>
+                            <div className="form-group">
+                                <input 
                                     type="text" 
                                     onChange={e => setPassword(e.target.value)} 
                                     value={password}
                                     className="form-control"
                                     placeholder="Contraseña"
                                 />
-                           </div>
-                           <button className="btn btn-custom btn-block">
+                            </div>
+                            <button className="btn btn-custom btn-block">
                                 Registrar
-                           </button>
+                            </button>
                     </form>
                 </div>
                 <div className="col-md-6">
@@ -140,8 +141,8 @@ export const Signin = () =>{
                             ))}
                         </tbody>
                     </table>
-               </div>
-           </div>
+                </div>
+            </div>
         </div>
         );
     }
