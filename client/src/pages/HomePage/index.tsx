@@ -1,16 +1,17 @@
 export {}
+
 /*import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-// import logo from './img/papanico.png'; 
-// import mapa from './img/agp-mapa.png';
-// import loc from './img/loc.png';
-// import tel from './img/tel.png';
-// import hora from './img/hora.png';
+import logo from './img/papanico.png'; 
+import mapa from './img/agp-mapa.png';
+import loc from './img/loc.png';
+import tel from './img/tel.png';
+import hora from './img/hora.png';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-// import Login from "./components/login.component";
-// import SignUp from "./components/signup.component";
+import Login from "./components/login.component";
+import SignUp from "./components/signup.component";
 
 function App() {
   return (<Router>
@@ -100,6 +101,5 @@ function App() {
 }
 
 export default App;
-
 
 */
