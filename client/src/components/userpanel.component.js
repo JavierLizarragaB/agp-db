@@ -62,8 +62,17 @@ export const Userpanel = () => {
         getUsers();
     }, []);
 
-    const deleteUser = (id) => {
-        /* Datos de base de datos */
+    const deleteUser = (email) => {
+        Axios.post('./api/user-panel/delete', { "email": email }).then((response) => {
+            console.log(response);
+
+            if (response.data.message) {
+                setRegStatus(response.data.message);
+            } else {
+                setRegStatus('Usuario ' + response.data + ' eliminado.');
+            }
+            getUsers();
+        });
     };
 
     return (
@@ -160,7 +169,7 @@ export const Userpanel = () => {
                                     <td>{user.contrasena}</td>
                                     <td>
                                         <button className="btn btn-secondary btn-sm btn-block">Editar</button>
-                                        <button className="btn btn-danger btn-sm btn-block" onClick={deleteUser}>
+                                        <button className="btn btn-danger btn-sm btn-block" onClick={(e) => deleteUser(user.usuario)}>
                                             Borrar
                                         </button>
                                     </td>
