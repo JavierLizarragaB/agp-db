@@ -8,6 +8,7 @@ import Login from "./components/login.component";
 import UserPanel from "./components/userpanel.component";
 import DatosPaciente from "./components/datospaciente.component";
 import Inicio from "./components/Inicio/index";
+import Carrusel from "./components/carrusel.component";
 
 function App() {
   return (<Router>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/log-in" component={Login} />
           <Route path="/user-panel" component={UserPanel} />
           <Route path="/datos-paciente" component={DatosPaciente} />
+          <Route path="/carrusel" component={Carrusel} />
           <Route path="/inicio" component={Inicio} />
         </Switch>
       </div>
