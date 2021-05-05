@@ -149,3 +149,24 @@ span {
 .nav-item:hover {
   font-weight: bold;
 }
+
+/* Form */
+
+.btn-txt {
+  text-align: left;
+  padding-left: 50px;
+}
+
+.btn-custom2 {
+  background-color: #D1F1F3;
+  margin-bottom: 10px;
+}
+
+.btn:hover {
+  background-color: #86c3c7;
+  font-weight: bold;
+}
+
+.info-text {
+  color: #333;
+}

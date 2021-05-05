@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useStore } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 import logo from '../img/papanico.png';
 import Axios from 'axios';
 
