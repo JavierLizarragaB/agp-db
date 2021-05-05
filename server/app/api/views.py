@@ -101,7 +101,8 @@ def set_user():
         person=User(
             username=json.get("email"),
             user_name=json.get("name"),
-            user_paternal_last_name=json.get("lame"),
+            user_paternal_last_name=json.get("lpname"),
+            user_maternal_last_name=json.get("lmname"),
             password=json.get("password"),
             type=int(json.get("type"))
         ) 
@@ -117,3 +118,18 @@ def get_users():
     params = request.args.get("type")
     users = User.objects(type=int(params))
     return (jsonify(users), 200)
+
+@api.route("/user-panel/delete", methods=["POST"])
+def delete_user():
+    """Delete User"""
+    json = request.get_json()
+    person = User.objects(username=json.get("email")).first()
+    
+    if person == None:
+        return ({ 'message': "Correo no existe", 'email': json.get("email")}, 200)
+    try:
+        person.delete()
+        return (person.username, 200)
+    except Exception as e:
+        print(e)
+        return (e.__str__(), 500)
