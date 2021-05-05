@@ -8,6 +8,7 @@ import Login from './components/login.component';
 import UserPanel from './components/userpanel.component';
 import DatosPaciente from './components/datospaciente.component';
 import Inicio from './components/Inicio/index';
+import UserProvider, { Example as UserCtxExample } from './context/UserProvider';
 import Carrusel from './components/carrusel.component';
 
 function App() {
