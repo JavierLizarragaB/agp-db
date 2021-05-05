@@ -9,12 +9,12 @@ import UserPanel from './components/userpanel.component';
 import DatosPaciente from './components/datospaciente.component';
 import Form from './components/form.component';
 import Inicio from './components/Inicio/index';
-
 import UserProvider, { Example as UserCtxExample } from './context/UserProvider';
+import Carrusel from './components/carrusel.component';
 
 function App() {
-    return (
-        <Router>
+  return (
+          <Router>
             <UserProvider>
                 <div className="App">
                     <div>
@@ -25,13 +25,14 @@ function App() {
                             <Route path="/patient-form" component={Form} />
                             <Route path="/datos-paciente" component={DatosPaciente} />
                             <Route path="/inicio" component={Inicio} />
+                            <Route path="/carrusel" component={Carrusel} />
                             <Route path="/test/user-ctx" component={UserCtxExample} />
                         </Switch>
                     </div>
                 </div>
             </UserProvider>
-        </Router>
-    );
+          </Router>
+  );
 }
 
 export default App;
