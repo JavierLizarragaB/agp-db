@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from '../../img/papanico.png';
 
+
 export default class Inicio extends Component {
     render() {
         return (
