@@ -75,6 +75,22 @@
   margin-top: 8%;
 }
 
+#menu-left {
+  width:200px;
+  height:200px;
+  position:absolute;
+  top:20px;
+  right:20px;
+}
+
+.img-carrusel {
+  display: block;
+  max-width: 100%;
+  right: 50%;
+  width: 100;
+  height: 10;
+}
+
 .tel {
   width: 27%;
   margin-top: 5%;

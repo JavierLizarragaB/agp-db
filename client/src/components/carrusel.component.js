@@ -5,16 +5,21 @@ import logo from '../img/papanico.png';
 import agp from '../img/agp.jpg';
 import agp1 from '../img/agp1.jpg';
 import agp2 from '../img/agp2.jpg';
+import agp3 from '../img/agp3.jpg';
 import Axios from 'axios';
 
 import { Carousel } from 'react-bootstrap';
+
+{/*className="d-block w-100 h-5"*/}
 
 export const Carrusel = () => {
     return (
         <Carousel>
             <Carousel.Item>
                     <img
-                    className="d-block w-100"
+                    
+                    classname="img-carrusel"
+                    
                     src={agp}
                     alt="First slide"
                     />
@@ -26,7 +31,8 @@ export const Carrusel = () => {
                 
             <Carousel.Item>
                     <img
-                    className="d-block w-100"
+                    classname="img-carrusel"
+                    
                     src={agp1}
                     alt="Second slide"
                     />
@@ -38,8 +44,9 @@ export const Carrusel = () => {
                 
             <Carousel.Item>
                     <img
-                    className="d-block w-100"
-                    src={agp2}
+                    classname="img-carrusel"
+                    
+                    src={agp3}
                     alt="Third slide"
                     />
 

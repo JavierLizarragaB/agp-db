@@ -11,6 +11,7 @@ import Form from './components/form.component';
 import Inicio from './components/Inicio/index';
 import UserProvider, { Example as UserCtxExample } from './context/UserProvider';
 import Carrusel from './components/carrusel.component';
+import PagInicio from './components/Inicio/inicio';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                             <Route path="/inicio" component={Inicio} />
                             <Route path="/carrusel" component={Carrusel} />
                             <Route path="/test/user-ctx" component={UserCtxExample} />
+                            <Route path="/pag-inicio" component={PagInicio} />
                         </Switch>
                     </div>
                 </div>
