@@ -10,12 +10,16 @@ import Axios from 'axios';
 
 import { Carousel } from 'react-bootstrap';
 
+{/*className="d-block w-100 h-5"*/}
+
 export const Carrusel = () => {
     return (
         <Carousel>
             <Carousel.Item>
                     <img
-                    className="d-block w-100 h-5"
+                    
+                    classname="img-carrusel"
+                    
                     src={agp}
                     alt="First slide"
                     />
@@ -27,7 +31,8 @@ export const Carrusel = () => {
                 
             <Carousel.Item>
                     <img
-                    className="d-block w-100 h-5"
+                    classname="img-carrusel"
+                    
                     src={agp1}
                     alt="Second slide"
                     />
@@ -39,7 +44,8 @@ export const Carrusel = () => {
                 
             <Carousel.Item>
                     <img
-                    className="d-block w-100 h-5"
+                    classname="img-carrusel"
+                    
                     src={agp3}
                     alt="Third slide"
                     />
