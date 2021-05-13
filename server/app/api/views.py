@@ -138,6 +138,7 @@ def delete_user():
 def send_forms():
     "Save forms"
     json = request.get_json()
+    print(json)
     try:
         form = SocioeconomicForm(
             birth_state=json.get("birth_state"),
@@ -178,6 +179,7 @@ def send_forms():
             )
         )
         form.save()
+        print(form)
         return ({ 'message': "Formulario creado"}, 200)
     except Exception as e:
         print(e)
