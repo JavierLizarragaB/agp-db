@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Login from './components/login.component';
 import UserPanel from './components/userpanel.component';
 import DatosPaciente from './components/datospaciente.component';
+import Form from './components/form.component';
 import Inicio from './components/Inicio/index';
 import UserProvider, { Example as UserCtxExample } from './context/UserProvider';
 import Carrusel from './components/carrusel.component';
@@ -22,6 +23,7 @@ function App() {
                             <Route exact path="/" component={Login} />
                             <Route path="/log-in" component={Login} />
                             <Route path="/user-panel" component={UserPanel} />
+                            <Route path="/patient-form" component={Form} />
                             <Route path="/datos-paciente" component={DatosPaciente} />
                             <Route path="/inicio" component={Inicio} />
                             <Route path="/carrusel" component={Carrusel} />

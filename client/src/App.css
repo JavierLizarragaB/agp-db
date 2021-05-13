@@ -165,3 +165,58 @@ span {
 .nav-item:hover {
   font-weight: bold;
 }
+
+/* Form */
+
+.btn-txt {
+  text-align: left;
+  padding-left: 50px;
+}
+
+.btn-custom2 {
+  background-color: #D1F1F3;
+  margin-bottom: 10px;
+}
+
+.btn:hover {
+  background-color: #86c3c7;
+  font-weight: bold;
+}
+
+.info-text {
+  color: #333;
+}
+
+.btn-pat {
+  display: block;
+  margin-top: 15px;
+  margin-left: auto;
+  background-color: #D1F1F3;
+}
+
+.info-text {
+  display: block;
+  color: #333;
+  margin: auto auto;
+  width: 80%;
+  border: solid 2px #D1F1F3;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.nav-sec, .info-pat {
+  margin-bottom: 25px;
+}
+
+.info-form {
+  text-align: justify;
+}
+
+.form-pat {
+  background-color: #F7ADA4;
+  color: #ffff;
+}
+
+.form-pat::placeholder {
+  color: #ffff;
+}
