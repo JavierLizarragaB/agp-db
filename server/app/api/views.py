@@ -2,7 +2,7 @@ from flask import request, jsonify, current_app
 from datetime import datetime
 
 from . import api
-from ..models import Patients, User
+from ..models import Address, Patients, SocioeconomicForm, User, ResponsableFamilyMember
 
 
 
@@ -130,6 +130,55 @@ def delete_user():
     try:
         person.delete()
         return (person.username, 200)
+    except Exception as e:
+        print(e)
+        return (e.__str__(), 500)
+
+@api.route("/forms",  methods=["POST"])
+def send_forms():
+    "Save forms"
+    json = request.get_json()
+    try:
+        form = SocioeconomicForm(
+            birth_state=json.get("birth_state"),
+            birth_city=json.get("birth_city"),
+            permanent_address=Address(
+                street=json.get("calle"),
+                num=json.get("num"),
+                suburb=json.get("colonia"),
+                locality=json.get("localidad"),
+                municipality=json.get("municipio"),
+                zip_code=json.get("cp"),
+                phone=json.get("tel"),
+                phone2=json.get("tel2")
+            ),
+            temp_address=Address(
+                street=json.get("calle_temp"),
+                num=json.get("num_temp"),
+                suburb=json.get("colonia_temp"),
+                locality=json.get("localidad_temp"),
+                municipality=json.get("municipio_temp"),
+                zip_code=json.get("cp_temp"),
+                phone=json.get("tel_temp"),
+                phone2=json.get("tel2_temp")
+            ),
+            responsable_family_member=ResponsableFamilyMember(
+                responsable_name=json.get("nombre_responsable"),
+                responsable_address=Address(
+                    street=json.get("calle_responsable"),
+                    num=json.get("num_responsable"),
+                    suburb=json.get("colonia_responsable"),
+                    locality=json.get("localidad_responsable"),
+                    municipality=json.get("municipio_responsable"),
+                    zip_code=json.get("cp_responsable"),
+                    phone=json.get("tel_responsable"),
+                    phone2=json.get("tel2_responsable")
+                ),
+                responsable_relationship=json.get("parentesco_responsable")
+            )
+        )
+        form.save()
+        return ({ 'message': "Formulario creado"}, 200)
     except Exception as e:
         print(e)
         return (e.__str__(), 500)

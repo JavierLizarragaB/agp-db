@@ -123,13 +123,16 @@ class SocioeconomicForm(Document):
     sex = StringField(required=False, db_field="sexo")
     civil_state = StringField(required=False, db_field="estado_civil")
     birth_date = DateField(required=False, db_field="fecha_naciemiento")
-    birth_place = StringField(required=False, db_field="lugar_nacimiento")
+    birth_state = StringField(required=False, db_field="entidad_nacimiento")
+    birth_city = StringField(required=False, db_field="ciudad_nacimiento")
     scholarship = StringField(required=False, db_field="escolaridad")
     religion = StringField(required=False, db_field="religion")
     ocupation = StringField(required=False, db_field="ocupacion")
     income = IntField(required=False, db_field="ingreso")
     ######????Servicio Medico????
     ######????DX Medico????
+    ##Address
+    permanent_address = EmbeddedDocumentField(Address, required=False, db_field="direccion_permanente")
     ##Temporal address
     temp_address = EmbeddedDocumentField(Address, required=False, db_field="direccion_temporal")
     ##Responsable
