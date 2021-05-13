@@ -82,9 +82,9 @@ function Form() {
             
             if(response.data.message) {
                 setMessage(response.data.message);
-            } else {
-                setMessage("¡Datos guardados con éxito!");
                 setOpen(false);
+            } else {
+                setMessage("Ha sucedido algo :(");
             }
         });
     };
@@ -103,7 +103,7 @@ function Form() {
             [INFO DEL PACIENTE]
         </div>
 
-        {message}
+        <p>{message}</p>
 
         <div
             onClick={() => setOpen(!open)}
