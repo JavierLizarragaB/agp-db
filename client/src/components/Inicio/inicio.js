@@ -1,5 +1,6 @@
 import Index from "./index";
 import Carrusel from "../carrusel.component";
+import TablaHorario from "../tablaHorario";
 
 export const PagInicio = () => {
     return (
@@ -7,6 +8,9 @@ export const PagInicio = () => {
             <Index/>
             <div/>
             <Carrusel/>
+            <div className="horario">
+                <TablaHorario/>
+            </div>
         </div>
     )
 };

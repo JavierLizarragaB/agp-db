@@ -83,12 +83,35 @@
   right:20px;
 }
 
-.img-carrusel {
-  display: block;
-  max-width: 100%;
-  right: 50%;
-  width: 100;
-  height: 10;
+.title-carrusel{
+  color:#333;
+}
+.my__carousel_main {
+  
+  /* position: absolute;
+  left: 50%;
+  transform: translate(-50%); */
+
+  background-color: #F7ADA4;
+  border-radius: 5%;
+  /* max-width: 60vw; */
+  /* max-height: 30rem; */
+  /* height: 65vh; */
+  height: 26.5rem;
+  /* max-width: 60rem; */
+  width: 56rem;
+  
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  color: #09d3ac;
+            
+}
+.horario {
+  display: flex;
+  margin-left: 5rem;
+  margin-top: 3rem;
+
 }
 
 .tel {
