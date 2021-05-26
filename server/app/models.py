@@ -1,3 +1,4 @@
+from typing_extensions import Required
 from werkzeug.security import generate_password_hash, check_password_hash
 from mongoengine import Document, EmbeddedDocument
 from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentListField, EmbeddedDocumentField, ReferenceField
@@ -34,6 +35,7 @@ class User(UserMixin, Document):
 def load_user(id):
     return User.objects(id=id).first()
 
+# Classes for form
 
 class FamilyStructure(EmbeddedDocument):
     family_member_name = StringField(required=False, db_field="nombre_familiar")
@@ -43,6 +45,12 @@ class FamilyStructure(EmbeddedDocument):
     family_member_ocupation = StringField(required=False, db_field="ocupacion_familiar")
     family_member_income = StringField(required=False, db_field="ingreso_familiar")
 
+
+class FamilyHistory(EmbeddedDocument):
+    relationship = StringField(required=False, db_field="parentesco")
+    living = BooleanField(required=False, db_field="vive")
+    diseases = ListField(StringField(), required=False, db_field="enfermedades")
+    cause_of_death = StringField(required=False, db_field="causa_defuncion")
 
 class Address(EmbeddedDocument):
     street = StringField(required=False, db_field="calle")
@@ -78,12 +86,15 @@ class LivingPlace(EmbeddedDocument):
     place_distribution = ListField(StringField(), required=False, db_field="distribucion_vivienda")
     place_person_per_room = StringField(required=False, db_field="personas_por_cuarto_vivienda")
     place_location = StringField(required=False, db_field="zona_vivienda")
+    place_exposition = StringField(required=False, db_field="exposicion_biomasas")
 
 
 class HouseholdGoods(EmbeddedDocument):
     electrodomestics = StringField(required=False, db_field="electrodomesticos")
     air_conditioner = StringField(required=False, db_field="refrigeracion")
-    trnasportation = StringField(required=False, db_field="transporte")
+
+class FamilyTransportation(EmbeddedDocument):
+    transportation = StringField(required=False, db_field="transporte")
     car_brand = StringField(required=False, db_field="marca_auto")
     car_model = StringField(required=False, db_field="modelo_auto")
 
@@ -103,7 +114,7 @@ class Outcome(EmbeddedDocument):
 
 
 class SubstanceAbuse(EmbeddedDocument):
-    household_member_substance = StringField(required=False, db_field="consume_miembro_vivienda")
+    household_member_substance = BooleanField(required=False, db_field="consume_miembro_vivienda")
     substance_consumed = StringField(required=False, db_field="sustancia_consumida")
     consuming_member = StringField(required=False,  db_field="miembro_consumidor")
     consuming_frequency = StringField(required=False, db_field="frecuencia_consumo")
@@ -137,22 +148,41 @@ class SocioeconomicForm(Document):
     temp_address = EmbeddedDocumentField(Address, required=False, db_field="direccion_temporal")
     ##Responsable
     responsable_family_member = EmbeddedDocumentField(ResponsableFamilyMember, required=False, db_field="familiar_responsable")
-    ##Family Structure
+    
+    ## Family Data
+    
+    ### Family Structure
     family_structure = EmbeddedDocumentListField(FamilyStructure, required=False, db_field="estructura_familiar")
+    ### Family History
+    family_history = EmbeddedDocumentListField(FamilyHistory, required=False, db_field= "antecedentes_familiares")
+    ### Number of sicks
+    number_sicks = StringField(required=False, db_field="numero_de_enfermos")
+    ### Substance abuse
+    substance_abuse = EmbeddedDocumentField(SubstanceAbuse, required=False, db_field="consume_sustancias_toxicas")
+
+    ## Home and economy
+
+    ### Living place
+    living_place = EmbeddedDocumentField(LivingPlace, required=False, db_field="vivienda")
+    ### Household goods
+    household_goods = EmbeddedDocumentField(HouseholdGoods, required=False, db_field="bienes_hogar")
+    ### Family Transportation
+    family_transportation = EmbeddedDocumentField(FamilyTransportation, required=False, db_field="transporte_familiar")
+    ### Geographic area
+    geographic_area = StringField(required=False, db_field="area_geografica")
+    ### Family sick members
+    sick_members = StringField(required=False, db_field="familiares_enfermos")
+    ### Outcome
+    outcome = EmbeddedDocumentField(Outcome, required=False, db_field="egresos")
+
     ##Diet
     diet = EmbeddedDocumentField(Diet, required=False, db_field="dieta")
-    ##Living place
-    living_place = EmbeddedDocumentField(LivingPlace, required=False, db_field="vivienda")
-    ##Family sick members
-    sick_members = StringField(required=False, db_field="familiares_enfermos")
-    ##Household goods
-    household_goods = EmbeddedDocumentField(HouseholdGoods, required=False, db_field="bienes_hogar")
-    ##geographic area
-    geographic_area = StringField(required=False, db_field="area_geografica")
-    ##Outcome
-    outcome = EmbeddedDocumentField(Outcome, required=False, db_field="egresos")
-    ##Substance abuse
-    substance_abuse = EmbeddedDocumentField(SubstanceAbuse, required=False, db_field="consume_sustancias_toxicas")
+    
+    
+    
+    
+    
+    
     ##AGP questions
     heard_from_us = StringField(required=False, db_field="conocio_agrupacion")
     past_help = StringField(required=False, db_field="apoyo_anterior")
@@ -175,17 +205,8 @@ class EmergencyContact(EmbeddedDocument):
     emergency_name = StringField(required=False, db_field="emergencia_nombre")
     emergency_phone = IntField(required=False, db_field="emergencia_tel")
     emergency_relationship = StringField(required=False, db_field="emergencia_parentesco")
-class FamilyHistory(EmbeddedDocument):
-    relationship = StringField(required=False, db_field="parentesco")
-    living = BooleanField(required=False, db_field="vive")
-    diseases = ListField(StringField(), required=False, db_field="enfermedades")
-    cause_of_death = StringField(required=False, db_field="causa_defuncion")
-class LivingPlaceMedical(EmbeddedDocument):
-    place_type = StringField(required=False, db_field="tipo_vivienda")
-    place_material = StringField(required=False, db_field="material_vivienda")
-    place_inhabitants = IntField(required=False, db_field="habitantes_vivienda")
-    place_rooms = IntField(required=False, db_field="habitaciones_vivienda")
-    place_hazards = StringField(required=False, db_field="exposicion_biomasas_vivienda")
+
+
 class DietMedical(EmbeddedDocument):
     quality_perception = StringField(required=False, db_field="percepcion_calidad")
     meals_day = IntField(required=False, db_field="comidas_dia")
@@ -396,8 +417,6 @@ class MedicalForm(Document):
     civil_state = StringField(required=False, db_field="estado_civil")
     ##Emergency contact
     emergency_contact = EmbeddedDocumentField(EmergencyContact, required=False, db_field="emergencia_contacto")
-    ##Hereditary family history
-    family_history = EmbeddedDocumentListField(FamilyHistory, required=False, db_field="antecedentas_familiares")
     
     ##Non-pathological personal history
     non_pathological_history = EmbeddedDocumentField(NonPathological, required=True, db_field="antecedentes_no_patologicos")
