@@ -37,6 +37,7 @@ def load_user(id):
 
 # Classes for form
 
+### ----------------------------------- Tierra de Nadie ----------------------------------- ###
 class FamilyStructure(EmbeddedDocument):
     family_member_name = StringField(required=False, db_field="nombre_familiar")
     family_member_age = StringField(required=False, db_field="edad_familiar")
@@ -231,7 +232,7 @@ class NonPathological(EmbeddedDocument):
     ## cartilla vacunacion ??
 class ChronicDegenerativeDisease(EmbeddedDocument):
     disease_name = StringField(required=False, db_field="nombre_enfermedad")
-    time_since_diagnosis = IntField(required=False, db_field="tiempo_desde_diagnostico") ##Int???
+    time_since_diagnosis = StringField(required=False, db_field="tiempo_desde_diagnostico")
     treatment = StringField(required=False, db_field="tratamiento")
     complications = StringField(required=False, db_field="complicaciones")
     adherance_treatment = StringField(required=False, db_field="apego_tratamiento")
@@ -437,6 +438,256 @@ class MedicalForm(Document):
 
     def __repr__(self):
         return self.__str__()
+### ----------------------------------- End Tierra de Nadie ----------------------------------- ###
+
+### ----------------------------------- Datos Paciente Classes ----------------------------------- ###
+class Address(EmbeddedDocument):
+    street = StringField(required=False, db_field="calle")
+    num = IntField(required=False, db_field="num")
+    suburb = StringField(required=False, db_field="colonia")
+    locality = StringField(required=False, db_field="localidad")
+    municipality = StringField(required=False, db_field="muicipio")
+    zip_code = IntField(required=False, db_field="cp")
+    phone = IntField(required=False, db_field="tel")
+    phone2 = IntField(required=False, db_field="tel2")
+
+class ResponsableFamilyMember(EmbeddedDocument):
+    responsable_name = StringField(required=False, db_field="nombre_responsable")
+    responsable_address = EmbeddedDocumentField(Address, db_field="direccion_responsable")
+    responsable_relationship = StringField(required=False, db_field="parentesco_responsable")
+
+class ChronicDegenerativeDisease(EmbeddedDocument):
+    disease_name = StringField(required=False, db_field="nombre_enfermedad")
+    time_since_diagnosis = StringField(required=False, db_field="tiempo_desde_diagnostico")
+    treatment = StringField(required=False, db_field="tratamiento")
+    complications = StringField(required=False, db_field="complicaciones")
+    adherance_treatment = StringField(required=False, db_field="apego_tratamiento")
+
+class SubstanceConsumption(EmbeddedDocument):
+    cosnumption = BooleanField(required=False, db_field="consumo")
+    starting_age = StringField(required=False, db_field="edad_inicio")
+    quantity = StringField(required=False, db_field="cantidad")
+    frequency = StringField(required=False, db_field="frecuencia")
+    last_consumption = StringField(required=False, db_field="ultimo consumo")
+
+class Background(EmbeddedDocument):
+    has_background = BooleanField(required=False, db_field="tiene_antecedente")
+    notes = StringField(required=False, db_field="notas")
+
+class Pathological(EmbeddedDocument):
+    chronic_degenerative_diseases = StringField(required=False, db_field="enfermedades_cronicodegenerativas")
+    infectious_contagious_diseases = StringField(required=False, db_field="enfermedades_infectocontagiosas")
+    surgeries = EmbeddedDocumentField(Background, required=False, db_field="cirugias")
+    jail = EmbeddedDocumentField(Background, required=False, db_field="carcel")
+    blood_transfusions = EmbeddedDocumentField(Background, required=False, db_field="transfusiones_sanguineas")
+    allergies = EmbeddedDocumentField(Background, required=False, db_field="alergias")
+    trauma = EmbeddedDocumentField(Background, required=False, db_field="traumatismos")
+    alcoholism = EmbeddedDocumentField(SubstanceConsumption, required=False, db_field="alcoholismo")
+    smoking = EmbeddedDocumentField(SubstanceConsumption, required=False, db_field="tabaquismo")
+    drug_addictions = EmbeddedDocumentField(SubstanceConsumption, required=False, db_field="toxicomanias")
+
+class MaleSexualHealth(EmbeddedDocument):
+    start_sexual_life = IntField(required=False, db_field="inicio_vida_sexual")
+    sexual_partners = IntField(required=False, db_field="parejas_sexuales")
+    std = StringField(required=False, db_field="ets")
+    contraceptive_methods = StringField(required=False, db_field="metodos_anticonceptivos")
+
+class CancerTest(EmbeddedDocument):
+    date = DateField(required=False, db_field="fecha")
+    result = StringField(required=True, db_field="resultado")
+
+class FemaleSexualHealth(EmbeddedDocument):
+    menarche = BooleanField(required=False, db_field="menarca")
+    menarche_age = IntField(required=False, db_field="edad_menarca")
+    rhythm = StringField(required=False, db_field="ritmo_menarca")
+    start_sexual_life = IntField(required=False, db_field="inicio_vida_sexual")
+    high_risk_partners = BooleanField(required=False, db_field="parejas_alto_riesgo")
+    sexual_partners = IntField(required=False, db_field="parejas_sexuales")
+    std = EmbeddedDocumentField(Background, required=False, db_field="ets")
+    gestations = StringField(required=False, db_field="gestas")
+    deliveries = StringField(required=False, db_field="partos")
+    abortions = StringField(required=False, db_field="abortos")
+    date_last_delivery = DateField(required=False, db_field="fecha_ultimo_parto")
+    age_first_pregnancy = IntField(required=False, db_field="edad_primer_embarazo")
+    family_planning_methods = StringField(required=False, db_field="metodos_planificacion_familiar")
+    date_last_menstruation = DateField(required=False, db_field="fecha_ultima_regla")
+    menopause = BooleanField(required=False, db_field="menopausia")
+    hormonal_therapy = StringField(required=False, db_field="terapia_remplazo_hormonal")
+    breastfeeding = BooleanField(required=False, db_field="lactancia_materna")
+    last_pap_smear = EmbeddedDocumentField(CancerTest, required=False, db_field="ultimo_papanicolaou")
+    last_hybrid_test = EmbeddedDocumentField(CancerTest, required=False, db_field="ultima_prueba_hibridos")
+    last_mammography = EmbeddedDocumentField(CancerTest, required=False, db_field="ultima_mamografia")
+
+class Skin(EmbeddedDocument):
+    color_changes = ListField(StringField(), required=False, db_field="cambios_coloracion")
+    eruptions = BooleanField(required=False, db_field="erupciones")
+    spots = BooleanField(required=False, db_field="manchas")
+    pruritus = BooleanField(required=False, db_field="prurito")
+    dryness = BooleanField(required=False, db_field="sequedad")
+    volume_increase = BooleanField(required=False, db_field="aumento_volumen")
+    nails_hair = BooleanField(required=False, db_field="unas_pelo")
+    nodules = BooleanField(required=False, db_field="nodulos")
+    observations = StringField(required=False, db_field="observaciones")
+
+class OphthalmicSystem(EmbeddedDocument):
+    vision_changes = ListField(StringField(), required=False, db_field="cambios_vision")
+    uses_glasses = ListField(StringField(), required=False, db_field="uso_lentes")
+    observations = StringField(required=False, db_field="observaciones")
+
+class EntSystem(EmbeddedDocument):
+    hearing_changes = ListField(StringField(), required=False, db_field="cambios_audicion")
+    ear_pain = BooleanField(required=False, db_field="dolor_oido")
+    vertigo = BooleanField(required=False, db_field="vertigo")
+    fluid_leaking_ear = BooleanField(required=False, db_field="salida_liquido_oido")
+    smelling_changes = BooleanField(required=False, db_field="cambios_olfato")
+    fluid_leaking_nose = BooleanField(required=False, db_field="salida_liquido_nariz")
+    nose_pain = BooleanField(required=False, db_field="dolor_nariz")
+
+class MouthThroat(EmbeddedDocument):
+    teeth_conditions = ListField(StringField(), required=False, db_field="condiciones_dientes")
+    gum_conditions = ListField(StringField(), required=False, db_field="condiciones_encias")
+    tongue_conditions = ListField(StringField(), required=False, db_field="condiciones_lengua")
+    speaking_problems = StringField(required=False, db_field="problemas_hablar")
+    thirst = BooleanField(required=False, db_field="sed")
+    speaking_eating_pain = BooleanField(required=False, db_field="dolor_comer_hablar")
+    bad_breath = BooleanField(required=False, db_field="mal_aliento")
+    excess_salivation = BooleanField(required=False, db_field="exceso_salivacion")
+    observations = StringField(required=False, db_field="observaciones")
+
+class DigestiveSystem(EmbeddedDocument):
+    apettite_changes = BooleanField(required=False, db_field="cambio_apetito")
+    sickness_vomit = BooleanField(required=False, db_field="nauseas_vomito")
+    abdominal_distention = BooleanField(required=False, db_field="distension_abdominal")
+    esophagus_conditions = ListField(StringField(), required=False, db_field="condiciones_esofago")
+    evacuation_changes = ListField(StringField(), required=False, db_field="cambios_evacuaciones")
+    liver_bile_conditions = ListField(StringField(), required=False, db_field="condiciones_higado_biliares")
+    pancreas_conditions = ListField(StringField(), required=False, db_field="condiciones_pancreas")
+    observations = StringField(required=False, db_field="observaciones")
+
+class RespiratoryApparatus(EmbeddedDocument):
+    cough = BooleanField(required=False, db_field="tos")
+    chest_pain = BooleanField(required=False, db_field="dolor_toracico")
+    hemoptysis = BooleanField(required=False, db_field="hemoptisis")
+    vomiting_cough = BooleanField(required=False, db_field="vomica")
+    cyanosis = BooleanField(required=False, db_field="cianosis")
+    fatigue = BooleanField(required=False, db_field="fatiga")
+    breathing_problems = BooleanField(required=False, db_field="problemas_respirar")
+    breathing_changes = BooleanField(required=False, db_field="cambios_respiracion")
+    observations = StringField(required=False, db_field="observaciones")
+
+class CardiovascularApparatus(EmbeddedDocument):
+    dyspnoea = BooleanField(required=False, db_field="disnea")
+    orthopnea = BooleanField(required=False, db_field="ortopnea")
+    lipothymia = BooleanField(required=False, db_field="lipotimia")
+    syncope = BooleanField(required=False, db_field="sincope")
+    edema = BooleanField(required=False, db_field="edema")
+    cyanosis = BooleanField(required=False, db_field="cianosis")
+    chest_pain = BooleanField(required=False, db_field="color_toracico")
+    palpitations = BooleanField(required=False, db_field="palpitaciones")
+    observations = StringField(required=False, db_field="observaciones")
+
+class GenitourinarySystem(EmbeddedDocument):
+    urinating_changes = BooleanField(required=False, db_field="cambios_miccionar")
+    urinating_pain = BooleanField(required=False, db_field="dolor_miccionar")
+    jet_changes = BooleanField(required=False, db_field="cambios_chorro")
+    menstruation_changes = BooleanField(required=False, db_field="cambios_menstruacion")
+    dyspareunia = BooleanField(required=False, db_field="dispareunia")
+    libido_changes = BooleanField(required=False, db_field="cambios_libido")
+    observations = StringField(required=False, db_field="observaciones")
+
+class MusculoskeletalSystem(EmbeddedDocument):
+    muscle_pain = BooleanField(required=False, db_field="dolor_muscular")
+    joint_pain = BooleanField(required=False, db_field="dolor_articular")
+    joint_stiffness = BooleanField(required=False, db_field="rigidez_articular")
+    nodules = BooleanField(required=False, db_field="nodulos")
+    bone_pain = BooleanField(required=False, db_field="dolor_osea")
+    ambulation_changes = BooleanField(required=False, db_field="cambios_deambulacion")
+    observations = StringField(required=False, db_field="observaciones")
+
+class HematologicalSystem(EmbeddedDocument):
+    weakness = BooleanField(required=False, db_field="debilidad")
+    color_changes = BooleanField(required=False, db_field="cambios_coloracion")
+    bleeding = BooleanField(required=False, db_field="hemorragias")
+    petechiae = BooleanField(required=False, db_field="petequias")
+    ecchymosis = BooleanField(required=False, db_field="equimosis")
+    bruises = BooleanField(required=False, db_field="hematomas")
+    lymphadenopathy  = BooleanField(required=False, db_field="adenopatias")
+    observations = StringField(required=False, db_field="observaciones")
+
+class NervousSystem(EmbeddedDocument):
+    headache = BooleanField(required=False, db_field="cefalea")
+    seizures = BooleanField(required=False, db_field="convulciones")
+    memory_changes = BooleanField(required=False, db_field="cambios_memoria")
+    sphincters_changes = BooleanField(required=False, db_field="cambios_esfinteres")
+    loss_of_feeling = BooleanField(required=False, db_field="perdida_sensacion")
+    loss_of_movement = BooleanField(required=False, db_field="perdida_movimiento")
+    loss_of_balance = BooleanField(required=False, db_field="perdida_equilibrio")
+    language_disorders = BooleanField(required=False, db_field="trastornos_lenguaje")
+    gait_changes = BooleanField(required=False, db_field="cambios_marcha")
+    tremors = BooleanField(required=False, db_field="temblores")
+    paralysis = BooleanField(required=False, db_field="paralisis")
+    parasthesia = BooleanField(required=False, db_field="parestesias")
+    paresis = BooleanField(required=False, db_field="paresias")
+    observations = StringField(required=False, db_field="observaciones")
+
+class ApparatusAndSystems(EmbeddedDocument):
+    skin = EmbeddedDocumentField(Skin, required=False, db_field="piel")
+    ophthalmic_system = EmbeddedDocumentField(OphthalmicSystem, required=False, db_field="sistema_oftalmologico")
+    ent_system = EmbeddedDocumentField(EntSystem, required=False, db_field="sistema_otorrinolaringologico")
+    mouth_throat = EmbeddedDocumentField(MouthThroat, required=False, db_field="boca_garganta")
+    digestive_system = EmbeddedDocumentField(DigestiveSystem, required=False, db_field="sistema_digestivo")
+    respiratory_apparatus = EmbeddedDocumentField(RespiratoryApparatus, required=False, db_field="aparato_respiratorio")
+    cardiovascular_apparatus = EmbeddedDocumentField(CardiovascularApparatus, required=False, db_field="aparato_cardiovascular")
+    genitourinary_system = EmbeddedDocumentField(GenitourinarySystem, required=False, db_field="sistema_genitourinario")
+    musculoskeletal_system = EmbeddedDocumentField(MusculoskeletalSystem, required=False, db_field="sistema_musculo_esqueletico")
+    hematological_system = EmbeddedDocumentField(HematologicalSystem, required=False, db_field="sistema_hematologico")
+    nervous_system = EmbeddedDocumentField(NervousSystem, required=False, db_field="sistema_nervioso")
+    psychic_system = EmbeddedDocumentField(PsychicSystem, required=False, db_field="sistema_psiquico")
+### ----------------------------------- End Datos Paciente Classes----------------------------------- ###
+
+### ----------------------------------- Datos Paciente ----------------------------------- ###
+class PatientDataForm(EmbeddedDocument):
+    birth_state = StringField(required=False, db_field="entidad_nacimiento")
+    birth_city = StringField(required=False, db_field="ciudad_nacimiento")
+    scholarship = StringField(required=False, db_field="escolaridad")
+    religion = StringField(required=False, db_field="religion")
+    ocupation = StringField(required=False, db_field="ocupacion")
+    income = IntField(required=False, db_field="ingreso")
+
+    permanent_address = EmbeddedDocumentField(Address, required=False, db_field="direccion_permanente")
+
+    email = StringField(required=False, db_field="correo")
+    income = IntField(required=False, db_field="ingreso")
+    medical_service = StringField(required=False, db_field="servicio_medico")
+    scholarship = StringField(required=False, db_field="escolaridad")
+    ocupation = StringField(required=False, db_field="ocupacion")
+    religion = StringField(required=False, db_field="religion")
+    civil_state = StringField(required=False, db_field="estado_civil")
+
+    clinic_record_date = DateField(required=False, db_field="realizacion_historial_clinico")
+
+    temp_address = EmbeddedDocumentField(Address, required=False, db_field="direccion_temporal")
+
+    responsable_family_member = EmbeddedDocumentField(ResponsableFamilyMember, required=False, db_field="familiar_responsable")
+
+    personal_pathological_history = EmbeddedDocumentField(Pathological, required=False, db_field="antecedentes_personales_patologicos")
+
+    male_sexual_health = EmbeddedDocument(MaleSexualHealth, required=False, db_field="en_caso_de_ser_hombre")
+    female_sexual_health = EmbeddedDocument(FemaleSexualHealth, required=False, db_field="en_caso_de_ser_mujer")
+
+### ----------------------------------- End Datos Paciente ----------------------------------- ###
+
+class GeneralInfo(Document):
+    meta = {"collection": "informacion_general"}
+
+    name = StringField(required=False, db_field="nombre")
+    age = IntField(required=False, db_field="edad")
+    sex = StringField(required=False, db_field="sexo")
+    civil_state = StringField(required=False, db_field="estado_civil")
+    birth_date = DateField(required=False, db_field="fecha_naciemiento")
+
+    patient_data = EmbeddedDocumentField(PatientDataForm, required=False, db_field="datos_paciente")
+
 
 class Patients(Document):
     meta = {"collection": "pacientes"}
