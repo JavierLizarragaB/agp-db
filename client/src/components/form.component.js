@@ -275,6 +275,7 @@ function Form() {
                 </div>
                 <br></br><br></br>
 
+                {/* inicio de tercera iteración */}
                 <b><div>PIEL</div></b>
                 <i><div>CAMBIOS EN LA COLORACIÓN</div></i><br></br>
                 <div className="form-row">
@@ -591,7 +592,652 @@ function Form() {
                             setParentesco_responsable(e.target.value);
                         }} />
                     </div>
+                    <br></br><br></br>
+
+
+                <b><div>BOCA Y GARGANTA</div></b>
+                <i><div>DIENTES</div></i><br></br>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CARIES</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">AGENESIA DENTAL</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">PRÓTESIS</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <i><div>ENCÍAS</div></i><br></br>
+                <div className="form-row">
+                    <div className="form-group col-md-4">GINGIVORREA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">GINGIVORRAGIA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ULCERACIONES</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
+                <i><div>LENGUA</div></i><br></br>
+                <div className="form-row">
+                    <div className="form-group col-md-4">COLORACIÓN</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">TAMAÑO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">PRESENCIA DE PLACA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ULCERACIONES</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
+                <i><div>PROBLEMAS PARA HABLAR</div></i><br></br>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DISFONÍA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">AFONÍA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">SED</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR AL COMER O HABLAR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">MAL ALIENTO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">EXCESO DE SALIVACIÓN</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
+                <div>OBSERVACIONES</div>
+                    <div>
+                        <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            setParentesco_responsable(e.target.value);
+                        }} />
+                    </div>
+                    <br></br><br></br>
+
+                    <b><div>APARATO DIGESTIVO</div></b>
+                    <div className="form-row">
+                    <div className="form-group col-md-4">CAMBIOS EN EL APETITO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">NÁUSEAS O VÓMITO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DISTENSIÓN ABDOMINAL</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
+                <i><div>ESÓFAGO</div></i><br></br>
+                <div className="form-row">
+                    <div className="form-group col-md-4">GASTRALCIA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ACIDEZ</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">LLENURA POSTRANDIAL</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
+                <i><div>CAMBIOS EN EVACUACIONES</div></i><br></br>
+                <div className="form-row">
+                    <div className="form-group col-md-4">TENESMO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">PUJOS</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ENCOPRESIS</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR ANAL</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CONSTIPACIÓN</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">RECTORRAGÍA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">HEMATOQUECIA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
                 
+                <i><div>HÍGADO Y VÍAS BILIARES</div></i><br></br>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ICTERCIA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">PRURITO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">FIEBRE</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ASCITIS</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CÓLICO BILIAR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CÓLICO HEPÁTICO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ACOLIA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
+                <i><div>PÁNCREAS</div></i><br></br>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ESTEATORREA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DIARREA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">SIALORREA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR DE ABDOMEN</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR DE ESPALDA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div>OBSERVACIONES</div>
+                    <div>
+                        <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            setParentesco_responsable(e.target.value);
+                        }} />
+                    </div>
+                <br></br><br></br>
+
+                <b><div>APARATO RESPIRATORIO</div></b>
+                <div className="form-row">
+                    <div className="form-group col-md-4">TOS</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR TORÁCICO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOHEMOPOTISIS</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">VÓMICA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CIANOSIS</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">FÁTIGA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">PROBLEMAS PARA RESPIRAR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CAMBIOS EN RESPIRACIÓN A LA DEAMBULACIÓN</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div>OBSERVACIONES</div>
+                    <div>
+                        <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            setParentesco_responsable(e.target.value);
+                        }} />
+                    </div>
+                <br></br><br></br>
+
+		        <b><div>APARATO CARDIOVASCULAR</div></b>
+
+                <div className="form-row">
+                    <div className="form-group col-md-4">DISNEA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ORTOPNEA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">LIPOTIMIA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">SINCOPE</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">EDEMA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CIANOSIS</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR TORÁCICO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">PALPITACIONES</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
+                <div>OBSERVACIONES</div>
+                    <div>
+                        <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            setParentesco_responsable(e.target.value);
+                        }} />
+                    </div>
+                <br></br><br></br>
+
+		        <b><div>APARATO GENITOURINARIO</div></b>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CAMBIOS AL MICCIONAR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR AL MICCIONAR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DIFICULTAD AL MICIONAR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CAMBIOS EN EL CHORRO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">ALTERACIONES DE LA MENSTRUACIÓN</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DSPAREUNIA</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CAMBIOS EN EL LIBIDO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
+                <div>OBSERVACIONES</div>
+                    <div>
+                        <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            setParentesco_responsable(e.target.value);
+                        }} />
+                    </div>
+                <br></br><br></br>
+
+		        <b><div>SISTEMA MUSCULO-ESQUELÉTICO</div></b>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR MUSCULAR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR ARTICULAR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">RGIDEZ ARTICULAR</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">NÓDULOS</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">DOLOR ÓSEO</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-4">CAMBIOS EN LA DEAMBULACIÓN</div>
+                    <div className="form-group col-md-4">
+                        <input type="checkbox" className="form-control form-pat" id="inputCN" onChange={(e) => {
+                            setBirth_state(e.target.value);
+                        }} />
+                    </div>
+                </div>
+
+                <div>OBSERVACIONES</div>
+                    <div>
+                        <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            setParentesco_responsable(e.target.value);
+                        }} />
+                    </div>
+                <br></br><br></br>
+
+                {/* boton de enviar */}
                 <div>
                     <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
                         <b>Enviar</b>
@@ -603,7 +1249,6 @@ function Form() {
         </Collapse>
 
 
-                    {/*Segunda Seccion*/}
 
 
         <div
