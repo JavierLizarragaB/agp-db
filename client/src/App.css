@@ -243,3 +243,23 @@ span {
 .form-pat::placeholder {
   color: #ffff;
 }
+
+.form-title {
+  color: #5D9FC8;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.form-subtitle {
+  color: #5D9FC8;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.form-text {
+  font-weight: bold;
+}
+
+.form-text-supra {
+  font-size: 20px;
+}
