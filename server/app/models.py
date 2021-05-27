@@ -677,6 +677,30 @@ class PatientDataForm(EmbeddedDocument):
 
 ### ----------------------------------- End Datos Paciente ----------------------------------- ###
 
+### ----------------------------------- Higiene / Actividad Fisica / Pasatiempo ----------------------------------- ###
+class HygienePhysActPasstime(EmbeddedDocument):
+    shower_frequency = StringField(required=False, db_field="frecuencia_duchas")
+    toothbrushing_frequency = StringField(required=False, db_field="frecuencia_lavar_dientes")
+    home_hygiene = StringField(required=False, db_field="higiene_hogar")
+    phys_activity = StringField(required=False, db_field="actividad_fisica")
+    passtime = StringField(required=False, db_field="pasatiempo")
+### ----------------------------------- End Higiene / Actividad Fisica / Pasatiempo ----------------------------------- ###
+
+### ----------------------------------- Otros ----------------------------------- ###
+class Others(EmbeddedDocument):
+    how_found_out = StringField(required=False, db_field="como_se_entero")
+    support_background = EmbeddedDocumentField(Background, required=False, db_field="antecedentes_apoyo")
+    observations = StringField(required=False, db_field="observations")
+    social_plan = StringField(required=False, db_field="plan_social")
+    socioeconomic_class = StringField(required=False, db_field="clase_socioeconomica")
+    social_worker = StringField(required=False, db_field="trabajador_social")
+    animals = StringField(required=False, db_field="animales")
+    vaccinated_animals = BooleanField(required=False, db_field="animales_vacunados")
+    ticks_animals = BooleanField(required=False, db_field="animales_garrapatas")
+    diseases_animals = BooleanField(required=False, db_field="animales_enfermedades")
+    vaccination_card = StringField(required=False, db_field="cartilla_vacunacion")
+### ----------------------------------- End Otros ----------------------------------- ###
+
 class GeneralInfo(Document):
     meta = {"collection": "informacion_general"}
 
