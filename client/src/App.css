@@ -179,16 +179,6 @@ span {
   padding-top: 50px;
 }
 
-.nav-item {
-  display: flex;
-  margin-left: 70%;
-  font-size: 22px;
-}
-
-.nav-item:hover {
-  font-weight: bold;
-}
-
 /* Form */
 
 .btn-txt {
@@ -231,6 +221,10 @@ span {
   margin-bottom: 25px;
 }
 
+.info-pat {
+  margin-top: 25px;
+}
+
 .info-form {
   text-align: justify;
 }
@@ -248,6 +242,7 @@ span {
   color: #5D9FC8;
   font-weight: bold;
   text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .form-subtitle {
@@ -262,4 +257,22 @@ span {
 
 .form-text-supra {
   font-size: 20px;
+}
+
+#menu-left {
+  height: auto;
+  margin-top: 15px;
+}
+
+.nav-item {
+  text-decoration: none;
+  font-weight: 400;
+  color: #333;
+  padding-right: 15px;
+}
+
+.nav-item:hover {
+  color: #333;
+  font-weight: 600;
+  text-decoration: underline;
 }

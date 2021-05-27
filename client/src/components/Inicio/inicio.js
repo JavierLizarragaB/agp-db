@@ -1,11 +1,11 @@
-import Index from "./index";
+import NavBar from "../navbar.component";
 import Carrusel from "../carrusel.component";
 import TablaHorario from "../tablaHorario";
 
 export const PagInicio = () => {
     return (
         <div>
-            <Index/>
+            <NavBar/>
             <div/>
             <Carrusel/>
             <div className="horario">

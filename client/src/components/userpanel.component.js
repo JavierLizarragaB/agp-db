@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Link } from 'react-router-dom';
-import logo from '../img/papanico.png';
+import NavBar from './navbar.component';
 import Axios from 'axios';
 
 export const Userpanel = () => {
@@ -80,18 +80,7 @@ export const Userpanel = () => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light">
-                <div className="container">
-                    <div>
-                        <img className="logoAGP-up" src={logo} />
-                    </div>
-
-                    <Link className="navbar-brand nav-item" to={'/inicio'}>
-                        Inicio
-                    </Link>
-                    <div className="collapse navbar-collapse" id="navbarTogglerDemo02"></div>
-                </div>
-            </nav>
+            <NavBar />
 
             <div className="row container-space">
                 <div className="col-md-4">

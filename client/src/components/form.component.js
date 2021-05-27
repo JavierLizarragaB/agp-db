@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { Button, Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import logo from '../img/papanico.png';
+import NavBar from './navbar.component.js';
 import axios from "axios";
 
 
@@ -94,13 +94,8 @@ function Form() {
 
     return (
         <>
-        <div className="nav-sec">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#">
-                    <img src={logo} width="250" class="d-inline-block align-top" alt="" />
-                </a>
-            </nav>
-        </div>
+
+        <NavBar />
 
         <div className="info-pat">
             [INFO DEL PACIENTE]
@@ -487,7 +482,7 @@ function Form() {
 
                 <div className="form-subtitle">En caso de ser hombre:</div>
                 <div className="form-row">
-                    <div className="form-group col-md-3">
+                    <div className="form-group col-md-4">
                         <div>Inicio de vida sexual</div>
                     </div>
                     <div className="form-group col-md-3">
@@ -496,16 +491,16 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">
+                    <div className="form-group col-md-4">
                         <div>Número de parejas sexuales</div>
                     </div>
-                    <div className="form-group col-md-3">
+                    <div className="form-group col-md-4">
                         <textarea className="form-control form-pat" rows="1" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">
+                    <div className="form-group col-md-4">
                         <div>Enfermedades de transmisión sexual</div>
                     </div>
                     <div className="form-group col-md-5">
@@ -514,7 +509,7 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">
+                    <div className="form-group col-md-4">
                         <div>Métodos anticonceptivos</div>
                     </div>
                     <div className="form-group col-md-5">
@@ -525,7 +520,7 @@ function Form() {
                 <div className="form-subtitle">En caso de ser mujer, antecedentes ginecobstétricos:</div>
                 <div className="form-row">
                     <div className="form-group col-md-1">Menarca</div>
-                    <div className="form-group col-md-1">
+                    <div className="form-group col-md-2">
                         <input type="checkbox" className="form-control form-pat" />
                     </div>
                     <div className="form-group col-md-1">Edad</div>
@@ -535,18 +530,18 @@ function Form() {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-1">Ritmo</div>
-                    <div className="form-group col-md-7">
+                    <div className="form-group col-md-8">
                         <textarea className="form-control form-pat" rows="3" />
                     </div>
                 </div>
                 <div className="form-row">
-                    <div className="form-group col-md-3">Edad de Inicio de Vida Sexual</div>
+                    <div className="form-group col-md-4">Edad de Inicio de Vida Sexual</div>
                     <div className="form-group col-md-1">
                         <textarea className="form-control form-pat" rows="1" />
                     </div>
                 </div>
                 <div className="form-row">
-                    <div className="form-group col-md-3">Parejas de Alto Riesgo</div>
+                    <div className="form-group col-md-4">Parejas de Alto Riesgo</div>
                     <div>Si</div>
                     <div className="form-group col-md-1">
                         <input type="checkbox" className="form-control form-pat" />
@@ -558,14 +553,14 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Enfermedades de Transmisión Sexual</div>
+                    <div className="form-group col-md-4">Enfermedades de Transmisión Sexual</div>
                     <div className="form-group col-md-5">
                         <textarea className="form-control form-pat" rows="3" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Gestas</div>
+                    <div className="form-group col-md-4">Gestas</div>
                     <div>1</div>
                     <div className="form-group col-md-1">
                         <input type="checkbox" className="form-control form-pat" />
@@ -589,7 +584,7 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Partos</div>
+                    <div className="form-group col-md-4">Partos</div>
                     <div>1</div>
                     <div className="form-group col-md-1">
                         <input type="checkbox" className="form-control form-pat" />
@@ -613,7 +608,7 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Cesáreas</div>
+                    <div className="form-group col-md-4">Cesáreas</div>
                     <div>1</div>
                     <div className="form-group col-md-1">
                         <input type="checkbox" className="form-control form-pat" />
@@ -637,7 +632,7 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Abortos</div>
+                    <div className="form-group col-md-4">Abortos</div>
                     <div>1</div>
                     <div className="form-group col-md-1">
                         <input type="checkbox" className="form-control form-pat" />
@@ -661,35 +656,35 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Fecha del último parto</div>
+                    <div className="form-group col-md-4">Fecha del último parto</div>
                     <div className="form-group col-md-2">
                         <input type="date" className="form-control form-pat" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Edad del primer embarazo</div>
+                    <div className="form-group col-md-4">Edad del primer embarazo</div>
                     <div className="form-group col-md-1">
                         <input type="text" className="form-control form-pat" rows="1" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Métodos de planificación familiar</div>
+                    <div className="form-group col-md-4">Métodos de planificación familiar</div>
                     <div className="form-group col-md-6">
                         <textarea className="form-control form-pat" rows="1" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Fecha de última regla</div>
+                    <div className="form-group col-md-4">Fecha de última regla</div>
                     <div className="form-group col-md-2">
                         <input type="date" className="form-control form-pat" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Menopausia</div>
+                    <div className="form-group col-md-4">Menopausia</div>
                     <div>Si</div>
                     <div className="form-group col-md-1">
                         <input type="checkbox" className="form-control form-pat" />
@@ -701,14 +696,14 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Antecedentes de Terapia de Reemplazo Hormonal</div>
+                    <div className="form-group col-md-4">Antecedentes de Terapia de Reemplazo Hormonal</div>
                     <div className="form-group col-md-6">
                         <textarea className="form-control form-pat" rows="4" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Lactancia Materna</div>
+                    <div className="form-group col-md-4">Lactancia Materna</div>
                     <div>Si</div>
                     <div className="form-group col-md-1">
                         <input type="checkbox" className="form-control form-pat" />
@@ -720,28 +715,28 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Fecha del último papanicolau</div>
+                    <div className="form-group col-md-4">Fecha del último papanicolau</div>
                     <div className="form-group col-md-2">
                         <input type="date" className="form-control form-pat" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Resultados de último papanicolau</div>
+                    <div className="form-group col-md-4">Resultados de último papanicolau</div>
                     <div className="form-group col-md-6">
                         <textarea className="form-control form-pat" rows="4" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Fecha de prueba de híbridos</div>
+                    <div className="form-group col-md-4">Fecha de prueba de híbridos</div>
                     <div className="form-group col-md-2">
                         <input type="date" className="form-control form-pat" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Resultado de prueba de híbridos</div>
+                    <div className="form-group col-md-4">Resultado de prueba de híbridos</div>
                     <div>Positivo</div>
                     <div className="form-group col-md-1">
                         <input type="checkbox" className="form-control form-pat" />
@@ -753,14 +748,14 @@ function Form() {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Fecha de última mamografía</div>
+                    <div className="form-group col-md-4">Fecha de última mamografía</div>
                     <div className="form-group col-md-2">
                         <input type="date" className="form-control form-pat" />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-3">Resultados de última mamografía</div>
+                    <div className="form-group col-md-4">Resultados de última mamografía</div>
                     <div className="form-group col-md-6">
                         <textarea className="form-control form-pat" rows="4" />
                     </div>
@@ -769,6 +764,7 @@ function Form() {
                 {/* Tercera Iteracion */}
 
                 {/* inicio de tercera iteración */}
+                <div className="form-title">Interrogatorio por aparatos y Sistemas</div>
                 <b><div>PIEL</div></b>
                 <i><div>CAMBIOS EN LA COLORACIÓN</div></i><br></br>
                 <div className="form-row">
