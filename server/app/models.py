@@ -785,6 +785,30 @@ class HomeAndEconomyForm(EmbeddedDocument):
 
 ### ----------------------------------- End Home and Economy ---------------------------------- ###
 
+### ----------------------------------- Alimentacion ----------------------------------- ###
+class Diet(EmbeddedDocument):
+    perceived_quality = StringField(required=False, db_field="calidad_percibida")
+    meals_per_day = StringField(required=False, db_field="comidas_al_dia")
+    food_preparation = StringField(required=False, db_field="preparacion_alimentos")
+    water_per_day = StringField(required=False, db_field="agua_al_dia")
+    red_meat_week = IntField(required=False, db_field="carne_roja_semana")
+    red_meat_month = IntField(required=False, db_field="carne_roja_mes")
+    chicken_week = IntField(required=False, db_field="pollo_semana")
+    chicken_month = IntField(required=False, db_field="pollo_mes")
+    fish_week = IntField(required=False, db_field="pescado_semana")
+    fish_month = IntField(required=False, db_field="pescado_mes")
+    grain_week = IntField(required=False, db_field="granos_semana")
+    grain_month = IntField(required=False, db_field="granos_mes")
+    dairy_week = IntField(required=False, db_field="lacteos_semana")
+    dairy_month = IntField(required=False, db_field="lacteos_mes")
+    bread_week = IntField(required=False, db_field="pan_semana")
+    bread_month = IntField(required=False, db_field="pan_mes")
+    bread_pasta_week = IntField(required=False, db_field="bread_pasta_semana")
+    bread_pasta_month = IntField(required=False, db_field="bread_pasta_mes")
+    vegetables_fruits_week = IntField(required=False, db_field="verduras_frutas_semana")
+    vegetables_fruits_month = IntField(required=False, db_field="verduras_frutas_mes")
+### ----------------------------------- End Alimentacion ----------------------------------- ###
+
 ### ----------------------------------- Higiene / Actividad Fisica / Pasatiempo ----------------------------------- ###
 class HygienePhysActPasstime(EmbeddedDocument):
     shower_frequency = StringField(required=False, db_field="frecuencia_duchas")
@@ -824,6 +848,8 @@ class GeneralInfo(Document):
 
     home_and_economy = EmbeddedDocumentField(HomeAndEconomyForm, required=False, db_field="datos_paciente")
 
+    diet = EmbeddedDocumentField(Diet, required=False, db_field="alimentacion")
+    
     hygiene_phys_act_passtime = EmbeddedDocumentField(HygienePhysActPasstime, required=False, db_field="higiene_act_fis_pasatiempo")
    
     others = EmbeddedDocumentField(Others, required=False, db_field="otros")
