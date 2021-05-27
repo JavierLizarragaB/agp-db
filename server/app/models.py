@@ -785,6 +785,30 @@ class HomeAndEconomyForm(EmbeddedDocument):
 
 ### ----------------------------------- End Home and Economy ---------------------------------- ###
 
+### ----------------------------------- Higiene / Actividad Fisica / Pasatiempo ----------------------------------- ###
+class HygienePhysActPasstime(EmbeddedDocument):
+    shower_frequency = StringField(required=False, db_field="frecuencia_duchas")
+    toothbrushing_frequency = StringField(required=False, db_field="frecuencia_lavar_dientes")
+    home_hygiene = StringField(required=False, db_field="higiene_hogar")
+    phys_activity = StringField(required=False, db_field="actividad_fisica")
+    passtime = StringField(required=False, db_field="pasatiempo")
+### ----------------------------------- End Higiene / Actividad Fisica / Pasatiempo ----------------------------------- ###
+
+### ----------------------------------- Otros ----------------------------------- ###
+class Others(EmbeddedDocument):
+    how_found_out = StringField(required=False, db_field="como_se_entero")
+    support_background = EmbeddedDocumentField(Background, required=False, db_field="antecedentes_apoyo")
+    observations = StringField(required=False, db_field="observations")
+    social_plan = StringField(required=False, db_field="plan_social")
+    socioeconomic_class = StringField(required=False, db_field="clase_socioeconomica")
+    social_worker = StringField(required=False, db_field="trabajador_social")
+    animals = StringField(required=False, db_field="animales")
+    vaccinated_animals = BooleanField(required=False, db_field="animales_vacunados")
+    ticks_animals = BooleanField(required=False, db_field="animales_garrapatas")
+    diseases_animals = BooleanField(required=False, db_field="animales_enfermedades")
+    vaccination_card = StringField(required=False, db_field="cartilla_vacunacion")
+### ----------------------------------- End Otros ----------------------------------- ###
+
 class GeneralInfo(Document):
     meta = {"collection": "informacion_general"}
 
@@ -795,6 +819,14 @@ class GeneralInfo(Document):
     birth_date = DateField(required=False, db_field="fecha_naciemiento")
 
     patient_data = EmbeddedDocumentField(PatientDataForm, required=False, db_field="datos_paciente")
+
+    family_data = EmbeddedDocumentField(FamilyDataForm, required=False, db_field="datos_paciente")
+
+    home_and_economy = EmbeddedDocumentField(HomeAndEconomyForm, required=False, db_field="datos_paciente")
+
+    hygiene_phys_act_passtime = EmbeddedDocumentField(HygienePhysActPasstime, required=False, db_field="higiene_act_fis_pasatiempo")
+   
+    others = EmbeddedDocumentField(Others, required=False, db_field="otros")
 
 
 class Patients(Document):
