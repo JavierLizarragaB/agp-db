@@ -630,6 +630,23 @@ class NervousSystem(EmbeddedDocument):
     paresis = BooleanField(required=False, db_field="paresias")
     observations = StringField(required=False, db_field="observaciones")
 
+class PsychicSystem(EmbeddedDocument):
+    distress = BooleanField(required=False, db_field="angustia")
+    depression = BooleanField(required=True, db_field="depresion")
+    interest_changes = BooleanField(required=False, db_field="cambios_interes")
+    guilt = BooleanField(required=False, db_field="culpa")
+    suicidal_thoughts = BooleanField(required=False, db_field="ideas_suicidas")
+    hallucinations = BooleanField(required=False, db_field="alucinaciones")
+    delirium = BooleanField(required=False, db_field="delirio")
+    observations = StringField(required=False, db_field="observaciones")
+
+class FollowUp(EmbeddedDocument):
+    treatment_changes = EmbeddedDocumentField(Background, required=False, db_field="cambios_tratamiento")
+    actual_symptoms = StringField(required=False, db_field="sintomas_actuales")
+    last_medication_efects = StringField(required=False, db_field="efectos_ultima_administracion_medicamentos")
+    psychology_follow_up = StringField(required=False, db_field="seguimiento_psicologico")
+    actual_diagnostic = StringField(required=False, db_field="diagnostico_actual")
+
 class ApparatusAndSystems(EmbeddedDocument):
     skin = EmbeddedDocumentField(Skin, required=False, db_field="piel")
     ophthalmic_system = EmbeddedDocumentField(OphthalmicSystem, required=False, db_field="sistema_oftalmologico")
@@ -643,6 +660,8 @@ class ApparatusAndSystems(EmbeddedDocument):
     hematological_system = EmbeddedDocumentField(HematologicalSystem, required=False, db_field="sistema_hematologico")
     nervous_system = EmbeddedDocumentField(NervousSystem, required=False, db_field="sistema_nervioso")
     psychic_system = EmbeddedDocumentField(PsychicSystem, required=False, db_field="sistema_psiquico")
+    physical_observations = StringField(required=False, db_field="observaciones_exploracion_fisica")
+    follow_up = EmbeddedDocumentField(FollowUp, required=False, db_field="seguimiento")
 ### ----------------------------------- End Datos Paciente Classes----------------------------------- ###
 
 ### ----------------------------------- Datos Paciente ----------------------------------- ###
