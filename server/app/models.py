@@ -696,6 +696,95 @@ class PatientDataForm(EmbeddedDocument):
 
 ### ----------------------------------- End Datos Paciente ----------------------------------- ###
 
+### ---------------------------------- Family Data Classes ------------------------------------ ###
+
+class FamilyStructure(EmbeddedDocument):
+    family_member_name = StringField(required=False, db_field="nombre_familiar")
+    family_member_age = StringField(required=False, db_field="edad_familiar")
+    family_member_relationship = StringField(required=False, db_field="parentesco_familiar")
+    family_member_civil_state = StringField(required=False, db_field="estado_civil_familiar")
+    family_member_ocupation = StringField(required=False, db_field="ocupacion_familiar")
+    family_member_income = StringField(required=False, db_field="ingreso_familiar")
+
+class FamilyHistory(EmbeddedDocument):
+    relationship = StringField(required=False, db_field="parentesco")
+    living = BooleanField(required=False, db_field="vive")
+    diseases = ListField(StringField(), required=False, db_field="enfermedades")
+    cause_of_death = StringField(required=False, db_field="causa_defuncion")
+
+class SubstanceAbuse(EmbeddedDocument):
+    household_member_substance = BooleanField(required=False, db_field="consume_miembro_vivienda")
+    substance_consumed = StringField(required=False, db_field="sustancia_consumida")
+    consuming_member = StringField(required=False,  db_field="miembro_consumidor")
+    consuming_frequency = StringField(required=False, db_field="frecuencia_consumo")
+
+### --------------------------------- End Family Data Classes --------------------------------- ###
+
+### --------------------------------------- Family Data --------------------------------------- ###
+
+class FamilyDataForm(EmbeddedDocument):
+    family_structure = EmbeddedDocumentListField(FamilyStructure, required=False, db_field="estructura_familiar")
+    
+    family_history = EmbeddedDocumentListField(FamilyHistory, required=False, db_field= "antecedentes_familiares")
+    
+    number_sicks = StringField(required=False, db_field="numero_de_enfermos")
+    
+    substance_abuse = EmbeddedDocumentField(SubstanceAbuse, required=False, db_field="consume_sustancias_toxicas")
+
+### ------------------------------------- End Family Data ------------------------------------- ###
+
+### --------------------------------- Home and Economy Classes -------------------------------- ###
+
+class LivingPlace(EmbeddedDocument):
+    place_type = StringField(required=False, db_field="tipo_vivienda")
+    place_services = StringField(required=False, db_field="servicios_vivienda")
+    place_material = StringField(required=False, db_field="material_vivienda")
+    place_distribution = ListField(StringField(), required=False, db_field="distribucion_vivienda")
+    place_person_per_room = StringField(required=False, db_field="personas_por_cuarto_vivienda")
+    place_location = StringField(required=False, db_field="zona_vivienda")
+    place_exposition = StringField(required=False, db_field="exposicion_biomasas")
+
+class HouseholdGoods(EmbeddedDocument):
+    electrodomestics = StringField(required=False, db_field="electrodomesticos")
+    air_conditioner = StringField(required=False, db_field="refrigeracion")
+
+class FamilyTransportation(EmbeddedDocument):
+    transportation = StringField(required=False, db_field="transporte")
+    car_brand = StringField(required=False, db_field="marca_auto")
+    car_model = StringField(required=False, db_field="modelo_auto")
+
+class Outcome(EmbeddedDocument):
+    outcome_electric_power = IntField(required=False, db_field="energia_electrica_egreso")
+    outcome_water = IntField(required=False, db_field="agua_egreso")
+    outcome_gas = IntField(required=False, db_field="gas_egreso")
+    outcome_phone = IntField(required=False, db_field="telefono_egreso")
+    outcome_food = IntField(required=False, db_field="alimentos_egreso")
+    outcome_rent = IntField(required=False, db_field="renta_egreso")
+    outcome_transportation = IntField(required=False, db_field="transporte_egreso")
+    outcome_education = IntField(required=False, db_field="educacion_egreso")
+    outcome_clothing = IntField(required=False, db_field="vestimenta_egreso")
+    outcome_recreational = IntField(required=False, db_field="diversion_egreso")
+    outcome_other = IntField(required=False, db_field="otros_egreso")
+
+### ------------------------------- End Home and Economy Classes ------------------------------ ###
+
+### ------------------------------------- Home and Economy ------------------------------------ ###
+
+class HomeAndEconomyForm(EmbeddedDocument):
+    living_place = EmbeddedDocumentField(LivingPlace, required=False, db_field="vivienda")
+    
+    household_goods = EmbeddedDocumentField(HouseholdGoods, required=False, db_field="bienes_hogar")
+    
+    family_transportation = EmbeddedDocumentField(FamilyTransportation, required=False, db_field="transporte_familiar")
+    
+    geographic_area = StringField(required=False, db_field="area_geografica")
+    
+    sick_members = StringField(required=False, db_field="familiares_enfermos")
+    
+    outcome = EmbeddedDocumentField(Outcome, required=False, db_field="egresos")
+
+### ----------------------------------- End Home and Economy ---------------------------------- ###
+
 class GeneralInfo(Document):
     meta = {"collection": "informacion_general"}
 
