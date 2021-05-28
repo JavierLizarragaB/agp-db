@@ -2,7 +2,8 @@ import React, { Component, useState } from "react";
 import { Button, Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import NavBar from './navbar.component.js';
+import NavBar from './navbar.component';
+import CuartaIteracion from './cuarta-iteracion.component';
 import axios from "axios";
 
 
@@ -1725,6 +1726,10 @@ function Form() {
                         }} />
                     </div>
                 <br></br><br></br>
+                
+                {/* Cuarta iteracion */}
+                
+                <CuartaIteracion />
 
                 {/* boton de enviar */}
                 <div>

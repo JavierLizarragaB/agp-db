@@ -276,3 +276,23 @@ span {
   font-weight: 600;
   text-decoration: underline;
 }
+
+/* Cuarta iteracion */
+
+.thead-custom-two {
+  background-color: #F7ADA4;
+}
+
+.table-input {
+  display: block; 
+  padding: 0; 
+  margin: 0; 
+  border: 0; 
+}
+
+.td-input {
+  background-color: #F7ADA4;
+  border: 0; 
+  padding: 0; 
+  margin: 0; 
+}
