@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavBar from './navbar.component';
 import CuartaIteracion from './cuarta-iteracion.component';
+import QuintaIteracion from './quinta-iteracion.component';
 import axios from "axios";
 
 
@@ -1730,6 +1731,12 @@ function Form() {
                 {/* Cuarta iteracion */}
                 
                 <CuartaIteracion />
+                <br />
+
+                {/* Quinta Iteracion */}
+
+                <QuintaIteracion />
+                <br />
 
                 {/* boton de enviar */}
                 <div>
