@@ -296,3 +296,12 @@ span {
   padding: 0; 
   margin: 0; 
 }
+
+.centable {
+  text-align: center;
+}
+
+.table-custom {
+  width: 60%;
+  margin-left: 5%;
+}

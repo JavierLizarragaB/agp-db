@@ -8,6 +8,7 @@ import CuartaIteracion from './cuarta-iteracion.component';
 import QuintaIteracion from './quinta-iteracion.component';
 import SextaIteracion from './sexta-iteracion.component';
 import SeptimaIteracion from './septima-iteracion.component';
+import OctavaIteracion from './octava-iteracion.component';
 import axios from "axios";
 
 
@@ -1269,6 +1270,10 @@ function Form() {
                 {/* Septima Iteracion */}
 
                 <SeptimaIteracion />
+                <br />
+
+                {/* Octava Iteracion */}
+                <OctavaIteracion />
                 <br />
 
                 {/* boton de enviar */}

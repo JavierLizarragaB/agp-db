@@ -304,84 +304,84 @@ class QuintaIteracion extends Component {
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Energía Eléctrica</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Agua</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Gas</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Teléfono</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Alimentación</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Renta</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Transporte (o Gasolina)</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Educación</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Vestido</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Diversión</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-1" />
                     <div className="form-group col-md-3">Otros</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$" />           
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="col-md-3" />
                     <div className="form-group col-md-1 form-text">Total</div>
                     <div className="form-group col-md-2">
-                        <input type="number" className="form-control form-pat" />           
+                        <input type="number" className="form-control form-pat" placeholder="$"/>           
                     </div>
                 </div>
             </>
