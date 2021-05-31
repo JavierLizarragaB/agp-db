@@ -121,7 +121,7 @@ function Form() {
         <Collapse in={open}>
 
             <div id="info-collapse-text" className="info-text">
-            <form className="info-form form-text-supra">
+            <form className="info-form form-text-supra col-md-12">
                 <div className="form-row">
                     <div className="form-group col-md-4">
                         <input type="text" className="form-control form-pat" id="inputCN" placeholder="Entidad de Nacimiento" onChange={(e) => {
@@ -177,7 +177,38 @@ function Form() {
                     }} />
                     </div>
                 </div>
+                <br />
                 
+                <div className="form-row">
+                    <div className="form-group col-md-4">
+                        <input type="text" className="form-control form-pat" placeholder="Correo Electrónico"/>
+                    </div>
+                    <div className="form-group col-md-2">
+                        <input type="text" className="form-control form-pat" placeholder="Ingresos"/>
+                    </div>
+                </div>
+
+                <div className="form-row">
+                    <div className="form-group col-md-3">
+                        <input type="text" className="form-control form-pat" placeholder="Servicio Médico"/>
+                    </div>
+                    <div className="form-group col-md-3">
+                        <input type="text" className="form-control form-pat" placeholder="Escolaridad"/>
+                    </div>
+                    <div className="form-group col-md-3">
+                        <input type="text" className="form-control form-pat" placeholder="Ocupación"/>
+                    </div>
+                </div>
+
+                <div className="form-row">
+                    <div className="form-group col-md-3">
+                        <input type="text" className="form-control form-pat" placeholder="Religión"/>
+                    </div>
+                    <div className="form-group col-md-3">
+                        <input type="text" className="form-control form-pat" placeholder="Estado Civil"/>
+                    </div>
+                </div>
+
                 <div className="form-row">
                     <div className="form-group col-md-3">Realización Historial Clínico</div>
                     <div className="form-group col-md-2">
