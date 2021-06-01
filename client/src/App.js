@@ -13,10 +13,13 @@ import UserProvider, { Example as UserCtxExample } from './context/UserProvider'
 import Carrusel from './components/carrusel.component';
 import PagInicio from './components/Inicio/inicio';
 
+import FormContextProvider from './context/FormContext';
+
 function App() {
   return (
           <Router>
             <UserProvider>
+              <FormContextProvider>
                 <div className="App">
                     <div>
                         <Switch>
@@ -32,6 +35,7 @@ function App() {
                         </Switch>
                     </div>
                 </div>
+              </FormContextProvider>
             </UserProvider>
           </Router>
   );
