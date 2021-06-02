@@ -1,9 +1,12 @@
-import React, { Component, useState } from "react";
+import React, { Component} from "react";
 import { Button, Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import {FormContext} from '../context/FormContext'
+
 class SegundaIteracion extends Component {
     render() {
+        const mycontext = this.context;
         return (
             <>
                 <div className="form-title">ANTECEDENTES PERSONALES PATOLÓGICOS</div>
@@ -13,7 +16,10 @@ class SegundaIteracion extends Component {
                         Enfermedades cronicodegenrativas (Enfermedad, Tiempo desde el diagnóstico, Tratamiento, Complicaciones, Apego al Tratamiento)
                     </div>
                     <div className="form-group col-md-8">
-                        <textarea className="form-control form-pat" rows="5"></textarea>
+                        <textarea className="form-control form-pat" rows="5" onChange={(e) => {
+                            mycontext.updatePersonalBackground("diseases_chronicdeg",e.target.value);
+                            console.log(mycontext.formState);
+                        }} ></textarea>
                     </div>
                 </div>
 
@@ -492,5 +498,7 @@ class SegundaIteracion extends Component {
         )
     }
 }
+
+SegundaIteracion.contextType = FormContext;
 
 export default SegundaIteracion;
