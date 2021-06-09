@@ -105,7 +105,7 @@ function TablaHorario() {
     const columns = React.useMemo(
         () => [
           {
-            Header: 'Tabla',
+            Header: 'Agenda',
             columns: [
               {
                 Header: 'Hora',
