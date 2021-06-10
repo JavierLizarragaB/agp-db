@@ -2,7 +2,7 @@ from flask import request, jsonify, current_app
 from datetime import datetime
 
 from . import api
-from ..models import Address, Patients, SocioeconomicForm, User, ResponsableFamilyMember
+from ..models import Address, Background, Patients, SocioeconomicForm, User, ResponsableFamilyMember, Diet, HygienePhysActPasstime, Others
 
 
 
@@ -175,7 +175,58 @@ def send_forms():
                     phone2=json.get("tel2_responsable")
                 ),
                 responsable_relationship=json.get("parentesco_responsable")
-            )
+            ),
+
+            # Diet
+            diet = Diet(
+                perceived_quality = json.get("diet.perceived_quality"),
+                meals_per_day = json.get("diet.meals_per_day"),
+                food_preparation = json.get("diet.food_preparation"),
+                water_per_day = json.get("diet.water_per_day"),
+                red_meat_week = json.get("diet.red_meat_week"),
+                red_meat_month = json.get("diet.red_meat_month"),
+                chicken_week = json.get("diet.chicken_week"),
+                chicken_month = json.get("diet.chicken_month"),
+                fish_week = json.get("diet.fish_week"),
+                fish_month = json.get("diet.fish_month"),
+                grain_week = json.get("diet.grain_week"),
+                grain_month = json.get("diet.grain_month"),
+                dairy_week = json.get("diet.dairy_week"),
+                dairy_month = json.get("diet.dairy_month"),
+                bread_week = json.get("diet.bread_week"),
+                bread_month = json.get("diet.bread_month"),
+                bread_pasta_week = json.get("diet.bread_pasta_week"),
+                bread_pasta_month = json.get("diet.bread_pasta_month"),
+                vegetables_fruits_week = json.get("diet.vegetables_fruits_week"),
+                vegetables_fruits_month = json.get("diet.vegetables_fruits_month")
+            ),
+
+            # Hygiene / Passtimes / Physical Activity
+            hygiene_phys_act_passtime = HygienePhysActPasstime(
+                shower_frequency = json.get("hygiene_pass_physact.shower_frequency"),
+                toothbrushing_frequency = json.get("hygiene_pass_physact.toothbrushing_frequency"),
+                home_hygiene = json.get("hygiene_pass_physact.home_hygiene"),
+                phys_activity = json.get("hygiene_pass_physact.phys_activity"),
+                passtime = json.get("hygiene_pass_physact.passtime")
+            ),
+
+            # Others
+            others = Others(
+                how_found_out = json.get("others.how_found_out"),
+                support_background =Background(
+                        has_background = json.get("others.has_support_background"),
+                        notes = json.get("others.notes_support_background")
+                ),
+                observations = json.get("others.observations"),
+                social_plan = json.get("others.social_plan"),
+                socioeconomic_class = json.get("others.socioeconomic_class"),
+                social_worker = json.get("others.social_worker"),
+                animals = json.get("others.animals"),
+                vaccinated_animals = json.get("others.vaccinated_animals"),
+                ticks_animals = json.get("others.ticks_animals"),
+                diseases_animals = json.get("others.diseases_animals"),
+                vaccination_card = json.get("others.vaccination_card")
+            ),
         )
         form.save()
         return ({ 'message': "Formulario creado"}, 200)
