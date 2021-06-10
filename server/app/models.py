@@ -668,10 +668,6 @@ class ApparatusAndSystems(EmbeddedDocument):
 class PatientDataForm(EmbeddedDocument):
     birth_state = StringField(required=False, db_field="entidad_nacimiento")
     birth_city = StringField(required=False, db_field="ciudad_nacimiento")
-    scholarship = StringField(required=False, db_field="escolaridad")
-    religion = StringField(required=False, db_field="religion")
-    ocupation = StringField(required=False, db_field="ocupacion")
-    income = IntField(required=False, db_field="ingreso")
 
     permanent_address = EmbeddedDocumentField(Address, required=False, db_field="direccion_permanente")
 
@@ -693,6 +689,8 @@ class PatientDataForm(EmbeddedDocument):
 
     male_sexual_health = EmbeddedDocument(MaleSexualHealth, required=False, db_field="en_caso_de_ser_hombre")
     female_sexual_health = EmbeddedDocument(FemaleSexualHealth, required=False, db_field="en_caso_de_ser_mujer")
+
+    apparatus_and_systems = EmbeddedDocumentField(ApparatusAndSystems, required=False, db_field="aparatos_y_sistemas")
 
 ### ----------------------------------- End Datos Paciente ----------------------------------- ###
 
@@ -851,7 +849,7 @@ class GeneralInfo(Document):
     diet = EmbeddedDocumentField(Diet, required=False, db_field="alimentacion")
     
     hygiene_phys_act_passtime = EmbeddedDocumentField(HygienePhysActPasstime, required=False, db_field="higiene_act_fis_pasatiempo")
-   
+
     others = EmbeddedDocumentField(Others, required=False, db_field="otros")
 
 
