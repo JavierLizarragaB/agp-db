@@ -253,6 +253,60 @@ class FormContextProvider extends Component {
 
     }
 
+    familyData = {
+        family_member_name: "",
+        family_member_age: "",
+        family_member_relationship: "",
+        family_member_civil_state: "",
+        family_member_occupation: "",
+        family_member_income: "",
+
+        relationship: "",
+        living: "",
+        diseases: "",
+        cause_of_death: "",
+
+        number_sicks: "",
+
+        household_member_substance: "",
+        substaance_consumed: "",
+        consuming_member: "",
+        consuming_frequency: ""
+    }
+
+    homeAndEconomy = {
+        place_type: "",
+        place_services: "",
+        place_material: "",
+        place_distribution: "",
+        place_person_per_room: "",
+        place_location: "",
+        place_exposition: "",
+
+        electrodomestics: "",
+        air_conditioner: "",
+
+        transportation: "",
+        car_brand: "",
+        car_model: "",
+
+        geographic_area: "",
+
+        sick_members: "",
+
+        outcome_electric_power: "",
+        outcome_water: "",
+        outcome_gas: "",
+        outcome_phone: "",
+        outcome_food: "",
+        outcome_rent: "",
+        outcome_transportation: "",
+        outcome_education: "",
+        outcome_clothing: "",
+        outcome_recreational: "",
+        outcome_other: ""
+    }    
+
     diet = {
         perceived_quality: "",
         meals_per_day: "",
@@ -302,6 +356,8 @@ class FormContextProvider extends Component {
     state = {
         general_info: this.generalInfo,
         patient_data: this.patientData,
+        family_data: this.familyData,
+        home_and_economy: this.homeAndEconomy,
         diet: this.diet,
         hygiene_pass_physact: this.hygienePassPhysAct,
         others: this.others
@@ -322,6 +378,26 @@ class FormContextProvider extends Component {
             ...this.state,
             patient_data: {
                 ...this.state.patient_data,
+                [key]: value
+            }
+        })
+    }
+
+    updateFamilyData = (key, value) => {
+        this.setState({
+            ...this.state,
+            family_data: {
+                ...this.state.family_data,
+                [key]: value
+            }
+        })
+    }
+
+    updateHomeAndEconomy = (key, value) => {
+        this.setState({
+            ...this.state,
+            home_and_economy: {
+                ...this.state.home_and_economy,
                 [key]: value
             }
         })
@@ -362,6 +438,8 @@ class FormContextProvider extends Component {
             formState:this.state,
             updateGeneralInfo:this.updateGeneralInfo,
             updatePatientData: this.updatePatientData,
+            updateFamilyData: this.updateFamilyData,
+            updateHomeAndEconomy: this.updateHomeAndEconomy,
             updateDiet:this.updateDiet,
             updateHygienePassPhysAct:this.updateHygienePassPhysAct,
             updateOthers:this.updateOthers

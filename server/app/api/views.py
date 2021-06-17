@@ -2,7 +2,7 @@ from flask import request, jsonify, current_app
 from datetime import datetime
 
 from . import api
-from ..models import Address, Background, Patients, SocioeconomicForm, User, ResponsableFamilyMember, Diet, HygienePhysActPasstime, Others
+from ..models import Address, Background, Patients, SocioeconomicForm, User, ResponsableFamilyMember, FamilyDataForm, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
 
 
 
@@ -175,6 +175,44 @@ def send_forms():
                     phone2=json.get("tel2_responsable")
                 ),
                 responsable_relationship=json.get("parentesco_responsable")
+            ),
+
+
+
+            # Home and Economy
+            home_and_economy = HomeAndEconomyForm(
+                living_place = LivingPlace(
+                    place_type = json.get("home_and_economy.tipo_vivienda"),
+                    place_services = json.get("home_and_economy.servicios_vivienda"),
+                    place_material = json.get("home_and_economy.material_vivienda"),
+                    place_distribution = json.get("home_and_economy.distribucion_vivienda"),
+                    place_person_per_room = json.get("home_and_economy.personas_por_cuarto_vivienda"),
+                    place_location = json.get("home_and_economy.zone_vivienda"),
+                    place_exposition = json.get("home_and_economy.exposicion_biomasas")
+                ),
+                household_goods = HouseholdGoods(
+                    electrodomestics = json.get("home_and_economy.electrodomesticos"),
+                    air_conditioner = json.get("home_and_economy.refrigeracion")
+                ),
+                family_transportation = FamilyTransportation(
+                    transportation = json.get("home_and_economy.transporte"),
+                    car_brand = json.get("home_and_economy.marca_auto"),
+                    car_model = json.get("home_and_economy.modelo_auto")
+                ),
+                geographic_area = json.get("home_and_economy.area_geografica"),
+                sick_members = json.get("home_and_economy.familiares_enfermos"),
+                outcome = Outcome(
+                    outcome_electric_power = json.get("home_and_economy.energia_electrica_egreso"),
+                    outcome_water = json.get("home_and_economy.agua_egreso"),
+                    outcome_phone = json.get("home_and_economy.telefono_egreso"),
+                    outcome_food = json.get("home_and_economy.alimentos_egreso"),
+                    outcome_rent = json.get("home_and_economy.renta_egreso"),
+                    outcome_transportation = json.get("home_and_economy.transporte_egreso"),
+                    outcome_education = json.get("home_and_economy.educacion_egreso"),
+                    outcome_clothing = json.get("home_and_economy.vestimenta_egreso"),
+                    outcome_recreational = json.get("home_and_economy.diversion_egreso"),
+                    outcome_other = json.get("home_and_economy.otros_egreso")
+                )
             ),
 
             # Diet
