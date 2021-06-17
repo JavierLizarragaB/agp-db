@@ -76,7 +76,7 @@
 }
 
 #menu-left {
-  width:200px;
+  width:20%;
   height:200px;
   position:absolute;
   top:20px;
@@ -305,3 +305,4 @@ span {
   width: 60%;
   margin-left: 5%;
 }
+
