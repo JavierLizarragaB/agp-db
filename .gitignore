@@ -41,3 +41,4 @@ __pycache__/
 # MISC 
 # VS Code config
 .vscode/
+client/package-lock.json
