@@ -417,9 +417,9 @@ class FormContextProvider extends Component {
         socioeconomic_class: null,
         social_worker: null,
         animals: null,
-        vaccinated_animals: null,
-        ticks_animals: null,
-        diseases_animals: null,
+        vaccinated_animals: false,
+        ticks_animals: false,
+        diseases_animals: false,
         vaccination_card: null,
     }
 
@@ -515,6 +515,16 @@ class FormContextProvider extends Component {
 
     }
 
+    handleBooleanCheckbox = (id,key,subkey) => {
+        var element = document.getElementById(id);
+        if(element.checked){
+            this.updateFormState(key,subkey,true);
+        }
+        else{
+            this.updateFormState(key,subkey,false);
+        }
+    }
+
     updateFormState = (key,subkey,value) => {
         this.setState({
             ...this.state,
@@ -535,7 +545,8 @@ class FormContextProvider extends Component {
             updateHomeAndEconomy: this.updateHomeAndEconomy,
             updateHygienePassPhysAct:this.updateHygienePassPhysAct,
             updateOthers:this.updateOthers,
-            handleCheckboxGroup:this.handleCheckboxGroup
+            handleCheckboxGroup:this.handleCheckboxGroup,
+            handleBooleanCheckbox:this.handleBooleanCheckbox
         }
         return(
             <FormContext.Provider value={contextValue}>
