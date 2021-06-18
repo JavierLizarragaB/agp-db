@@ -132,9 +132,27 @@
   margin-bottom: 10%;
 }
 
-.text {
+.patient-text {
   font-size: large;
-  font-weight: 700;
+  font-weight: 400;
+  text-align: left;
+}
+
+.patient-text-br {
+  font-size: large;
+  font-weight: bold;
+  text-align: left;
+}
+
+.box {
+  text-align: left;
+  border-style: solid;
+  border-color: #10e9e9;
+}
+
+.text-br {
+  font-size: large;
+  font-weight: bold;
 }
 
 .row {

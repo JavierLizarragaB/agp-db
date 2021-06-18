@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormContext} from '../context/FormContext'
 
 import NavBar from './navbar.component';
+import male from '../img/male.png';
+import female from '../img/female.png';
 import SegundaIteracion from "./segunda-iteracion.component";
 import TerceraIteracion from './tercera-iteracion.component';
 import CuartaIteracion from './cuarta-iteracion.component';
@@ -45,6 +47,68 @@ function Form() {
 
         <div className="info-pat">
             [INFO DEL PACIENTE]
+            <div className="row">
+                    <div className="col-lg-4">
+                        <img className="tel" src={male} />
+                    </div>
+                    <div className="col-lg-3">
+                        <div className="patient-text-br">Hugo López López</div>
+                        <div className="patient-text">00/00/0000 &ensp;&ensp;&ensp;&ensp; 28 años</div>
+                        <br></br>
+                        <div className="patient-text-br">Sangre:</div>
+                        <div className="patient-text">A+</div>
+                        <br></br>
+                        <div className="patient-text-br">Contacto de Emergencia:</div>
+                        <div className="patient-text">6621 581515 &ensp; Mario López</div>
+                        <br></br>
+                        <div className="patient-text-br">Acude con Acompañante:</div>
+                        <div className="form-row">
+                            
+                            <div className="patient-text-br">Sí</div>
+                            <div className="form-group col-md-1">
+                                <input type="checkbox" className="form-control form-pat" />
+                            </div>
+                            &ensp;&ensp;
+                            <div className="patient-text-br">No</div>
+                            <div className="form-group col-md-1">
+                                <input type="checkbox" className="form-control form-pat" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-3">
+                        <div className="patient-text-br">DX MÉDICO</div>
+                        <div className="box">&ensp;</div>
+                       
+                        <br></br>
+                        <div className="patient-text-br">Albergue:</div>
+                        <div className="form-row">
+                            <div className="patient-text-br">Sí</div>
+                            <div className="form-group col-md-1">
+                                <input type="checkbox" className="form-control form-pat" />
+                            </div>
+                            &ensp;&ensp;
+                            <div className="patient-text-br">No</div>
+                            <div className="form-group col-md-1">
+                                <input type="checkbox" className="form-control form-pat" />
+                            </div>
+                        </div>
+                        <br></br>
+                        <div className="patient-text-br">Quimioterapia:</div>
+                        <div className="form-row">
+                            <div className="patient-text-br">Sí</div>
+                            <div className="form-group col-md-1">
+                                <input type="checkbox" className="form-control form-pat" />
+                            </div>
+                            &ensp;&ensp;
+                            <div className="patient-text-br">No</div>
+                            <div className="form-group col-md-1">
+                                <input type="checkbox" className="form-control form-pat" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
         </div>
 
         <p>{message}</p>
@@ -57,6 +121,8 @@ function Form() {
         >
             Formulario de Info General
         </div>
+
+
         <Collapse in={open}>
 
             <div id="info-collapse-text" className="info-text">

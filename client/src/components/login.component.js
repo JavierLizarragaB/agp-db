@@ -104,11 +104,11 @@ export const Login = () => {
                     </div>
                     <div className="col-lg-4">
                         <img className="ubi" src={loc} />
-                        <div className="text">Olivares, Luis Encinas, 83138 Hermosillo, Son</div>
+                        <div className="text-br">Olivares, Luis Encinas, 83138 Hermosillo, Son</div>
 
                         <img className="tel" src={tel} />
 
-                        <div className="text">
+                        <div className="text-br">
                             <span> TELÉFONO </span> 662 216 4883
                         </div>
                     </div>
