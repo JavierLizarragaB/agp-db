@@ -116,7 +116,11 @@ class FemaleSexualHealth(EmbeddedDocument):
     last_mammography = EmbeddedDocumentField(CancerTest, required=False, db_field="ultima_mamografia")
 
 class Skin(EmbeddedDocument):
-    color_changes = ListField(StringField(), required=False, db_field="cambios_coloracion")
+    ##Cambios coloracion
+    paleness = BooleanField(required=False, db_field="palidez")
+    icterus = BooleanField(required=False, db_field="ictericia")
+    cyanosis = BooleanField(required=False, db_field="cianosis")
+
     eruptions = BooleanField(required=False, db_field="erupciones")
     spots = BooleanField(required=False, db_field="manchas")
     pruritus = BooleanField(required=False, db_field="prurito")
@@ -127,12 +131,33 @@ class Skin(EmbeddedDocument):
     observations = StringField(required=False, db_field="observaciones")
 
 class OphthalmicSystem(EmbeddedDocument):
-    vision_changes = ListField(StringField(), required=False, db_field="cambios_vision")
-    uses_glasses = ListField(StringField(), required=False, db_field="uso_lentes")
+    ##Cambios vision
+    diplopia = BooleanField(required=False, db_field="diplopia")
+    eye_pain = BooleanField(required=False, db_field="dolor_ocular")
+    photophobia = BooleanField(required=False, db_field="fotofobia")
+    amaurosis = BooleanField(required=False, db_field="amaurosis")
+    photopsies = BooleanField(required=False, db_field="fotopsias")
+    myodesopsias = BooleanField(required=False, db_field="miodesopsias")
+    scotomas = BooleanField(required=False, db_field="scotomas")
+    hemeralopia = BooleanField(required=False, db_field="hemeralopia")
+    nyctalopia = BooleanField(required=False, db_field="nictalopia")
+
+    ##Uso de lentes
+    myopia = BooleanField(required=False, db_field="miopia")
+    astigmatism = BooleanField(required=False, db_field="astigmatismo")
+
     observations = StringField(required=False, db_field="observaciones")
 
 class EntSystem(EmbeddedDocument):
-    hearing_changes = ListField(StringField(), required=False, db_field="cambios_audicion")
+    ##Cambios en la audicion
+    otalgia = BooleanField(required=False, db_field="otalgia")
+    algiacusis = BooleanField(required=False, db_field="algiacusia")
+    presbycusis = BooleanField(required=False, db_field="presbiacusia")
+    anacusis = BooleanField(required=False, db_field="anacusia")
+    tinnitus = BooleanField(required=False, db_field="tinnitus")
+    ear_ringing = BooleanField(required=False, db_field="acufenos")
+    hearing_loss = BooleanField(required=False, db_field="hipoacusia")
+
     ear_pain = BooleanField(required=False, db_field="dolor_oido")
     vertigo = BooleanField(required=False, db_field="vertigo")
     fluid_leaking_ear = BooleanField(required=False, db_field="salida_liquido_oido")
@@ -141,10 +166,27 @@ class EntSystem(EmbeddedDocument):
     nose_pain = BooleanField(required=False, db_field="dolor_nariz")
 
 class MouthThroat(EmbeddedDocument):
-    teeth_conditions = ListField(StringField(), required=False, db_field="condiciones_dientes")
-    gum_conditions = ListField(StringField(), required=False, db_field="condiciones_encias")
-    tongue_conditions = ListField(StringField(), required=False, db_field="condiciones_lengua")
-    speaking_problems = StringField(required=False, db_field="problemas_hablar")
+    ##Dientes
+    cavities = BooleanField(required=False, db_field="caries")
+    dental_agenesis = BooleanField(required=False, db_field="agenesia_dental")
+    prothesis = BooleanField(required=False, db_field="protesis")
+
+    ##Encias
+    gingivorrhea = BooleanField(required=False, db_field="gingivorrea")
+    gingivorrhagia = BooleanField(required=False, db_field="gingivorragia")
+    pain = BooleanField(required=False, db_field="dolor")
+    ulcerations = BooleanField(required=False, db_field="ulcerations")
+
+    ##Lengua
+    colorations = BooleanField(required=False, db_field="coloraciones")
+    size = BooleanField(required=False, db_field="tamaño")
+    plaque_presence = BooleanField(required=False, db_field="presencia_placa")
+    ulcerations = BooleanField(required=False, db_field="ulcerations")
+
+    ##Problemas de hablar
+    dysphonia = BooleanField(required=False, db_field="disfonia")
+    aphonia = BooleanField(required=False, db_field="afonia")
+
     thirst = BooleanField(required=False, db_field="sed")
     speaking_eating_pain = BooleanField(required=False, db_field="dolor_comer_hablar")
     bad_breath = BooleanField(required=False, db_field="mal_aliento")
@@ -155,10 +197,37 @@ class DigestiveSystem(EmbeddedDocument):
     apettite_changes = BooleanField(required=False, db_field="cambio_apetito")
     sickness_vomit = BooleanField(required=False, db_field="nauseas_vomito")
     abdominal_distention = BooleanField(required=False, db_field="distension_abdominal")
-    esophagus_conditions = ListField(StringField(), required=False, db_field="condiciones_esofago")
-    evacuation_changes = ListField(StringField(), required=False, db_field="cambios_evacuaciones")
-    liver_bile_conditions = ListField(StringField(), required=False, db_field="condiciones_higado_biliares")
-    pancreas_conditions = ListField(StringField(), required=False, db_field="condiciones_pancreas")
+
+    ##Esofago
+    gastralgia = BooleanField(required=False, db_field="gastralgia")
+    acidity = BooleanField(required=False, db_field="acidez")
+    postrandial_fullnes = BooleanField(required=False, db_field="llenura_postprandial")
+
+    ##Cambios en evacuaciones
+    tenesmus = BooleanField(required=False, db_field="tenesmo")
+    bids = BooleanField(required=False, db_field="pujos")
+    encopresis = BooleanField(required=False, db_field="encopresis")
+    anal_pain = BooleanField(required=False, db_field="dolor_anal")
+    constipation = BooleanField(required=False, db_field="constipacion")
+    rectal_bleeding = BooleanField(required=False, db_field="rectorragia")
+    hematochezia = BooleanField(required=False, db_field="hematoquecia")
+
+    ##Higado y vias biliares
+    jaundice = BooleanField(required=False, db_field="ictericia")
+    pruritus = BooleanField(required=False, db_field="prurito")
+    fever = BooleanField(required=False, db_field="ulcerations")
+    ascites = BooleanField(required=False, db_field="ascitis")
+    biliary_colic = BooleanField(required=False, db_field="colico_biliar")
+    hepatic_colic = BooleanField(required=False, db_field="colico_epatitico")
+    acholia = BooleanField(required=False, db_field="acolia")
+
+    ##Pancreas
+    steatorrhea = BooleanField(required=False, db_field="esteatorrea")
+    diarrhea = BooleanField(required=False, db_field="diarrea")
+    hypersalivation = BooleanField(required=False, db_field="sialorrea")
+    abdominal_pain = BooleanField(required=False, db_field="dolor_abdomen")
+    back_pain = BooleanField(required=False, db_field="dolor_espalda")
+
     observations = StringField(required=False, db_field="observaciones")
 
 class RespiratoryApparatus(EmbeddedDocument):
@@ -468,8 +537,6 @@ class Patients(Document):
     sex = StringField(
         required=True, db_field="sexo")
     ##companions = ListField(EmbeddedDocumentField(), required=False, db_field="acompañante")
-    ##medical_forms = ListField(ReferenceField(MedicalForm, required=False, db_field="formularios_medicos"))
-    ##social_forms = ListField(ReferenceField(SocioeconomicForm, required=False, db_field="formularios_socioeconomicos"))
     
     def __str__(self):
         return f"Patient({self.name + ' ' + self.paternal_last_name})"

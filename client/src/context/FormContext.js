@@ -110,7 +110,12 @@ class FormContextProvider extends Component {
 
         /*apparatus_and_systems: apparatusAndSystems*/
         /*skin: skin,*/
-        skin_color_changes: "",
+
+        /*Cambios coloracion*/
+        skin_paleness: "",
+        skin_icterus: "",
+        skin_cyanosis: "",
+
         skin_eruptions: "",
         skin_spots: "",
         skin_pruritus: "",
@@ -121,12 +126,33 @@ class FormContextProvider extends Component {
         skin_observations: "",
 
         /*ophthalmic_system: ophthalmic_system,*/
-        ophthalmic_vision_changes: "",
-        ophthalmic_uses_glasses: "",
+        /*Cambios vision*/
+        ophthalmic_diplopia: "",
+        ophthalmic_eye_pain: "",
+        ophthalmic_photophobia: "",
+        ophthalmic_amaurosis: "",
+        ophthalmic_photopsies: "",
+        ophthalmic_myodesopsias: "",
+        ophthalmic_scotomas: "",
+        ophthalmic_hemeralopia: "",
+        ophthalmic_nyctalopia: "",
+
+        /*Uso de lentes*/
+        ophthalmic_myopia: "",
+        astigmatism: "",
+
         ophthalmic_observations: "",
 
         /*ent_system: ent_system,*/
-        ent_hearing_changes: "",
+        /*Cambios en la audicion*/
+        ent_otalgia: "",
+        ent_algiacusis: "",
+        ent_presbycusis: "",
+        ent_anacusis: "",
+        ent_tinnitus: "",
+        ent_ear_ringing: "",
+        ent_hearing_loss: "",
+
         ent_ear_pain: "",
         ent_vertigo: "",
         ent_fluid_leaking_ear: "",
@@ -135,10 +161,27 @@ class FormContextProvider extends Component {
         ent_nose_pain: "",
 
         /*mouth_throat: mouth_throat,*/
-        mouth_throat_teeth_conditions: "",
-        mouth_throat_gum_conditions: "",
-        mouth_throat_tongue_conditions: "",
-        mouth_throat_speaking_problems: "",
+        /*Dientes*/
+        mouth_throat_cavities: "",
+        mouth_throat_dental_agenesis: "",
+        mouth_throat_prothesis: "",
+
+        /*Encias */
+        mouth_throat_gingivorrhea: "",
+        mouth_throat_gingivorrhagia: "",
+        mouth_throat_pain: "",
+        mouth_throat_ulcerations: "",
+
+        /*Lengua*/
+        mouth_throat_colorations: "",
+        mouth_throat_size: "",
+        mouth_throat_plaque_presence: "",
+        mouth_throat_ulcerations: "",
+
+        /*Problemas de hablar*/
+        mouth_throat_dysphonia: "",
+        mouth_throat_aphonia: "",
+
         mouth_throat_thirst: "",
         mouth_throat_speaking_eating_pain: "",
         mouth_throat_bad_breath: "",
@@ -149,10 +192,37 @@ class FormContextProvider extends Component {
         digestive_apettite_changes: "",
         digestive_sickness_vomit: "",
         digestive_abdominal_distention: "",
-        digestive_esophagus_conditions: "",
-        digestive_evacuation_changes: "",
-        digestive_liver_bile_conditions: "",
-        digestive_pancreas_conditions: "",
+
+        /*Esofago*/
+        digestive_abdominal_gastralgia: "",
+        digestive_abdominal_acidity: "",
+        digestive_abdominal_postrandial_fullnes: "",
+
+        /*Cambios de evacuacion*/
+        digestive_abdominal_enesmus: "",
+        digestive_abdominal_bids: "",
+        digestive_abdominal_encopresis: "",
+        digestive_abdominal_anal_pain: "",
+        digestive_abdominal_constipation: "",
+        digestive_abdominal_rectal_bleeding: "",
+        digestive_abdominal_hematochezia: "",
+
+        /*Higado y vias biliares*/
+        digestive_abdominal_jaundice: "",
+        digestive_abdominal_pruritus: "",
+        digestive_abdominal_fever: "",
+        digestive_abdominal_ascites: "",
+        digestive_abdominal_biliary_colic: "",
+        digestive_abdominal_hepatic_colic: "",
+        digestive_abdominal_acholia: "",
+
+        /*Pancreas*/
+        digestive_abdominal_steatorrhea: "",
+        digestive_abdominal_diarrhea: "",
+        digestive_abdominal_hypersalivation: "",
+        digestive_abdominal_abdominal_pain: "",
+        digestive_abdominal_back_pain: "",
+
         digestive_observations: "",
 
         /*respiratory_apparatus: respiratory_apparatus,*/
