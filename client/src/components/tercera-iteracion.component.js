@@ -432,7 +432,7 @@ class TerceraIteracion extends Component {
 
                     <i><div>ESÓFAGO</div></i><br></br>
                     <div className="form-row">
-                        <div className="form-group col-md-4">GASTRALCIA</div>
+                        <div className="form-group col-md-4">GASTRALGIA</div>
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="inputCN" />
                         </div>
@@ -497,7 +497,7 @@ class TerceraIteracion extends Component {
                     
                     <i><div>HÍGADO Y VÍAS BILIARES</div></i><br></br>
                     <div className="form-row">
-                        <div className="form-group col-md-4">ICTERCIA</div>
+                        <div className="form-group col-md-4">ICTERICIA</div>
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="inputCN" />
                         </div>
