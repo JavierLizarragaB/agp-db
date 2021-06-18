@@ -2,6 +2,8 @@ import React, { Component, useState } from "react";
 import { Button, Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import {FormContext} from '../context/FormContext';
+
 class SeptimaIteracion extends Component {
     constructor(){
         super();
@@ -12,6 +14,8 @@ class SeptimaIteracion extends Component {
         };
     }
     render() {
+        const mycontext = this.context;
+
         return (
             <>
                 <div
@@ -29,7 +33,9 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">¿Cuántas veces a la semana se baña?</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="1" />
+                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                    mycontext.updateHygienePassPhysAct("shower_frequency",e.target.value);
+                                }} ></textarea>
                             </div>
                         </div>
                         <br />
@@ -38,7 +44,9 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">¿Cuántas veces se cepilla los dientes?</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="1" />
+                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                    mycontext.updateHygienePassPhysAct("toothbrushing_frequency",e.target.value);
+                                }} ></textarea>
                             </div>
                         </div>
                         <br />
@@ -47,7 +55,9 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">Higiene del Hogar:</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="4" />
+                                <textarea className="form-control form-pat" rows="4" onChange={(e) => {
+                                    mycontext.updateHygienePassPhysAct("home_hygiene",e.target.value);
+                                }} ></textarea>
                             </div>
                         </div>
                         <br />
@@ -67,7 +77,9 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">Actividad Física</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="6" />
+                                <textarea className="form-control form-pat" rows="6" onChange={(e) => {
+                                    mycontext.updateHygienePassPhysAct("phys_activity",e.target.value);
+                                }} ></textarea>
                             </div>
                         </div>
                         <br />
@@ -87,7 +99,9 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">Pasatiempo</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="6" />
+                                <textarea className="form-control form-pat" rows="6" onChange={(e) => {
+                                    mycontext.updateHygienePassPhysAct("passtime",e.target.value);
+                                }} ></textarea>
                             </div>
                         </div>
                     </div>
@@ -96,5 +110,7 @@ class SeptimaIteracion extends Component {
         )
     }
 }
+
+SeptimaIteracion.contextType = FormContext;
 
 export default SeptimaIteracion;

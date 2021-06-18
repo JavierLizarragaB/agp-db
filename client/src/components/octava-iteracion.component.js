@@ -2,8 +2,12 @@ import React, { Component, useState } from "react";
 import { Button, Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import {FormContext} from '../context/FormContext';
+
 class OctavaIteracion extends Component {
     render() {
+        const mycontext = this.context;
+
         return (
             <>
                 <div className="form-row col-md-12">
@@ -51,7 +55,9 @@ class OctavaIteracion extends Component {
                     <div className="col-md-6" />
                     <div className="col-md-2">¿De qué tipo?</div>
                     <div className="form-group col-md-2">
-                        <textarea className="form-control form-pat" rows="1" />
+                        <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                            mycontext.updateOthers("notes_support_background",e.target.value);
+                        }} ></textarea>
                     </div>
                 </div>
                 <br />
@@ -59,7 +65,9 @@ class OctavaIteracion extends Component {
                 <div className="form-row col-md-12">
                     <div className="form-text col-md-4">Observaciones:</div>
                     <div className="form-group col-md-8">
-                        <textarea className="form-control form-pat" rows="4" />
+                        <textarea className="form-control form-pat" rows="4" onChange={(e) => {
+                            mycontext.updateOthers("observations",e.target.value);
+                        }} ></textarea>
                     </div>
                 </div>
                 <br />
@@ -67,7 +75,9 @@ class OctavaIteracion extends Component {
                 <div className="form-row col-md-12">
                     <div className="form-text col-md-4">Plan Social:</div>
                     <div className="form-group col-md-8">
-                        <textarea className="form-control form-pat" rows="4" />
+                        <textarea className="form-control form-pat" rows="4" onChange={(e) => {
+                            mycontext.updateOthers("social_plan",e.target.value);
+                        }} ></textarea>
                     </div>
                 </div>
                 <br />
@@ -107,7 +117,9 @@ class OctavaIteracion extends Component {
                 <div className="form-row col-md-12">
                     <div className="form-text col-md-4">Trabajador Social:</div>
                     <div className="form group col-md-8">
-                        <textarea className="form-control form-pat" rows="1" />
+                        <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                            mycontext.updateOthers("social_worker",e.target.value);
+                        }} ></textarea>
                     </div>
                 </div>
                 <br />
@@ -116,7 +128,9 @@ class OctavaIteracion extends Component {
                 <div className="form-row col-md-12">
                     <div className="form-text col-md-4">Animales Dentro o Fuera de la Casa:</div>
                     <div className="form group col-md-4">
-                        <textarea className="form-control form-pat" rows="1" />
+                        <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                            mycontext.updateOthers("animals",e.target.value);
+                        }} ></textarea>
                     </div>
                 </div>
                 <br />
@@ -142,12 +156,16 @@ class OctavaIteracion extends Component {
                 <div className="form-row col-md-12">
                     <div className="col-md-4 form-text">Cartilla de Vacunación:</div>
                     <div className="form-group col-md-8">
-                        <textarea className="form-control form-pat" rows="5" />
+                        <textarea className="form-control form-pat" rows="5" onChange={(e) => {
+                            mycontext.updateOthers("vaccination_card",e.target.value);
+                        }} ></textarea>
                     </div>
                 </div>
             </>
         )
     }
 }
+
+OctavaIteracion.contextType = FormContext;
 
 export default OctavaIteracion;
