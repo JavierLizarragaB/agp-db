@@ -9,379 +9,379 @@ class FormContextProvider extends Component {
 
     patientData = {
 
-        birth_state: "",
-        birth_city: "",
+        birth_state: null,
+        birth_city: null,
 
         /*permanent_address: permanent_address,*/
-        permanent_street: "",
-        permanent_num: "", 
-        permanent_suburb: "",
-        permanent_locality: "", 
-        permanent_municipality: "",
-        permanent_zip_code: "",
-        permanent_phone: "",
-        permanent_phone2: "",
+        permanent_street: null,
+        permanent_num: null, 
+        permanent_suburb: null,
+        permanent_locality: null, 
+        permanent_municipality: null,
+        permanent_zip_code: null,
+        permanent_phone: null,
+        permanent_phone2: null,
 
-        email: "",
-        income: "",
-        medical_service: "",
-        scholarship: "",
-        ocupation: "",
-        religion: "",
-        civil_state: "",
+        email: null,
+        income: null,
+        medical_service: null,
+        scholarship: null,
+        ocupation: null,
+        religion: null,
+        civil_state: null,
 
-        clinic_record_date: "",
+        clinic_record_date: null,
 
         /*temp_address: temp_address,*/
-        temp_street: "",
-        temp_num: "", 
-        temp_suburb: "",
-        temp_locality: "", 
-        temp_municipality: "",
-        temp_zip_code: "",
-        temp_phone: "",
-        temp_phone2: "",
+        temp_street: null,
+        temp_num: null, 
+        temp_suburb: null,
+        temp_locality: null, 
+        temp_municipality: null,
+        temp_zip_code: null,
+        temp_phone: null,
+        temp_phone2: null,
 
         /*responsable_family_member: responsable_family_member,*/
-        responsable_name: "",
+        responsable_name: null,
 
-        responsable_street: "",
-        responsable_num: "", 
-        responsable_suburb: "",
-        responsable_locality: "", 
-        responsable_municipality: "",
-        responsable_zip_code: "",
-        responsable_phone: "",
-        responsable_phone2: "",
+        responsable_street: null,
+        responsable_num: null, 
+        responsable_suburb: null,
+        responsable_locality: null, 
+        responsable_municipality: null,
+        responsable_zip_code: null,
+        responsable_phone: null,
+        responsable_phone2: null,
 
-        responsable_relationship: "",
+        responsable_relationship: null,
 
         /*personal_pathological_history: personalPathologicalHistory,*/
-        chronic_degenerative_diseases: "",
-        infectious_contagious_diseases: "",
-        surgeries: "",
-        surgeries_notes: "",
-        jail: "",
-        jail_notes: "",
-        blood_transfusions: "",
-        blood_transfusions_notes: "",
-        allergies: "",
-        allergies_notes: "",
-        trauma: "",
-        trauma_notes: "",
-        alcoholism: "",
-        alcoholism_notes: "",
-        smoking: "",
-        smoking_notes: "",
-        drug_addictions: "",
-        drug_addictions_notes: "",
+        chronic_degenerative_diseases: null,
+        infectious_contagious_diseases: null,
+        surgeries: null,
+        surgeries_notes: null,
+        jail: null,
+        jail_notes: null,
+        blood_transfusions: null,
+        blood_transfusions_notes: null,
+        allergies: null,
+        allergies_notes: null,
+        trauma: null,
+        trauma_notes: null,
+        alcoholism: null,
+        alcoholism_notes: null,
+        smoking: null,
+        smoking_notes: null,
+        drug_addictions: null,
+        drug_addictions_notes: null,
 
         /*male_sexual_health: male_sexual_health,*/
-        male_start_sexual_life: "",
-        male_sexual_partners: "",
-        male_std: "",
-        male_contraceptive_methods: "",
+        male_start_sexual_life: null,
+        male_sexual_partners: null,
+        male_std: null,
+        male_contraceptive_methods: null,
 
         /*female_sexual_health: female_sexual_health,*/
-        female_menarche: "",
-        female_menarche_age: "",
-        female_rhythm: "",
-        female_start_sexual_life: "",
-        female_high_risk_partners: "",
-        female_sexual_partners: "",
-        female_std: "",
-        female_std_notes: "",
-        female_gestations: "",
-        female_deliveries: "",
-        female_abortions: "",
-        female_date_last_delivery: "",
-        female_age_first_pregnancy: "",
-        female_family_planning_methods: "",
-        female_date_last_menstruation: "",
-        female_menopause: "",
-        female_hormonal_therapy: "",
-        female_breastfeeding: "",
-        female_last_pap_smear: "",
-        female_last_pap_smear_result: "",
-        female_last_hybrid_test: "",
-        female_last_hybrid_test_resutl: "",
-        female_last_mammography: "",
-        female_last_mammography_result: "",
+        female_menarche: null,
+        female_menarche_age: null,
+        female_rhythm: null,
+        female_start_sexual_life: null,
+        female_high_risk_partners: null,
+        female_sexual_partners: null,
+        female_std: null,
+        female_std_notes: null,
+        female_gestations: null,
+        female_deliveries: null,
+        female_abortions: null,
+        female_date_last_delivery: null,
+        female_age_first_pregnancy: null,
+        female_family_planning_methods: null,
+        female_date_last_menstruation: null,
+        female_menopause: null,
+        female_hormonal_therapy: null,
+        female_breastfeeding: null,
+        female_last_pap_smear: null,
+        female_last_pap_smear_result: null,
+        female_last_hybrid_test: null,
+        female_last_hybrid_test_resutl: null,
+        female_last_mammography: null,
+        female_last_mammography_result: null,
 
         /*apparatus_and_systems: apparatusAndSystems*/
         /*skin: skin,*/
 
         /*Cambios coloracion*/
-        skin_paleness: "",
-        skin_icterus: "",
-        skin_cyanosis: "",
+        skin_paleness: null,
+        skin_icterus: null,
+        skin_cyanosis: null,
 
-        skin_eruptions: "",
-        skin_spots: "",
-        skin_pruritus: "",
-        skin_dryness: "",
-        skin_volume_increase: "",
-        skin_nails_hair: "",
-        skin_nodules: "",
-        skin_observations: "",
+        skin_eruptions: null,
+        skin_spots: null,
+        skin_pruritus: null,
+        skin_dryness: null,
+        skin_volume_increase: null,
+        skin_nails_hair: null,
+        skin_nodules: null,
+        skin_observations: null,
 
         /*ophthalmic_system: ophthalmic_system,*/
         /*Cambios vision*/
-        ophthalmic_diplopia: "",
-        ophthalmic_eye_pain: "",
-        ophthalmic_photophobia: "",
-        ophthalmic_amaurosis: "",
-        ophthalmic_photopsies: "",
-        ophthalmic_myodesopsias: "",
-        ophthalmic_scotomas: "",
-        ophthalmic_hemeralopia: "",
-        ophthalmic_nyctalopia: "",
+        ophthalmic_diplopia: null,
+        ophthalmic_eye_pain: null,
+        ophthalmic_photophobia: null,
+        ophthalmic_amaurosis: null,
+        ophthalmic_photopsies: null,
+        ophthalmic_myodesopsias: null,
+        ophthalmic_scotomas: null,
+        ophthalmic_hemeralopia: null,
+        ophthalmic_nyctalopia: null,
 
         /*Uso de lentes*/
-        ophthalmic_myopia: "",
-        astigmatism: "",
+        ophthalmic_myopia: null,
+        astigmatism: null,
 
-        ophthalmic_observations: "",
+        ophthalmic_observations: null,
 
         /*ent_system: ent_system,*/
         /*Cambios en la audicion*/
-        ent_otalgia: "",
-        ent_algiacusis: "",
-        ent_presbycusis: "",
-        ent_anacusis: "",
-        ent_tinnitus: "",
-        ent_ear_ringing: "",
-        ent_hearing_loss: "",
+        ent_otalgia: null,
+        ent_algiacusis: null,
+        ent_presbycusis: null,
+        ent_anacusis: null,
+        ent_tinnitus: null,
+        ent_ear_ringing: null,
+        ent_hearing_loss: null,
 
-        ent_ear_pain: "",
-        ent_vertigo: "",
-        ent_fluid_leaking_ear: "",
-        ent_smelling_changes: "",
-        ent_fluid_leaking_nose: "",
-        ent_nose_pain: "",
+        ent_ear_pain: null,
+        ent_vertigo: null,
+        ent_fluid_leaking_ear: null,
+        ent_smelling_changes: null,
+        ent_fluid_leaking_nose: null,
+        ent_nose_pain: null,
 
         /*mouth_throat: mouth_throat,*/
         /*Dientes*/
-        mouth_throat_cavities: "",
-        mouth_throat_dental_agenesis: "",
-        mouth_throat_prothesis: "",
+        mouth_throat_cavities: null,
+        mouth_throat_dental_agenesis: null,
+        mouth_throat_prothesis: null,
 
         /*Encias */
-        mouth_throat_gingivorrhea: "",
-        mouth_throat_gingivorrhagia: "",
-        mouth_throat_pain: "",
-        mouth_throat_ulcerations: "",
+        mouth_throat_gingivorrhea: null,
+        mouth_throat_gingivorrhagia: null,
+        mouth_throat_pain: null,
+        mouth_throat_ulcerations: null,
 
         /*Lengua*/
-        mouth_throat_colorations: "",
-        mouth_throat_size: "",
-        mouth_throat_plaque_presence: "",
-        mouth_throat_ulcerations: "",
+        mouth_throat_colorations: null,
+        mouth_throat_size: null,
+        mouth_throat_plaque_presence: null,
+        mouth_throat_ulcerations: null,
 
         /*Problemas de hablar*/
-        mouth_throat_dysphonia: "",
-        mouth_throat_aphonia: "",
+        mouth_throat_dysphonia: null,
+        mouth_throat_aphonia: null,
 
-        mouth_throat_thirst: "",
-        mouth_throat_speaking_eating_pain: "",
-        mouth_throat_bad_breath: "",
-        mouth_throat_excess_salivation: "",
-        mouth_throat_observations: "",
+        mouth_throat_thirst: null,
+        mouth_throat_speaking_eating_pain: null,
+        mouth_throat_bad_breath: null,
+        mouth_throat_excess_salivation: null,
+        mouth_throat_observations: null,
 
         /*digestive_system: digestive_system,*/
-        digestive_apettite_changes: "",
-        digestive_sickness_vomit: "",
-        digestive_abdominal_distention: "",
+        digestive_apettite_changes: null,
+        digestive_sickness_vomit: null,
+        digestive_abdominal_distention: null,
 
         /*Esofago*/
-        digestive_abdominal_gastralgia: "",
-        digestive_abdominal_acidity: "",
-        digestive_abdominal_postrandial_fullnes: "",
+        digestive_abdominal_gastralgia: null,
+        digestive_abdominal_acidity: null,
+        digestive_abdominal_postrandial_fullnes: null,
 
         /*Cambios de evacuacion*/
-        digestive_abdominal_enesmus: "",
-        digestive_abdominal_bids: "",
-        digestive_abdominal_encopresis: "",
-        digestive_abdominal_anal_pain: "",
-        digestive_abdominal_constipation: "",
-        digestive_abdominal_rectal_bleeding: "",
-        digestive_abdominal_hematochezia: "",
+        digestive_abdominal_enesmus: null,
+        digestive_abdominal_bids: null,
+        digestive_abdominal_encopresis: null,
+        digestive_abdominal_anal_pain: null,
+        digestive_abdominal_constipation: null,
+        digestive_abdominal_rectal_bleeding: null,
+        digestive_abdominal_hematochezia: null,
 
         /*Higado y vias biliares*/
-        digestive_abdominal_jaundice: "",
-        digestive_abdominal_pruritus: "",
-        digestive_abdominal_fever: "",
-        digestive_abdominal_ascites: "",
-        digestive_abdominal_biliary_colic: "",
-        digestive_abdominal_hepatic_colic: "",
-        digestive_abdominal_acholia: "",
+        digestive_abdominal_jaundice: null,
+        digestive_abdominal_pruritus: null,
+        digestive_abdominal_fever: null,
+        digestive_abdominal_ascites: null,
+        digestive_abdominal_biliary_colic: null,
+        digestive_abdominal_hepatic_colic: null,
+        digestive_abdominal_acholia: null,
 
         /*Pancreas*/
-        digestive_abdominal_steatorrhea: "",
-        digestive_abdominal_diarrhea: "",
-        digestive_abdominal_hypersalivation: "",
-        digestive_abdominal_abdominal_pain: "",
-        digestive_abdominal_back_pain: "",
+        digestive_abdominal_steatorrhea: null,
+        digestive_abdominal_diarrhea: null,
+        digestive_abdominal_hypersalivation: null,
+        digestive_abdominal_abdominal_pain: null,
+        digestive_abdominal_back_pain: null,
 
-        digestive_observations: "",
+        digestive_observations: null,
 
         /*respiratory_apparatus: respiratory_apparatus,*/
-        respiratory_cough: "",
-        respiratory_chest_pain: "",
-        respiratory_hemoptysis: "",
-        respiratory_vomiting_cough: "",
-        respiratory_cyanosis: "",
-        respiratory_fatigue: "",
-        respiratory_breathing_problems: "",
-        respiratory_breathing_changes: "",
-        respiratory_observations: "",
+        respiratory_cough: null,
+        respiratory_chest_pain: null,
+        respiratory_hemoptysis: null,
+        respiratory_vomiting_cough: null,
+        respiratory_cyanosis: null,
+        respiratory_fatigue: null,
+        respiratory_breathing_problems: null,
+        respiratory_breathing_changes: null,
+        respiratory_observations: null,
 
         /*cardiovascular_apparatus: cardiovascular_apparatus,*/
-        cardiovascular_dyspnoea: "",
-        cardiovascular_orthopnea: "",
-        cardiovascular_lipothymia: "",
-        cardiovascular_syncope: "",
-        cardiovascular_edema: "",
-        cardiovascular_cyanosis: "",
-        cardiovascular_chest_pain: "",
-        cardiovascular_palpitations: "",
-        cardiovascular_observations: "",
+        cardiovascular_dyspnoea: null,
+        cardiovascular_orthopnea: null,
+        cardiovascular_lipothymia: null,
+        cardiovascular_syncope: null,
+        cardiovascular_edema: null,
+        cardiovascular_cyanosis: null,
+        cardiovascular_chest_pain: null,
+        cardiovascular_palpitations: null,
+        cardiovascular_observations: null,
 
         /*genitourinary_system: genitourinary_system,*/
-        genitourinary_urinating_changes: "",
-        genitourinary_urinating_pain: "",
-        genitourinary_jet_changes: "",
-        genitourinary_menstruation_changes: "",
-        genitourinary_dyspareunia: "",
-        genitourinary_libido_changes: "",
-        genitourinary_observations: "",
+        genitourinary_urinating_changes: null,
+        genitourinary_urinating_pain: null,
+        genitourinary_jet_changes: null,
+        genitourinary_menstruation_changes: null,
+        genitourinary_dyspareunia: null,
+        genitourinary_libido_changes: null,
+        genitourinary_observations: null,
 
         /*musculoskeletal_system: musculoskeletal_system,*/
-        musculoskeletal_muscle_pain: "",
-        musculoskeletal_joint_pain: "",
-        musculoskeletal_joint_stiffness: "",
-        musculoskeletal_nodules: "",
-        musculoskeletal_bone_pain: "",
-        musculoskeletal_ambulation_changes: "",
-        musculoskeletal_observations: "",
+        musculoskeletal_muscle_pain: null,
+        musculoskeletal_joint_pain: null,
+        musculoskeletal_joint_stiffness: null,
+        musculoskeletal_nodules: null,
+        musculoskeletal_bone_pain: null,
+        musculoskeletal_ambulation_changes: null,
+        musculoskeletal_observations: null,
 
         /*hematological_system: hematological_system,*/
-        hematological_weakness: "",
-        hematological_color_changes: "",
-        hematological_bleeding: "",
-        hematological_petechiae: "",
-        hematological_ecchymosis: "",
-        hematological_bruises: "",
-        hematological_lymphadenopathy: "",
-        hematological_observations: "",
+        hematological_weakness: null,
+        hematological_color_changes: null,
+        hematological_bleeding: null,
+        hematological_petechiae: null,
+        hematological_ecchymosis: null,
+        hematological_bruises: null,
+        hematological_lymphadenopathy: null,
+        hematological_observations: null,
 
         /*nervous_system: nervous_system,*/
-        nervous_headache: "",
-        nervous_seizures: "",
-        nervous_memory_changes: "",
-        nervous_sphincters_changes: "",
-        nervous_loss_of_feeling: "",
-        nervous_loss_of_movement: "",
-        nervous_loss_of_balance: "",
-        nervous_language_disorders: "",
-        nervous_gait_changes: "",
-        nervous_tremors: "",
-        nervous_paralysis: "",
-        nervous_parasthesia: "",
-        nervous_paresis: "",
-        nervous_observations: "",
+        nervous_headache: null,
+        nervous_seizures: null,
+        nervous_memory_changes: null,
+        nervous_sphincters_changes: null,
+        nervous_loss_of_feeling: null,
+        nervous_loss_of_movement: null,
+        nervous_loss_of_balance: null,
+        nervous_language_disorders: null,
+        nervous_gait_changes: null,
+        nervous_tremors: null,
+        nervous_paralysis: null,
+        nervous_parasthesia: null,
+        nervous_paresis: null,
+        nervous_observations: null,
 
         /*psychic_system: psychic_system,*/
-        psychic_distress: "",
-        psychic_depression: "",
-        psychic_interest_changes: "",
-        psychic_guilt: "",
-        psychic_suicidal_thoughts: "",
-        psychic_hallucinations: "",
-        psychic_delirium: "",
-        psychic_observations: "",
+        psychic_distress: null,
+        psychic_depression: null,
+        psychic_interest_changes: null,
+        psychic_guilt: null,
+        psychic_suicidal_thoughts: null,
+        psychic_hallucinations: null,
+        psychic_delirium: null,
+        psychic_observations: null,
 
-        physical_observations: "",
+        physical_observations: null,
 
         /*follow_up: follow_up*/
-        follow_up_treatment_changes: "",
-        follow_up_treatment_changes_notes: "",
-        follow_up_actual_symptoms: "",
-        follow_up_last_medication_efects: "",
-        follow_up_psychology_follow_up: "",
-        follow_up_actual_diagnostic: ""
+        follow_up_treatment_changes: null,
+        follow_up_treatment_changes_notes: null,
+        follow_up_actual_symptoms: null,
+        follow_up_last_medication_efects: null,
+        follow_up_psychology_follow_up: null,
+        follow_up_actual_diagnostic: null
 
     }
 
     generalInfo = {
 
-        name: "",
-        age: "",
-        sex: "",
-        civil_state: "",
-        birth_date: ""
+        name: null,
+        age: null,
+        sex: null,
+        civil_state: null,
+        birth_date: null
 
     }
 
     familyData = {
-        family_member_name: "",
-        family_member_age: "",
-        family_member_relationship: "",
-        family_member_civil_state: "",
-        family_member_occupation: "",
-        family_member_income: "",
+        family_member_name: null,
+        family_member_age: null,
+        family_member_relationship: null,
+        family_member_civil_state: null,
+        family_member_occupation: null,
+        family_member_income: null,
 
-        relationship: "",
-        living: "",
-        diseases: "",
-        cause_of_death: "",
+        relationship: null,
+        living: null,
+        diseases: null,
+        cause_of_death: null,
 
-        number_sicks: "",
+        number_sicks: null,
 
-        household_member_substance: "",
-        substaance_consumed: "",
-        consuming_member: "",
-        consuming_frequency: ""
+        household_member_substance: null,
+        substaance_consumed: null,
+        consuming_member: null,
+        consuming_frequency: null
     }
 
     homeAndEconomy = {
-        place_type: "",
-        place_services: "",
-        place_material: "",
-        place_distribution: "",
-        place_person_per_room: "",
-        place_location: "",
-        place_exposition: "",
+        place_type: null,
+        place_services: null,
+        place_material: null,
+        place_distribution: null,
+        place_person_per_room: null,
+        place_location: null,
+        place_exposition: null,
 
-        electrodomestics: "",
-        air_conditioner: "",
+        electrodomestics: null,
+        air_conditioner: null,
 
-        transportation: "",
-        car_brand: "",
-        car_model: "",
+        transportation: null,
+        car_brand: null,
+        car_model: null,
 
-        geographic_area: "",
+        geographic_area: null,
 
-        sick_members: "",
+        sick_members: null,
 
-        outcome_electric_power: "",
-        outcome_water: "",
-        outcome_gas: "",
-        outcome_phone: "",
-        outcome_food: "",
-        outcome_rent: "",
-        outcome_transportation: "",
-        outcome_education: "",
-        outcome_clothing: "",
-        outcome_recreational: "",
-        outcome_other: ""
+        outcome_electric_power: null,
+        outcome_water: null,
+        outcome_gas: null,
+        outcome_phone: null,
+        outcome_food: null,
+        outcome_rent: null,
+        outcome_transportation: null,
+        outcome_education: null,
+        outcome_clothing: null,
+        outcome_recreational: null,
+        outcome_other: null
     }    
 
     diet = {
-        perceived_quality: "",
-        meals_per_day: "",
-        food_preparation: "",
-        water_per_day: "",
+        perceived_quality: null,
+        meals_per_day: null,
+        food_preparation: null,
+        water_per_day: null,
         red_meat_week: null,
         red_meat_month: null,
         chicken_week: null,
@@ -401,26 +401,26 @@ class FormContextProvider extends Component {
     }
 
     hygienePassPhysAct = {
-        shower_frequency: "",
-        toothbrushing_frequency: "",
-        home_hygiene: "",
-        phys_activity: "",
-        passtime: "",
+        shower_frequency: null,
+        toothbrushing_frequency: null,
+        home_hygiene: null,
+        phys_activity: null,
+        passtime: null,
     }
 
     others = {
-        how_found_out: "",
+        how_found_out: null,
         has_support_background: null,
-        notes_support_background: "",
-        observations: "",
-        social_plan: "",
-        socioeconomic_class: "",
-        social_worker: "",
-        animals: "",
+        notes_support_background: null,
+        observations: null,
+        social_plan: null,
+        socioeconomic_class: null,
+        social_worker: null,
+        animals: null,
         vaccinated_animals: null,
         ticks_animals: null,
         diseases_animals: null,
-        vaccination_card: "",
+        vaccination_card: null,
     }
 
     state = {
@@ -473,16 +473,6 @@ class FormContextProvider extends Component {
         })
     }
 
-    updateDiet = (key,value) => {
-        this.setState({
-            ...this.state,
-            diet: {
-                ...this.state.diet,
-                [key]: value
-            }
-        })
-    }
-
     updateHygienePassPhysAct = (key,value) => {
         this.setState({
             ...this.state,
@@ -503,16 +493,49 @@ class FormContextProvider extends Component {
         })
     }
 
+    // Function to handle checkbox validation
+    handleCheckboxGroup = (name,id,key,subkey) => {
+        console.log("Calling cb handler for group:",name);
+        var elements = document.getElementsByName(name);
+
+        // Uncheck all the rest
+        for(var i = 0; i < elements.length; i++){
+            if (elements[i].id === id) {
+                if(elements[i].checked){
+                    this.updateFormState(key,subkey,elements[i].value);
+                }
+                else{
+                    this.updateFormState(key,subkey,null);
+                }
+            }
+            else{
+                elements[i].checked = false;
+            }
+        }
+
+    }
+
+    updateFormState = (key,subkey,value) => {
+        this.setState({
+            ...this.state,
+            [key]: {
+                ...this.state[key],
+                [subkey]: value
+            }
+        })
+    }
+
     render(){
         const contextValue = {
             formState:this.state,
+            updateFormState:this.updateFormState,
             updateGeneralInfo:this.updateGeneralInfo,
             updatePatientData: this.updatePatientData,
             updateFamilyData: this.updateFamilyData,
             updateHomeAndEconomy: this.updateHomeAndEconomy,
-            updateDiet:this.updateDiet,
             updateHygienePassPhysAct:this.updateHygienePassPhysAct,
-            updateOthers:this.updateOthers
+            updateOthers:this.updateOthers,
+            handleCheckboxGroup:this.handleCheckboxGroup
         }
         return(
             <FormContext.Provider value={contextValue}>
