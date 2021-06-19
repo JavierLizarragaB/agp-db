@@ -13,6 +13,7 @@ import UserProvider, { Example as UserCtxExample } from './context/UserProvider'
 import Carrusel from './components/carrusel.component';
 import PagInicio from './components/Inicio/inicio';
 import DirectorioPaciente from './components/directorio.component';
+import ProtectedRoute from './constants/protectedRoutes';
 
 import FormContextProvider from './context/FormContext';
 
@@ -26,13 +27,13 @@ function App() {
                         <Switch>
                             <Route exact path="/" component={Login} />
                             <Route path="/log-in" component={Login} />
-                            <Route path="/user-panel" component={UserPanel} />
-                            <Route path="/datos-paciente" component={Form} />
-                            <Route path="/directorio-paciente" component={DirectorioPaciente} />
-                            <Route path="/inicio" component={Inicio} />
-                            <Route path="/carrusel" component={Carrusel} />
-                            <Route path="/test/user-ctx" component={UserCtxExample} />
-                            <Route path="/pag-inicio" component={PagInicio} />
+                            <ProtectedRoute path="/user-panel" component={UserPanel} isAuth={true}/>
+                            <ProtectedRoute path="/datos-paciente" component={Form} isAuth={true}/>
+                            <ProtectedRoute path="/directorio-paciente" component={DirectorioPaciente} isAuth={true}/>
+                            <ProtectedRoute path="/inicio" component={Inicio} isAuth={true}/>
+                            <ProtectedRoute path="/carrusel" component={Carrusel} isAuth={true}/>
+                            <ProtectedRoute path="/test/user-ctx" component={UserCtxExample} isAuth={true}/>
+                            <ProtectedRoute path="/pag-inicio" component={PagInicio} isAuth={true}/>
                         </Switch>
                     </div>
                 </div>
