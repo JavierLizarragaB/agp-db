@@ -2,7 +2,7 @@ from flask import request, jsonify, current_app
 from datetime import datetime
 
 from . import api
-from ..models import Address, Background, Patients, SocioeconomicForm, User, ResponsableFamilyMember, FamilyDataForm, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
+from ..models import Address, Background, Patients, SocioeconomicForm, User, ResponsableFamilyMember, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
 
 
 
@@ -177,7 +177,92 @@ def send_forms():
                 responsable_relationship=json.get("parentesco_responsable")
             ),
 
+            # Family Data
+            family_data = FamilyDataForm(
+                family_structure = FamilyStructure(
+                    first_member_name = json.get("family_data.primer_nombre_familiar"),
+                    first_member_age = json.get("family_data.primera_edad_familiar"),
+                    first_member_relationship = json.get("family_data.primer_parentesco_familiar"),
+                    first_member_civil_state = json.get("family_data.primer_estado_civil_familiar"),
+                    first_member_ocupation = json.get("family_data.primer_ocupacion_familiar"),
+                    first_member_income = json.get("family_data.primer_ingreso_familiar"),
 
+                    second_member_name = json.get("family_data.segundo_nombre_familiar"),
+                    second_member_age = json.get("family_data.segunda_edad_familiar"),
+                    second_member_relationship = json.get("family_data.segundo_parentesco_familiar"),
+                    second_member_civil_state = json.get("family_data.segundo_estado_civil_familiar"),
+                    second_member_ocupation = json.get("family_data.segundo_ocupacion_familiar"),
+                    second_member_income = json.get("family_data.segundo_ingreso_familiar"),
+
+                    third_member_name = json.get("family_data.tercer_nombre_familiar"),
+                    third_member_age = json.get("family_data.tercera_edad_familiar"),
+                    third_member_relationship = json.get("family_data.tercer_parentesco_familiar"),
+                    third_member_civil_state = json.get("family_data.tercer_estado_civil_familiar"),
+                    third_member_ocupation = json.get("family_data.tercer_ocupacion_familiar"),
+                    third_member_income = json.get("family_data.tercer_ingreso_familiar"),
+
+                    fourth_member_name = json.get("family_data.cuarto_nombre_familiar"),
+                    fourth_member_age = json.get("family_data.cuarta_edad_familiar"),
+                    fourth_member_relationship = json.get("family_data.cuarto_parentesco_familiar"),
+                    fourth_member_civil_state = json.get("family_data.cuarto_estado_civil_familiar"),
+                    fourth_member_ocupation = json.get("family_data.cuarto_ocupacion_familiar"),
+                    fourth_member_income = json.get("family_data.cuarto_ingreso_familiar"),
+
+                    fifth_member_name = json.get("family_data.quinto_nombre_familiar"),
+                    fifth_member_age = json.get("family_data.quinta_edad_familiar"),
+                    fifth_member_relationship = json.get("family_data.quinto_parentesco_familiar"),
+                    fifth_member_civil_state = json.get("family_data.quinto_estado_civil_familiar"),
+                    fifth_member_ocupation = json.get("family_data.quinto_ocupacion_familiar"),
+                    fifth_member_income = json.get("family_data.quinto_ingreso_familiar")
+                ),
+                family_history = FamilyHistory(
+                    paternal_grandfather = FamilyHistoryClass(
+                        relationship = json.get("family_data.parentesco_abuelo_paterno"),
+                        living = json.get("family_data.vive_abuelo_paterno"),
+                        diseases = json.get("family_data.enfermedades_abuelo_paterno"),
+                        cause_of_death = json.get("family_data.causa_defuncion_abuelo_paterno"),
+                    ),
+                    paternal_grandmother = FamilyHistoryClass(
+                        relationship = json.get("family_data.parentesco_abuela_paterna"),
+                        living = json.get("family_data.vive_abuela_paterna"),
+                        diseases = json.get("family_data.enfermedades_abuela_paterna"),
+                        cause_of_death = json.get("family_data.causa_defuncion_abuela_paterna"),
+                    ),
+
+                    maternal_grandfather = FamilyHistoryClass(
+                        relationship = json.get("family_data.parentesco_abuelo_materno"),
+                        living = json.get("family_data.vive_abuelo_materno"),
+                        diseases = json.get("family_data.enfermedades_abuelo_materno"),
+                        cause_of_death = json.get("family_data.causa_defuncion_abuelo_materno"),
+                    ),
+                    maternal_grandmother = FamilyHistoryClass(
+                        relationship = json.get("family_data.parentesco_abuela_materna"),
+                        living = json.get("family_data.vive_abuela_materna"),
+                        diseases = json.get("family_data.enfermedades_abuela_materna"),
+                        cause_of_death = json.get("family_data.causa_defuncion_abuela_materna"),
+                    ),
+
+                    father = FamilyHistoryClass(
+                        relationship = json.get("family_data.parentesco_padre"),
+                        living = json.get("family_data.vive_padre"),
+                        diseases = json.get("family_data.enfermedades_padre"),
+                        cause_of_death = json.get("family_data.causa_defuncion_padre"),
+                    ),
+                    mother = FamilyHistoryClass(
+                        relationship = json.get("family_data.parentesco_madre"),
+                        living = json.get("family_data.vive_madre"),
+                        diseases = json.get("family_data.enfermedades_madre"),
+                        cause_of_death = json.get("family_data.causa_defuncion_madre"),
+                    ),
+                ),
+                number_sicks = json.get("family_data.numero_de_enfermos"),
+                substance_abuse = SubstanceAbuse(
+                    household_member_substance = json.get("family_data.consume_miembro_vivienda"),
+                    substance_consumed = json.get("family_data.sustancia_consumida"),
+                    consuming_member = json.get("family_data.miembro_consumidor"),
+                    consuming_frequency = json.get("family_data.frecuencia_consumo")
+                )
+            ),
 
             # Home and Economy
             home_and_economy = HomeAndEconomyForm(

@@ -363,18 +363,57 @@ class PatientDataForm(EmbeddedDocument):
 ### ---------------------------------- Family Data Classes ------------------------------------ ###
 
 class FamilyStructure(EmbeddedDocument):
-    family_member_name = StringField(required=False, db_field="nombre_familiar")
-    family_member_age = StringField(required=False, db_field="edad_familiar")
-    family_member_relationship = StringField(required=False, db_field="parentesco_familiar")
-    family_member_civil_state = StringField(required=False, db_field="estado_civil_familiar")
-    family_member_ocupation = StringField(required=False, db_field="ocupacion_familiar")
-    family_member_income = StringField(required=False, db_field="ingreso_familiar")
+    first_member_name = StringField(required=False, db_field="primer_nombre_familiar")
+    first_member_age = StringField(required=False, db_field="primera_edad_familiar")
+    first_member_relationship = StringField(required=False, db_field="primer_parentesco_familiar")
+    first_member_civil_state = StringField(required=False, db_field="primer_estado_civil_familiar")
+    first_member_ocupation = StringField(required=False, db_field="primer_ocupacion_familiar")
+    first_member_income = StringField(required=False, db_field="primer_ingreso_familiar")
 
-class FamilyHistory(EmbeddedDocument):
+    second_member_name = StringField(required=False, db_field="segundo_nombre_familiar")
+    second_member_age = StringField(required=False, db_field="segunda_edad_familiar")
+    second_member_relationship = StringField(required=False, db_field="segundo_parentesco_familiar")
+    second_member_civil_state = StringField(required=False, db_field="segundo_estado_civil_familiar")
+    second_member_ocupation = StringField(required=False, db_field="segundo_ocupacion_familiar")
+    second_member_income = StringField(required=False, db_field="segundo_ingreso_familiar")
+
+    third_member_name = StringField(required=False, db_field="tercer_nombre_familiar")
+    third_member_age = StringField(required=False, db_field="tercera_edad_familiar")
+    third_member_relationship = StringField(required=False, db_field="tercer_parentesco_familiar")
+    third_member_civil_state = StringField(required=False, db_field="tercer_estado_civil_familiar")
+    third_member_ocupation = StringField(required=False, db_field="tercer_ocupacion_familiar")
+    third_member_income = StringField(required=False, db_field="tercer_ingreso_familiar")
+
+    fourth_member_name = StringField(required=False, db_field="cuarto_nombre_familiar")
+    fourth_member_age = StringField(required=False, db_field="cuarta_edad_familiar")
+    fourth_member_relationship = StringField(required=False, db_field="cuarto_parentesco_familiar")
+    fourth_member_civil_state = StringField(required=False, db_field="cuarto_estado_civil_familiar")
+    fourth_member_ocupation = StringField(required=False, db_field="cuarto_ocupacion_familiar")
+    fourth_member_income = StringField(required=False, db_field="cuarto_ingreso_familiar")
+
+    fifth_member_name = StringField(required=False, db_field="quinto_nombre_familiar")
+    fifth_member_age = StringField(required=False, db_field="quinta_edad_familiar")
+    fifth_member_relationship = StringField(required=False, db_field="quinto_parentesco_familiar")
+    fifth_member_civil_state = StringField(required=False, db_field="quinto_estado_civil_familiar")
+    fifth_member_ocupation = StringField(required=False, db_field="quinto_ocupacion_familiar")
+    fifth_member_income = StringField(required=False, db_field="quinto_ingreso_familiar")
+
+class FamilyHistoryClass(EmbeddedDocument):
     relationship = StringField(required=False, db_field="parentesco")
     living = BooleanField(required=False, db_field="vive")
     diseases = ListField(StringField(), required=False, db_field="enfermedades")
     cause_of_death = StringField(required=False, db_field="causa_defuncion")
+
+class FamilyHistory(EmbeddedDocument):
+    paternal_grandfather = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "abuelo_paterno")
+    paternal_grandmother = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "abuela_paterna")
+    
+    maternal_grandfather = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "abuelo_materno")
+    maternal_grandmother = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "abuela_materna")
+    
+    father = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "padre")
+    mother = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "madre")
+
 
 class SubstanceAbuse(EmbeddedDocument):
     household_member_substance = BooleanField(required=False, db_field="consume_miembro_vivienda")
@@ -387,9 +426,9 @@ class SubstanceAbuse(EmbeddedDocument):
 ### --------------------------------------- Family Data --------------------------------------- ###
 
 class FamilyDataForm(EmbeddedDocument):
-    family_structure = EmbeddedDocumentListField(FamilyStructure, required=False, db_field="estructura_familiar")
+    family_structure = EmbeddedDocument(FamilyStructure, required=False, db_field="estructura_familiar")
     
-    family_history = EmbeddedDocumentListField(FamilyHistory, required=False, db_field= "antecedentes_familiares")
+    family_history = EmbeddedDocument(FamilyHistory, required=False, db_field= "antecedentes_familiares")
     
     number_sicks = StringField(required=False, db_field="numero_de_enfermos")
     
