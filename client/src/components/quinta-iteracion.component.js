@@ -528,77 +528,77 @@ class QuintaIteracion extends Component {
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Energía Eléctrica</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num1} onChange={this._changeNum1} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num1} onChange={this._changeNum1} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Agua</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num2} onChange={this._changeNum2} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num2} onChange={this._changeNum2} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Gas</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num3} onChange={this._changeNum3} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num3} onChange={this._changeNum3} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Teléfono</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num4} onChange={this._changeNum4} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num4} onChange={this._changeNum4} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Alimentación</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num5} onChange={this._changeNum5} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num5} onChange={this._changeNum5} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Renta</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num6} onChange={this._changeNum6} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num6} onChange={this._changeNum6} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Transporte (o Gasolina)</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num7} onChange={this._changeNum7} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num7} onChange={this._changeNum7} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Educación</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num8} onChange={this._changeNum8} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num8} onChange={this._changeNum8} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Vestido</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num9} onChange={this._changeNum9} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num9} onChange={this._changeNum9} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Diversión</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num10} onChange={this._changeNum10} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num10} onChange={this._changeNum10} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Otros</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num11} onChange={this._changeNum11} step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num11} onChange={this._changeNum11} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
