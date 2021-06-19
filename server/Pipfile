@@ -17,7 +17,7 @@ bootstrap-flask = "*"
 flask-bootstrap4 = "*"
 flask-admin = "*"
 gunicorn = "*"
-jwt = "*"
+pyjwt = "*"
 
 [requires]
 python_version = "3.9"

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import logo from '../img/papanico.png';
 import mapa from '../img/agp-mapa.png';
 import loc from '../img/loc.png';
@@ -13,6 +14,8 @@ export const Login = () => {
 
     const [loginStatus, setLoginStatus] = useState('');
 
+    let history = useHistory();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         Axios.post('./api/log-in', {
@@ -24,7 +27,9 @@ export const Login = () => {
             if (response.data.message) {
                 setLoginStatus(response.data.message);
             } else {
-                setLoginStatus('Sesion iniciada por: ' + response.data);
+                if(response.data){
+                    history.push('/pag-inicio')
+                }
             }
         });
     };
