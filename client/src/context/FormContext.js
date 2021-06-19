@@ -170,13 +170,13 @@ class FormContextProvider extends Component {
         mouth_throat_gingivorrhea: null,
         mouth_throat_gingivorrhagia: null,
         mouth_throat_pain: null,
-        mouth_throat_ulcerations: null,
+        mouth_throat_gums_ulcerations: null,
 
         /*Lengua*/
         mouth_throat_colorations: null,
         mouth_throat_size: null,
         mouth_throat_plaque_presence: null,
-        mouth_throat_ulcerations: null,
+        mouth_throat_tongue_ulcerations: null,
 
         /*Problemas de hablar*/
         mouth_throat_dysphonia: null,
