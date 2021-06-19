@@ -61,11 +61,11 @@ class ChronicDegenerativeDisease(EmbeddedDocument):
     adherance_treatment = StringField(required=False, db_field="apego_tratamiento")
 
 class SubstanceConsumption(EmbeddedDocument):
-    cosnumption = BooleanField(required=False, db_field="consumo")
+    consumption = BooleanField(required=False, db_field="consumo")
     starting_age = StringField(required=False, db_field="edad_inicio")
     quantity = StringField(required=False, db_field="cantidad")
     frequency = StringField(required=False, db_field="frecuencia")
-    last_consumption = StringField(required=False, db_field="ultimo consumo")
+    last_consumption = StringField(required=False, db_field="ultimo_consumo")
 
 class Background(EmbeddedDocument):
     has_background = BooleanField(required=False, db_field="tiene_antecedente")
