@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormContext} from '../context/FormContext'
 
 import NavBar from './navbar.component';
-import male from '../img/male.png';
-import female from '../img/female.png';
+import Masculino from '../img/male.png';
+import Femenino from '../img/female.png';
 import SegundaIteracion from "./segunda-iteracion.component";
 import TerceraIteracion from './tercera-iteracion.component';
 import CuartaIteracion from './cuarta-iteracion.component';
@@ -49,6 +49,21 @@ function Form() {
         });
     };
     
+    const jsonpaciente = {"_id":{"$oid":"60cacc5ced0179c75db08186"},
+                        "folio":"2",
+                        "nombre":"Gigi Rodriguez",
+                        "edad":"9",
+                        "sexo":"Feminino",
+                        "fecha_nacimiento":"01/01/2001",
+                        "dx_medico":"existir",
+                        "sangre":"A+",
+                        "contacto_emergencia_nombre":"Nickolas Rodriguez Ochoa",
+                        "contacto_emergencia_num":"123456",
+                        "albergue":false,
+                        "companion":true,
+                        "quimio":true}
+
+    let icon = jsonpaciente.sexo == "Feminino" ? Femenino : Masculino;
 
     return (
         <>
@@ -56,20 +71,19 @@ function Form() {
         <NavBar />
 
         <div className="info-pat">
-            [INFO DEL PACIENTE]
             <div className="row">
                     <div className="col-lg-4">
-                        <img className="tel" src={male} />
+                        <img width="250px" src={icon} />
                     </div>
                     <div className="col-lg-3">
-                        <div className="patient-text-br">Hugo López López</div>
-                        <div className="patient-text">00/00/0000 &ensp;&ensp;&ensp;&ensp; 28 años</div>
+                        <div className="patient-text-br"> {jsonpaciente.nombre} </div>
+                        <div className="patient-text">Nacimiento: {jsonpaciente.fecha_nacimiento} - Años: {jsonpaciente.edad}</div>
                         <br></br>
                         <div className="patient-text-br">Sangre:</div>
-                        <div className="patient-text">A+</div>
+                        <div className="patient-text">{jsonpaciente.sangre}</div>
                         <br></br>
                         <div className="patient-text-br">Contacto de Emergencia:</div>
-                        <div className="patient-text">6621 581515 &ensp; Mario López</div>
+                        <div className="patient-text">{jsonpaciente.contacto_emergencia_num} &ensp; {jsonpaciente.contacto_emergencia_nombre}</div>
                         <br></br>
                         <div className="patient-text-br">Acude con Acompañante:</div>
                         <div className="form-row">
@@ -89,7 +103,7 @@ function Form() {
                     <div className="col-lg-3">
                         <div className="patient-text-br">DX MÉDICO</div>
                         <div className="box">&ensp;</div>
-                       
+                        
                         <br></br>
                         <div className="patient-text-br">Albergue:</div>
                         <div className="form-row">
@@ -100,7 +114,7 @@ function Form() {
                             &ensp;&ensp;
                             <div className="patient-text-br">No</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
+                                <input type="checkbox" className="form-control form-pat"/>
                             </div>
                         </div>
                         <br></br>
@@ -447,8 +461,8 @@ function Form() {
         <Collapse in={open1}>
         <div id="est-collapse-text">
             <div className="col-md-6"/>
-                <div className="form-group col-md-10">
-                    <textarea className="form-control form-pat" rows="6"
+                <div className="form-group col-md-12 info-text">
+                    <textarea className="form-control form-pat-n" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
                 </div>
@@ -466,8 +480,8 @@ function Form() {
         <Collapse in={open2}>
         <div id="med-collapse-text">
             <div className="col-md-6"/>
-                <div className="form-group col-md-10">
-                    <textarea className="form-control form-pat" rows="6"
+                <div className="form-group col-md-12 info-text">
+                    <textarea className="form-control form-pat-n" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
                 </div>
@@ -485,8 +499,8 @@ function Form() {
         <Collapse in={open3}>
         <div id="cit-collapse-text">
             <div className="col-md-6"/>
-                <div className="form-group col-md-10">
-                    <textarea className="form-control form-pat" rows="6"
+                <div className="form-group col-md-12 info-text">
+                    <textarea className="form-control form-pat-n" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
                 </div>

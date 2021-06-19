@@ -1,11 +1,35 @@
 from flask import request, jsonify, current_app
-from datetime import datetime
+from datetime import datetime, timedelta
+from werkzeug.security import generate_password_hash, check_password_hash
+import jwt
+from functools import wraps
 
 from . import api
+
 from ..models import Address, Background, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
 
 
+def token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        ticket = request.args.get("token")
 
+        if not ticket:
+            return (False, 200)
+
+        try:
+            jwt.decode(ticket, current_app.config['SECRET_KEY'], algorithms=["HS256"])
+        except:
+            return (False, 200)
+        
+        return f(*args, **kwargs)
+    return decorated
+
+@api.route("/verify", methods=["GET", "POST"])
+@token_required
+def is_logged():
+    
+    return (True, 200)
 
 @api.route("/time", methods=["GET"])
 def time():
@@ -85,8 +109,9 @@ def get_user():
     if person == None:
         return ({ 'message': "Correo o contrasena incorrectos"}, 200)
     
-    if person.password==json.get("passwrd"):
-        return (person.username, 200)
+    if check_password_hash(person.password, json.get("passwrd")):
+        token = jwt.encode({'user' : person.username, 'exp' : datetime.utcnow() + timedelta(minutes=280)}, current_app.config['SECRET_KEY'], algorithm="HS256")
+        return (jsonify(True), 200)
     return ({ 'message': "Correo o contrasena incorrectos"}, 200)
     
 @api.route("/user-panel/signup", methods=["POST"])
@@ -103,7 +128,7 @@ def set_user():
             user_name=json.get("name"),
             user_paternal_last_name=json.get("lpname"),
             user_maternal_last_name=json.get("lmname"),
-            password=json.get("password"),
+            password=generate_password_hash(json.get("password")),
             type=int(json.get("type"))
         ) 
         person.save()

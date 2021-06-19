@@ -233,6 +233,7 @@ span {
   border: solid 2px #D1F1F3;
   border-radius: 5px;
   padding: 10px;
+  margin-bottom: 15px;
 }
 
 .nav-sec, .info-pat {
@@ -241,6 +242,10 @@ span {
 
 .info-pat {
   margin-top: 25px;
+}
+
+.form-pat-n {
+  border: none;
 }
 
 .info-form {

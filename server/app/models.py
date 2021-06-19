@@ -1,4 +1,3 @@
-from typing_extensions import Required
 from werkzeug.security import generate_password_hash, check_password_hash
 from mongoengine import Document, EmbeddedDocument
 from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentListField, EmbeddedDocumentField, ReferenceField
@@ -353,8 +352,8 @@ class PatientDataForm(EmbeddedDocument):
 
     personal_pathological_history = EmbeddedDocumentField(Pathological, required=False, db_field="antecedentes_personales_patologicos")
 
-    male_sexual_health = EmbeddedDocument(MaleSexualHealth, required=False, db_field="en_caso_de_ser_hombre")
-    female_sexual_health = EmbeddedDocument(FemaleSexualHealth, required=False, db_field="en_caso_de_ser_mujer")
+    male_sexual_health = EmbeddedDocumentField(MaleSexualHealth, required=False, db_field="en_caso_de_ser_hombre")
+    female_sexual_health = EmbeddedDocumentField(FemaleSexualHealth, required=False, db_field="en_caso_de_ser_mujer")
 
     apparatus_and_systems = EmbeddedDocumentField(ApparatusAndSystems, required=False, db_field="aparatos_y_sistemas")
 
@@ -553,9 +552,9 @@ class GeneralInfo(Document):
 
     patient_data = EmbeddedDocumentField(PatientDataForm, required=False, db_field="datos_paciente")
 
-    family_data = EmbeddedDocumentField(FamilyDataForm, required=False, db_field="datos_paciente")
+    family_data = EmbeddedDocumentField(FamilyDataForm, required=False, db_field="datos_familia")
 
-    home_and_economy = EmbeddedDocumentField(HomeAndEconomyForm, required=False, db_field="datos_paciente")
+    home_and_economy = EmbeddedDocumentField(HomeAndEconomyForm, required=False, db_field="casa_economia")
 
     diet = EmbeddedDocumentField(Diet, required=False, db_field="alimentacion")
     
