@@ -324,12 +324,40 @@ class FormContextProvider extends Component {
     }
 
     familyData = {
-        family_member_name: null,
-        family_member_age: null,
-        family_member_relationship: null,
-        family_member_civil_state: null,
-        family_member_occupation: null,
-        family_member_income: null,
+        first_member_name: null,
+        first_member_age: null,
+        first_member_relationship: null,
+        first_member_civil_state: null,
+        first_member_ocupation: null,
+        first_member_income: null,
+
+        second_member_name: null,
+        second_member_age: null,
+        second_member_relationship: null,
+        second_member_civil_state: null,
+        second_member_ocupation: null,
+        second_member_income: null,
+
+        third_member_name: null,
+        third_member_age: null,
+        third_member_relationship: null,
+        third_member_civil_state: null,
+        third_member_ocupation: null,
+        third_member_income: null,
+
+        fourth_member_name: null,
+        fourth_member_age: null,
+        fourth_member_relationship: null,
+        fourth_member_civil_state: null,
+        fourth_member_ocupation: null,
+        fourth_member_income: null,
+
+        fifth_member_name: null,
+        fifth_member_age: null,
+        fifth_member_relationship: null,
+        fifth_member_civil_state: null,
+        fifth_member_ocupation: null,
+        fifth_member_income: null,
 
         relationship: null,
         living: null,
