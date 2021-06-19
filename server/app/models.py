@@ -1,8 +1,7 @@
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
 from mongoengine import Document, EmbeddedDocument
-from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentListField, EmbeddedDocumentField, ReferenceField
+from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentField
 from flask_login import UserMixin
-from datetime import datetime
 
 from . import login
 

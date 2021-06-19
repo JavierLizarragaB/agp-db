@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import logo from '../img/papanico.png';
-import mapa from '../img/agp-mapa.png';
 import loc from '../img/loc.png';
 import tel from '../img/tel.png';
 import hora from '../img/hora.png';

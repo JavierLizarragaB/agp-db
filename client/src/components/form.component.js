@@ -31,7 +31,7 @@ function Form() {
     const [message, setMessage] = useState("");
 
     // Load context
-    const {formState, updatePatientData, updateGeneralInfo} = useContext(FormContext);
+    const {formState, updatePatientData} = useContext(FormContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
