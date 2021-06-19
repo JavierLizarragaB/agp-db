@@ -100,7 +100,11 @@ export const Login = () => {
             <footer className="foot">
                 <div className="row">
                     <div className="col-lg-4">
-                        <img className="mapita" src={mapa} />
+                        <div className="mapita">
+                            <iframe src=
+                            "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13942.719625043017!2d-110.980905!3d29.11513!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb3002dfa1c25306!2sAgrupaci%C3%B3n%20George%20Papanicolaou%20A.C.%20de%20Hermosillo!5e0!3m2!1ses-419!2smx!4v1624125185871!5m2!1ses-419!2smx" 
+                            width="400" height="350" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
                     </div>
                     <div className="col-lg-4">
                         <img className="ubi" src={loc} />
