@@ -359,10 +359,35 @@ class FormContextProvider extends Component {
         fifth_member_ocupation: null,
         fifth_member_income: null,
 
-        relationship: null,
-        living: null,
-        diseases: null,
-        cause_of_death: null,
+        paternal_grandfather_relationship: null,
+        paternal_grandfather_living: null,
+        paternal_grandfather_diseases: null,
+        paternal_grandfather_cause_of_death: null,
+
+        paternal_grandmother_relationship: null,
+        paternal_grandmother_living: null,
+        paternal_grandmother_diseases: null,
+        paternal_grandmother_cause_of_death: null,
+
+        maternal_grandfather_relationship: null,
+        maternal_grandfather_living: null,
+        maternal_grandfather_diseases: null,
+        maternal_grandfather_cause_of_death: null,
+
+        maternal_grandmother_relationship: null,
+        maternal_grandmother_living: null,
+        maternal_grandmother_diseases: null,
+        maternal_grandmother_cause_of_death: null,
+
+        father_relationship: null,
+        father_living: null,
+        father_diseases: null,
+        father_cause_of_death: null,
+
+        mother_relationship: null,
+        mother_living: null,
+        mother_diseases: null,
+        mother_cause_of_death: null,
 
         number_sicks: null,
 

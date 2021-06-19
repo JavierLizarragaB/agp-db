@@ -5,7 +5,8 @@ import jwt
 from functools import wraps
 
 from . import api
-from ..models import Address, Background, Patients, User, ResponsableFamilyMember, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
+
+from ..models import Address, Background, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
 
 
 def token_required(f):
@@ -176,6 +177,17 @@ def send_forms():
                 phone=json.get("tel"),
                 phone2=json.get("tel2")
             ),
+            
+            email = json.get("correo"),
+            income = json.get("ingreso"),
+            medical_service = json.get("servicio_medico"),
+            scholarship = json.get("escolaridad"),
+            ocupation = json.get("ocupacion"),
+            religion = json.get("religion"),
+            civil_state = json.get("estado_civil"),
+
+            clinic_record_date = json.get("realizacion_historial_clinico"),
+
             temp_address=Address(
                 street=json.get("calle_temp"),
                 num=json.get("num_temp"),
@@ -198,7 +210,97 @@ def send_forms():
                     phone=json.get("tel_responsable"),
                     phone2=json.get("tel2_responsable")
                 ),
-                responsable_relationship=json.get("parentesco_responsable")
+                responsable_relationship=json.get("parentesco_responsable"),
+
+                personal_pathological_history = Pathological(
+                    chronic_degenerative_diseases = json.get("enfermedades_cronicodegenerativas"),
+                    infectious_contagious_diseases = json.get("enfermedades_infectocontagiosas"),
+                    surgeries = Background(
+                        has_background = json.get("cirugias_tiene_antecedente"),
+                        notes = json.get("cirugias_notas")
+                    ),
+                    jail = Background(
+                        has_background = json.get("carcel_tiene_antecedente"),
+                        notes = json.get("carcel_notas")
+                    ),
+                    blood_transfusions = Background(
+                        has_background = json.get("sangre_tiene_antecedente"),
+                        notes = json.get("sangre_notas")
+                    ),
+                    allergies = Background(
+                        has_background = json.get("alergias_tiene_antecedente"),
+                        notes = json.get("alergias_notas")
+                    ),
+                    trauma = Background(
+                        has_background = json.get("trauma_tiene_antecedente"),
+                        notes = json.get("trauma_notas")
+                    ),
+                    alcoholism = SubstanceConsumption(
+                        consumption = json.get("alcoholismo_consumo"),
+                        starting_age = json.get("alcoholismo_edad_inicio"),
+                        quantity = json.get("alcoholismo_cantidad"),
+                        frequency = json.get("alcoholismo_frecuencia"),
+                        last_consumption = json.get("alcoholismo_ultimo_consumo")
+                    ),
+                    smoking = SubstanceConsumption(
+                        consumption = json.get("fuma_consumo"),
+                        starting_age = json.get("fuma_edad_inicio"),
+                        quantity = json.get("fuma_cantidad"),
+                        frequency = json.get("fuma_frecuencia"),
+                        last_consumption = json.get("fuma_ultimo_consumo")
+                    ),
+                    drug_addictions = SubstanceConsumption(
+                        consumption = json.get("drogas_consumo"),
+                        starting_age = json.get("drogas_edad_inicio"),
+                        quantity = json.get("drogas_cantidad"),
+                        frequency = json.get("drogas_frecuencia"),
+                        last_consumption = json.get("drogas_ultimo_consumo")
+                    )
+                ),
+
+                male_sexual_health = MaleSexualHealth(
+                    start_sexual_life = json.get("inicio_vida_sexual"),
+                    sexual_partners = json.get("parejas_sexuales"),
+                    std = json.get("ets"),
+                    contraceptive_methods = json.get("metodos_anticonceptivos")
+                ),
+                female_sexual_health = FemaleSexualHealth(
+                    menarche = json.get("menarca"),
+                    menarche_age = json.get("edad_menarca"),
+                    rhythm = json.get("ritmo_menarca"),
+                    start_sexual_life = json.get("inicio_vida_sexual"),
+                    high_risk_partners = json.get("parejas_alto_riesgo"),
+                    sexual_partners = json.get("parejas_sexuales"),
+                    std = Background(
+                        has_background = json.get("std_tiene_antecedente"),
+                        notes = json.get("std_notas")
+                    ),
+                    gestations = json.get("gestas"),
+                    deliveries = json.get("partos"),
+                    abortions = json.get("abortos"),
+                    date_last_delivery = json.get("fecha_ultimo_parto"),
+                    age_first_pregnancy = json.get("edad_primer_embarazo"),
+                    family_planning_methods = json.get("metodos_planificacion_familiar"),
+                    date_last_menstruation = json.get("fecha_ultima_regla"),
+                    menopause = json.get("menopausia"),
+                    hormonal_therapy = json.get("terapia_remplazo_hormonal"),
+                    breastfeeding = json.get("lactancia_materna"),
+                    last_pap_smear = CancerTest(
+                        date = json.get("pap_fecha"),
+                        result = json.get("pap_resultado")
+                    ),
+                    last_hybrid_test = CancerTest(
+                        date = json.get("hibrido_fecha"),
+                        result = json.get("hibrido_resultado")
+                    ),
+                    last_mammography = CancerTest(
+                        date = json.get("mamografia_fecha"),
+                        result = json.get("mamografia_resultado")
+                    ),
+                ),
+
+                apparatus_and_systems = ApparatusAndSystems(),
+
             ),
 
             # Family Data
@@ -241,29 +343,29 @@ def send_forms():
                 ),
                 family_history = FamilyHistory(
                     paternal_grandfather = FamilyHistoryClass(
-                        relationship = json.get("family_data.parentesco_abuelo_paterno"),
-                        living = json.get("family_data.vive_abuelo_paterno"),
-                        diseases = json.get("family_data.enfermedades_abuelo_paterno"),
-                        cause_of_death = json.get("family_data.causa_defuncion_abuelo_paterno"),
+                        relationship = json.get("family_data.abuelo_paterno_parentesco"),
+                        living = json.get("family_data.abuelo_paterno_vive"),
+                        diseases = json.get("family_data.abuelo_paterno_enfermedades"),
+                        cause_of_death = json.get("family_data.abuelo_paterno_causa_defuncion"),
                     ),
                     paternal_grandmother = FamilyHistoryClass(
-                        relationship = json.get("family_data.parentesco_abuela_paterna"),
-                        living = json.get("family_data.vive_abuela_paterna"),
-                        diseases = json.get("family_data.enfermedades_abuela_paterna"),
-                        cause_of_death = json.get("family_data.causa_defuncion_abuela_paterna"),
+                        relationship = json.get("family_data.abuela_paterna_parentesco"),
+                        living = json.get("family_data.abuela_paterna_vive"),
+                        diseases = json.get("family_data.abuela_paterna_enfermedades"),
+                        cause_of_death = json.get("family_data.abuela_paterna_causa_defuncion"),
                     ),
 
                     maternal_grandfather = FamilyHistoryClass(
-                        relationship = json.get("family_data.parentesco_abuelo_materno"),
-                        living = json.get("family_data.vive_abuelo_materno"),
-                        diseases = json.get("family_data.enfermedades_abuelo_materno"),
-                        cause_of_death = json.get("family_data.causa_defuncion_abuelo_materno"),
+                        relationship = json.get("family_data.abuelo_materno_parentesco"),
+                        living = json.get("family_data.abuelo_materno_vive"),
+                        diseases = json.get("family_data.abuelo_materno_enfermedades"),
+                        cause_of_death = json.get("family_data.abuelo_materno_causa_defuncion"),
                     ),
                     maternal_grandmother = FamilyHistoryClass(
-                        relationship = json.get("family_data.parentesco_abuela_materna"),
-                        living = json.get("family_data.vive_abuela_materna"),
-                        diseases = json.get("family_data.enfermedades_abuela_materna"),
-                        cause_of_death = json.get("family_data.causa_defuncion_abuela_materna"),
+                        relationship = json.get("family_data.abuela_materna_parentesco"),
+                        living = json.get("family_data.abuela_materna_vive"),
+                        diseases = json.get("family_data.abuela_materna_enfermedades"),
+                        cause_of_death = json.get("family_data.abuela_materna_causa_defuncion"),
                     ),
 
                     father = FamilyHistoryClass(
