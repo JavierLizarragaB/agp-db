@@ -16,7 +16,7 @@ class NavBar extends Component {
                             Inicio
                             </Link>{' '}
                             <Link className="nav-item" to={'../directorio-paciente'}>
-                            Paciente
+                            Pacientes
                             </Link>{' '}
                             <Link className="nav-item" to={''}>
                             Cerrar Sesión

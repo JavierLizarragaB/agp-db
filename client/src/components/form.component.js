@@ -71,7 +71,7 @@ function Form() {
         <NavBar />
 
         <div className="info-pat">
-            <div className="row">
+            <div className="col-md-12 row">
                     <div className="col-lg-4">
                         <img width="250px" src={icon} />
                     </div>
@@ -83,7 +83,7 @@ function Form() {
                         <div className="patient-text">{jsonpaciente.sangre}</div>
                         <br></br>
                         <div className="patient-text-br">Contacto de Emergencia:</div>
-                        <div className="patient-text">{jsonpaciente.contacto_emergencia_num} &ensp; {jsonpaciente.contacto_emergencia_nombre}</div>
+                        <div className="patient-text">{jsonpaciente.contacto_emergencia_num} - {jsonpaciente.contacto_emergencia_nombre}</div>
                         <br></br>
                         <div className="patient-text-br">Acude con Acompañante:</div>
                         <div className="form-row">
@@ -102,7 +102,7 @@ function Form() {
 
                     <div className="col-lg-3">
                         <div className="patient-text-br">DX MÉDICO</div>
-                        <div className="box">&ensp;</div>
+                        <div className="box">&ensp;{jsonpaciente.dx_medico}</div>
                         
                         <br></br>
                         <div className="patient-text-br">Albergue:</div>
@@ -443,7 +443,7 @@ function Form() {
                 {/* boton de enviar */}
                 <div>
                     <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
-                        <b>Enviar</b>
+                        <b>Guardar Datos</b>
                     </button>
                 </div>
             </div>
@@ -462,7 +462,7 @@ function Form() {
         <div id="est-collapse-text">
             <div className="col-md-6"/>
                 <div className="form-group col-md-12 info-text">
-                    <textarea className="form-control form-pat-n" rows="6"
+                    <textarea className="form-control form-pat" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
                 </div>
@@ -481,7 +481,7 @@ function Form() {
         <div id="med-collapse-text">
             <div className="col-md-6"/>
                 <div className="form-group col-md-12 info-text">
-                    <textarea className="form-control form-pat-n" rows="6"
+                    <textarea className="form-control form-pat" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
                 </div>
@@ -500,7 +500,7 @@ function Form() {
         <div id="cit-collapse-text">
             <div className="col-md-6"/>
                 <div className="form-group col-md-12 info-text">
-                    <textarea className="form-control form-pat-n" rows="6"
+                    <textarea className="form-control form-pat" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
                 </div>
