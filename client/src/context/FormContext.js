@@ -486,66 +486,6 @@ class FormContextProvider extends Component {
         others: this.others
     }
 
-    updateGeneralInfo = (key,value) => {
-        this.setState({
-            ...this.state,
-            general_info: {
-                ...this.state.general_info,
-                [key]: value
-            }
-        })
-    }
-
-    updatePatientData = (key,value) => {
-        this.setState({
-            ...this.state,
-            patient_data: {
-                ...this.state.patient_data,
-                [key]: value
-            }
-        })
-    }
-
-    updateFamilyData = (key, value) => {
-        this.setState({
-            ...this.state,
-            family_data: {
-                ...this.state.family_data,
-                [key]: value
-            }
-        })
-    }
-
-    updateHomeAndEconomy = (key, value) => {
-        this.setState({
-            ...this.state,
-            home_and_economy: {
-                ...this.state.home_and_economy,
-                [key]: value
-            }
-        })
-    }
-
-    updateHygienePassPhysAct = (key,value) => {
-        this.setState({
-            ...this.state,
-            hygiene_pass_physact: {
-                ...this.state.hygiene_pass_physact,
-                [key]: value
-            }
-        })
-    }
-
-    updateOthers = (key,value) => {
-        this.setState({
-            ...this.state,
-            others: {
-                ...this.state.others,
-                [key]: value
-            }
-        })
-    }
-
     // Function to handle checkbox validation
     handleCheckboxGroup = (name,id,key,subkey) => {
         console.log("Calling cb handler for group:",name);
