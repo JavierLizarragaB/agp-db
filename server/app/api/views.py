@@ -364,13 +364,13 @@ def send_forms():
                         gingivorrhea = json.get("patient_data.mouth_throat_gingivorrhea"),
                         gingivorrhagia = json.get("patient_data.mouth_throat_gingivorrhagia"),
                         pain = json.get("patient_data.mouth_throat_pain"),
-                        ulcerations = json.get("patient_data.mouth_throat_gums_ulcerations"),
+                        gums_ulcerations = json.get("patient_data.mouth_throat_gums_ulcerations"),
 
                         ##Lengua
                         colorations = json.get("patient_data.mouth_throat_colorations"),
                         size = json.get("patient_data.mouth_throat_size"),
                         plaque_presence = json.get("patient_data.mouth_throat_plaque_presence"),
-                        ulcerations = json.get("patient_data.mouth_throat_tongue_ulcerations"),
+                        tongue_ulcerations = json.get("patient_data.mouth_throat_tongue_ulcerations"),
 
                         ##Problemas de hablar
                         dysphonia = json.get("patient_data.mouth_throat_dysphonia"),

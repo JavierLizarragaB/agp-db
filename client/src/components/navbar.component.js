@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class NavBar extends Component {
     render() {
         return (
-        <>
             <div>
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="#">
@@ -26,7 +25,6 @@ class NavBar extends Component {
                     </a>
                 </nav>
             </div>
-        </>
         );
     }
 }

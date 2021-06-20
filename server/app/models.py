@@ -424,9 +424,9 @@ class SubstanceAbuse(EmbeddedDocument):
 ### --------------------------------------- Family Data --------------------------------------- ###
 
 class FamilyDataForm(EmbeddedDocument):
-    family_structure = EmbeddedDocument(FamilyStructure, required=False, db_field="estructura_familiar")
+    family_structure = EmbeddedDocumentField(FamilyStructure, required=False, db_field="estructura_familiar")
     
-    family_history = EmbeddedDocument(FamilyHistory, required=False, db_field= "antecedentes_familiares")
+    family_history = EmbeddedDocumentField(FamilyHistory, required=False, db_field= "antecedentes_familiares")
     
     number_sicks = StringField(required=False, db_field="numero_de_enfermos")
     
