@@ -6,7 +6,7 @@ from functools import wraps
 
 from . import api
 
-from ..models import Address, Background, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
+from ..models import Address, Background, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
 
 
 def token_required(f):
@@ -165,264 +165,489 @@ def send_forms():
     json = request.get_json()
     try:
         form = PatientDataForm(
-            birth_state=json.get("birth_state"),
-            birth_city=json.get("birth_city"),
+            birth_state=json.get("patient_data.birth_state"),
+            birth_city=json.get("patient_data.birth_city"),
             permanent_address=Address(
-                street=json.get("calle"),
-                num=json.get("num"),
-                suburb=json.get("colonia"),
-                locality=json.get("localidad"),
-                municipality=json.get("municipio"),
-                zip_code=json.get("cp"),
-                phone=json.get("tel"),
-                phone2=json.get("tel2")
+                street=json.get("patient_data.permanent_calle"),
+                num=json.get("patient_data.permanent_num"),
+                suburb=json.get("patient_data.permanent_suburb"),
+                locality=json.get("patient_data.permanent_locality"),
+                municipality=json.get("patient_data.permanent_municipality"),
+                zip_code=json.get("patient_data.permanent_zip_code"),
+                phone=json.get("patient_data.permanent_phone"),
+                phone2=json.get("patient_data.permanent_phone2")
             ),
             
-            email = json.get("correo"),
-            income = json.get("ingreso"),
-            medical_service = json.get("servicio_medico"),
-            scholarship = json.get("escolaridad"),
-            ocupation = json.get("ocupacion"),
-            religion = json.get("religion"),
-            civil_state = json.get("estado_civil"),
+            email = json.get("patient_data.email"),
+            income = json.get("patient_data.income"),
+            medical_service = json.get("patient_data.medical_service"),
+            scholarship = json.get("patient_data.scholarship"),
+            ocupation = json.get("patient_data.ocupation"),
+            religion = json.get("patient_data.religion"),
+            civil_state = json.get("patient_data.civil_state"),
 
-            clinic_record_date = json.get("realizacion_historial_clinico"),
+            clinic_record_date = json.get("patient_data.clinic_record_date"),
 
             temp_address=Address(
-                street=json.get("calle_temp"),
-                num=json.get("num_temp"),
-                suburb=json.get("colonia_temp"),
-                locality=json.get("localidad_temp"),
-                municipality=json.get("municipio_temp"),
-                zip_code=json.get("cp_temp"),
-                phone=json.get("tel_temp"),
-                phone2=json.get("tel2_temp")
+                street=json.get("patient_data.temp_street"),
+                num=json.get("patient_data.temp_num"),
+                suburb=json.get("patient_data.temp_suburb"),
+                locality=json.get("patient_data.temp_locality"),
+                municipality=json.get("patient_data.temp_municipality"),
+                zip_code=json.get("patient_data.temp_zip_code"),
+                phone=json.get("patient_data.temp_phone"),
+                phone2=json.get("patient_data.temp_phone2")
             ),
             responsable_family_member=ResponsableFamilyMember(
-                responsable_name=json.get("nombre_responsable"),
+                responsable_name=json.get("patient_data.responsable_name"),
                 responsable_address=Address(
-                    street=json.get("calle_responsable"),
-                    num=json.get("num_responsable"),
-                    suburb=json.get("colonia_responsable"),
-                    locality=json.get("localidad_responsable"),
-                    municipality=json.get("municipio_responsable"),
-                    zip_code=json.get("cp_responsable"),
-                    phone=json.get("tel_responsable"),
-                    phone2=json.get("tel2_responsable")
+                    street=json.get("patient_data.responsable_street"),
+                    num=json.get("patient_data.responsable_num"),
+                    suburb=json.get("patient_data.responsable_suburb"),
+                    locality=json.get("patient_data.responsable_locality"),
+                    municipality=json.get("patient_data.responsable_municipality"),
+                    zip_code=json.get("patient_data.responsable_zip_code"),
+                    phone=json.get("patient_data.responsable_phone"),
+                    phone2=json.get("patient_data.responsable_phone2")
                 ),
-                responsable_relationship=json.get("parentesco_responsable"),
+                responsable_relationship=json.get("patient_data.responsable_relationship"),
 
                 personal_pathological_history = Pathological(
-                    chronic_degenerative_diseases = json.get("enfermedades_cronicodegenerativas"),
-                    infectious_contagious_diseases = json.get("enfermedades_infectocontagiosas"),
+                    chronic_degenerative_diseases = json.get("patient_data.chronic_degenerative_diseases"),
+                    infectious_contagious_diseases = json.get("patient_data.infectious_contagious_diseases"),
                     surgeries = Background(
-                        has_background = json.get("cirugias_tiene_antecedente"),
-                        notes = json.get("cirugias_notas")
+                        has_background = json.get("patient_data.surgeries"),
+                        notes = json.get("patient_data.surgeries_notes")
                     ),
                     jail = Background(
-                        has_background = json.get("carcel_tiene_antecedente"),
-                        notes = json.get("carcel_notas")
+                        has_background = json.get("patient_data.jail"),
+                        notes = json.get("patient_data.jail_notes")
                     ),
                     blood_transfusions = Background(
-                        has_background = json.get("sangre_tiene_antecedente"),
-                        notes = json.get("sangre_notas")
+                        has_background = json.get("patient_data.blood_transfusions"),
+                        notes = json.get("patient_data.blood_transfusions_notes")
                     ),
                     allergies = Background(
-                        has_background = json.get("alergias_tiene_antecedente"),
-                        notes = json.get("alergias_notas")
+                        has_background = json.get("patient_data.allergies"),
+                        notes = json.get("patient_data.allergies_notes")
                     ),
                     trauma = Background(
-                        has_background = json.get("trauma_tiene_antecedente"),
-                        notes = json.get("trauma_notas")
+                        has_background = json.get("patient_data.trauma"),
+                        notes = json.get("patient_data.trauma_notes")
                     ),
                     alcoholism = SubstanceConsumption(
-                        consumption = json.get("alcoholismo_consumo"),
-                        starting_age = json.get("alcoholismo_edad_inicio"),
-                        quantity = json.get("alcoholismo_cantidad"),
-                        frequency = json.get("alcoholismo_frecuencia"),
-                        last_consumption = json.get("alcoholismo_ultimo_consumo")
+                        consumption = json.get("patient_data.alcoholism_consumption"),
+                        starting_age = json.get("patient_data.alcoholism_starting_age"),
+                        quantity = json.get("patient_data.alcoholism_quantity"),
+                        frequency = json.get("patient_data.alcoholism_frequency"),
+                        last_consumption = json.get("patient_data.alcoholism_last_consumption")
                     ),
                     smoking = SubstanceConsumption(
-                        consumption = json.get("fuma_consumo"),
-                        starting_age = json.get("fuma_edad_inicio"),
-                        quantity = json.get("fuma_cantidad"),
-                        frequency = json.get("fuma_frecuencia"),
-                        last_consumption = json.get("fuma_ultimo_consumo")
+                        consumption = json.get("patient_data.smoking_consumption"),
+                        starting_age = json.get("patient_data.smoking_starting_age"),
+                        quantity = json.get("patient_data.smoking_quantity"),
+                        frequency = json.get("patient_data.smoking_frequency"),
+                        last_consumption = json.get("patient_data.smoking_last_consumption")
                     ),
                     drug_addictions = SubstanceConsumption(
-                        consumption = json.get("drogas_consumo"),
-                        starting_age = json.get("drogas_edad_inicio"),
-                        quantity = json.get("drogas_cantidad"),
-                        frequency = json.get("drogas_frecuencia"),
-                        last_consumption = json.get("drogas_ultimo_consumo")
+                        consumption = json.get("patient_data.drug_consumption"),
+                        starting_age = json.get("patient_data.drug_starting_age"),
+                        quantity = json.get("patient_data.drug_quantity"),
+                        frequency = json.get("patient_data.drug_frequency"),
+                        last_consumption = json.get("patient_data.drug_last_consumption")
                     )
                 ),
 
                 male_sexual_health = MaleSexualHealth(
-                    start_sexual_life = json.get("inicio_vida_sexual"),
-                    sexual_partners = json.get("parejas_sexuales"),
-                    std = json.get("ets"),
-                    contraceptive_methods = json.get("metodos_anticonceptivos")
+                    start_sexual_life = json.get("patient_data.male_start_sexual_life"),
+                    sexual_partners = json.get("patient_data.male_sexual_partners"),
+                    std = json.get("patient_data.male_std"),
+                    contraceptive_methods = json.get("patient_data.male_contraceptive_methods")
                 ),
+                
                 female_sexual_health = FemaleSexualHealth(
-                    menarche = json.get("menarca"),
-                    menarche_age = json.get("edad_menarca"),
-                    rhythm = json.get("ritmo_menarca"),
-                    start_sexual_life = json.get("inicio_vida_sexual"),
-                    high_risk_partners = json.get("parejas_alto_riesgo"),
-                    sexual_partners = json.get("parejas_sexuales"),
+                    menarche = json.get("patient_data.female_menarche"),
+                    menarche_age = json.get("patient_data.female_menarche_age"),
+                    rhythm = json.get("patient_data.female_rhythm"),
+                    start_sexual_life = json.get("patient_data.female_start_sexual_life"),
+                    high_risk_partners = json.get("patient_data.female_high_risk_partners"),
+                    sexual_partners = json.get("patient_data.female_sexual_partners"),
                     std = Background(
-                        has_background = json.get("std_tiene_antecedente"),
-                        notes = json.get("std_notas")
+                        has_background = json.get("patient_data.female_std"),
+                        notes = json.get("patient_data.female_std_notes")
                     ),
-                    gestations = json.get("gestas"),
-                    deliveries = json.get("partos"),
-                    abortions = json.get("abortos"),
-                    date_last_delivery = json.get("fecha_ultimo_parto"),
-                    age_first_pregnancy = json.get("edad_primer_embarazo"),
-                    family_planning_methods = json.get("metodos_planificacion_familiar"),
-                    date_last_menstruation = json.get("fecha_ultima_regla"),
-                    menopause = json.get("menopausia"),
-                    hormonal_therapy = json.get("terapia_remplazo_hormonal"),
-                    breastfeeding = json.get("lactancia_materna"),
+                    gestations = json.get("patient_data.female_gestations"),
+                    deliveries = json.get("patient_data.female_deliveries"),
+                    abortions = json.get("patient_data.female_abortions"),
+                    date_last_delivery = json.get("patient_data.female_date_last_delivery"),
+                    age_first_pregnancy = json.get("patient_data.female_age_first_pregnancy"),
+                    family_planning_methods = json.get("patient_data.female_family_planning_methods"),
+                    date_last_menstruation = json.get("patient_data.female_date_last_menstruation"),
+                    menopause = json.get("patient_data.female_menopause"),
+                    hormonal_therapy = json.get("patient_data.female_hormonal_therapy"),
+                    breastfeeding = json.get("patient_data.female_breastfeeding"),
                     last_pap_smear = CancerTest(
-                        date = json.get("pap_fecha"),
-                        result = json.get("pap_resultado")
+                        date = json.get("patient_data.female_last_pap_smear"),
+                        result = json.get("patient_data.female_last_pap_smear_result")
                     ),
                     last_hybrid_test = CancerTest(
-                        date = json.get("hibrido_fecha"),
-                        result = json.get("hibrido_resultado")
+                        date = json.get("patient_data.female_last_hybrid_test"),
+                        result = json.get("patient_data.female_last_hybrid_test_result")
                     ),
                     last_mammography = CancerTest(
-                        date = json.get("mamografia_fecha"),
-                        result = json.get("mamografia_resultado")
+                        date = json.get("patient_data.female_last_mammography"),
+                        result = json.get("patient_data.female_last_mammography_result")
                     ),
                 ),
 
-                apparatus_and_systems = ApparatusAndSystems(),
+                apparatus_and_systems = ApparatusAndSystems(
+                    skin = Skin(
+                         ##Cambios coloracion
+                        paleness = json.get("patient_data.skin_paleness"),
+                        icterus = json.get("patient_data.skin_icterus"),
+                        cyanosis = json.get("patient_data.skin_cyanosis"),
+
+                        eruptions = json.get("patient_data.skin_eruptions"),
+                        spots = json.get("patient_data.skin_spots"),
+                        pruritus = json.get("patient_data.skin_pruritus"),
+                        dryness = json.get("patient_data.skin_dryness"),
+                        volume_increase = json.get("patient_data.skin_volume_increase"),
+                        nails_hair = json.get("patient_data.skin_nails_hair"),
+                        nodules = json.get("patient_data.skin_nodules"),
+                        observations = json.get("patient_data.skin_observations")
+                    ),
+                    
+                    ophthalmic_system = OphthalmicSystem(
+                        ##Cambios vision
+                        diplopia = json.get("patient_data.ophthalmic_diplopia"),
+                        eye_pain = json.get("patient_data.ophthalmic_eye_pain"),
+                        photophobia = json.get("patient_data.ophthalmic_photophobia"),
+                        amaurosis = json.get("patient_data.ophthalmic_amaurosis"),
+                        photopsies = json.get("patient_data.ophthalmic_photopsies"),
+                        myodesopsias = json.get("patient_data.ophthalmic_myodesopsias"),
+                        scotomas = json.get("patient_data.ophthalmic_scotomas"),
+                        hemeralopia = json.get("patient_data.ophthalmic_hemeralopia"),
+                        nyctalopia = json.get("patient_data.ophthalmic_nyctalopia"),
+
+                        ##Uso de lentes
+                        myopia = json.get("patient_data.ophthalmic_myopia"),
+                        astigmatism = json.get("patient_data.astigmatism"),
+
+                        observations = json.get("patient_data.ophthalmic_observations")
+                    ),
+                    
+                    ent_system = EntSystem(
+                        ##Cambios en la audicion
+                        otalgia = json.get("patient_data.ent_otalgia"),
+                        algiacusis = json.get("patient_data.ent_algiacusis"),
+                        presbycusis = json.get("patient_data.ent_presbycusis"),
+                        anacusis = json.get("patient_data.ent_anacusis"),
+                        tinnitus = json.get("patient_data.ent_tinnitus"),
+                        ear_ringing = json.get("patient_data.ent_ear_ringing"),
+                        hearing_loss = json.get("patient_data.ent_hearing_loss"),
+
+                        ear_pain = json.get("patient_data.ent_ear_pain"),
+                        vertigo = json.get("patient_data.ent_vertigo"),
+                        fluid_leaking_ear = json.get("patient_data.ent_fluid_leaking_ear"),
+                        smelling_changes = json.get("patient_data.ent_smelling_changes"),
+                        fluid_leaking_nose = json.get("patient_data.ent_fluid_leaking_nose"),
+                        nose_pain = json.get("patient_data.ent_nose_pain"),
+                    ),
+
+                    mouth_throat = MouthThroat(
+                        ##Dientes
+                        cavities = json.get("patient_data.mouth_throat_cavities"),
+                        dental_agenesis = json.get("patient_data.mouth_throat_dental_agenesis"),
+                        prothesis = json.get("patient_data.mouth_throat_prothesis"),
+
+                        ##Encias
+                        gingivorrhea = json.get("patient_data.mouth_throat_gingivorrhea"),
+                        gingivorrhagia = json.get("patient_data.mouth_throat_gingivorrhagia"),
+                        pain = json.get("patient_data.mouth_throat_pain"),
+                        ulcerations = json.get("patient_data.mouth_throat_gums_ulcerations"),
+
+                        ##Lengua
+                        colorations = json.get("patient_data.mouth_throat_colorations"),
+                        size = json.get("patient_data.mouth_throat_size"),
+                        plaque_presence = json.get("patient_data.mouth_throat_plaque_presence"),
+                        ulcerations = json.get("patient_data.mouth_throat_tongue_ulcerations"),
+
+                        ##Problemas de hablar
+                        dysphonia = json.get("patient_data.mouth_throat_dysphonia"),
+                        aphonia = json.get("patient_data.mouth_throat_aphonia"),
+
+                        thirst = json.get("patient_data.mouth_throat_thirst"),
+                        speaking_eating_pain = json.get("patient_data.mouth_throat_speaking_eating_pain"),
+                        bad_breath = json.get("patient_data.mouth_throat_bad_breath"),
+                        excess_salivation = json.get("patient_data.mouth_throat_excess_salivation"),
+                        observations = json.get("patient_data.mouth_throat_observations")
+                    ),
+
+                    digestive_system = DigestiveSystem(
+                        apettite_changes = json.get("patient_data.digestive_apettite_changes"),
+                        sickness_vomit = json.get("patient_data.digestive_sickness_vomit"),
+                        abdominal_distention = json.get("patient_data.digestive_abdominal_distention"),
+
+                        ##Esofago
+                        gastralgia = json.get("patient_data.digestive_abdominal_gastralgia"),
+                        acidity = json.get("patient_data.digestive_abdominal_acidity"),
+                        postrandial_fullnes = json.get("patient_data.digestive_abdominal_postrandial_fullnes"),
+
+                        ##Cambios en evacuaciones
+                        tenesmus = json.get("patient_data.digestive_abdominal_enesmus"),
+                        bids = json.get("patient_data.digestive_abdominal_bids"),
+                        encopresis = json.get("patient_data.digestive_abdominal_encopresis"),
+                        anal_pain = json.get("patient_data.digestive_abdominal_anal_pain"),
+                        constipation = json.get("patient_data.digestive_abdominal_constipation"),
+                        rectal_bleeding = json.get("patient_data.digestive_abdominal_rectal_bleeding"),
+                        hematochezia = json.get("patient_data.digestive_abdominal_hematochezia"),
+
+                        ##Higado y vias biliares
+                        jaundice = json.get("patient_data.digestive_abdominal_jaundice"),
+                        pruritus = json.get("patient_data.digestive_abdominal_pruritus"),
+                        fever = json.get("patient_data.digestive_abdominal_fever"),
+                        ascites = json.get("patient_data.digestive_abdominal_ascites"),
+                        biliary_colic = json.get("patient_data.digestive_abdominal_biliary_colic"),
+                        hepatic_colic = json.get("patient_data.digestive_abdominal_hepatic_colic"),
+                        acholia = json.get("patient_data.digestive_abdominal_acholia"),
+
+                        ##Pancreas
+                        steatorrhea = json.get("patient_data.digestive_abdominal_steatorrhea"),
+                        diarrhea = json.get("patient_data.digestive_abdominal_diarrhea"),
+                        hypersalivation = json.get("patient_data.digestive_abdominal_hypersalivation"),
+                        abdominal_pain = json.get("patient_data.digestive_abdominal_abdominal_pain"),
+                        back_pain = json.get("patient_data.digestive_abdominal_back_pain"),
+
+                        observations = json.get("patient_data.digestive_observations")
+                    ),
+
+                    respiratory_apparatus = RespiratoryApparatus(
+                        cough = json.get("patient_data.respiratory_cough"),
+                        chest_pain = json.get("patient_data.respiratory_chest_pain"),
+                        hemoptysis = json.get("patient_data.respiratory_hemoptysis"),
+                        vomiting_cough = json.get("patient_data.respiratory_vomiting_cough"),
+                        cyanosis = json.get("patient_data.respiratory_cyanosis"),
+                        fatigue = json.get("patient_data.respiratory_fatigue"),
+                        breathing_problems = json.get("patient_data.respiratory_breathing_problems"),
+                        breathing_changes = json.get("patient_data.respiratory_breathing_changes"),
+                        observations = json.get("patient_data.respiratory_observations")
+                    ),
+
+                    cardiovascular_apparatus = CardiovascularApparatus(
+                        dyspnoea = json.get("patient_data.cardiovascular_dyspnoea"),
+                        orthopnea = json.get("patient_data.cardiovascular_orthopnea"),
+                        lipothymia = json.get("patient_data.cardiovascular_lipothymia"),
+                        syncope = json.get("patient_data.cardiovascular_syncope"),
+                        edema = json.get("patient_data.cardiovascular_edema"),
+                        cyanosis = json.get("patient_data.cardiovascular_cyanosis"),
+                        chest_pain = json.get("patient_data.cardiovascular_chest_pain"),
+                        palpitations = json.get("patient_data.cardiovascular_palpitations"),
+                        observations = json.get("patient_data.cardiovascular_observations")
+                    ),
+
+                    genitourinary_system = GenitourinarySystem(
+                        urinating_changes = json.get("patient_data.genitourinary_urinating_changes"),
+                        urinating_pain = json.get("patient_data.genitourinary_urinating_pain"),
+                        jet_changes = json.get("patient_data.genitourinary_jet_changes"),
+                        menstruation_changes = json.get("patient_data.genitourinary_menstruation_changes"),
+                        dyspareunia = json.get("patient_data.genitourinary_dyspareunia"),
+                        libido_changes = json.get("patient_data.genitourinary_libido_changes"),
+                        observations = json.get("patient_data.genitourinary_observations")
+                    ),
+
+                    musculoskeletal_system = MusculoskeletalSystem(
+                        muscle_pain = json.get("patient_data.musculoskeletal_muscle_pain"),
+                        joint_pain = json.get("patient_data.musculoskeletal_joint_pain"),
+                        joint_stiffness = json.get("patient_data.musculoskeletal_joint_stiffness"),
+                        nodules = json.get("patient_data.musculoskeletal_nodules"),
+                        bone_pain = json.get("patient_data.musculoskeletal_bone_pain"),
+                        ambulation_changes = json.get("patient_data.musculoskeletal_ambulation_changes"),
+                        observations = json.get("patient_data.musculoskeletal_observations"),
+                    ),
+
+                    hematological_system = HematologicalSystem(
+                        weakness = json.get("patient_data.hematological_weakness"),
+                        color_changes = json.get("patient_data.hematological_color_changes"),
+                        bleeding = json.get("patient_data.hematological_bleeding"),
+                        petechiae = json.get("patient_data.hematological_petechiae"),
+                        ecchymosis = json.get("patient_data.hematological_ecchymosis"),
+                        bruises = json.get("patient_data.hematological_bruises"),
+                        lymphadenopathy  = json.get("patient_data.hematological_lymphadenopathy"),
+                        observations = json.get("patient_data.hematological_observations")
+                    ),
+
+                    nervous_system = NervousSystem(
+                        headache = json.get("patient_data.nervous_headache"),
+                        seizures = json.get("patient_data.nervous_seizures"),
+                        memory_changes = json.get("patient_data.nervous_memory_changes"),
+                        sphincters_changes = json.get("patient_data.nervous_sphincters_changes"),
+                        loss_of_feeling = json.get("patient_data.nervous_loss_of_feeling"),
+                        loss_of_movement = json.get("patient_data.nervous_loss_of_movement"),
+                        loss_of_balance = json.get("patient_data.nervous_loss_of_balance"),
+                        language_disorders = json.get("patient_data.nervous_language_disorders"),
+                        gait_changes = json.get("patient_data.nervous_gait_changes"),
+                        tremors = json.get("patient_data.nervous_tremors"),
+                        paralysis = json.get("patient_data.nervous_paralysis"),
+                        parasthesia = json.get("patient_data.nervous_parasthesia"),
+                        paresis = json.get("patient_data.nervous_paresis"),
+                        observations = json.get("patient_data.nervous_observations")
+                    ),
+
+                    psychic_system = PsychicSystem(
+                        distress = json.get("patient_data.psychic_distress"),
+                        depression = json.get("patient_data.psychic_depression"),
+                        interest_changes = json.get("patient_data.psychic_interest_changes"),
+                        guilt = json.get("patient_data.psychic_guilt"),
+                        suicidal_thoughts = json.get("patient_data.psychic_suicidal_thoughts"),
+                        hallucinations = json.get("patient_data.psychic_hallucinations"),
+                        delirium = json.get("patient_data.psychic_delirium"),
+                        observations = json.get("patient_data.psychic_observations")
+                    ),
+                    
+                    physical_observations = json.get("patient_data.physical_observations"),
+
+                    follow_up = FollowUp(
+                        treatment_changes = Background(
+                            has_background = json.get("patient_data.follow_up_treatment_changes"),
+                            notes = json.get("patient_data.follow_up_treatment_changes_notes")
+                        ),
+
+                        actual_symptoms = json.get("patient_data.follow_up_actual_symptoms"),
+                        last_medication_efects = json.get("patient_data.follow_up_last_medication_efects"),
+                        psychology_follow_up = json.get("patient_data.follow_up_psychology_follow_up"),
+                        actual_diagnostic = json.get("patient_data.follow_up_actual_diagnostic")
+                    ),
+                ),
 
             ),
 
             # Family Data
             family_data = FamilyDataForm(
                 family_structure = FamilyStructure(
-                    first_member_name = json.get("family_data.primer_nombre_familiar"),
-                    first_member_age = json.get("family_data.primera_edad_familiar"),
-                    first_member_relationship = json.get("family_data.primer_parentesco_familiar"),
-                    first_member_civil_state = json.get("family_data.primer_estado_civil_familiar"),
-                    first_member_ocupation = json.get("family_data.primer_ocupacion_familiar"),
-                    first_member_income = json.get("family_data.primer_ingreso_familiar"),
+                    first_member_name = json.get("family_data.first_member_name"),
+                    first_member_age = json.get("family_data.first_member_age"),
+                    first_member_relationship = json.get("family_data.first_member_relationship"),
+                    first_member_civil_state = json.get("family_data.first_member_civil_state"),
+                    first_member_ocupation = json.get("family_data.first_member_ocupation"),
+                    first_member_income = json.get("family_data.first_member_income"),
 
-                    second_member_name = json.get("family_data.segundo_nombre_familiar"),
-                    second_member_age = json.get("family_data.segunda_edad_familiar"),
-                    second_member_relationship = json.get("family_data.segundo_parentesco_familiar"),
-                    second_member_civil_state = json.get("family_data.segundo_estado_civil_familiar"),
-                    second_member_ocupation = json.get("family_data.segundo_ocupacion_familiar"),
-                    second_member_income = json.get("family_data.segundo_ingreso_familiar"),
+                    second_member_name = json.get("family_data.second_member_name"),
+                    second_member_age = json.get("family_data.second_member_age"),
+                    second_member_relationship = json.get("family_data.second_member_relationship"),
+                    second_member_civil_state = json.get("family_data.second_member_civil_state"),
+                    second_member_ocupation = json.get("family_data.second_member_ocupation"),
+                    second_member_income = json.get("family_data.second_member_income"),
 
-                    third_member_name = json.get("family_data.tercer_nombre_familiar"),
-                    third_member_age = json.get("family_data.tercera_edad_familiar"),
-                    third_member_relationship = json.get("family_data.tercer_parentesco_familiar"),
-                    third_member_civil_state = json.get("family_data.tercer_estado_civil_familiar"),
-                    third_member_ocupation = json.get("family_data.tercer_ocupacion_familiar"),
-                    third_member_income = json.get("family_data.tercer_ingreso_familiar"),
+                    third_member_name = json.get("family_data.third_member_name"),
+                    third_member_age = json.get("family_data.third_member_age"),
+                    third_member_relationship = json.get("family_data.third_member_relationship"),
+                    third_member_civil_state = json.get("family_data.third_member_civil_state"),
+                    third_member_ocupation = json.get("family_data.third_member_ocupation"),
+                    third_member_income = json.get("family_data.third_member_income"),
 
-                    fourth_member_name = json.get("family_data.cuarto_nombre_familiar"),
-                    fourth_member_age = json.get("family_data.cuarta_edad_familiar"),
-                    fourth_member_relationship = json.get("family_data.cuarto_parentesco_familiar"),
-                    fourth_member_civil_state = json.get("family_data.cuarto_estado_civil_familiar"),
-                    fourth_member_ocupation = json.get("family_data.cuarto_ocupacion_familiar"),
-                    fourth_member_income = json.get("family_data.cuarto_ingreso_familiar"),
+                    fourth_member_name = json.get("family_data.fourth_member_name"),
+                    fourth_member_age = json.get("family_data.fourth_member_age"),
+                    fourth_member_relationship = json.get("family_data.fourth_member_relationship"),
+                    fourth_member_civil_state = json.get("family_data.fourth_member_civil_state"),
+                    fourth_member_ocupation = json.get("family_data.fourth_member_ocupation"),
+                    fourth_member_income = json.get("family_data.fourth_member_income"),
 
-                    fifth_member_name = json.get("family_data.quinto_nombre_familiar"),
-                    fifth_member_age = json.get("family_data.quinta_edad_familiar"),
-                    fifth_member_relationship = json.get("family_data.quinto_parentesco_familiar"),
-                    fifth_member_civil_state = json.get("family_data.quinto_estado_civil_familiar"),
-                    fifth_member_ocupation = json.get("family_data.quinto_ocupacion_familiar"),
-                    fifth_member_income = json.get("family_data.quinto_ingreso_familiar")
+                    fifth_member_name = json.get("family_data.fifth_member_name"),
+                    fifth_member_age = json.get("family_data.fifth_member_age"),
+                    fifth_member_relationship = json.get("family_data.fifth_member_relationship"),
+                    fifth_member_civil_state = json.get("family_data.fifth_member_civil_state"),
+                    fifth_member_ocupation = json.get("family_data.fifth_member_ocupation"),
+                    fifth_member_income = json.get("family_data.fifth_member_income")
                 ),
                 family_history = FamilyHistory(
                     paternal_grandfather = FamilyHistoryClass(
-                        relationship = json.get("family_data.abuelo_paterno_parentesco"),
-                        living = json.get("family_data.abuelo_paterno_vive"),
-                        diseases = json.get("family_data.abuelo_paterno_enfermedades"),
-                        cause_of_death = json.get("family_data.abuelo_paterno_causa_defuncion"),
+                        relationship = json.get("family_data.paternal_grandfather_relationship"),
+                        living = json.get("family_data.paternal_grandfather_living"),
+                        diseases = json.get("family_data.paternal_grandfather_diseases"),
+                        cause_of_death = json.get("family_data.paternal_grandfather_cause_of_death"),
                     ),
                     paternal_grandmother = FamilyHistoryClass(
-                        relationship = json.get("family_data.abuela_paterna_parentesco"),
-                        living = json.get("family_data.abuela_paterna_vive"),
-                        diseases = json.get("family_data.abuela_paterna_enfermedades"),
-                        cause_of_death = json.get("family_data.abuela_paterna_causa_defuncion"),
+                        relationship = json.get("family_data.paternal_grandmother_relationship"),
+                        living = json.get("family_data.paternal_grandmother_living"),
+                        diseases = json.get("family_data.paternal_grandmother_diseases"),
+                        cause_of_death = json.get("family_data.paternal_grandmother_cause_of_death"),
                     ),
 
                     maternal_grandfather = FamilyHistoryClass(
-                        relationship = json.get("family_data.abuelo_materno_parentesco"),
-                        living = json.get("family_data.abuelo_materno_vive"),
-                        diseases = json.get("family_data.abuelo_materno_enfermedades"),
-                        cause_of_death = json.get("family_data.abuelo_materno_causa_defuncion"),
+                        relationship = json.get("family_data.maternal_grandfather_relationship"),
+                        living = json.get("family_data.maternal_grandfather_living"),
+                        diseases = json.get("family_data.maternal_grandfather_diseases"),
+                        cause_of_death = json.get("family_data.maternal_grandfather_cause_of_death"),
                     ),
                     maternal_grandmother = FamilyHistoryClass(
-                        relationship = json.get("family_data.abuela_materna_parentesco"),
-                        living = json.get("family_data.abuela_materna_vive"),
-                        diseases = json.get("family_data.abuela_materna_enfermedades"),
-                        cause_of_death = json.get("family_data.abuela_materna_causa_defuncion"),
+                        relationship = json.get("family_data.maternal_grandmother_relationship"),
+                        living = json.get("family_data.maternal_grandmother_living"),
+                        diseases = json.get("family_data.maternal_grandmother_diseases"),
+                        cause_of_death = json.get("family_data.maternal_grandmother_cause_of_death"),
                     ),
 
                     father = FamilyHistoryClass(
-                        relationship = json.get("family_data.parentesco_padre"),
-                        living = json.get("family_data.vive_padre"),
-                        diseases = json.get("family_data.enfermedades_padre"),
-                        cause_of_death = json.get("family_data.causa_defuncion_padre"),
+                        relationship = json.get("family_data.father_relationship"),
+                        living = json.get("family_data.father_living"),
+                        diseases = json.get("family_data.father_diseases"),
+                        cause_of_death = json.get("family_data.father_cause_of_death"),
                     ),
                     mother = FamilyHistoryClass(
-                        relationship = json.get("family_data.parentesco_madre"),
-                        living = json.get("family_data.vive_madre"),
-                        diseases = json.get("family_data.enfermedades_madre"),
-                        cause_of_death = json.get("family_data.causa_defuncion_madre"),
+                        relationship = json.get("family_data.mother_relationship"),
+                        living = json.get("family_data.mother_living"),
+                        diseases = json.get("family_data.mother_diseases"),
+                        cause_of_death = json.get("family_data.mother_cause_of_death"),
                     ),
                 ),
-                number_sicks = json.get("family_data.numero_de_enfermos"),
+
+                number_sicks = json.get("family_data.number_sicks"),
+
                 substance_abuse = SubstanceAbuse(
-                    household_member_substance = json.get("family_data.consume_miembro_vivienda"),
-                    substance_consumed = json.get("family_data.sustancia_consumida"),
-                    consuming_member = json.get("family_data.miembro_consumidor"),
-                    consuming_frequency = json.get("family_data.frecuencia_consumo")
+                    household_member_substance = json.get("family_data.household_member_substance"),
+                    substance_consumed = json.get("family_data.substaance_consumed"),
+                    consuming_member = json.get("family_data.consuming_member"),
+                    consuming_frequency = json.get("family_data.consuming_frequency")
                 )
             ),
 
             # Home and Economy
             home_and_economy = HomeAndEconomyForm(
                 living_place = LivingPlace(
-                    place_type = json.get("home_and_economy.tipo_vivienda"),
-                    place_services = json.get("home_and_economy.servicios_vivienda"),
-                    place_material = json.get("home_and_economy.material_vivienda"),
-                    place_distribution = json.get("home_and_economy.distribucion_vivienda"),
-                    place_person_per_room = json.get("home_and_economy.personas_por_cuarto_vivienda"),
-                    place_location = json.get("home_and_economy.zone_vivienda"),
-                    place_exposition = json.get("home_and_economy.exposicion_biomasas")
+                    place_type = json.get("home_and_economy.place_type"),
+                    place_services = json.get("home_and_economy.place_services"),
+                    place_material = json.get("home_and_economy.place_material"),
+                    place_distribution = json.get("home_and_economy.place_distribution"),
+                    place_person_per_room = json.get("home_and_economy.place_person_per_room"),
+                    place_location = json.get("home_and_economy.place_location"),
+                    place_exposition = json.get("home_and_economy.place_exposition")
                 ),
+
                 household_goods = HouseholdGoods(
-                    electrodomestics = json.get("home_and_economy.electrodomesticos"),
-                    air_conditioner = json.get("home_and_economy.refrigeracion")
+                    electrodomestics = json.get("home_and_economy.electrodomestics"),
+                    air_conditioner = json.get("home_and_economy.air_conditioner")
                 ),
+
                 family_transportation = FamilyTransportation(
-                    transportation = json.get("home_and_economy.transporte"),
-                    car_brand = json.get("home_and_economy.marca_auto"),
-                    car_model = json.get("home_and_economy.modelo_auto")
+                    transportation = json.get("home_and_economy.transportation"),
+                    car_brand = json.get("home_and_economy.car_brand"),
+                    car_model = json.get("home_and_economy.car_model")
                 ),
-                geographic_area = json.get("home_and_economy.area_geografica"),
-                sick_members = json.get("home_and_economy.familiares_enfermos"),
+                
+                geographic_area = json.get("home_and_economy.geographic_area"),
+                sick_members = json.get("home_and_economy.sick_members"),
+
                 outcome = Outcome(
-                    outcome_electric_power = json.get("home_and_economy.energia_electrica_egreso"),
-                    outcome_water = json.get("home_and_economy.agua_egreso"),
-                    outcome_phone = json.get("home_and_economy.telefono_egreso"),
-                    outcome_food = json.get("home_and_economy.alimentos_egreso"),
-                    outcome_rent = json.get("home_and_economy.renta_egreso"),
-                    outcome_transportation = json.get("home_and_economy.transporte_egreso"),
-                    outcome_education = json.get("home_and_economy.educacion_egreso"),
-                    outcome_clothing = json.get("home_and_economy.vestimenta_egreso"),
-                    outcome_recreational = json.get("home_and_economy.diversion_egreso"),
-                    outcome_other = json.get("home_and_economy.otros_egreso")
+                    outcome_electric_power = json.get("home_and_economy.outcome_electric_power"),
+                    outcome_water = json.get("home_and_economy.outcome_water"),
+                    outcome_gas = json.get("home_and_economy.outcome_gas"),
+                    outcome_phone = json.get("home_and_economy.outcome_phone"),
+                    outcome_food = json.get("home_and_economy.outcome_food"),
+                    outcome_rent = json.get("home_and_economy.outcome_rent"),
+                    outcome_transportation = json.get("home_and_economy.outcome_transportation"),
+                    outcome_education = json.get("home_and_economy.outcome_education"),
+                    outcome_clothing = json.get("home_and_economy.outcome_clothing"),
+                    outcome_recreational = json.get("home_and_economy.outcome_recreational"),
+                    outcome_other = json.get("home_and_economy.outcome_other")
                 )
             ),
 

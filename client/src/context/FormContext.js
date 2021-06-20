@@ -69,12 +69,21 @@ class FormContextProvider extends Component {
         allergies_notes: null,
         trauma: null,
         trauma_notes: null,
-        alcoholism: null,
-        alcoholism_notes: null,
-        smoking: null,
-        smoking_notes: null,
-        drug_addictions: null,
-        drug_addictions_notes: null,
+        alcoholism_consumption: null,
+        alcoholism_starting_age: null,
+        alcoholism_quantity: null,
+        alcoholism_frequency: null,
+        alcoholism_last_consumption: null,
+        smoking_consumption: null,
+        smoking_starting_age: null,
+        smoking_quantity: null,
+        smoking_frequency: null,
+        smoking_last_consumption: null,
+        drug_consumption: null,
+        drug_starting_age: null,
+        drug_quantity: null,
+        drug_frequency: null,
+        drug_last_consumption: null,
 
         /*male_sexual_health: male_sexual_health,*/
         male_start_sexual_life: null,
@@ -104,7 +113,7 @@ class FormContextProvider extends Component {
         female_last_pap_smear: null,
         female_last_pap_smear_result: null,
         female_last_hybrid_test: null,
-        female_last_hybrid_test_resutl: null,
+        female_last_hybrid_test_result: null,
         female_last_mammography: null,
         female_last_mammography_result: null,
 
@@ -392,7 +401,7 @@ class FormContextProvider extends Component {
         number_sicks: null,
 
         household_member_substance: null,
-        substaance_consumed: null,
+        substance_consumed: null,
         consuming_member: null,
         consuming_frequency: null
     }
