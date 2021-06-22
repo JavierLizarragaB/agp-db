@@ -31,7 +31,7 @@ function App() {
                             <ProtectedRoute path="/directorio-paciente" component={DirectorioPaciente} />
                             <ProtectedRoute path="/carrusel" component={Carrusel} />
                             <ProtectedRoute path="/test/user-ctx" component={UserCtxExample} />
-                            <Route path="/pag-inicio" component={PagInicio} />
+                            <ProtectedRoute path="/pag-inicio" component={PagInicio} />
                         </Switch>
                     </div>
                 </div>
