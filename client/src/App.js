@@ -12,6 +12,7 @@ import Carrusel from './components/carrusel.component';
 import PagInicio from './components/Inicio/inicio';
 import DirectorioPaciente from './components/directorio.component';
 import ProtectedRoute from './constants/protectedRoutes';
+import AdminProtectedRoute from './constants/adminProtectedRoutes';
 
 import FormContextProvider from './context/FormContext';
 
@@ -25,12 +26,12 @@ function App() {
                         <Switch>
                             <Route exact path="/" component={Login} />
                             <Route path="/log-in" component={Login} />
-                            <ProtectedRoute path="/user-panel" component={UserPanel} isAuth={true}/>
-                            <ProtectedRoute path="/datos-paciente" component={Form} isAuth={true}/>
-                            <ProtectedRoute path="/directorio-paciente" component={DirectorioPaciente} isAuth={true}/>
-                            <ProtectedRoute path="/carrusel" component={Carrusel} isAuth={true}/>
-                            <ProtectedRoute path="/test/user-ctx" component={UserCtxExample} isAuth={true}/>
-                            <ProtectedRoute path="/pag-inicio" component={PagInicio} isAuth={true}/>
+                            <AdminProtectedRoute path="/user-panel" component={UserPanel} />
+                            <ProtectedRoute path="/datos-paciente" component={Form} />
+                            <ProtectedRoute path="/directorio-paciente" component={DirectorioPaciente} />
+                            <ProtectedRoute path="/carrusel" component={Carrusel} />
+                            <ProtectedRoute path="/test/user-ctx" component={UserCtxExample} />
+                            <ProtectedRoute path="/pag-inicio" component={PagInicio} />
                         </Switch>
                     </div>
                 </div>

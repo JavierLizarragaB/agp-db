@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
+import Axios from 'axios';
 
-function ProtectedRoute({ isAuth: isAuth, component: Component, ...rest}) {
+function ProtectedRoute({ component: Component, ...rest}) {
+
+    const [isLoading, setLoading] = useState(true);
+    const [isLogged, setIsLogged] = useState(false);
+
+    useEffect(() => {
+        Axios.post('./api/verify_login?token=' + sessionStorage.getItem("token")).then((response) => {
+            setIsLogged(response.data);
+            setLoading(false);
+        });
+    }, []);
+
+    if (isLoading) {
+        return <div className="App">Loading...</div>;
+    } 
+    
     return (
         <Route
             {...rest}
-            render={(props) => {
-                if (isAuth) {
+            async render={() => {
+                if (isLogged) {
                     return <Component />;
                 } else {
                     return(
-                        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+                        <Redirect to={{ pathname: "/log-in"}} />
                     );
                 }
             }}

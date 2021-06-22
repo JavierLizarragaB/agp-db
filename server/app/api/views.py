@@ -1,4 +1,4 @@
-from flask import request, jsonify, current_app
+from flask import json, request, jsonify, current_app
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
@@ -12,24 +12,35 @@ from ..models import Address, Background, Patients, PatientDataForm, User, Respo
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-        ticket = request.args.get("token")
+        token = request.args.get("token")
 
-        if not ticket:
-            return (False, 200)
+        if not token:
+            return ({ 'message': "Favor de iniciar sesion not found" }, 200)
 
         try:
-            jwt.decode(ticket, current_app.config['SECRET_KEY'], algorithms=["HS256"])
+            data=jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=["HS256"])
+            current_user = User.objects(username=data["user"]).first()
         except:
-            return (False, 200)
+            return ({ 'message': "No se pudo leer token" }, 200)
         
-        return f(*args, **kwargs)
+        return f(current_user, *args, **kwargs)
     return decorated
 
-@api.route("/verify", methods=["GET", "POST"])
+@api.route("/verify_login", methods=["GET", "POST"])
 @token_required
-def is_logged():
-    
-    return (True, 200)
+def is_logged(current_user):
+    if current_user:
+        return (jsonify(True), 200)
+    return(jsonify(True), 200)
+
+@api.route("/verify_role", methods=["GET", "POST"])
+@token_required
+def is_auth(current_user):
+    if current_user:
+        if current_user['type']==3:
+            return ({'auth': True, 'login':True}, 200)
+        return ({'auth': False, 'login':True}, 200)
+    return({'auth': False, 'login':False}, 200)
 
 @api.route("/time", methods=["GET"])
 def time():
@@ -94,7 +105,7 @@ def post_patient():
         return (e.__str__(), 500)
 
 
-@api.route("/paciente/todos", methods=["GET"])
+@api.route("/paciente/todos", methods=["GET", "POST"])
 def get_all_patients():
     """GET Returns all the patients."""
     patients = Patients.objects().order_by("folio")
@@ -110,8 +121,8 @@ def get_user():
         return ({ 'message': "Correo o contrasena incorrectos"}, 200)
     
     if check_password_hash(person.password, json.get("passwrd")):
-        token = jwt.encode({'user' : person.username, 'exp' : datetime.utcnow() + timedelta(minutes=280)}, current_app.config['SECRET_KEY'], algorithm="HS256")
-        return (jsonify(True), 200)
+        token = jwt.encode({'user' : person.username, 'type' : person.type,'exp' : datetime.utcnow() + timedelta(minutes=280)}, current_app.config['SECRET_KEY'], algorithm="HS256")
+        return (jsonify(token), 200)
     return ({ 'message': "Correo o contrasena incorrectos"}, 200)
     
 @api.route("/user-panel/signup", methods=["POST"])
