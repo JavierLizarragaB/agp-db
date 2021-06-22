@@ -27,7 +27,8 @@ export const Login = () => {
                 setLoginStatus(response.data.message);
             } else {
                 if(response.data){
-                    history.push('/pag-inicio')
+                    sessionStorage.setItem("token", response.data);
+                    history.push('/pag-inicio');
                 }
             }
         });

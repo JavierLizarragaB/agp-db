@@ -7,6 +7,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export const NavBar = () => {
 
     let history = useHistory();
+    const logOut = () => {
+        sessionStorage.removeItem('token');
+        history.push('/log-in');
+    }
 
     return (
         <div>
@@ -20,7 +24,7 @@ export const NavBar = () => {
                         <Link className="nav-item" onClick={()=>{history.push('/directorio-paciente');}}>
                         Pacientes
                         </Link>{' '}
-                        <Link className="nav-item" onClick={()=>{history.push('/log-in');}}>
+                        <Link className="nav-item" onClick={logOut}>
                         Cerrar Sesión
                         </Link>{' '}
                     </div>
