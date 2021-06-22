@@ -132,6 +132,12 @@
   margin-bottom: 10%;
 }
 
+.cita-text {
+  font-size: large;
+  font-weight: 400;
+  text-align: left;
+}
+
 .patient-text {
   font-size: large;
   font-weight: 400;

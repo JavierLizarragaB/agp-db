@@ -53,18 +53,22 @@ function Form() {
                         "folio":"2",
                         "nombre":"Gigi Rodriguez",
                         "edad":"9",
-                        "sexo":"Feminino",
+                        "sexo":"Femenino",
                         "fecha_nacimiento":"01/01/2001",
                         "dx_medico":"existir",
                         "sangre":"A+",
                         "contacto_emergencia_nombre":"Nickolas Rodriguez Ochoa",
                         "contacto_emergencia_num":"123456",
-                        "albergue":false,
-                        "companion":true,
-                        "quimio":true}
+                        "companion":false,
+                        "albergue":true,
+                        "quimio":false}
 
-    let icon = jsonpaciente.sexo == "Feminino" ? Femenino : Masculino;
+    let icon = jsonpaciente.sexo == "Femenino" ? Femenino : Masculino;
+    let albergue = jsonpaciente.albergue == true ? true : false;
+    let companion = jsonpaciente.companion == true ? true : false;
+    let quimio = jsonpaciente.quimio == true ? true : false;
 
+    
     return (
         <>
 
@@ -90,12 +94,12 @@ function Form() {
                             
                             <div className="patient-text-br">Sí</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
+                                <input type="checkbox" className="form-control form-pat" checked={companion}/>
                             </div>
                             &ensp;&ensp;
                             <div className="patient-text-br">No</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
+                                <input type="checkbox" className="form-control form-pat" checked={!companion}/>
                             </div>
                         </div>
                     </div>
@@ -109,12 +113,12 @@ function Form() {
                         <div className="form-row">
                             <div className="patient-text-br">Sí</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
+                                <input type="checkbox" className="form-control form-pat" checked={albergue}/>
                             </div>
                             &ensp;&ensp;
                             <div className="patient-text-br">No</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat"/>
+                                <input type="checkbox" className="form-control form-pat" checked={!albergue}/>
                             </div>
                         </div>
                         <br></br>
@@ -122,12 +126,12 @@ function Form() {
                         <div className="form-row">
                             <div className="patient-text-br">Sí</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
+                                <input type="checkbox" className="form-control form-pat" checked={quimio}/>
                             </div>
                             &ensp;&ensp;
                             <div className="patient-text-br">No</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
+                                <input type="checkbox" className="form-control form-pat" checked={!quimio}/>
                             </div>
                         </div>
                     </div>
@@ -500,9 +504,20 @@ function Form() {
         <div id="cit-collapse-text">
             <div className="col-md-6"/>
                 <div className="form-group col-md-12 info-text">
-                    <textarea className="form-control form-pat" rows="6"
-                    // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
-                    ></textarea>
+                    <p className="cita-text">Selecciona aquí la fecha para tu cita: </p>
+                        <div className="form-group col-md-4" >
+                            
+                            <input style={{textAlign: "center"}} type="datetime-local" className="form-control form-pat" onChange={(e) => {
+                            updatePatientData("clinic_record_date",e.target.value);
+                            console.log(formState);
+                            }} />
+                            
+                        </div>
+                    <p className="cita-text">Ingresa aquí la descripción de la cita: </p>
+                        <textarea className="form-control form-pat" rows="6"
+                        // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
+                        ></textarea>
+                    <br></br><br></br>
                 </div>
             </div>
         </Collapse>

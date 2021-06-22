@@ -12,6 +12,8 @@ const ReactCalendar = () => {
   return (
     <div>
       <Calendar showWeekNumbers onChange={onChange} value={date} />
+
+      {date.toString}
     </div>
   );
 };

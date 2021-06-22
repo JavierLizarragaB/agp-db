@@ -45,6 +45,7 @@ function Table ({columns, data}){
         columns,
         data,
     })
+
     return (
         <table {...getTableProps()}>
           <thead>
@@ -79,26 +80,36 @@ const range = len => {
   }
   return arr
 }
+
+const jsonpaciente = {"_id":{"$oid":"60cacc5ced0179c75db08186"},
+                        "fecha_cita":["01/01/2001","02/03/2001","06/05/2011"],
+                        "hora_cita":["03:50","04:10","24:01"],
+                        "descripcion_cita": ["Este compa ya está muerto nomas no le han avisado","Dead","Revivió" ] }
+
 //puede usarse para hacer el llamado de backend
-const newInput = () => {
+const newInput = (cont) => {
   return {
-    hora:"01:30",
-    desc: "Revisión mensual de Panchito Lopez",
+    hora: jsonpaciente.hora_cita[cont],
+    desc: jsonpaciente.descripcion_cita[cont],
   }
 }
 //aqui se llena la tabla, usando la función de arriba
 function makeData(...lens) {
+  var cont = -1
   const makeDataLevel = (depth = 0) => {
     const len = lens[depth]
     return range(len).map(d => {
+      cont++
       return {
-        ...newInput(),
+        ...newInput(cont),
         subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
       }
     })
   }
   return makeDataLevel()
 }
+
+
 
 //se define la tabla y se llena llamando las funciones anteriores
 function TablaHorario() {
@@ -121,7 +132,7 @@ function TablaHorario() {
         []
       )
     
-      const data = React.useMemo(() => makeData(3), [])
+      const data = React.useMemo(() => makeData(jsonpaciente.fecha_cita.length), [])
     
       return (
         <Styles>
