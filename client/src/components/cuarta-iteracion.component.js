@@ -443,36 +443,42 @@ class CuartaIteracion extends Component {
                         </div>
                     </div>
 
-                    <div className="form-text">Hijos/as</div>
+                    <div className="form-text">Hermano/as</div>
+                    
                     <div className="form-row">
-                    <div className="col-md-1">Si</div>
+                    <div className="col-md-2">¿Cuántos?</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
-                            </div>
-                            <div className="col-md-1">No</div>
-                            <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
-                            </div>
-                            <div className="col-md-2">¿Cuántos?</div>
-                            <div className="col-md-1">
-                                <input type="number" className="form-control form-pat" />
+                                <input type="number" className="form-control form-pat" min="0" />
                             </div>
                     </div>
 
-                    <div className="form-text">Hijos/as</div>
                     <div className="form-row">
-                    <div className="col-md-1">Vivo</div>
+                        <div className="col-md-2">Enfermedades</div>
+                        <div className="form-group col-md-6">
+                            <textarea className="form-control form-pat" rows="1" />
+                        </div>
+                    </div>
+                    <div className="form-row">
+                        <div className="col-md-2">Causa de Defunción</div>
+                        <div className="form-group col-md-10">
+                            <textarea className="form-control form-pat" rows="3" />
+                        </div>
+                    </div>
+
+                    <div className="form-text">Hijos/as</div>
+                    
+                    <div className="form-row">
+                    <div className="col-md-2">¿Cuántos?</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
+                                <input type="number" className="form-control form-pat" min="0" />
                             </div>
-                            <div className="col-md-1">Finado</div>
-                            <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" />
-                            </div>
-                            <div className="col-md-2">Enfermedades</div>
-                            <div className="form-group col-md-6">
-                                <textarea className="form-control form-pat" rows="1" />
-                            </div>
+                    </div>
+
+                    <div className="form-row">
+                        <div className="col-md-2">Enfermedades</div>
+                        <div className="form-group col-md-6">
+                            <textarea className="form-control form-pat" rows="1" />
+                        </div>
                     </div>
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>

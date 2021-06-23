@@ -60,7 +60,7 @@ function Form() {
                         "contacto_emergencia_nombre":"Nickolas Rodriguez Ochoa",
                         "contacto_emergencia_num":"123456",
                         "companion":false,
-                        "albergue":true,
+                        "albergue":false,
                         "quimio":false}
 
     let icon = jsonpaciente.sexo == "Femenino" ? Femenino : Masculino;
