@@ -1,3 +1,4 @@
+from mongoengine.fields import EmbeddedDocumentListField
 from werkzeug.security import generate_password_hash
 from mongoengine import Document, EmbeddedDocument
 from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentField
@@ -396,11 +397,30 @@ class FamilyStructure(EmbeddedDocument):
     fifth_member_ocupation = StringField(required=False, db_field="quinto_ocupacion_familiar")
     fifth_member_income = StringField(required=False, db_field="quinto_ingreso_familiar")
 
+    sixth_member_name = StringField(required=False, db_field="sexto_nombre_familiar")
+    sixth_member_age = StringField(required=False, db_field="sexta_edad_familiar")
+    sixth_member_relationship = StringField(required=False, db_field="sexto_parentesco_familiar")
+    sixth_member_civil_state = StringField(required=False, db_field="sexto_estado_civil_familiar")
+    sixth_member_ocupation = StringField(required=False, db_field="sexto_ocupacion_familiar")
+    sixth_member_income = StringField(required=False, db_field="sexto_ingreso_familiar")
+
+    seventh_member_name = StringField(required=False, db_field="séptimo_nombre_familiar")
+    seventh_member_age = StringField(required=False, db_field="séptima_edad_familiar")
+    seventh_member_relationship = StringField(required=False, db_field="séptimo_parentesco_familiar")
+    seventh_member_civil_state = StringField(required=False, db_field="séptimo_estado_civil_familiar")
+    seventh_member_ocupation = StringField(required=False, db_field="séptimo_ocupacion_familiar")
+    seventh_member_income = StringField(required=False, db_field="séptimo_ingreso_familiar")
+
 class FamilyHistoryClass(EmbeddedDocument):
     relationship = StringField(required=False, db_field="parentesco")
     living = BooleanField(required=False, db_field="vive")
     diseases = ListField(StringField(), required=False, db_field="enfermedades")
     cause_of_death = StringField(required=False, db_field="causa_defuncion")
+
+class FamilyMemberQuantity(EmbeddedDocument):
+    has_family_member = BooleanField(required=False, db_field="tiene_miembro_familiar")
+    quantity = IntField(required=False, db_field="cantidad")
+    family_members = EmbeddedDocumentListField(FamilyHistoryClass, required=False, db_field="miembros_familiares")
 
 class FamilyHistory(EmbeddedDocument):
     paternal_grandfather = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "abuelo_paterno")
@@ -411,6 +431,10 @@ class FamilyHistory(EmbeddedDocument):
     
     father = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "padre")
     mother = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "madre")
+
+    siblings = EmbeddedDocumentField(FamilyMemberQuantity, required=False, db_field="hermanos")
+
+    sons = EmbeddedDocumentField(FamilyMemberQuantity, required=False, db_field="hijos")
 
 
 class SubstanceAbuse(EmbeddedDocument):

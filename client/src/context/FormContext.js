@@ -368,6 +368,20 @@ class FormContextProvider extends Component {
         fifth_member_ocupation: null,
         fifth_member_income: null,
 
+        sixth_member_name: null,
+        sixth_member_age: null,
+        sixth_member_relationship: null,
+        sixth_member_civil_state: null,
+        sixth_member_ocupation: null,
+        sixth_member_income: null,
+
+        seventh_member_name: null,
+        seventh_member_age: null,
+        seventh_member_relationship: null,
+        seventh_member_civil_state: null,
+        seventh_member_ocupation: null,
+        seventh_member_income: null,
+
         paternal_grandfather_relationship: null,
         paternal_grandfather_living: null,
         paternal_grandfather_diseases: null,
@@ -397,6 +411,20 @@ class FormContextProvider extends Component {
         mother_living: null,
         mother_diseases: null,
         mother_cause_of_death: null,
+
+        siblings: null,
+        siblings_quantity: null,
+        siblings_relationship: null,
+        siblings_living: null,
+        siblings_diseases: null,
+        siblings_cause_of_death: null,
+
+        sons: null,
+        sons_quantity: null,
+        sons_relationship: null,
+        sons_living: null,
+        sons_diseases: null,
+        sons_cause_of_death: null,
 
         number_sicks: null,
 
@@ -541,12 +569,6 @@ class FormContextProvider extends Component {
         const contextValue = {
             formState:this.state,
             updateFormState:this.updateFormState,
-            updateGeneralInfo:this.updateGeneralInfo,
-            updatePatientData: this.updatePatientData,
-            updateFamilyData: this.updateFamilyData,
-            updateHomeAndEconomy: this.updateHomeAndEconomy,
-            updateHygienePassPhysAct:this.updateHygienePassPhysAct,
-            updateOthers:this.updateOthers,
             handleCheckboxGroup:this.handleCheckboxGroup,
             handleBooleanCheckbox:this.handleBooleanCheckbox
         }
