@@ -31,7 +31,7 @@ function Form() {
     const [message, setMessage] = useState("");
 
     // Load context
-    const {formState, updatePatientData} = useContext(FormContext);
+    const {formState, updateFormState} = useContext(FormContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -166,13 +166,13 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCN" placeholder="Entidad de Nacimiento" onChange={(e) => {
-                                            updatePatientData("birth_city",e.target.value);
+                                            updateFormState("patient_data", "birth_state",e.target.value);
                                             console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCN" placeholder="Ciudad de Nacimiento" onChange={(e) => {
-                                            updatePatientData("birth_state",e.target.value);
+                                            updateFormState("patient_data", "birth_city",e.target.value);
                                             console.log(formState);
                                         }} />
                                     </div>
@@ -181,49 +181,49 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCDP" placeholder="Calle" onChange={(e) => {
-                                            updatePatientData("permanent_street",e.target.value);
+                                            updateFormState("patient_data", "permanent_street",e.target.value);
                                             console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputNDP" placeholder="Número" onChange={(e) => {
-                                            updatePatientData("permanent_num",e.target.value);
+                                            updateFormState("patient_data", "permanent_num",e.target.value);
                                             console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputColDP" placeholder="Colonia" onChange={(e) => {
-                                            updatePatientData("permanent_suburb",e.target.value);
+                                            updateFormState("patient_data", "permanent_suburb",e.target.value);
                                             console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputLocalDP" placeholder="Localidad" onChange={(e) => {
-                                            updatePatientData("permanent_locality",e.target.value);
+                                            updateFormState("patient_data", "permanent_locality",e.target.value);
                                             console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputMunDP" placeholder="Municipio" onChange={(e) => {
-                                            updatePatientData("permanent_municipality",e.target.value);
+                                            updateFormState("patient_data", "permanent_municipality",e.target.value);
                                             console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-2">
                                     <input className="form-control form-pat" id="inputCPDP" placeholder="C.P." onChange={(e) => {
-                                        updatePatientData("permanent_zip_code",e.target.value);
+                                        updateFormState("patient_data", "permanent_zip_code",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel1DP" placeholder="Telefóno (1)" onChange={(e) => {
-                                        updatePatientData("permanent_phone",e.target.value);
+                                        updateFormState("patient_data", "permanent_phone",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel2DP" placeholder="Telefóno (2)" onChange={(e) => {
-                                        updatePatientData("permanent_phone2",e.target.value);
+                                        updateFormState("patient_data", "permanent_phone2",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
@@ -233,13 +233,13 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" placeholder="Correo Electrónico" onChange={(e) => {
-                                        updatePatientData("email",e.target.value);
+                                        updateFormState("patient_data", "email",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-2">
                                         <input type="text" className="form-control form-pat" placeholder="Ingresos" onChange={(e) => {
-                                        updatePatientData("income",e.target.value);
+                                        updateFormState("patient_data", "income",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
@@ -248,19 +248,19 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" placeholder="Servicio Médico" onChange={(e) => {
-                                        updatePatientData("medical_service",e.target.value);
+                                        updateFormState("patient_data", "medical_service",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" placeholder="Escolaridad" onChange={(e) => {
-                                        updatePatientData("scholarship",e.target.value);
+                                        updateFormState("patient_data", "scholarship",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" placeholder="Ocupación" onChange={(e) => {
-                                        updatePatientData("ocupation",e.target.value);
+                                        updateFormState("patient_data", "ocupation",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
@@ -269,13 +269,13 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" placeholder="Religión" onChange={(e) => {
-                                        updatePatientData("religion",e.target.value);
+                                        updateFormState("patient_data", "religion",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" placeholder="Estado Civil" onChange={(e) => {
-                                        updatePatientData("civil_state",e.target.value);
+                                        updateFormState("patient_data", "civil_state",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
@@ -285,7 +285,7 @@ function Form() {
                                     <div className="form-group col-md-3">Realización Historial Clínico</div>
                                     <div className="form-group col-md-2">
                                         <input type="date" className="form-control form-pat" onChange={(e) => {
-                                        updatePatientData("clinic_record_date",e.target.value);
+                                        updateFormState("patient_data", "clinic_record_date",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
@@ -295,19 +295,19 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCalle" placeholder="Calle" onChange={(e) => {
-                                        updatePatientData("temp_street",e.target.value);
+                                        updateFormState("patient_data", "temp_street",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputNum" placeholder="Número" onChange={(e) => {
-                                        updatePatientData("temp_num",e.target.value);
+                                        updateFormState("patient_data", "temp_num",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCol" placeholder="Colonia" onChange={(e) => {
-                                        updatePatientData("temp_suburb",e.target.value);
+                                        updateFormState("patient_data", "temp_suburb",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
@@ -315,31 +315,31 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputLocal" placeholder="Localidad" onChange={(e) => {
-                                        updatePatientData("temp_locality",e.target.value);
+                                        updateFormState("patient_data", "temp_locality",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputMun" placeholder="Municipio" onChange={(e) => {
-                                        updatePatientData("temp_municipality",e.target.value);
+                                        updateFormState("patient_data", "temp_municipality",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-2">
                                         <input className="form-control form-pat" id="inputCP" placeholder="C.P." onChange={(e) => {
-                                        updatePatientData("temp_zip_code",e.target.value);
+                                        updateFormState("patient_data", "temp_zip_code",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputTel1" placeholder="Telefóno (1)" onChange={(e) => {
-                                        updatePatientData("temp_phone",e.target.value);
+                                        updateFormState("patient_data", "temp_phone",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel2" placeholder="Telefóno (2)" onChange={(e) => {
-                                        updatePatientData("temp_phone2",e.target.value);
+                                        updateFormState("patient_data", "temp_phone2",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
@@ -349,19 +349,19 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCalleFR" placeholder="Calle" onChange={(e) => {
-                                        updatePatientData("responsable_street",e.target.value);
+                                        updateFormState("patient_data", "responsable_street",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputNumFR" placeholder="Número" onChange={(e) => {
-                                        updatePatientData("responsable_num",e.target.value);
+                                        updateFormState("patient_data", "responsable_num",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputColFR" placeholder="Colonia" onChange={(e) => {
-                                        updatePatientData("responsable_suburb",e.target.value);
+                                        updateFormState("patient_data", "responsable_suburb",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
@@ -369,31 +369,31 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputLocalFR" placeholder="Localidad" onChange={(e) => {
-                                        updatePatientData("responsable_locality",e.target.value);
+                                        updateFormState("patient_data", "responsable_locality",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputMunFR" placeholder="Municipio" onChange={(e) => {
-                                        updatePatientData("responsable_municipality",e.target.value);
+                                        updateFormState("patient_data", "responsable_municipality",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-2">
                                     <input className="form-control form-pat"id="inputCPFR" placeholder="C.P." onChange={(e) => {
-                                        updatePatientData("responsable_zip_code",e.target.value);
+                                        updateFormState("patient_data", "responsable_zip_code",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel1FR" placeholder="Telefóno (1)" onChange={(e) => {
-                                        updatePatientData("responsable_phone",e.target.value);
+                                        updateFormState("patient_data", "responsable_phone",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel2FR" placeholder="Telefóno (2)" onChange={(e) => {
-                                        updatePatientData("responsable_phone2",e.target.value);
+                                        updateFormState("patient_data", "responsable_phone2",e.target.value);
                                         console.log(formState);
                                     }} />
                                     </div>
@@ -401,7 +401,7 @@ function Form() {
                                 <div>Parentesco</div>
                                 <div>
                                     <input type="text" className="form-control form-pat col-md-4" id="inputParent" placeholder="Parentesco" onChange={(e) => {
-                                        updatePatientData("responsable_relationship",e.target.value);
+                                        updateFormState("patient_data", "responsable_relationship",e.target.value);
                                         console.log(formState);
                                     }} />
                                 </div>
@@ -508,7 +508,7 @@ function Form() {
                         <div className="form-group col-md-4" >
                             
                             <input style={{textAlign: "center"}} type="datetime-local" className="form-control form-pat" onChange={(e) => {
-                            updatePatientData("clinic_record_date",e.target.value);
+                            updateFormState("patient_data", "clinic_record_date",e.target.value);
                             console.log(formState);
                             }} />
                             

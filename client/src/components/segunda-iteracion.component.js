@@ -35,7 +35,7 @@ class SegundaIteracion extends Component {
                         </div>
                         <div className="form-group col-md-8">
                             <textarea className="form-control form-pat" rows="5" onChange={(e) => {
-                                mycontext.updatePersonalBackground("diseases_chronicdeg",e.target.value);
+                                mycontext.updateFormState("patient_data","diseases_chronicdeg",e.target.value);
                                 console.log(mycontext.formState);
                             }} ></textarea>
                         </div>
