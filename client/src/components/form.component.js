@@ -470,6 +470,12 @@ function Form() {
                     <textarea className="form-control form-pat" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
+                    {/* boton de enviar */}
+                    <div>
+                        <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                            <b>Guardar Estudios</b>
+                        </button>
+                    </div>
                 </div>
             </div>
         </Collapse>
@@ -489,6 +495,12 @@ function Form() {
                     <textarea className="form-control form-pat" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
+                    {/* boton de enviar */}
+                    <div>
+                        <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                            <b>Guardar Medicamentos</b>
+                        </button>
+                    </div>
                 </div>
             </div>
         </Collapse>
@@ -526,10 +538,20 @@ function Form() {
                             <div className="horario col-md-4">
                                 <TablaHorario/>
                             </div>
+                            
                         <br></br><br></br>
+                    </div>
+                    <div>
+                        {/* boton de enviar */}
+                    <div>
+                        <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                            <b>Guardar Cita</b>
+                        </button>
+                    </div>
                     </div>
                 </div>
             </div>
+                
         </Collapse>
         </> 
     );
