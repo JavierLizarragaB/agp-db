@@ -165,7 +165,7 @@ function Form() {
                             <form className="info-form form-text-supra col-md-12">
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
-                                        <input type="text" className="form-control form-pat" id="inputCN" placeholder="Entidad de Nacimiento" onChange={(e) => {
+                                        <input type="text" className="form-control form-pat" id="inputEN" placeholder="Entidad de Nacimiento" onChange={(e) => {
                                             updateFormState("patient_data", "birth_state",e.target.value);
                                             console.log(formState);
                                         }} />

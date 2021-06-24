@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export const NavBar = () => {
 
     let history = useHistory();
+    
     const logOut = () => {
         sessionStorage.removeItem('token');
         history.push('/log-in');

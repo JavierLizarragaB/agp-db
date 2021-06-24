@@ -1,11 +1,25 @@
-import React, { Component, useState, useContext} from "react";
+import React, { Component, useState, useContext, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './navbar.component';
 import Axios from 'axios';
+import { Redirect, useHistory } from "react-router";
+import { Link } from 'react-router-dom';
 
+export const Directorio = () => {
 
-class Directorio extends Component {
-    render() {
+    const [patients, setPatients] = useState([]);
+    let history = useHistory();
+
+    const getPatients = () => {
+        Axios.get('./api/directorio').then((response) => {
+            setPatients(response.data);
+        });
+    };
+
+    useEffect(() => {
+        getPatients();
+    }, []);
+
         return (
         <>
             <div>
@@ -17,15 +31,41 @@ class Directorio extends Component {
                         </div>
                     </div>
                 </div>
+                
+                <div className="col-md-12">
+                    <Link className="btn-dir" onClick={()=>{history.push('/crear-paciente');}}>REGISTRAR NUEVO PACIENTE</Link>
+                </div>
+
+                <br />
                 <br />
 
-                <div className="row">
-                    
+                <div className="col-md-12">
+                <div className="col-md-8 cont-dir">
+                    <table className="table table-bordered table-hover">
+                        <thead className="thead-custom">
+                            <tr>
+                                <th>Pacientes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {patients.map((patient) => (
+                                <tr key={patient._id.$_oid}>
+                                    <td>
+                                        {patient.nombre} 
+                                        &nbsp;
+                                        {patient.apellido_paterno} 
+                                        &nbsp;
+                                        {patient.apellido_materno}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
                 </div>
             </div>
         </>
         );
-    }
-}
+};
 
 export default Directorio;

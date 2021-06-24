@@ -15,6 +15,7 @@ import ProtectedRoute from './constants/protectedRoutes';
 import AdminProtectedRoute from './constants/adminProtectedRoutes';
 
 import FormContextProvider from './context/FormContext';
+import CrearPaciente from './components/crearPaciente.component';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                             <ProtectedRoute path="/carrusel" component={Carrusel} />
                             <ProtectedRoute path="/test/user-ctx" component={UserCtxExample} />
                             <ProtectedRoute path="/pag-inicio" component={PagInicio} />
+                            <ProtectedRoute path="/crear-Paciente" component={CrearPaciente} />
                         </Switch>
                     </div>
                 </div>

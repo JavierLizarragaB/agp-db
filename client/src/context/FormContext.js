@@ -328,8 +328,14 @@ class FormContextProvider extends Component {
         name: null,
         age: null,
         sex: null,
-        civil_state: null,
-        birth_date: null
+        birth_date: null,
+        medical_dx: null,
+        blood_type: null,
+        emergency_contact_name: null,
+        emergency_contact_num: null,
+        shelter: null,
+        companion: null,
+        quimio: null
 
     }
 
