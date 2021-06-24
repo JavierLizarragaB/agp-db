@@ -5,6 +5,21 @@ import Axios from 'axios';
 
 
 class Directorio extends Component {
+
+
+    state = {
+            redirect: false
+        }
+        redirectHandler = () => {
+            this.setState({ redirect: true })
+            this.renderRedirect();
+        }
+        renderRedirect = () => {
+            if (this.state.redirect) {
+                return <Redirect to='/Crear-Paciente' />
+            }
+        }
+
     render() {
         return (
         <>
@@ -17,6 +32,12 @@ class Directorio extends Component {
                         </div>
                     </div>
                 </div>
+                
+                <>
+                    <Link onClick={this.redirectHandler}>REGISTRAR NUEVO PACIENTE</Link>
+                    {this.renderRedirect()}
+                </>
+
                 <br />
 
                 <div className="row">
