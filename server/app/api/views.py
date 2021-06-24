@@ -126,7 +126,7 @@ def get_user():
     return ({ 'message': "Correo o contrasena incorrectos"}, 200)
     
 @api.route("/directorio", methods=["GET"])
-def get_users():
+def get_patients():
     """All Patients"""
     patients = Patients.objects()
     return (jsonify(patients), 200)

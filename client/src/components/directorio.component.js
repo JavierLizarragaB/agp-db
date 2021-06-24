@@ -1,27 +1,25 @@
-import React, { Component, useState, useContext} from "react";
+import React, { Component, useState, useContext, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './navbar.component';
 import Axios from 'axios';
-import { Redirect } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import { Link } from 'react-router-dom';
 
-class Directorio extends Component {
+export const Directorio = () => {
 
+    const [patients, setPatients] = useState([]);
+    let history = useHistory();
 
-    state = {
-            redirect: false
-        }
-        redirectHandler = () => {
-            this.setState({ redirect: true })
-            this.renderRedirect();
-        }
-        renderRedirect = () => {
-            if (this.state.redirect) {
-                return <Redirect to='/Crear-Paciente' />
-            }
-        }
+    const getPatients = () => {
+        Axios.get('./api/directorio').then((response) => {
+            setPatients(response.data);
+        });
+    };
 
-    render() {
+    useEffect(() => {
+        getPatients();
+    }, []);
+
         return (
         <>
             <div>
@@ -34,20 +32,40 @@ class Directorio extends Component {
                     </div>
                 </div>
                 
-                <>
-                    <Link onClick={this.redirectHandler}>REGISTRAR NUEVO PACIENTE</Link>
-                    {this.renderRedirect()}
-                </>
+                <div className="col-md-12">
+                    <Link className="btn-dir" onClick={()=>{history.push('/crear-paciente');}}>REGISTRAR NUEVO PACIENTE</Link>
+                </div>
 
                 <br />
+                <br />
 
-                <div className="row">
-                    
+                <div className="col-md-12">
+                <div className="col-md-8 cont-dir">
+                    <table className="table table-bordered table-hover">
+                        <thead className="thead-custom">
+                            <tr>
+                                <th>Pacientes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {patients.map((patient) => (
+                                <tr key={patient._id.$_oid}>
+                                    <td>
+                                        {patient.nombre} 
+                                        &nbsp;
+                                        {patient.apellido_paterno} 
+                                        &nbsp;
+                                        {patient.apellido_materno}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
                 </div>
             </div>
         </>
         );
-    }
-}
+};
 
 export default Directorio;
