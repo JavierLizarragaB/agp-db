@@ -448,20 +448,29 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                     <div className="col-md-2">¿Cuántos?</div>
                             <div className="form-group col-md-1">
-                                <input type="number" className="form-control form-pat" min="0" />
+                                <input type="number" className="form-control form-pat" min="0" onChange={(e) => {
+                                    myContext.updateFormState("family_data", "siblings_quantity", e.target.value);
+                                    console.log(myContext.formState);
+                                }}/>
                             </div>
                     </div>
 
                     <div className="form-row">
                         <div className="col-md-2">Enfermedades</div>
                         <div className="form-group col-md-6">
-                            <textarea className="form-control form-pat" rows="1" />
+                            <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                    myContext.updateFormState("family_data", "siblings_diseases", e.target.value);
+                                    console.log(myContext.formState);
+                                }}/>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3" />
+                            <textarea className="form-control form-pat" rows="3" onChange={(e) => {
+                                    myContext.updateFormState("family_data", "siblings_cause_of_death", e.target.value);
+                                    console.log(myContext.formState);
+                                }}/>
                         </div>
                     </div>
 
@@ -470,20 +479,29 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                     <div className="col-md-2">¿Cuántos?</div>
                             <div className="form-group col-md-1">
-                                <input type="number" className="form-control form-pat" min="0" />
+                                <input type="number" className="form-control form-pat" min="0" onChange={(e) => {
+                                    myContext.updateFormState("family_data", "sons_quantity", e.target.value);
+                                    console.log(myContext.formState);
+                                }}/>
                             </div>
                     </div>
 
                     <div className="form-row">
                         <div className="col-md-2">Enfermedades</div>
                         <div className="form-group col-md-6">
-                            <textarea className="form-control form-pat" rows="1" />
+                            <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                    myContext.updateFormState("family_data", "sons_diseases", e.target.value);
+                                    console.log(myContext.formState);
+                                }}/>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3" />
+                            <textarea className="form-control form-pat" rows="3" onChange={(e) => {
+                                    myContext.updateFormState("family_data", "sons_cause_of_death", e.target.value);
+                                    console.log(myContext.formState);
+                                }}/>
                         </div>
                     </div>
                 </div>
