@@ -125,6 +125,12 @@ def get_user():
         return (jsonify(token), 200)
     return ({ 'message': "Correo o contrasena incorrectos"}, 200)
     
+@api.route("/directorio", methods=["GET"])
+def get_users():
+    """All Patients"""
+    patients = Patients.objects()
+    return (jsonify(patients), 200)
+
 @api.route("/user-panel/signup", methods=["POST"])
 def set_user():
     """Post User"""
