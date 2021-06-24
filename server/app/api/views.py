@@ -6,7 +6,7 @@ from functools import wraps
 
 from . import api
 
-from ..models import Address, Background, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
+from ..models import Address, Background, FamilyMemberQuantity, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
 
 
 def token_required(f):
@@ -289,6 +289,7 @@ def send_forms():
                     ),
                     gestations = json.get("patient_data.female_gestations"),
                     deliveries = json.get("patient_data.female_deliveries"),
+                    cesarean_births = json.get("patient_data.female_cesarean_births"),
                     abortions = json.get("patient_data.female_abortions"),
                     date_last_delivery = json.get("patient_data.female_date_last_delivery"),
                     age_first_pregnancy = json.get("patient_data.female_age_first_pregnancy"),
@@ -572,43 +573,49 @@ def send_forms():
                 ),
                 family_history = FamilyHistory(
                     paternal_grandfather = FamilyHistoryClass(
-                        relationship = json.get("family_data.paternal_grandfather_relationship"),
                         living = json.get("family_data.paternal_grandfather_living"),
                         diseases = json.get("family_data.paternal_grandfather_diseases"),
                         cause_of_death = json.get("family_data.paternal_grandfather_cause_of_death"),
                     ),
                     paternal_grandmother = FamilyHistoryClass(
-                        relationship = json.get("family_data.paternal_grandmother_relationship"),
                         living = json.get("family_data.paternal_grandmother_living"),
                         diseases = json.get("family_data.paternal_grandmother_diseases"),
                         cause_of_death = json.get("family_data.paternal_grandmother_cause_of_death"),
                     ),
 
                     maternal_grandfather = FamilyHistoryClass(
-                        relationship = json.get("family_data.maternal_grandfather_relationship"),
                         living = json.get("family_data.maternal_grandfather_living"),
                         diseases = json.get("family_data.maternal_grandfather_diseases"),
                         cause_of_death = json.get("family_data.maternal_grandfather_cause_of_death"),
                     ),
                     maternal_grandmother = FamilyHistoryClass(
-                        relationship = json.get("family_data.maternal_grandmother_relationship"),
                         living = json.get("family_data.maternal_grandmother_living"),
                         diseases = json.get("family_data.maternal_grandmother_diseases"),
                         cause_of_death = json.get("family_data.maternal_grandmother_cause_of_death"),
                     ),
 
                     father = FamilyHistoryClass(
-                        relationship = json.get("family_data.father_relationship"),
                         living = json.get("family_data.father_living"),
                         diseases = json.get("family_data.father_diseases"),
                         cause_of_death = json.get("family_data.father_cause_of_death"),
                     ),
                     mother = FamilyHistoryClass(
-                        relationship = json.get("family_data.mother_relationship"),
                         living = json.get("family_data.mother_living"),
                         diseases = json.get("family_data.mother_diseases"),
                         cause_of_death = json.get("family_data.mother_cause_of_death"),
                     ),
+
+                    siblings = FamilyMemberQuantity(
+                        quantity = json.get("family_data.siblings_quantity"),
+                        diseases = json.get("family_data.siblings_diseases"),
+                        cause_of_death = json.get("family_data.siblings_cause_of_death")
+                    ),
+
+                    sons = FamilyMemberQuantity(
+                        quantity = json.get("family_data.sons_quantity"),
+                        diseases = json.get("family_data.sons_diseases"),
+                        cause_of_death = json.get("family_data.sons_cause_of_death")
+                    )
                 ),
 
                 number_sicks = json.get("family_data.number_sicks"),

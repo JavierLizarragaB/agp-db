@@ -102,6 +102,7 @@ class FemaleSexualHealth(EmbeddedDocument):
     std = EmbeddedDocumentField(Background, required=False, db_field="ets")
     gestations = StringField(required=False, db_field="gestas")
     deliveries = StringField(required=False, db_field="partos")
+    cesarean_births = StringField(required=False, db_field="cesareas")
     abortions = StringField(required=False, db_field="abortos")
     date_last_delivery = DateField(required=False, db_field="fecha_ultimo_parto")
     age_first_pregnancy = IntField(required=False, db_field="edad_primer_embarazo")
@@ -412,15 +413,14 @@ class FamilyStructure(EmbeddedDocument):
     seventh_member_income = StringField(required=False, db_field="séptimo_ingreso_familiar")
 
 class FamilyHistoryClass(EmbeddedDocument):
-    relationship = StringField(required=False, db_field="parentesco")
     living = BooleanField(required=False, db_field="vive")
-    diseases = ListField(StringField(), required=False, db_field="enfermedades")
+    diseases = StringField(required=False, db_field="enfermedades")
     cause_of_death = StringField(required=False, db_field="causa_defuncion")
 
 class FamilyMemberQuantity(EmbeddedDocument):
-    has_family_member = BooleanField(required=False, db_field="tiene_miembro_familiar")
     quantity = IntField(required=False, db_field="cantidad")
-    family_members = EmbeddedDocumentListField(FamilyHistoryClass, required=False, db_field="miembros_familiares")
+    diseases = StringField(required=False, db_field="enfermedades")
+    cause_of_death = StringField(required=False, db_field="causa_defuncion")
 
 class FamilyHistory(EmbeddedDocument):
     paternal_grandfather = EmbeddedDocumentField(FamilyHistoryClass, required=False, db_field= "abuelo_paterno")
@@ -460,11 +460,19 @@ class FamilyDataForm(EmbeddedDocument):
 
 ### --------------------------------- Home and Economy Classes -------------------------------- ###
 
+class PlaceDistribution(EmbeddedDocument):
+    kitchen = BooleanField(required=False, db_field="cocina")
+    lounge = BooleanField(required=False, db_field="sala")
+    dining_room = BooleanField(required=False, db_field="comedor")
+    bedroom = BooleanField(required=False, db_field="recámara")
+    bedroom_quantity = IntField(required=False, db_field="cantidad_de_recámaras")
+    others = BooleanField(required=False, db_field="cocina")
+
 class LivingPlace(EmbeddedDocument):
     place_type = StringField(required=False, db_field="tipo_vivienda")
     place_services = StringField(required=False, db_field="servicios_vivienda")
     place_material = StringField(required=False, db_field="material_vivienda")
-    place_distribution = ListField(StringField(), required=False, db_field="distribucion_vivienda")
+    place_distribution = EmbeddedDocumentField(PlaceDistribution, required=False, db_field="distribucion_vivienda")
     place_person_per_room = StringField(required=False, db_field="personas_por_cuarto_vivienda")
     place_location = StringField(required=False, db_field="zona_vivienda")
     place_exposition = StringField(required=False, db_field="exposicion_biomasas")
