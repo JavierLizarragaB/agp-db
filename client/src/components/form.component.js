@@ -449,7 +449,7 @@ function Form() {
                 {/* boton de enviar */}
                 <div>
                     <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
-                        <b>Guardar Datos</b>
+                        <b>Guardar Datos de Paciente</b>
                     </button>
                 </div>
             </div>
