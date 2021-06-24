@@ -1,25 +1,12 @@
 import React, { Component, useState, useContext} from "react";
-import { Button, Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormContext} from '../context/FormContext'
 
 import NavBar from './navbar.component';
-import Masculino from '../img/male.png';
-import Femenino from '../img/female.png';
 import axios from "axios";
 
 
 function CrearPaciente() {
-    //para abrir el formulario general
-    const [open, setOpen] = useState(false);
-
-    //para abrir los 3 textos
-    const [open1, setOpen1] = useState(false);
-    const [open2, setOpen2] = useState(false);
-    const [open3, setOpen3] = useState(false);
-
-    //para la que esta adentro de formulario general (abrir iteracion 1)
-    const [open4, setOpen4] = useState(false);
 
     const [message, setMessage] = useState("");
 
@@ -35,31 +22,11 @@ function CrearPaciente() {
             
             if(response.data.message) {
                 setMessage(response.data.message);
-                setOpen(false);
             } else {
                 setMessage("Ha sucedido algo :(");
             }
         });
     };
-    
-    const jsonpaciente = {"_id":{"$oid":"60cacc5ced0179c75db08186"},
-                        "folio":"2",
-                        "nombre":"Gigi Rodriguez",
-                        "edad":"9",
-                        "sexo":"Femenino",
-                        "fecha_nacimiento":"01/01/2001",
-                        "dx_medico":"existir",
-                        "sangre":"A+",
-                        "contacto_emergencia_nombre":"Nickolas Rodriguez Ochoa",
-                        "contacto_emergencia_num":"123456",
-                        "companion":false,
-                        "albergue":false,
-                        "quimio":false}
-
-    let icon = jsonpaciente.sexo == "Femenino" ? Femenino : Masculino;
-    let albergue = jsonpaciente.albergue == true ? true : false;
-    let companion = jsonpaciente.companion == true ? true : false;
-    let quimio = jsonpaciente.quimio == true ? true : false;
 
     
     return (
@@ -72,7 +39,7 @@ function CrearPaciente() {
         
             <div id="info-collapse-text" className="info-text">
 
-                <div id="form1" className="formulario">
+                <div id="generalForm" className="formulario">
 
                     <h1>REGISTRO DE NUEVO PACIENTE</h1>
                     <br></br><br></br>
@@ -84,15 +51,15 @@ function CrearPaciente() {
                         </div>
                         <div className="form-row">
                             <div className="form-group col-md-4">
-                                <input type="text" className="form-control form-pat" id="inputCN" placeholder="Nombre Completo" required="true" onChange={(e) => {
-                                    updateFormState("patient_data", "birth_city",e.target.value);
+                                <input type="text" className="form-control form-pat" id="inputNC" placeholder="Nombre Completo" required="true" onChange={(e) => {
+                                    updateFormState("general_info", "name",e.target.value);
                                     console.log(formState);
                                 }} />
                             </div>
 
                             <div className="form-group col-md-4">
-                                <input type="date" className="form-control form-pat" id="inputCN" required="true" onChange={(e) => {
-                                    updateFormState("patient_data", "birth_state",e.target.value);
+                                <input type="date" className="form-control form-pat" id="inputFN" required="true" onChange={(e) => {
+                                    updateFormState("general_info", "birth_date",e.target.value);
                                     console.log(formState);
                                 }} />
                             </div>
@@ -103,8 +70,8 @@ function CrearPaciente() {
                         </div>
                         <div className="form-row">
                             <div className="form-group col-md-4">
-                                <select className="form-control form-pat" id="inputCDP" placeholder="Sexo" required="true" onChange={(e) => {
-                                    updateFormState("patient_data", "permanent_street",e.target.value);
+                                <select className="form-control form-pat" id="inputS" placeholder="Sexo" required="true" onChange={(e) => {
+                                    updateFormState("general_info", "sex",e.target.value);
                                     console.log(formState);
                                 }}>
                                     <option>Masculino</option>
@@ -114,8 +81,8 @@ function CrearPaciente() {
                             </div>
 
                             <div className="form-group col-md-4">
-                                <input type="text" className="form-control form-pat" id="inputCDP" placeholder="(Ej. O+, A-, etc.)" required="true" onChange={(e) => {
-                                    updateFormState("patient_data", "permanent_street",e.target.value);
+                                <input type="text" className="form-control form-pat" id="inputTS" placeholder="(Ej. O+, A-, etc.)" required="true" onChange={(e) => {
+                                    updateFormState("general_info", "blood_type",e.target.value);
                                     console.log(formState);
                                 }} />
                             </div>
@@ -129,15 +96,15 @@ function CrearPaciente() {
                         </div>
                         <div className="form-row">
                             <div className="form-group col-md-4">
-                                <input type="text" className="form-control form-pat" id="inputCN" placeholder="Nombre Completo" required="true" onChange={(e) => {
-                                    updateFormState("patient_data", "birth_city",e.target.value);
+                                <input type="text" className="form-control form-pat" id="inputCENom" placeholder="Nombre Completo" required="true" onChange={(e) => {
+                                    updateFormState("general_info", "emergency_contact_name",e.target.value);
                                     console.log(formState);
                                 }} />
                             </div>
 
                             <div className="form-group col-md-4">
-                                <input type="text" className="form-control form-pat" id="inputCN" placeholder="Teléfono" required="true" onChange={(e) => {
-                                    updateFormState("patient_data", "birth_state",e.target.value);
+                                <input type="text" className="form-control form-pat" id="inputCENum" placeholder="Teléfono" required="true" onChange={(e) => {
+                                    updateFormState("general_info", "emergency_contact_num",e.target.value);
                                     console.log(formState);
                                 }} />
                             </div>
@@ -147,7 +114,8 @@ function CrearPaciente() {
                         <div className="form-row">
                             <div className="form-group col-md-12 info text">
                                 <textarea className="form-control form-pat" rows="6" required="true"
-                                // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
+                                onChange={(e) => {updateFormState("general_info", "medical_dx",e.target.value);
+                                console.log(formState);}} 
                                 ></textarea>
                             </div>
     
@@ -163,7 +131,8 @@ function CrearPaciente() {
                                 <div>No</div>           
                             </div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat"></input>
+                                <input type="checkbox" className="form-control form-pat" onChange={(e) => {updateFormState("general_info", "companion",e.target.value);
+                                console.log(formState);}}></input>
                                 <input type="checkbox" className="form-control form-pat"></input>
                             </div>
 
@@ -175,7 +144,8 @@ function CrearPaciente() {
                                 <div>No</div>           
                             </div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat"></input>
+                                <input type="checkbox" className="form-control form-pat" onChange={(e) => {updateFormState("general_info", "shelter",e.target.value);
+                                console.log(formState);}}></input>
                                 <input type="checkbox" className="form-control form-pat"></input>
                             </div>
 
@@ -187,7 +157,8 @@ function CrearPaciente() {
                                 <div>No</div>           
                             </div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat"></input>
+                                <input type="checkbox" className="form-control form-pat" onChange={(e) => {updateFormState("general_info", "quimio",e.target.value);
+                                console.log(formState);}}></input>
                                 <input type="checkbox" className="form-control form-pat"></input>
                             </div>
 
