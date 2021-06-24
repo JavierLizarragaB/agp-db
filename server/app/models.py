@@ -90,7 +90,7 @@ class MaleSexualHealth(EmbeddedDocument):
 
 class CancerTest(EmbeddedDocument):
     date = DateField(required=False, db_field="fecha")
-    result = StringField(required=True, db_field="resultado")
+    result = StringField(required=False, db_field="resultado")
 
 class FemaleSexualHealth(EmbeddedDocument):
     menarche = BooleanField(required=False, db_field="menarca")
@@ -169,19 +169,19 @@ class MouthThroat(EmbeddedDocument):
     ##Dientes
     cavities = BooleanField(required=False, db_field="caries")
     dental_agenesis = BooleanField(required=False, db_field="agenesia_dental")
-    prothesis = BooleanField(required=False, db_field="protesis")
+    prothesis = BooleanField(required=False, db_field="dientes_protesis")
 
     ##Encias
-    gingivorrhea = BooleanField(required=False, db_field="gingivorrea")
-    gingivorrhagia = BooleanField(required=False, db_field="gingivorragia")
-    pain = BooleanField(required=False, db_field="dolor")
-    ulcerations = BooleanField(required=False, db_field="ulcerations")
+    gingivorrhea = BooleanField(required=False, db_field="encias_gingivorrea")
+    gingivorrhagia = BooleanField(required=False, db_field="encias_gingivorragia")
+    pain = BooleanField(required=False, db_field="encias_dolor_encias")
+    gums_ulcerations = BooleanField(required=False, db_field="encias_ulceras")
 
     ##Lengua
-    colorations = BooleanField(required=False, db_field="coloraciones")
-    size = BooleanField(required=False, db_field="tamaño")
-    plaque_presence = BooleanField(required=False, db_field="presencia_placa")
-    ulcerations = BooleanField(required=False, db_field="ulcerations")
+    colorations = BooleanField(required=False, db_field="lengua_coloraciones")
+    size = BooleanField(required=False, db_field="lengua_tamaño")
+    plaque_presence = BooleanField(required=False, db_field="lengua_presencia_placa")
+    tongue_ulcerations = BooleanField(required=False, db_field="lengua_ulceras")
 
     ##Problemas de hablar
     dysphonia = BooleanField(required=False, db_field="disfonia")
@@ -298,7 +298,7 @@ class NervousSystem(EmbeddedDocument):
 
 class PsychicSystem(EmbeddedDocument):
     distress = BooleanField(required=False, db_field="angustia")
-    depression = BooleanField(required=True, db_field="depresion")
+    depression = BooleanField(required=False, db_field="depresion")
     interest_changes = BooleanField(required=False, db_field="cambios_interes")
     guilt = BooleanField(required=False, db_field="culpa")
     suicidal_thoughts = BooleanField(required=False, db_field="ideas_suicidas")
@@ -466,7 +466,7 @@ class PlaceDistribution(EmbeddedDocument):
     dining_room = BooleanField(required=False, db_field="comedor")
     bedroom = BooleanField(required=False, db_field="recámara")
     bedroom_quantity = IntField(required=False, db_field="cantidad_de_recámaras")
-    others = BooleanField(required=False, db_field="cocina")
+    other_rooms = BooleanField(required=False, db_field="otros_cuartos")
 
 class LivingPlace(EmbeddedDocument):
     place_type = StringField(required=False, db_field="tipo_vivienda")
@@ -580,6 +580,9 @@ class GeneralInfo(Document):
     shelter = BooleanField(required=False, db_field="albergue")
     companion = BooleanField(required=False, db_field="acompañante")
     quimio = BooleanField(required=False, db_field="quimio")
+
+class FormInfo(Document):
+    meta = {"collection": "informacion_formulario"}
 
     patient_data = EmbeddedDocumentField(PatientDataForm, required=False, db_field="datos_paciente")
 

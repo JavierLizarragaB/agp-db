@@ -6,7 +6,7 @@ from functools import wraps
 
 from . import api
 
-from ..models import Address, Background, FamilyMemberQuantity, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
+from ..models import FormInfo, Address, Background, FamilyMemberQuantity, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, PlaceDistribution, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others
 
 
 def token_required(f):
@@ -161,6 +161,16 @@ def get_users():
     users = User.objects(type=int(params))
     return (jsonify(users), 200)
 
+@api.route("/user-panel/edit", methods=["GET"])
+def edit_user():
+    """One User"""
+    json = request.get_json()
+    person = User.objects(username=json.get("email")).first()
+    
+    if person == None:
+        return ({ 'message': "Correo no existe", 'email': json.get("email")}, 200)
+    return (jsonify(person), 200)
+
 @api.route("/user-panel/delete", methods=["POST"])
 def delete_user():
     """Delete User"""
@@ -181,53 +191,58 @@ def send_forms():
     "Save forms"
     json = request.get_json()
     try:
-        form = PatientDataForm(
-            birth_state=json.get("patient_data.birth_state"),
-            birth_city=json.get("patient_data.birth_city"),
-            permanent_address=Address(
-                street=json.get("patient_data.permanent_calle"),
-                num=json.get("patient_data.permanent_num"),
-                suburb=json.get("patient_data.permanent_suburb"),
-                locality=json.get("patient_data.permanent_locality"),
-                municipality=json.get("patient_data.permanent_municipality"),
-                zip_code=json.get("patient_data.permanent_zip_code"),
-                phone=json.get("patient_data.permanent_phone"),
-                phone2=json.get("patient_data.permanent_phone2")
-            ),
-            
-            email = json.get("patient_data.email"),
-            income = json.get("patient_data.income"),
-            medical_service = json.get("patient_data.medical_service"),
-            scholarship = json.get("patient_data.scholarship"),
-            ocupation = json.get("patient_data.ocupation"),
-            religion = json.get("patient_data.religion"),
-            civil_state = json.get("patient_data.civil_state"),
+        form = FormInfo(
 
-            clinic_record_date = json.get("patient_data.clinic_record_date"),
-
-            temp_address=Address(
-                street=json.get("patient_data.temp_street"),
-                num=json.get("patient_data.temp_num"),
-                suburb=json.get("patient_data.temp_suburb"),
-                locality=json.get("patient_data.temp_locality"),
-                municipality=json.get("patient_data.temp_municipality"),
-                zip_code=json.get("patient_data.temp_zip_code"),
-                phone=json.get("patient_data.temp_phone"),
-                phone2=json.get("patient_data.temp_phone2")
-            ),
-            responsable_family_member=ResponsableFamilyMember(
-                responsable_name=json.get("patient_data.responsable_name"),
-                responsable_address=Address(
-                    street=json.get("patient_data.responsable_street"),
-                    num=json.get("patient_data.responsable_num"),
-                    suburb=json.get("patient_data.responsable_suburb"),
-                    locality=json.get("patient_data.responsable_locality"),
-                    municipality=json.get("patient_data.responsable_municipality"),
-                    zip_code=json.get("patient_data.responsable_zip_code"),
-                    phone=json.get("patient_data.responsable_phone"),
-                    phone2=json.get("patient_data.responsable_phone2")
+        
+        
+            patient_data = PatientDataForm(
+                birth_state=json.get("patient_data.birth_state"),
+                birth_city=json.get("patient_data.birth_city"),
+                permanent_address=Address(
+                    street=json.get("patient_data.permanent_calle"),
+                    num=json.get("patient_data.permanent_num"),
+                    suburb=json.get("patient_data.permanent_suburb"),
+                    locality=json.get("patient_data.permanent_locality"),
+                    municipality=json.get("patient_data.permanent_municipality"),
+                    zip_code=json.get("patient_data.permanent_zip_code"),
+                    phone=json.get("patient_data.permanent_phone"),
+                    phone2=json.get("patient_data.permanent_phone2")
                 ),
-                responsable_relationship=json.get("patient_data.responsable_relationship"),
+                
+                email = json.get("patient_data.email"),
+                income = json.get("patient_data.income"),
+                medical_service = json.get("patient_data.medical_service"),
+                scholarship = json.get("patient_data.scholarship"),
+                ocupation = json.get("patient_data.ocupation"),
+                religion = json.get("patient_data.religion"),
+                civil_state = json.get("patient_data.civil_state"),
+
+                clinic_record_date = json.get("patient_data.clinic_record_date"),
+
+                temp_address=Address(
+                    street=json.get("patient_data.temp_street"),
+                    num=json.get("patient_data.temp_num"),
+                    suburb=json.get("patient_data.temp_suburb"),
+                    locality=json.get("patient_data.temp_locality"),
+                    municipality=json.get("patient_data.temp_municipality"),
+                    zip_code=json.get("patient_data.temp_zip_code"),
+                    phone=json.get("patient_data.temp_phone"),
+                    phone2=json.get("patient_data.temp_phone2")
+                ),
+                responsable_family_member=ResponsableFamilyMember(
+                    responsable_name=json.get("patient_data.responsable_name"),
+                    responsable_address=Address(
+                        street=json.get("patient_data.responsable_street"),
+                        num=json.get("patient_data.responsable_num"),
+                        suburb=json.get("patient_data.responsable_suburb"),
+                        locality=json.get("patient_data.responsable_locality"),
+                        municipality=json.get("patient_data.responsable_municipality"),
+                        zip_code=json.get("patient_data.responsable_zip_code"),
+                        phone=json.get("patient_data.responsable_phone"),
+                        phone2=json.get("patient_data.responsable_phone2")
+                    ),
+                    responsable_relationship=json.get("patient_data.responsable_relationship"),
+                ),
 
                 personal_pathological_history = Pathological(
                     chronic_degenerative_diseases = json.get("patient_data.chronic_degenerative_diseases"),
@@ -281,7 +296,7 @@ def send_forms():
                     std = json.get("patient_data.male_std"),
                     contraceptive_methods = json.get("patient_data.male_contraceptive_methods")
                 ),
-                
+                    
                 female_sexual_health = FemaleSexualHealth(
                     menarche = json.get("patient_data.female_menarche"),
                     menarche_age = json.get("patient_data.female_menarche_age"),
@@ -320,7 +335,7 @@ def send_forms():
 
                 apparatus_and_systems = ApparatusAndSystems(
                     skin = Skin(
-                         ##Cambios coloracion
+                        ##Cambios coloracion
                         paleness = json.get("patient_data.skin_paleness"),
                         icterus = json.get("patient_data.skin_icterus"),
                         cyanosis = json.get("patient_data.skin_cyanosis"),
@@ -334,7 +349,7 @@ def send_forms():
                         nodules = json.get("patient_data.skin_nodules"),
                         observations = json.get("patient_data.skin_observations")
                     ),
-                    
+                        
                     ophthalmic_system = OphthalmicSystem(
                         ##Cambios vision
                         diplopia = json.get("patient_data.ophthalmic_diplopia"),
@@ -353,7 +368,7 @@ def send_forms():
 
                         observations = json.get("patient_data.ophthalmic_observations")
                     ),
-                    
+                            
                     ent_system = EntSystem(
                         ##Cambios en la audicion
                         otalgia = json.get("patient_data.ent_otalgia"),
@@ -521,7 +536,7 @@ def send_forms():
                         delirium = json.get("patient_data.psychic_delirium"),
                         observations = json.get("patient_data.psychic_observations")
                     ),
-                    
+                        
                     physical_observations = json.get("patient_data.physical_observations"),
 
                     follow_up = FollowUp(
@@ -536,7 +551,6 @@ def send_forms():
                         actual_diagnostic = json.get("patient_data.follow_up_actual_diagnostic")
                     ),
                 ),
-
             ),
 
             # Family Data
@@ -640,7 +654,14 @@ def send_forms():
                     place_type = json.get("home_and_economy.place_type"),
                     place_services = json.get("home_and_economy.place_services"),
                     place_material = json.get("home_and_economy.place_material"),
-                    place_distribution = json.get("home_and_economy.place_distribution"),
+                    place_distribution = PlaceDistribution(
+                        kitchen = json.get("home_and_economy.place_kitchen"),
+                        lounge = json.get("home_and_economy.place_lounge"),
+                        dining_room = json.get("home_and_economy.place_dining_room"),
+                        bedroom = json.get("home_and_economy.place_bedroom"),
+                        bedroom_quantity = json.get("home_and_economy.place_bedroom_quantity"),
+                        other_rooms = json.get("home_and_economy.place_others")
+                    ),
                     place_person_per_room = json.get("home_and_economy.place_person_per_room"),
                     place_location = json.get("home_and_economy.place_location"),
                     place_exposition = json.get("home_and_economy.place_exposition")
