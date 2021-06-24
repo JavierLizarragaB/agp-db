@@ -161,6 +161,16 @@ def get_users():
     users = User.objects(type=int(params))
     return (jsonify(users), 200)
 
+@api.route("/user-panel/edit", methods=["GET"])
+def edit_user():
+    """One User"""
+    json = request.get_json()
+    person = User.objects(username=json.get("email")).first()
+    
+    if person == None:
+        return ({ 'message': "Correo no existe", 'email': json.get("email")}, 200)
+    return (jsonify(person), 200)
+
 @api.route("/user-panel/delete", methods=["POST"])
 def delete_user():
     """Delete User"""
