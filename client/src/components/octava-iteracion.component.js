@@ -180,13 +180,13 @@ class OctavaIteracion extends Component {
                             <div className="col-md-1">Garrapatas</div>
                             <div className="form-group col-md-1">
                                 <input type="checkbox" className="form-control form-pat" id="others-cb-3-2" onChange={(e) => {
-                                    mycontext.handleBooleanCheckbox(e.target.id,"others","vaccinated_animals");
+                                    mycontext.handleBooleanCheckbox(e.target.id,"others","ticks_animals");
                                 }}/>
                             </div>
                             <div className="">Enfermedades Transmitidas por Animales</div>
                             <div className="form-group col-md-1">
                                 <input type="checkbox" className="form-control form-pat" id="others-cb-3-3" onChange={(e) => {
-                                    mycontext.handleBooleanCheckbox(e.target.id,"others","vaccinated_animals");
+                                    mycontext.handleBooleanCheckbox(e.target.id,"others","diseases_animals");
                                 }}/>
                             </div>
                         </div>

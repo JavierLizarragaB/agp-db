@@ -18,6 +18,7 @@ flask-bootstrap4 = "*"
 flask-admin = "*"
 gunicorn = "*"
 pyjwt = "*"
+colorama = "*"
 
 [requires]
 python_version = "3.9"
