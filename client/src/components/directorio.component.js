@@ -2,7 +2,8 @@ import React, { Component, useState, useContext} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './navbar.component';
 import Axios from 'axios';
-
+import { Redirect } from "react-router";
+import { Link } from 'react-router-dom';
 
 class Directorio extends Component {
 
