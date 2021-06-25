@@ -84,9 +84,15 @@ function Form() {
 
     const handelSubmitAppointment = (e) => {
         e.preventDefault();
-        axios.post("./api/appointments", {
-            appointment: formState.patient_data.appointment
-        }).then((response) => {
+        var appointments_json = {
+            appointments: formState.patient_data.appointments,
+            appointment_description: formState.patient_data.appointment_description,
+            patient_folio: formState.patient_data.folio,
+        }
+        console.log(appointments_json)
+        axios.post("./api/appointments", 
+            appointments_json
+        ).then((response) => {
             console.log(response);
 
             if(response.data.message) {
@@ -582,7 +588,7 @@ function Form() {
                             
                         
                             <textarea className="form-control col-md-6 form-pat" rows="4"
-                                onChange={(e) => {updateFormState("patient_data", "appointment_description",e.target.value);}} 
+                                onChange={(e) => {updateFormState("patient_data", "appointment_description",e.target.value);console.log(formState);}} 
                             ></textarea>
                             <div className="horario col-md-4">
                                 <TablaHorario/>

@@ -262,7 +262,7 @@ def send_appointments():
         appointmentsForm = Appointments(
             appointments = json.get("appointments"),
             appointment_description = json.get("appointment_description"),
-            patient_folio = json.get("patient_folio")
+            patient_folio = '2'
         )
 
         appointmentsForm.save()
