@@ -164,12 +164,38 @@ def get_users():
 @api.route("/user-panel/edit", methods=["GET"])
 def edit_user():
     """One User"""
-    json = request.get_json()
-    person = User.objects(username=json.get("email")).first()
+    params = request.args.get("email")
+    person = User.objects(username=params).first()
     
     if person == None:
-        return ({ 'message': "Correo no existe", 'email': json.get("email")}, 200)
+        return ({ 'message': "Correo no existe"}, 200)
     return (jsonify(person), 200)
+
+@api.route("/user-panel/update", methods=["POST"])
+def update_user():
+    """Update User"""
+    json = request.get_json()
+    person = User.objects(username=json.get("email"), id__ne=json.get("id")).first()  
+    
+    if person != None:
+        return ({ 'message': "Correo ya utilizado"}, 200)
+    
+    person = User.objects(id=json.get("id")).first()  
+    
+    if person == None:
+        return ({ 'message': "Usuario no existente"}, 200)
+
+    try:
+        person.update(
+            username=json.get("email"),
+            user_name=json.get("name"),
+            user_paternal_last_name=json.get("lpname"),
+            user_maternal_last_name=json.get("lmname"),
+        ) 
+        return (person.username, 200)
+    except Exception as e:
+        print(e)
+        return (e.__str__(), 500)
 
 @api.route("/user-panel/delete", methods=["POST"])
 def delete_user():

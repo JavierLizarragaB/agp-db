@@ -11,32 +11,65 @@ export const Userpanel = () => {
     const [type, setType] = useState(1);
     const [RegStatus, setRegStatus] = useState('');
 
+    const [isEditing, setIsEditing] = useState(false);
+    const [id, setId] = useState('');
+;
     const [users, setUsers] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        var userjson = {
-            name,
-            lpname,
-            lmname,
-            email,
-            password,
-            type,
-        };
-        Axios.post('./api/user-panel/signup', userjson).then((response) => {
-            console.log(response);
 
-            if (response.data.message) {
-                setRegStatus(response.data.message);
-            } else {
-                setRegStatus('Usuario ' + response.data + ' creado.');
-            }
-        });
-    };
-
-    const handleClick = (value) => {
-        setType(value);
-        getUsers();
+        if(!isEditing){
+            var userjson = {
+                name,
+                lpname,
+                lmname,
+                email,
+                password,
+                type,
+            };
+            Axios.post('./api/user-panel/signup', userjson).then((response) => {
+                console.log(response);
+    
+                if (response.data.message) {
+                    setRegStatus(response.data.message);
+                } else {
+                    setRegStatus('Usuario ' + response.data + ' creado.');
+                    getUsers();
+                    setName('');
+                    setLPName('');
+                    setLMName('');
+                    setEmail('');
+                    setPassword('');
+                }
+            });
+        } else {
+            var userjson = {
+                id,
+                name,
+                lpname,
+                lmname,
+                email,
+                type,
+            };
+            Axios.post('./api/user-panel/update', userjson).then((response) => {
+                console.log(response);
+    
+                if (response.data.message) {
+                    setRegStatus(response.data.message);
+                } else {
+                    setRegStatus('Usuario ' + response.data + ' actualizado.');
+                    setIsEditing(false);
+                    getUsers();
+                    setName('');
+                    setLPName('');
+                    setLMName('');
+                    setEmail('');
+                    setPassword('');
+                }
+            });
+        }
+        
     };
 
     const getUsers = () => {
@@ -48,7 +81,7 @@ export const Userpanel = () => {
 
     useEffect(() => {
         getUsers();
-    }, []);
+    }, [type]);
 
     const deleteUser = (email) => {
         Axios.post('./api/user-panel/delete', { "email": email }).then((response) => {
@@ -64,23 +97,43 @@ export const Userpanel = () => {
     };
 
     const editUser = (email) => {
+        Axios.get('./api/user-panel/edit', { params: { email } }).then((response) => {
+            console.log(response);
 
+            setId(response.data._id.$oid);
+            setEmail(response.data.usuario);
+            setName(response.data.nombre);
+            setLPName(response.data.apellido_paterno);
+            setLMName(response.data.apellido_materno);
+            setType(response.data.type);
+            setPassword("Este campo no se puede alterar")
+
+            setIsEditing(true);
+        });
     };
+
+    useEffect(() => {
+        console.log(id)
+    }, [isEditing]);
 
     return (
         <div>
             <NavBar />
 
+            <p>{RegStatus}</p>
+
             <div className="row container-space">
                 <div className="col-md-4">
                     <div className="row">
-                        <button className="btn btn-custom col-md-5 btn-space" onClick={(e) => handleClick(e.target.value)} value="2">
+                        <button className="btn btn-custom col-md-5 btn-space" onClick={() => setType(2)}>
                             Medico
                         </button>
-                        <button className="btn btn-custom col-md-5" onClick={(e) => handleClick(e.target.value)} value="1">
+                        <button className="btn btn-custom col-md-5" onClick={() => setType(1)}>
                             Trabajador Social
                         </button>
-                        <button className="btn btn-custom col-md-5" onClick={(e) => handleClick(e.target.value)} value="3">
+                    </div>
+                    <div className="row">
+                        <button className="btn btn-custom col-md-10" onClick={() => setType(3)}>
                             Administrador
                         </button>
                     </div>
@@ -135,7 +188,7 @@ export const Userpanel = () => {
                                 />
                             </div>
                             <button className="btn btn-custom btn-block">
-                                Registrar
+                                Guardar
                             </button>
                     </form>
                 </div>
@@ -159,8 +212,8 @@ export const Userpanel = () => {
                                     <td>{user.apellido_paterno} {user.apellido_materno}</td>
                                     <td>{user.usuario}</td>
                                     <td>
-                                        <button className="btn btn-secondary btn-sm btn-block">Editar</button>
-                                        <button className="btn btn-danger btn-sm btn-block" onClick={(e) => deleteUser(user.usuario)}>
+                                        <button className="btn btn-secondary btn-sm btn-block" onClick={() => editUser(user.usuario)}>Editar</button>
+                                        <button className="btn btn-danger btn-sm btn-block" onClick={() => deleteUser(user.usuario)}>
                                             Borrar
                                         </button>
                                     </td>
