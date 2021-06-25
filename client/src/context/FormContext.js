@@ -9,6 +9,8 @@ class FormContextProvider extends Component {
 
     patientData = {
 
+        folio: null,
+
         birth_state: null,
         birth_city: null,
 
