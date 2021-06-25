@@ -1,4 +1,4 @@
-from mongoengine.fields import EmbeddedDocumentListField
+from mongoengine.fields import DecimalField, EmbeddedDocumentListField
 from werkzeug.security import generate_password_hash
 from mongoengine import Document, EmbeddedDocument
 from mongoengine import StringField, IntField, ListField, BooleanField, DateField, EmbeddedDocumentField
@@ -487,17 +487,17 @@ class FamilyTransportation(EmbeddedDocument):
     car_model = StringField(required=False, db_field="modelo_auto")
 
 class Outcome(EmbeddedDocument):
-    outcome_electric_power = IntField(required=False, db_field="energia_electrica_egreso")
-    outcome_water = IntField(required=False, db_field="agua_egreso")
-    outcome_gas = IntField(required=False, db_field="gas_egreso")
-    outcome_phone = IntField(required=False, db_field="telefono_egreso")
-    outcome_food = IntField(required=False, db_field="alimentos_egreso")
-    outcome_rent = IntField(required=False, db_field="renta_egreso")
-    outcome_transportation = IntField(required=False, db_field="transporte_egreso")
-    outcome_education = IntField(required=False, db_field="educacion_egreso")
-    outcome_clothing = IntField(required=False, db_field="vestimenta_egreso")
-    outcome_recreational = IntField(required=False, db_field="diversion_egreso")
-    outcome_other = IntField(required=False, db_field="otros_egreso")
+    outcome_electric_power = DecimalField(min_value=0, required=False, db_field="energia_electrica_egreso")
+    outcome_water = DecimalField(min_value=0, required=False, db_field="agua_egreso")
+    outcome_gas = DecimalField(min_value=0, required=False, db_field="gas_egreso")
+    outcome_phone = DecimalField(min_value=0, required=False, db_field="telefono_egreso")
+    outcome_food = DecimalField(min_value=0, required=False, db_field="alimentos_egreso")
+    outcome_rent = DecimalField(min_value=0, required=False, db_field="renta_egreso")
+    outcome_transportation = DecimalField(min_value=0, required=False, db_field="transporte_egreso")
+    outcome_education = DecimalField(min_value=0, required=False, db_field="educacion_egreso")
+    outcome_clothing = DecimalField(min_value=0, required=False, db_field="vestimenta_egreso")
+    outcome_recreational = DecimalField(min_value=0, required=False, db_field="diversion_egreso")
+    outcome_other = DecimalField(min_value=0, required=False, db_field="otros_egreso")
 
 ### ------------------------------- End Home and Economy Classes ------------------------------ ###
 
