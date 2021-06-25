@@ -6,7 +6,7 @@ from functools import wraps
 
 from . import api
 
-from ..models import FormInfo, Address, Background, FamilyMemberQuantity, Medicine, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, PlaceDistribution, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others, Studies, Medicine
+from ..models import FormInfo, Address, Appointments, Background, FamilyMemberQuantity, Medicine, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, PlaceDistribution, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others, Studies, Medicine
 
 
 def token_required(f):
@@ -246,6 +246,27 @@ def send_medicine():
 
         medicineForm.save()
         return ({ 'message': "Campo actualizado"}, 200)
+    except Exception as e:
+        print(e)
+        return(e.__str__(), 500)
+
+@api.route("/appointments", methods=["POST"])
+def send_appointments():
+    "Saves appointments camp"
+    json = request.get_json()
+
+    if (json == None):
+        return({ 'message': "Camp empty"}, 400)
+
+    try:
+        appointmentsForm = Appointments(
+            appointments = json.get("appointments"),
+            appointment_description = json.get("appointment_description"),
+            patient_folio = json.get("patient_folio")
+        )
+
+        appointmentsForm.save()
+        return ({'message': "Campo actualizado"}, 200)
     except Exception as e:
         print(e)
         return(e.__str__(), 500)

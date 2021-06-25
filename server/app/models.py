@@ -625,3 +625,10 @@ class Medicine(Document):
     meta = {"collection": "medicamentos"}
 
     medicine = StringField(required=True, db_field="medicina")
+
+class Appointments(Document):
+    meta = {"collection": "citas"}
+
+    appointments = DateField(required=True, db_field="fecha")
+    patient_folio = StringField(required=True, db_field="folio_paciente")
+    appointment_description = StringField(required=True, db_field="descripcion")

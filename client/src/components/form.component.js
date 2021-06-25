@@ -81,6 +81,22 @@ function Form() {
             }
         });
     };
+
+    const handelSubmitAppointment = (e) => {
+        e.preventDefault();
+        axios.post("./api/appointments", {
+            appointment: formState.patient_data.appointment
+        }).then((response) => {
+            console.log(response);
+
+            if(response.data.message) {
+                setMessage(response.data.message);
+                setOpen2(false);
+            } else {
+                setMessage("Ha sucedido algo :o");
+            }
+        });
+    };
     
     const jsonpaciente = {"_id":{"$oid":"60cacc5ced0179c75db08186"},
                         "folio":"2",
@@ -555,7 +571,7 @@ function Form() {
                         <div className="form-group col-md-4" >
                                     
                                     <input style={{textAlign: "center"}} type="datetime-local" className="form-control form-pat" onChange={(e) => {
-                                    updateFormState("patient_data", "clinic_record_date",e.target.value);
+                                    updateFormState("patient_data", "appointments",e.target.value);
                                     console.log(formState);
                                     }} />
                                     
@@ -566,7 +582,7 @@ function Form() {
                             
                         
                             <textarea className="form-control col-md-6 form-pat" rows="4"
-                            // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
+                                onChange={(e) => {updateFormState("patient_data", "appointment_description",e.target.value);}} 
                             ></textarea>
                             <div className="horario col-md-4">
                                 <TablaHorario/>
@@ -577,7 +593,7 @@ function Form() {
                     <div>
                         {/* boton de enviar */}
                     <div>
-                        <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                        <button onClick={handelSubmitAppointment} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
                             <b>Guardar Cita</b>
                         </button>
                     </div>
