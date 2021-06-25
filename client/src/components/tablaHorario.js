@@ -7,23 +7,45 @@ const Styles = styled.div`
   padding: 1rem;
 
   table {
+    margin-bottom:2rem;
     border-spacing: 0;
-    border: 1px solid black;
 
-    tr {
+    tr:nth-child(odd) {
+      background-color: #f2f2f2;
       :last-child {
         td {
           border-bottom: 0;
         }
       }
+      :hover {background-color:#ddd;}
     }
 
-    th,
+    tr:nth-child(even) {
+      background-color: #FFFF;
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+      :hover {background-color:#ddd;}
+    }
+
+    th {
+      background-color: #F7ADA4;
+      color: white;
+      
+      margin: 0;
+      padding: 0.5rem;
+
+      :last-child {
+        border-right: 0;
+      }
+    }
+
     td {
       margin: 0;
       padding: 0.5rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
+      
 
       :last-child {
         border-right: 0;
@@ -89,6 +111,7 @@ const jsonpaciente = {"_id":{"$oid":"60cacc5ced0179c75db08186"},
 //puede usarse para hacer el llamado de backend
 const newInput = (cont) => {
   return {
+    fecha: jsonpaciente.fecha_cita[cont],
     hora: jsonpaciente.hora_cita[cont],
     desc: jsonpaciente.descripcion_cita[cont],
   }
@@ -118,6 +141,10 @@ function TablaHorario() {
           {
             Header: 'Agenda',
             columns: [
+              {
+                Header: 'Fecha',
+                accessor: 'fecha',
+              },
               {
                 Header: 'Hora',
                 accessor: 'hora',

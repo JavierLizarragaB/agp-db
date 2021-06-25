@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import { Button, Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {FormContext} from '../context/FormContext';
 
 class TerceraIteracion extends Component {
     constructor(){
@@ -10,6 +11,7 @@ class TerceraIteracion extends Component {
         };
     }
     render() {
+        const myContext = this.context;
         return (
             <>
                 <div
@@ -985,9 +987,18 @@ class TerceraIteracion extends Component {
                             <div>Si</div>
                             <div>No</div>           
                         </div>
+                        {/* no me se los keys, chequenlos por favor */}
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat"></input>
-                            <input type="checkbox" className="form-control form-pat"></input>
+                            <input type="checkbox" className="form-control form-pat" name="I3 cb 1" id="I3 cb 1-1" value="true" onChange={(e) => {
+                                myContext.updateFormState("I3","nose",e.target.value);
+                                myContext.handleCheckboxGroup(e.target.name,e.target.id,"I3","nose");
+                                console.log(myContext.formState);
+                            }}></input>
+                            <input type="checkbox" className="form-control form-pat" name="I3 cb 1" id="I3 cb 1-2" value="false" onChange={(e) => {
+                                myContext.updateFormState("I3","nose",e.target.value);
+                                myContext.handleCheckboxGroup(e.target.name,e.target.id,"I3","nose");
+                                console.log(myContext.formState);
+                            }}></input>
                         </div>
 
                         <div className="form-group col-md-6">
@@ -1028,5 +1039,7 @@ class TerceraIteracion extends Component {
         )
     }
 }
+
+TerceraIteracion.contextType = FormContext;
 
 export default TerceraIteracion;

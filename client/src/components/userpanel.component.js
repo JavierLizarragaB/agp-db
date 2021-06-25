@@ -3,8 +3,7 @@ import NavBar from './navbar.component';
 import Axios from 'axios';
 
 export const Userpanel = () => {
-    const [fname, setFName] = useState('');
-    const [mname, setMName] = useState('');
+    const [name, setName] = useState('');
     const [lpname, setLPName] = useState('');
     const [lmname, setLMName] = useState('');
     const [email, setEmail] = useState('');
@@ -16,27 +15,14 @@ export const Userpanel = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (mname != '') {
-            var name = fname + ' ' + mname;
-            var userjson = {
-                name,
-                lpname,
-                lmname,
-                email,
-                password,
-                type,
-            };
-        } else {
-            var name = fname;
-            var userjson = {
-                name,
-                lpname,
-                lmname,
-                email,
-                password,
-                type,
-            };
-        }
+        var userjson = {
+            name,
+            lpname,
+            lmname,
+            email,
+            password,
+            type,
+        };
         Axios.post('./api/user-panel/signup', userjson).then((response) => {
             console.log(response);
 
@@ -77,6 +63,10 @@ export const Userpanel = () => {
         });
     };
 
+    const editUser = (email) => {
+
+    };
+
     return (
         <div>
             <NavBar />
@@ -90,26 +80,19 @@ export const Userpanel = () => {
                         <button className="btn btn-custom col-md-5" onClick={(e) => handleClick(e.target.value)} value="1">
                             Trabajador Social
                         </button>
+                        <button className="btn btn-custom col-md-5" onClick={(e) => handleClick(e.target.value)} value="3">
+                            Administrador
+                        </button>
                     </div>
                     <form onSubmit={handleSubmit} className="card card-body bg-custom">
                             <h4 className="h4-custom">Registro</h4>
                             <div className="form-group">
                                 <input 
                                     type="text" 
-                                    onChange={e => setFName(e.target.value)} 
-                                    value={fname}
+                                    onChange={e => setName(e.target.value)} 
+                                    value={name}
                                     className="form-control"
                                     placeholder="Nombre"
-                                    autoFocus 
-                                />
-                            </div>
-                            <div className="form-group">
-                                <input 
-                                    type="text" 
-                                    onChange={e => setMName(e.target.value)} 
-                                    value={mname}
-                                    className="form-control"
-                                    placeholder="Segundo Nombre (Opcional)"
                                     autoFocus 
                                 />
                             </div>

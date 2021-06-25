@@ -13,6 +13,7 @@ import QuintaIteracion from './quinta-iteracion.component';
 import SextaIteracion from './sexta-iteracion.component';
 import SeptimaIteracion from './septima-iteracion.component';
 import OctavaIteracion from './octava-iteracion.component';
+import TablaHorario from "./tablaHorario";
 import axios from "axios";
 
 
@@ -406,6 +407,7 @@ function Form() {
                                     }} />
                                 </div>
                             </form>
+                            <br/>
                         </div>
                     </Collapse>
 
@@ -447,7 +449,7 @@ function Form() {
                 {/* boton de enviar */}
                 <div>
                     <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
-                        <b>Guardar Datos</b>
+                        <b>Guardar Datos de Paciente</b>
                     </button>
                 </div>
             </div>
@@ -469,6 +471,12 @@ function Form() {
                     <textarea className="form-control form-pat" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
+                    {/* boton de enviar */}
+                    <div>
+                        <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                            <b>Guardar Estudios</b>
+                        </button>
+                    </div>
                 </div>
             </div>
         </Collapse>
@@ -488,6 +496,12 @@ function Form() {
                     <textarea className="form-control form-pat" rows="6"
                     // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
                     ></textarea>
+                    {/* boton de enviar */}
+                    <div>
+                        <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                            <b>Guardar Medicamentos</b>
+                        </button>
+                    </div>
                 </div>
             </div>
         </Collapse>
@@ -504,22 +518,41 @@ function Form() {
         <div id="cit-collapse-text">
             <div className="col-md-6"/>
                 <div className="form-group col-md-12 info-text">
+                    
                     <p className="cita-text">Selecciona aquí la fecha para tu cita: </p>
                         <div className="form-group col-md-4" >
-                            
-                            <input style={{textAlign: "center"}} type="datetime-local" className="form-control form-pat" onChange={(e) => {
-                            updateFormState("patient_data", "clinic_record_date",e.target.value);
-                            console.log(formState);
-                            }} />
-                            
-                        </div>
+                                    
+                                    <input style={{textAlign: "center"}} type="datetime-local" className="form-control form-pat" onChange={(e) => {
+                                    updateFormState("patient_data", "clinic_record_date",e.target.value);
+                                    console.log(formState);
+                                    }} />
+                                    
+                                </div>
                     <p className="cita-text">Ingresa aquí la descripción de la cita: </p>
-                        <textarea className="form-control form-pat" rows="6"
-                        // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
-                        ></textarea>
-                    <br></br><br></br>
+                    <div className="col-md-12 row">
+                            
+                            
+                        
+                            <textarea className="form-control col-md-6 form-pat" rows="4"
+                            // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
+                            ></textarea>
+                            <div className="horario col-md-4">
+                                <TablaHorario/>
+                            </div>
+                            
+                        <br></br><br></br>
+                    </div>
+                    <div>
+                        {/* boton de enviar */}
+                    <div>
+                        <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                            <b>Guardar Cita</b>
+                        </button>
+                    </div>
+                    </div>
                 </div>
             </div>
+                
         </Collapse>
         </> 
     );
