@@ -49,6 +49,38 @@ function Form() {
             }
         });
     };
+
+    const handleSubmitStudies = (e) => {
+        e.preventDefault();
+        axios.post("./api/studies", {
+            studies: formState.patient_data.studies
+        }).then((response) => {
+            console.log(response);
+            
+            if(response.data.message) {
+                setMessage(response.data.message);
+                setOpen1(false);
+            } else {
+                setMessage("Ha sucedido algo :(");
+            }
+        });
+    };
+
+    const handleSubmitMedicine = (e) => {
+        e.preventDefault();
+        axios.post("./api/medicine", {
+            medicine: formState.patient_data.medicine
+        }).then((response) => {
+            console.log(response);
+            
+            if(response.data.message) {
+                setMessage(response.data.message);
+                setOpen2(false);
+            } else {
+                setMessage("Ha sucedido algo :(");
+            }
+        });
+    };
     
     const jsonpaciente = {"_id":{"$oid":"60cacc5ced0179c75db08186"},
                         "folio":"2",
@@ -469,11 +501,11 @@ function Form() {
             <div className="col-md-6"/>
                 <div className="form-group col-md-12 info-text">
                     <textarea className="form-control form-pat" rows="6"
-                    // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
+                    onChange={(e) => {updateFormState("patient_data", "studies", e.target.value);}} 
                     ></textarea>
                     {/* boton de enviar */}
                     <div>
-                        <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                        <button onClick={handleSubmitStudies} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
                             <b>Guardar Estudios</b>
                         </button>
                     </div>
@@ -494,11 +526,11 @@ function Form() {
             <div className="col-md-6"/>
                 <div className="form-group col-md-12 info-text">
                     <textarea className="form-control form-pat" rows="6"
-                    // onChange={(e) => {mycontext.updateHygienePassPhysAct("passtime",e.target.value);}} 
+                    onChange={(e) => {updateFormState("patient_data", "medicine",e.target.value);}} 
                     ></textarea>
                     {/* boton de enviar */}
                     <div>
-                        <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                        <button onClick={handleSubmitMedicine} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
                             <b>Guardar Medicamentos</b>
                         </button>
                     </div>

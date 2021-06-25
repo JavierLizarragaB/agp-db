@@ -615,3 +615,13 @@ class Patients(Document):
 
     def __repr__(self):
         return self.__str__()
+
+class Studies(Document):
+    meta = {"collection": "estudios"}
+
+    studies = StringField(required=True, db_field="estudios_campo")
+
+class Medicine(Document):
+    meta = {"collection": "medicamentos"}
+
+    medicine = StringField(required=True, db_field="medicina")

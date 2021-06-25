@@ -319,8 +319,10 @@ class FormContextProvider extends Component {
         follow_up_actual_symptoms: null,
         follow_up_last_medication_efects: null,
         follow_up_psychology_follow_up: null,
-        follow_up_actual_diagnostic: null
+        follow_up_actual_diagnostic: null,
 
+        studies: null,
+        medicine: null,
     }
 
     generalInfo = {
