@@ -209,7 +209,7 @@ class FormContextProvider extends Component {
         digestive_abdominal_postrandial_fullnes: null,
 
         /*Cambios de evacuacion*/
-        digestive_abdominal_enesmus: null,
+        digestive_abdominal_tenesmus: null,
         digestive_abdominal_bids: null,
         digestive_abdominal_encopresis: null,
         digestive_abdominal_anal_pain: null,
