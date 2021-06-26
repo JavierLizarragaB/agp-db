@@ -132,7 +132,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent1" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","skin_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -256,7 +256,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent2" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","ophthalmic_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -400,7 +400,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent3" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","ent_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -571,7 +571,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent4" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","mouth_throat_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -815,7 +815,7 @@ class TerceraIteracion extends Component {
                     </div>
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent5" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","digestive_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -897,7 +897,7 @@ class TerceraIteracion extends Component {
                     </div>
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent6" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","respiratory_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -981,7 +981,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent7" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","cardiovascular_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -1055,7 +1055,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent8" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","genitourinary_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -1120,7 +1120,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent9" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","musculoskeletal_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -1194,7 +1194,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent10" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","respiratory_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -1322,7 +1322,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent11" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","nervous_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -1396,7 +1396,7 @@ class TerceraIteracion extends Component {
 
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent12" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","psychic_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -1407,7 +1407,7 @@ class TerceraIteracion extends Component {
                     <br></br>
                     <div>OBSERVACIONES</div>
                         <div>
-                            <input type="text" className="form-control form-pat col-md-8" id="inputParent" placeholder="Observaciones" onChange={(e) => {
+                            <input type="text" className="form-control form-pat col-md-8" id="inputParent13" placeholder="Observaciones" onChange={(e) => {
                                 myContext.updateFormState("patient_data","physical_observations", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
