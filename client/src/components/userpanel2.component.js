@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from './navbar.component';
 import Axios from 'axios';
 
-export const Userpanel = () => {
+export const Userpanel2 = () => {
     const [name, setName] = useState('');
     const [lpname, setLPName] = useState('');
     const [lmname, setLMName] = useState('');
@@ -121,23 +121,50 @@ export const Userpanel = () => {
             <NavBar />
 
             <p>{RegStatus}</p>
+            <br></br>
+            
+            <div class="container">
+                    <button id="Médico" className="btn btn-custom" onClick={() => setType(2)}>
+                        Medico
+                    </button>
 
-            <div className="row container-space">
-                <div className="col-md-4">
-                    <div className="row">
-                        <button className="btn btn-custom col-md-5 btn-space" onClick={() => setType(2)}>
-                            Medico
-                        </button>
-                        <button className="btn btn-custom col-md-5" onClick={() => setType(1)}>
-                            Trabajador Social
-                        </button>
-                    </div>
-                    <div className="row">
-                        <button className="btn btn-custom col-md-10" onClick={() => setType(3)}>
-                            Administrador
-                        </button>
-                    </div>
-                    <form onSubmit={handleSubmit} className="card card-body bg-custom">
+                    <button id="TrabajadorSocial" className="btn btn-custom" onClick={() => setType(1)}>
+                        Trabajador Social
+                    </button>
+
+                    <table id="Tabla" className="table table-bordered table-hover">
+                        <thead className="thead-custom">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Correo</th>
+                                <th>Operaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {users.map((user) => (
+                                /* Conseguir id de usuarios */
+                                <tr key={user._id.$_oid}>
+                                    <td>
+                                        {user.nombre} 
+                                    </td>
+                                    <td>{user.apellido_paterno} {user.apellido_materno}</td>
+                                    <td>{user.usuario}</td>
+                                    <td>
+                                        <button className="btn btn-secondary btn-sm btn-block" onClick={() => editUser(user.usuario)}>Editar</button>
+                                        <button className="btn btn-danger btn-sm btn-block" onClick={() => deleteUser(user.usuario)}>
+                                            Borrar
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+
+                    <button id="Administrador" className="btn btn-custom " onClick={() => setType(3)}>
+                        Administrador
+                    </button>
+                    <form id="Registro" onSubmit={handleSubmit} className="card card-body bg-custom">
                             <h4 className="h4-custom">Registro</h4>
                             <div className="form-group">
                                 <input 
@@ -191,40 +218,11 @@ export const Userpanel = () => {
                                 Guardar
                             </button>
                     </form>
-                </div>
-                <div className="col-md-6">
-                    <table className="table table-bordered table-hover">
-                        <thead className="thead-custom">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>Correo</th>
-                                <th>Operaciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {users.map((user) => (
-                                /* Conseguir id de usuarios */
-                                <tr key={user._id.$_oid}>
-                                    <td>
-                                        {user.nombre} 
-                                    </td>
-                                    <td>{user.apellido_paterno} {user.apellido_materno}</td>
-                                    <td>{user.usuario}</td>
-                                    <td>
-                                        <button className="btn btn-secondary btn-sm btn-block" onClick={() => editUser(user.usuario)}>Editar</button>
-                                        <button className="btn btn-danger btn-sm btn-block" onClick={() => deleteUser(user.usuario)}>
-                                            Borrar
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                
             </div>
+
         </div>
     );
 };
 
-export default Userpanel;
+export default Userpanel2;

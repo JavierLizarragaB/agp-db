@@ -644,77 +644,121 @@ class QuintaIteracion extends Component {
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Energía Eléctrica</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num1} onChange={this._changeNum1}min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num1} onChange={(e)=> {
+                                        this._changeNum1(e);
+                                        myContext.updateFormState("home_and_economy","outcome_electric_power", e.target.value);
+                                        console.log(myContext.formState);
+                                    }}min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Agua</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num2} onChange={this._changeNum2} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num2} onChange={(e)=> {
+                                        this._changeNum2(e);
+                                        myContext.updateFormState("home_and_economy","outcome_water", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Gas</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num3} onChange={this._changeNum3} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num3} onChange={(e)=> {
+                                        this._changeNum3(e);
+                                        myContext.updateFormState("home_and_economy","outcome_gas", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Teléfono</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num4} onChange={this._changeNum4} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num4} onChange={(e)=> {
+                                        this._changeNum4(e);
+                                        myContext.updateFormState("home_and_economy","outcome_phone", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Alimentación</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num5} onChange={this._changeNum5} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num5} onChange={(e)=> {
+                                        this._changeNum5(e);
+                                        myContext.updateFormState("home_and_economy","outcome_food", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Renta</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num6} onChange={this._changeNum6} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num6} onChange={(e)=> {
+                                        this._changeNum6(e);
+                                        myContext.updateFormState("home_and_economy","outcome_rent", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Transporte (o Gasolina)</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num7} onChange={this._changeNum7} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num7} onChange={(e)=> {
+                                        this._changeNum7(e);
+                                        myContext.updateFormState("home_and_economy","outcome_transportation", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Educación</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num8} onChange={this._changeNum8} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num8} onChange={(e)=> {
+                                        this._changeNum8(e);
+                                        myContext.updateFormState("home_and_economy","outcome_education", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Vestido</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num9} onChange={this._changeNum9} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num9} onChange={(e)=> {
+                                        this._changeNum9(e);
+                                        myContext.updateFormState("home_and_economy","outcome_clothing", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Diversión</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num10} onChange={this._changeNum10} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num10} onChange={(e)=> {
+                                        this._changeNum10(e);
+                                        myContext.updateFormState("home_and_economy","outcome_recreational", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-1" />
                                 <div className="form-group col-md-3">Otros</div>
                                 <div className="form-group col-md-2">
-                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num11} onChange={this._changeNum11} min="0" step="any" />           
+                                    <input type="number" className="form-control form-pat" placeholder="$" value={this.state.num11} onChange={(e)=> {
+                                        this._changeNum11(e);
+                                        myContext.updateFormState("home_and_economy","outcome_other", e.target.value);
+                                        console.log(myContext.formState);
+                                    }} min="0" step="any" />           
                                 </div>
                             </div>
                             <div className="form-row">

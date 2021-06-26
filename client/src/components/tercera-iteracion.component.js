@@ -1437,6 +1437,7 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-6">
                             <textarea className="form-control form-pat" rows="2" onChange={(e) => {
                                 myContext.updateFormState("patient_data","follow_up_treatment_changes_notes", e.target.value);
+
                                 console.log(myContext.formState);
                             }}/>
                         </div>

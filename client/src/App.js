@@ -14,6 +14,8 @@ import DirectorioPaciente from './components/directorio.component';
 import ProtectedRoute from './constants/protectedRoutes';
 import AdminProtectedRoute from './constants/adminProtectedRoutes';
 
+import UserPanel2 from './components/userpanel2.component';
+
 import FormContextProvider from './context/FormContext';
 import CrearPaciente from './components/crearPaciente.component';
 
@@ -28,6 +30,8 @@ function App() {
                             <Route exact path="/" component={Login} />
                             <Route path="/log-in" component={Login} />
                             <AdminProtectedRoute path="/user-panel" component={UserPanel} />
+                            <AdminProtectedRoute path="/user-panel2" component={UserPanel2} />
+                            
                             <ProtectedRoute path="/datos-paciente" component={Form} />
                             <ProtectedRoute path="/directorio-paciente" component={DirectorioPaciente} />
                             <ProtectedRoute path="/carrusel" component={Carrusel} />
