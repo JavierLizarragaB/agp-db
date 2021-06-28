@@ -73,30 +73,65 @@ def post_patient():
     """POST Create or update patient."""
     json = request.get_json()
     if json == None:
-        return ("JSON missing!", 400)
+        return ({ 'message': "JSON missing!" }, 400)
 
-    folio = json.get("folio")
-    name = json.get("name")
-    paternal_last_name = json.get("paternal_last_name")
-    maternal_last_name = json.get("maternal_last_name")
+    # Check that all fields are set
+    if(json["formState"]["general_info"]["name"] == None or
+        json["formState"]["general_info"]["birth_date"] == None or
+        json["formState"]["general_info"]["sex"] == None or
+        json["formState"]["general_info"]["blood_type"] == None or
+        json["formState"]["general_info"]["emergency_contact_name"] == None or
+        json["formState"]["general_info"]["emergency_contact_num"] == None or
+        json["formState"]["general_info"]["medical_dx"] == None or
+        json["formState"]["general_info"]["companion"] == None or
+        json["formState"]["general_info"]["shelter"] == None or
+        json["formState"]["general_info"]["quimio"] == None):
+        return ({ 'message': "Por favor llena todos los campos"}, 200)
+
+    name = json["formState"]["general_info"]["name"]
 
     try:
-        patient = Patients.objects(folio=folio).first()
-
+        patient = Patients.objects(name=name).first()
+        
+        # Update existing patient
         if patient:
             patient.name = name
-            patient.paternal_last_name = paternal_last_name
-            patient.maternal_last_name = maternal_last_name
+            patient.birth_date = json["formState"]["general_info"]["birth_date"]
+            patient.sex = json["formState"]["general_info"]["sex"]
+            patient.blood_type = json["formState"]["general_info"]["blood_type"]
+            patient.emergency_contact_name = json["formState"]["general_info"]["emergency_contact_name"]
+            patient.emergency_contact_num = json["formState"]["general_info"]["emergency_contact_num"]
+            patient.medical_dx = json["formState"]["general_info"]["medical_dx"]
+            patient.companion = bool(json["formState"]["general_info"]["companion"])
+            patient.shelter = bool(json["formState"]["general_info"]["shelter"])
+            patient.quimio = bool(json["formState"]["general_info"]["quimio"])
+        
+        # Create new patient
         else:
+            print("Creating new patient")
+            # Find next folio to use
+            if(Patients.objects().first()):
+                patient_max_folio = Patients.objects().order_by("-folio").limit(-1).first()
+                next_folio = patient_max_folio["folio"] + 1
+            else:
+                next_folio = 1
+            print("New folio:",next_folio)
+
             patient = Patients(
-                folio=folio,
+                folio=next_folio,
                 name=name,
-                paternal_last_name=paternal_last_name,
-                maternal_last_name=maternal_last_name
+                birth_date = json["formState"]["general_info"]["birth_date"],
+                sex = json["formState"]["general_info"]["sex"],
+                blood_type = json["formState"]["general_info"]["blood_type"],
+                emergency_contact_name = json["formState"]["general_info"]["emergency_contact_name"],
+                emergency_contact_num = json["formState"]["general_info"]["emergency_contact_num"],
+                medical_dx = json["formState"]["general_info"]["medical_dx"],
+                companion = bool(json["formState"]["general_info"]["companion"]),
+                shelter = bool(json["formState"]["general_info"]["shelter"]),
+                quimio = bool(json["formState"]["general_info"]["quimio"])
             )
 
         # Update database
-
         patient.save()
         return (jsonify(patient), 201)
 

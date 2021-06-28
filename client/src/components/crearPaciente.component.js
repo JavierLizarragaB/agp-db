@@ -11,19 +11,21 @@ function CrearPaciente() {
     const [message, setMessage] = useState("");
 
     // Load context
-    const {formState, updateFormState} = useContext(FormContext);
+    const {formState, updateFormState, handleCheckboxGroup} = useContext(FormContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("./api/forms", {
+        axios.post("./api/paciente", {
             formState
         }).then((response) => {
             console.log(response);
             
-            if(response.data.message) {
-                setMessage(response.data.message);
+            if(response.status == 201) {
+                console.log("Succes:",response.status);
+                setMessage("¡Paciente registrado!");
             } else {
-                setMessage("Ha sucedido algo :(");
+                console.log("Error:",response.data.message);
+                setMessage(response.data.message);
             }
         });
     };
@@ -74,9 +76,10 @@ function CrearPaciente() {
                                     updateFormState("general_info", "sex",e.target.value);
                                     console.log(formState);
                                 }}>
-                                    <option>Masculino</option>
-                                    <option>Femenino</option>
-                                    <option>Otro</option>
+                                    <option>Seleccione una opcion</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="Otro">Otro</option>
                                     </select>
                             </div>
 
@@ -131,9 +134,14 @@ function CrearPaciente() {
                                 <div>No</div>           
                             </div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" onChange={(e) => {updateFormState("general_info", "companion",e.target.value);
-                                console.log(formState);}}></input>
-                                <input type="checkbox" className="form-control form-pat"></input>
+                                <input type="checkbox" className="form-control form-pat" name="general-cb-1" id="general-cb-1-1" value="1" onChange={(e) => {
+                                    handleCheckboxGroup(e.target.name,e.target.id,"general_info", "companion");
+                                    console.log(formState);
+                                }}></input>
+                                <input type="checkbox" className="form-control form-pat" name="general-cb-1" id="general-cb-1-2" value="" onChange={(e) => {
+                                    handleCheckboxGroup(e.target.name,e.target.id,"general_info", "companion");
+                                    console.log(formState);
+                                }}></input>
                             </div>
 
                             <div className="form-group col-md-2 form-text">
@@ -144,9 +152,14 @@ function CrearPaciente() {
                                 <div>No</div>           
                             </div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" onChange={(e) => {updateFormState("general_info", "shelter",e.target.value);
-                                console.log(formState);}}></input>
-                                <input type="checkbox" className="form-control form-pat"></input>
+                                <input type="checkbox" className="form-control form-pat" name="general-cb-2" id="general-cb-2-1" value="1" onChange={(e) => {
+                                    handleCheckboxGroup(e.target.name,e.target.id,"general_info", "shelter");
+                                    console.log(formState);
+                                }}></input>
+                                <input type="checkbox" className="form-control form-pat" name="general-cb-2" id="general-cb-2-2" value="" onChange={(e) => {
+                                    handleCheckboxGroup(e.target.name,e.target.id,"general_info", "shelter");
+                                    console.log(formState);
+                                }}></input>
                             </div>
 
                             <div className="form-group col-md-2 form-text">
@@ -157,9 +170,14 @@ function CrearPaciente() {
                                 <div>No</div>           
                             </div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" onChange={(e) => {updateFormState("general_info", "quimio",e.target.value);
-                                console.log(formState);}}></input>
-                                <input type="checkbox" className="form-control form-pat"></input>
+                                <input type="checkbox" className="form-control form-pat" name="general-cb-3" id="general-cb-3-1" value="1" onChange={(e) => {
+                                    handleCheckboxGroup(e.target.name,e.target.id,"general_info", "quimio");
+                                    console.log(formState);
+                                }}></input>
+                                <input type="checkbox" className="form-control form-pat" name="general-cb-3" id="general-cb-3-2" value="" onChange={(e) => {
+                                    handleCheckboxGroup(e.target.name,e.target.id,"general_info", "quimio");
+                                    console.log(formState);
+                                }}></input>
                             </div>
 
                             

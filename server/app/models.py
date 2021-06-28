@@ -600,15 +600,18 @@ class FormInfo(Document):
 class Patients(Document):
     meta = {"collection": "pacientes"}
 
-    folio = StringField(required=True, unique=True, db_field="folio")
+    folio = IntField(primary_key=True, db_field="folio")
     name = StringField(required=True, db_field="nombre")
-    paternal_last_name = StringField(
-        required=False, db_field="apellido_paterno")
-    maternal_last_name = StringField(
-        required=False, db_field="apellido_materno")
-    sex = StringField(
-        required=True, db_field="sexo")
-    ##companions = ListField(EmbeddedDocumentField(), required=False, db_field="acompañante")
+    birth_date = DateField(required=True, db_field="fecha_nacimiento")
+    sex = StringField(required=True, db_field="sexo")
+    blood_type = StringField(required=True, db_field="tipo_sangre")
+    emergency_contact_name = StringField(required=True, db_field="nombre_contacto_emergencia")
+    emergency_contact_num = StringField(required=True, db_field="tel_contacto_emergencia")
+    medical_dx = StringField(required=True, db_field="dx_medico")
+    companion = BooleanField(required=True, db_field="acompañante")
+    shelter = BooleanField(required=True, db_field="shelter")
+    quimio = BooleanField(required=True, db_field="quimio")
+    forms = ListField(StringField, required=False, db_field="formularios")
     
     def __str__(self):
         return f"Patient({self.name + ' ' + self.paternal_last_name})"
