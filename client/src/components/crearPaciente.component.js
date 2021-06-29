@@ -11,7 +11,7 @@ function CrearPaciente() {
     const [message, setMessage] = useState("");
 
     // Load context
-    const {formState, updateFormState, handleCheckboxGroup} = useContext(FormContext);
+    const {formState, updateFormState, setPatientFolio, handleCheckboxGroup} = useContext(FormContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,6 +23,8 @@ function CrearPaciente() {
             if(response.status == 201) {
                 console.log("Succes:",response.status);
                 setMessage("¡Paciente registrado!");
+                console.log("El folio es:",response.data._id);
+                setPatientFolio(response.data._id);
             } else {
                 console.log("Error:",response.data.message);
                 setMessage(response.data.message);
