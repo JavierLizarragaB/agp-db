@@ -1,12 +1,15 @@
 import React, { Component, useState, useContext} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormContext} from '../context/FormContext'
+import { useHistory } from 'react-router';
 
 import NavBar from './navbar.component';
 import axios from "axios";
 
 
 function CrearPaciente() {
+
+    let history = useHistory();
 
     const [message, setMessage] = useState("");
 
@@ -25,6 +28,7 @@ function CrearPaciente() {
                 setMessage("¡Paciente registrado!");
                 console.log("El folio es:",response.data._id);
                 setPatientFolio(response.data._id);
+                history.push('/datos-paciente');
             } else {
                 console.log("Error:",response.data.message);
                 setMessage(response.data.message);
