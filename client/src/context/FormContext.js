@@ -326,6 +326,7 @@ class FormContextProvider extends Component {
         studies: null,
         medicine: null,
         appointments: null,
+        appointments_time: null,
         appointment_description: null,
     }
 

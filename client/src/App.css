@@ -203,6 +203,10 @@ span {
   padding-top: 50px;
 }
 
+.container-login {
+  padding: 10px;
+}
+
 .container {
   display: grid;
   height: 100vh;

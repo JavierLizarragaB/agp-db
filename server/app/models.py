@@ -1,3 +1,4 @@
+
 from mongoengine.fields import DecimalField, EmbeddedDocumentListField
 from werkzeug.security import generate_password_hash
 from mongoengine import Document, EmbeddedDocument
@@ -633,5 +634,6 @@ class Appointments(Document):
     meta = {"collection": "citas"}
 
     appointments = DateField(required=True, db_field="fecha")
+    appointments_time = StringField(Required=True, db_field="hora")
     patient_folio = StringField(required=True, db_field="folio_paciente")
     appointment_description = StringField(required=True, db_field="descripcion")

@@ -37,7 +37,7 @@ export const Login = () => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light">
-                <div className="container">
+                <div className="container-login ">
                     <Link className="navbar-brand" to={'/log-in'}>
                         Inicio de Sesión
                     </Link>{' '}

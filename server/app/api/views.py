@@ -166,6 +166,12 @@ def get_patients():
     patients = Patients.objects()
     return (jsonify(patients), 200)
 
+@api.route("/citas", methods=["GET"])
+def get_citas():
+    """All Appointments"""
+    citas = Appointments.objects()
+    return (jsonify(citas), 200)
+
 @api.route("/user-panel/signup", methods=["POST"])
 def set_user():
     """Post User"""
@@ -296,6 +302,7 @@ def send_appointments():
     try:
         appointmentsForm = Appointments(
             appointments = json.get("appointments"),
+            appointments_time = json.get("appointments_time"),
             appointment_description = json.get("appointment_description"),
             patient_folio = '2'
         )

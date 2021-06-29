@@ -1,8 +1,8 @@
-import React, { Component, useState, useContext} from "react";
+import React, { Component, useState, useContext, useEffect} from "react";
 import { Button, Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormContext} from '../context/FormContext'
-
+import moment from 'moment';
 import NavBar from './navbar.component';
 import Masculino from '../img/male.png';
 import Femenino from '../img/female.png';
@@ -18,6 +18,9 @@ import axios from "axios";
 
 
 function Form() {
+    //para citas
+    const [citas, setCitas] = useState([]);
+
     //para abrir el formulario general
     const [open, setOpen] = useState(false);
 
@@ -86,6 +89,7 @@ function Form() {
         e.preventDefault();
         var appointments_json = {
             appointments: formState.patient_data.appointments,
+            appointments_time: formState.patient_data.appointments_time,
             appointment_description: formState.patient_data.appointment_description,
             patient_folio: formState.patient_data.folio,
         }
@@ -104,6 +108,17 @@ function Form() {
         });
     };
     
+    const getCitas = () => {
+        axios.get('./api/citas').then((response) => {
+            setCitas(response.data);
+            console.log(response.data);
+        });
+    };
+
+    useEffect(() => {
+        getCitas();
+    }, []);
+
     const jsonpaciente = {"_id":{"$oid":"60cacc5ced0179c75db08186"},
                         "folio":"2",
                         "nombre":"Gigi Rodriguez",
@@ -576,8 +591,17 @@ function Form() {
                     <p className="cita-text">Selecciona aquí la fecha para tu cita: </p>
                         <div className="form-group col-md-4" >
                                     
-                                    <input style={{textAlign: "center"}} type="datetime-local" className="form-control form-pat" onChange={(e) => {
+                                    <input style={{textAlign: "center"}} type="date" className="form-control form-pat" onChange={(e) => {
                                     updateFormState("patient_data", "appointments",e.target.value);
+                                    console.log(formState);
+                                    }} />
+                                    
+                                </div>
+                    <p className="cita-text">Selecciona aquí la hora para tu cita: </p>
+                        <div className="form-group col-md-4" >
+                                    
+                                    <input style={{textAlign: "center"}} type="time" className="form-control form-pat" onChange={(e) => {
+                                    updateFormState("patient_data", "appointments_time",e.target.value);
                                     console.log(formState);
                                     }} />
                                     
@@ -591,7 +615,39 @@ function Form() {
                                 onChange={(e) => {updateFormState("patient_data", "appointment_description",e.target.value);console.log(formState);}} 
                             ></textarea>
                             <div className="horario col-md-4">
-                                <TablaHorario/>
+                                {/* <TablaHorario/> */}
+                                <table className="table table-hover">
+                                    <th className="thead-custom">
+                                        Agenda
+                                    </th>
+                                    <tbody>
+                                        <table className="table table-hover">
+                                            <thead className="thead-custom">
+                                                <tr>
+                                                    <th>Fecha</th>
+                                                    <th>Hora</th>
+                                                    <th>Descripción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {citas.map((citas) => (
+                                                    <tr key={citas._id.$_oid}>
+                                                        <td>
+                                                            {moment.unix(citas.fecha.$date/999.95).format("MM/DD/YYYY")}
+                                                        </td>
+                                                        <td>
+                                                            {citas.hora} 
+                                                        </td>
+                                                        <td>
+                                                            {citas.descripcion}
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </tbody>
+                                </table>
+                                
                             </div>
                             
                         <br></br><br></br>
