@@ -75,13 +75,7 @@
   margin-top: 8%;
 }
 
-#menu-left {
-  width:20%;
-  height:200px;
-  position:absolute;
-  top:20px;
-  right:20px;
-}
+
 
 .title-carrusel{
   color:#333;
@@ -291,10 +285,6 @@ span {
   margin-bottom: 15px;
 }
 
-.nav-sec, .info-pat {
-  margin-bottom: 25px;
-}
-
 .info-pat {
   margin-top: 25px;
 }
@@ -337,22 +327,93 @@ span {
   font-size: 20px;
 }
 
-#menu-left {
+/* #menu-left {
   height: auto;
   margin-top: 15px;
+} */
+
+/* navbar y burger */
+
+.nav-sec, .info-pat {
+  margin-bottom: 25px;
+}
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-brand {
+  display: flex;
+}
+
+
+.logo-imagen {
+  display:flex;
 }
 
 .nav-item {
   text-decoration: none;
   font-weight: 400;
   color: #333;
-  padding-right: 15px;
+  margin-right: 1rem;
 }
 
 .nav-item:hover {
   color: #333;
   font-weight: 600;
   text-decoration: underline;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 2.5rem;
+  right: 2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 22px;
+}
+
+.toggle-button .bar {
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 10px;
+}
+
+/* burger */
+@media (max-width: 800px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .toggle-button {
+      display: flex;
+  }
+
+  .navbar-brand {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-brand{
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-brand {
+      text-align: center;
+  }
+
+  .navbar-brand  {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-brand.active {
+      display: flex;
+  }
 }
 
 /* Cuarta iteracion */
