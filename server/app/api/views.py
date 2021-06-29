@@ -311,12 +311,7 @@ def send_forms():
     "Save forms"
     json = request.get_json()
     try:
-        print(json)
         form = FormInfo(
-            
-
-        
-        
             patient_data = PatientDataForm(
                 birth_state=json["formState"]["patient_data"]["birth_state"],
                 birth_city=json["formState"]["patient_data"]["birth_city"],
@@ -549,7 +544,7 @@ def send_forms():
                         postrandial_fullnes = json["formState"]["patient_data"]["digestive_abdominal_postrandial_fullnes"],
 
                         ##Cambios en evacuaciones
-                        tenesmus = json["formState"]["patient_data"]["digestive_abdominal_enesmus"],
+                        tenesmus = json["formState"]["patient_data"]["digestive_abdominal_tenesmus"],
                         bids = json["formState"]["patient_data"]["digestive_abdominal_bids"],
                         encopresis = json["formState"]["patient_data"]["digestive_abdominal_encopresis"],
                         anal_pain = json["formState"]["patient_data"]["digestive_abdominal_anal_pain"],
@@ -870,6 +865,16 @@ def send_forms():
             ),
         )
         form.save()
+
+        "Connect form to patient"
+        theId = str(form.id)
+        print("This is the form id:",theId)
+        print("This is the patient folio:",json["formState"]["patient_folio"])
+
+        patient = Patients.objects(folio=json["formState"]["patient_folio"]).first()
+        patient.forms.append(theId)
+        patient.save()
+
         return ({ 'message': "Formulario creado"}, 200)
     except Exception as e:
         print(e)

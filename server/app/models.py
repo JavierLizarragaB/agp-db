@@ -611,7 +611,7 @@ class Patients(Document):
     companion = BooleanField(required=True, db_field="acompañante")
     shelter = BooleanField(required=True, db_field="shelter")
     quimio = BooleanField(required=True, db_field="quimio")
-    forms = ListField(StringField, required=False, db_field="formularios")
+    forms = ListField(StringField(), required=False, db_field="formularios")
     
     def __str__(self):
         return f"Patient({self.name + ' ' + self.paternal_last_name})"

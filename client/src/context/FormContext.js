@@ -520,6 +520,7 @@ class FormContextProvider extends Component {
     }
 
     state = {
+        patient_folio: null,
         general_info: this.generalInfo,
         patient_data: this.patientData,
         family_data: this.familyData,
@@ -571,10 +572,18 @@ class FormContextProvider extends Component {
         })
     }
 
+    setPatientFolio = (folio) => {
+        this.setState({
+            ...this.state,
+            patient_folio: folio
+        })
+    }
+
     render(){
         const contextValue = {
             formState:this.state,
             updateFormState:this.updateFormState,
+            setPatientFolio:this.setPatientFolio,
             handleCheckboxGroup:this.handleCheckboxGroup,
             handleBooleanCheckbox:this.handleBooleanCheckbox
         }
