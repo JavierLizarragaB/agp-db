@@ -9,7 +9,7 @@ function AdminProtectedRoute({ component: Component, ...rest}) {
     const [isAuth, setIsAuth] = useState(false);
 
     useEffect(() => {
-        Axios.post('./api/verify_role?token=' + sessionStorage.getItem("token")).then((response) => {
+        Axios.post('./api/verify_role?token=' + localStorage.getItem("token")).then((response) => {
             setIsLogged(response.data['login']);
             setIsAuth(response.data['auth']);
             setLoading(false);

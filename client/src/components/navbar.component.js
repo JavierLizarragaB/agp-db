@@ -9,7 +9,7 @@ export const NavBar = () => {
     let history = useHistory();
     
     const logOut = () => {
-        sessionStorage.removeItem('token');
+        localStorage.removeItem('token');
         history.push('/log-in');
     }
 

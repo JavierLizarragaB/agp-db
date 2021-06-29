@@ -8,7 +8,7 @@ function ProtectedRoute({ component: Component, ...rest}) {
     const [isLogged, setIsLogged] = useState(false);
 
     useEffect(() => {
-        Axios.post('./api/verify_login?token=' + sessionStorage.getItem("token")).then((response) => {
+        Axios.post('./api/verify_login?token=' + localStorage.getItem("token")).then((response) => {
             setIsLogged(response.data);
             setLoading(false);
         });
