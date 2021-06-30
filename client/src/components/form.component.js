@@ -14,13 +14,11 @@ import SextaIteracion from './sexta-iteracion.component';
 import SeptimaIteracion from './septima-iteracion.component';
 import OctavaIteracion from './octava-iteracion.component';
 import TablaHorario from "./tablaHorario";
+import Agenda from './agenda.component';
 import axios from "axios";
 
 
 function Form() {
-    //para citas
-    const [citas, setCitas] = useState([]);
-
     //para abrir el formulario general
     const [open, setOpen] = useState(false);
 
@@ -107,17 +105,6 @@ function Form() {
             }
         });
     };
-    
-    const getCitas = () => {
-        axios.get('./api/citas').then((response) => {
-            setCitas(response.data);
-            console.log(response.data);
-        });
-    };
-
-    useEffect(() => {
-        getCitas();
-    }, []);
 
     const jsonpaciente = {
                         "edad":"9",
@@ -601,40 +588,9 @@ function Form() {
                             <textarea className="form-control col-md-6 form-pat" rows="4"
                                 onChange={(e) => {updateFormState("patient_data", "appointment_description",e.target.value);console.log(formState);}} 
                             ></textarea>
-                            <div className="horario col-md-4">
+                            <div className="horario col-md-6">
                                 {/* <TablaHorario/> */}
-                                <table className="table table-hover">
-                                    <th className="thead-custom">
-                                        Agenda
-                                    </th>
-                                    <tbody>
-                                        <table className="table table-hover">
-                                            <thead className="thead-custom">
-                                                <tr>
-                                                    <th>Fecha</th>
-                                                    <th>Hora</th>
-                                                    <th>Descripción</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {citas.map((citas) => (
-                                                    <tr key={citas._id.$_oid}>
-                                                        <td>
-                                                            {moment.unix(citas.fecha.$date/999.95).format("MM/DD/YYYY")}
-                                                        </td>
-                                                        <td>
-                                                            {citas.hora} 
-                                                        </td>
-                                                        <td>
-                                                            {citas.descripcion}
-                                                        </td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </tbody>
-                                </table>
-                                
+                                    <Agenda />
                             </div>
                             
                         <br></br><br></br>
