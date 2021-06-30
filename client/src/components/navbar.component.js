@@ -16,29 +16,13 @@ export const NavBar = () => {
     }
 
 
-    const [open, setOpen] = useState(false);
-    const linksmenu = document.getElementsByClassName("navbar-brand")[0]
-    
     return (
         
         <div>
             <nav class="navbar navbar-expand-lg navbar-light">
-                
-
-                <div
-                    onClick={() => linksmenu.classList.toggle("active")}
-                    aria-controls="navbar-brand"
-                    aria-expanded={open}
-                    className="toggle-button"
-                >
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
 
                 <div class="logo-imagen"><img src={logo} width="250" class="d-inline-block align-top" alt="" /></div>
 
-                {/* <Collapse in={open}> */}
                 <a class="navbar-brand" href="#">
                     
                     <div id="menu-left">
@@ -53,11 +37,12 @@ export const NavBar = () => {
                             <a><Link className="nav-item" onClick={logOut}>
                             Cerrar Sesión
                             </Link>{' '}</a>
+                            <a><Link className="nav-item" onClick={logOut}>
+                            Panel Usuarios
+                            </Link>{' '}</a>
                         </ul>
                     </div>
-                {/* <div className="collapse navbar-collapse" id="navbarTogglerDemo02"></div> */}
                 </a>
-                {/* </Collapse> */}
             </nav>
         </div>
     );

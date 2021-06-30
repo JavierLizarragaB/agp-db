@@ -81,18 +81,9 @@
   color:#333;
 }
 .my__carousel_main {
-  
-  /* position: absolute;
-  left: 50%;
-  transform: translate(-50%); */
-
   background-color: #F7ADA4;
   border-radius: 5%;
-  /* max-width: 60vw; */
-  /* max-height: 30rem; */
-  /* height: 65vh; */
   height: 26.5rem;
-  /* max-width: 60rem; */
   width: 56rem;
   
   margin-left: auto;
@@ -364,29 +355,32 @@ span {
   text-decoration: underline;
 }
 
-.toggle-button {
-  position: absolute;
-  top: 2.5rem;
-  right: 2rem;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 35px;
-  height: 22px;
-}
-
-.toggle-button .bar {
-  height: 4px;
-  width: 100%;
-  background-color: #333;
-  border-radius: 10px;
-}
-
-/* burger */
-@media (max-width: 800px) {
+/* para pantallas chiquitas */
+@media (max-width: 980px) {
   .navbar {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+
+  #menu-left{
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    white-space:normal;
+  }
+  .my__carousel_main{
+    height: 26.5rem;
+    width: 30rem;
+
+    background-color: #F7ADA4;
+    border-radius: 5%;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    color: #09d3ac;
   }
 
   .toggle-button {
@@ -394,24 +388,11 @@ span {
   }
 
   .navbar-brand {
-      display: none;
-      width: 100%;
-  }
-
-  .navbar-brand{
+      /* display: none; */
       width: 100%;
       flex-direction: column;
-  }
-
-  .navbar-brand {
       text-align: center;
-  }
-
-  .navbar-brand  {
       padding: .5rem 1rem;
-  }
-
-  .navbar-brand.active {
       display: flex;
   }
 }
