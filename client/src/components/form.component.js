@@ -119,24 +119,11 @@ function Form() {
         getCitas();
     }, []);
 
-    const jsonpaciente = {"_id":{"$oid":"60cacc5ced0179c75db08186"},
-                        "folio":"2",
-                        "nombre":"Gigi Rodriguez",
+    const jsonpaciente = {
                         "edad":"9",
-                        "sexo":"Femenino",
-                        "fecha_nacimiento":"01/01/2001",
-                        "dx_medico":"existir",
-                        "sangre":"A+",
-                        "contacto_emergencia_nombre":"Nickolas Rodriguez Ochoa",
-                        "contacto_emergencia_num":"123456",
-                        "companion":false,
-                        "albergue":false,
-                        "quimio":false}
+                    }
 
-    let icon = jsonpaciente.sexo == "Femenino" ? Femenino : Masculino;
-    let albergue = jsonpaciente.albergue == true ? true : false;
-    let companion = jsonpaciente.companion == true ? true : false;
-    let quimio = jsonpaciente.quimio == true ? true : false;
+    let icon = formState.general_info.sex == "Femenino" ? Femenino : Masculino;
 
     
     return (
@@ -150,45 +137,45 @@ function Form() {
                         <img width="250px" src={icon} />
                     </div>
                     <div className="col-lg-3">
-                        <div className="patient-text-br"> {jsonpaciente.nombre} </div>
-                        <div className="patient-text">Nacimiento: {jsonpaciente.fecha_nacimiento} - Años: {jsonpaciente.edad}</div>
+                        <div className="patient-text-br"> {formState.general_info.name} </div>
+                        <div className="patient-text">Nacimiento: {formState.general_info.birth_date} - Años: {jsonpaciente.edad}</div>
                         <br></br>
                         <div className="patient-text-br">Sangre:</div>
-                        <div className="patient-text">{jsonpaciente.sangre}</div>
+                        <div className="patient-text">{formState.general_info.blood_type}</div>
                         <br></br>
                         <div className="patient-text-br">Contacto de Emergencia:</div>
-                        <div className="patient-text">{jsonpaciente.contacto_emergencia_num} - {jsonpaciente.contacto_emergencia_nombre}</div>
+                        <div className="patient-text">{formState.general_info.emergency_contact_num} - {formState.general_info.emergency_contact_name}</div>
                         <br></br>
                         <div className="patient-text-br">Acude con Acompañante:</div>
                         <div className="form-row">
                             
                             <div className="patient-text-br">Sí</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" checked={companion}/>
+                                <input type="checkbox" className="form-control form-pat" checked={formState.general_info.companion}/>
                             </div>
                             &ensp;&ensp;
                             <div className="patient-text-br">No</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" checked={!companion}/>
+                                <input type="checkbox" className="form-control form-pat" checked={!formState.general_info.companion}/>
                             </div>
                         </div>
                     </div>
 
                     <div className="col-lg-3">
                         <div className="patient-text-br">DX MÉDICO</div>
-                        <div className="box">&ensp;{jsonpaciente.dx_medico}</div>
+                        <div className="box">&ensp;{formState.general_info.medical_dx}</div>
                         
                         <br></br>
                         <div className="patient-text-br">Albergue:</div>
                         <div className="form-row">
                             <div className="patient-text-br">Sí</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" checked={albergue}/>
+                                <input type="checkbox" className="form-control form-pat" checked={formState.general_info.shelter}/>
                             </div>
                             &ensp;&ensp;
                             <div className="patient-text-br">No</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" checked={!albergue}/>
+                                <input type="checkbox" className="form-control form-pat" checked={!formState.general_info.shelter}/>
                             </div>
                         </div>
                         <br></br>
@@ -196,12 +183,12 @@ function Form() {
                         <div className="form-row">
                             <div className="patient-text-br">Sí</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" checked={quimio}/>
+                                <input type="checkbox" className="form-control form-pat" checked={formState.general_info.quimio}/>
                             </div>
                             &ensp;&ensp;
                             <div className="patient-text-br">No</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" checked={!quimio}/>
+                                <input type="checkbox" className="form-control form-pat" checked={!formState.general_info.quimio}/>
                             </div>
                         </div>
                     </div>
