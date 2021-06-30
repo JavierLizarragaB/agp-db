@@ -106,9 +106,9 @@ function Form() {
         });
     };
 
-    const jsonpaciente = {
-                        "edad":"9",
-                    }
+    // const jsonpaciente = {
+    //                     "edad":"9",
+    //                 }
 
     let icon = formState.general_info.sex == "Femenino" ? Femenino : Masculino;
 
@@ -125,7 +125,7 @@ function Form() {
                     </div>
                     <div className="col-lg-3">
                         <div className="patient-text-br"> {formState.general_info.name} </div>
-                        <div className="patient-text">Nacimiento: {formState.general_info.birth_date} - Años: {jsonpaciente.edad}</div>
+                        <div className="patient-text">Nacimiento: {formState.general_info.birth_date} - Años: {formState.general_info.age}</div>
                         <br></br>
                         <div className="patient-text-br">Sangre:</div>
                         <div className="patient-text">{formState.general_info.blood_type}</div>

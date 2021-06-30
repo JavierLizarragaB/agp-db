@@ -77,6 +77,7 @@ def post_patient():
 
     # Check that all fields are set
     if(json["formState"]["general_info"]["name"] == None or
+        json["formState"]["general_info"]["age"] == None or
         json["formState"]["general_info"]["birth_date"] == None or
         json["formState"]["general_info"]["sex"] == None or
         json["formState"]["general_info"]["blood_type"] == None or
@@ -96,6 +97,7 @@ def post_patient():
         # Update existing patient
         if patient:
             patient.name = name
+            patient.age = json["formState"]["general_info"]["age"]
             patient.birth_date = json["formState"]["general_info"]["birth_date"]
             patient.sex = json["formState"]["general_info"]["sex"]
             patient.blood_type = json["formState"]["general_info"]["blood_type"]
@@ -120,6 +122,7 @@ def post_patient():
             patient = Patients(
                 folio=next_folio,
                 name=name,
+                age = json["formState"]["general_info"]["age"],
                 birth_date = json["formState"]["general_info"]["birth_date"],
                 sex = json["formState"]["general_info"]["sex"],
                 blood_type = json["formState"]["general_info"]["blood_type"],
