@@ -11,6 +11,7 @@ import UserProvider, { Example as UserCtxExample } from './context/UserProvider'
 import Carrusel from './components/carrusel.component';
 import PagInicio from './components/Inicio/inicio';
 import DirectorioPaciente from './components/directorio.component';
+import HistorialFormulario from './components/historial-formulario.component';
 import ProtectedRoute from './constants/protectedRoutes';
 import AdminProtectedRoute from './constants/adminProtectedRoutes';
 
@@ -30,10 +31,11 @@ function App() {
                             <Route exact path="/" component={Login} />
                             <Route path="/log-in" component={Login} />
                             <AdminProtectedRoute path="/user-panel" component={UserPanel} />
-                            <AdminProtectedRoute path="/user-panel2" component={UserPanel2} />
+                            <AdminProtectedRoute path="/panel-usuarios" component={UserPanel2} />
                             
                             <ProtectedRoute path="/datos-paciente" component={Form} />
                             <ProtectedRoute path="/directorio-paciente" component={DirectorioPaciente} />
+                            <ProtectedRoute path="/historial-formulario" component={HistorialFormulario} />
                             <ProtectedRoute path="/carrusel" component={Carrusel} />
                             <ProtectedRoute path="/test/user-ctx" component={UserCtxExample} />
                             <ProtectedRoute path="/pag-inicio" component={PagInicio} />

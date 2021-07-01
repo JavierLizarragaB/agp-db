@@ -34,11 +34,11 @@ export const NavBar = () => {
                             <a><Link className="nav-item" onClick={()=>{history.push('/directorio-paciente');}}>
                             Pacientes
                             </Link>{' '}</a>
-                            <a><Link className="nav-item" onClick={logOut}>
-                            Cerrar Sesión
+                            <a><Link className="nav-item" onClick={()=>{history.push('/panel-usuarios');}}>
+                            Panel Usuarios
                             </Link>{' '}</a>
                             <a><Link className="nav-item" onClick={logOut}>
-                            Panel Usuarios
+                            Cerrar Sesión
                             </Link>{' '}</a>
                         </ul>
                     </div>
