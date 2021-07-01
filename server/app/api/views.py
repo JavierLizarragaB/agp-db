@@ -166,7 +166,7 @@ def get_user():
 @api.route("/directorio", methods=["GET"])
 def get_patients():
     """All Patients"""
-    patients = Patients.objects().order_by("-folio").limit(3)
+    patients = Patients.objects().order_by("-folio").limit(10)
     return (jsonify(patients), 200)
 
 @api.route("/historial-formulario/<id>", methods=["GET"])
