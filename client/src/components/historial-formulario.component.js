@@ -12,12 +12,27 @@ export const HistorialFormulario = () => {
     //Context
     const {formState} = useContext(FormContext);
 
+    //Page history
     const [formHistory, setFormHistory] = useState([]);
     let history = useHistory();
 
+    //Current state
+    const initial_state = {
+        tableTitle: "El paciente aún no tiene datos guardados",
+        hasForms: false
+    }
+    const [state, setState] = useState(initial_state);
+
     const getFormHistory = () => {
         Axios.get('./api/historial-formulario/'+formState.patient_folio).then((response) => {
-            setFormHistory(response.data);
+            var versions = response.data
+            if(versions.length > 0) {
+                setState({
+                    tableTitle: "Historial de formularios",
+                    hasForms: true
+                });
+                setFormHistory(response.data);
+            }
         });
     };
 
@@ -35,7 +50,7 @@ export const HistorialFormulario = () => {
                     <table className="table table-bordered table-hover">
                         <thead className="thead-custom">
                             <tr>
-                                <th>Historial de formularios</th>
+                                <th>{state.tableTitle}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,6 +68,11 @@ export const HistorialFormulario = () => {
                 </div>
                 </div>
             </div>
+            
+            {!state.hasForms ?
+                <div className="col-md-12">
+                    <Link className="btn-dir" onClick={()=>{history.push('/datos-paciente');}}>CREAR FORMULARIO</Link>
+                </div> : ''}
         </>
         );
 };

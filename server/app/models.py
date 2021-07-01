@@ -606,6 +606,7 @@ class Patients(Document):
 
     folio = IntField(primary_key=True, db_field="folio")
     name = StringField(required=True, db_field="nombre")
+    age = IntField(required=True, db_field="edad")
     birth_date = DateField(required=True, db_field="fecha_nacimiento")
     sex = StringField(required=True, db_field="sexo")
     blood_type = StringField(required=True, db_field="tipo_sangre")
