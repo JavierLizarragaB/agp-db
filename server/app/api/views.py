@@ -6,7 +6,7 @@ from functools import wraps
 
 from . import api
 
-from ..models import FormInfo, Address, Appointments, Background, FamilyMemberQuantity, Medicine, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, PlaceDistribution, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others, Studies, Medicine
+from ..models import FormInfo, FormHistory, Address, Appointments, Background, FamilyMemberQuantity, Medicine, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, PlaceDistribution, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others, Studies, Medicine
 
 
 def token_required(f):
@@ -163,8 +163,16 @@ def get_user():
 @api.route("/directorio", methods=["GET"])
 def get_patients():
     """All Patients"""
-    patients = Patients.objects()
+    patients = Patients.objects().order_by("-folio").limit(3)
     return (jsonify(patients), 200)
+
+@api.route("/historial-formulario/<id>", methods=["GET"])
+def get_form_history(id):
+    """All Form Versions for Given Patient"""
+    patient = Patients.objects(folio=id).first()
+    versions = patient.form_history
+    versions.reverse()
+    return (jsonify(versions), 200)
 
 @api.route("/citas", methods=["GET"])
 def get_citas():
@@ -878,8 +886,14 @@ def send_forms():
         print("This is the form id:",theId)
         print("This is the patient folio:",json["formState"]["patient_folio"])
 
+        "Create form history document"
+        history = FormHistory(
+            formId = theId,
+            formDate = json["date"]
+        )
+
         patient = Patients.objects(folio=json["formState"]["patient_folio"]).first()
-        patient.forms.append(theId)
+        patient.form_history.append(history)
         patient.save()
 
         return ({ 'message': "Formulario creado"}, 200)

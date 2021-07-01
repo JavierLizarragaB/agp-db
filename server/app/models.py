@@ -597,6 +597,9 @@ class FormInfo(Document):
 
     others = EmbeddedDocumentField(Others, required=False, db_field="otros")
 
+class FormHistory(EmbeddedDocument):
+    formId = StringField(required=False, db_field="id_formulario")
+    formDate = StringField(required=False, db_field="fecha_formulario")
 
 class Patients(Document):
     meta = {"collection": "pacientes"}
@@ -612,7 +615,7 @@ class Patients(Document):
     companion = BooleanField(required=True, db_field="acompañante")
     shelter = BooleanField(required=True, db_field="shelter")
     quimio = BooleanField(required=True, db_field="quimio")
-    forms = ListField(StringField(), required=False, db_field="formularios")
+    form_history = EmbeddedDocumentListField(FormHistory, required=False, db_field="versiones_formulario")
     
     def __str__(self):
         return f"Patient({self.name + ' ' + self.paternal_last_name})"

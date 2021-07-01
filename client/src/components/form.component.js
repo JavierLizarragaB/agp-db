@@ -39,8 +39,10 @@ function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        var current_date = new Date();
         axios.post("./api/forms", {
-            formState
+            formState,
+            date: current_date.getDate() + "/" + (current_date.getMonth()+1) + "/" + current_date.getFullYear() + " - " + current_date.getHours() + ":" + (current_date.getMinutes() < 10 ? '0' : '') + current_date.getMinutes()
         }).then((response) => {
             console.log(response);
             
@@ -504,7 +506,7 @@ function Form() {
 
                 {/* boton de enviar */}
                 <div>
-                    <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                    <button className="btn btn-custom btn-md btn-block col-md-2 btn-pat" onClick={handleSubmit}>
                         <b>Guardar Datos de Paciente</b>
                     </button>
                 </div>
@@ -529,7 +531,7 @@ function Form() {
                     ></textarea>
                     {/* boton de enviar */}
                     <div>
-                        <button onClick={handleSubmitStudies} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                        <button className="btn btn-custom btn-md btn-block col-md-2 btn-pat" onClick={handleSubmitStudies}>
                             <b>Guardar Estudios</b>
                         </button>
                     </div>
