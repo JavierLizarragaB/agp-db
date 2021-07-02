@@ -262,22 +262,22 @@ class QuintaIteracion extends Component {
                             <div className="col-md-2">Lámina de Cartón</div>
                             <div className="form-group col-md-1">
                                 <input type="checkbox" className="form-control form-pat" name="home_and_economy cb 3" id="home_and_economy cb 3-1" value="Lámina de Cartón" onChange={(e) => {
-                                myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_material");
-                                console.log(myContext.formState);
+                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_material");
+                                    console.log(myContext.formState);
                             }}/>
                             </div>
                             <div className="col-md-3">Madera, Lámina de Asbesto</div>
                             <div className="form-group col-md-1">
                                 <input type="checkbox" className="form-control form-pat" name="home_and_economy cb 3" id="home_and_economy cb 3-2" value="Madera, Lámina de Asbesto" onChange={(e) => {
-                                myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_material");
-                                console.log(myContext.formState);
+                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_material");
+                                    console.log(myContext.formState);
                             }}/>
                             </div>
                             <div className="col-md-2">Cemento o Ladrillo</div>
                             <div className="form-group col-md-1">
                                 <input type="checkbox" className="form-control form-pat" name="home_and_economy cb 3" id="home_and_economy cb 3-3" value="Cemento o Ladrillo" onChange={(e) => {
-                                myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_material");
-                                console.log(myContext.formState);
+                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_material");
+                                    console.log(myContext.formState);
                             }}/>
                             </div>
                         </div>
@@ -320,9 +320,9 @@ class QuintaIteracion extends Component {
                             </div>
                             <div className="col-md-1">NO.</div>
                             <div className="form-group col-md-1">
-                                <input type="number" className="form-control form-pat" rows="1" onChange={(e) => {
-                                myContext.updateFormState("home_and_economy","place_bedroom_quantity", e.target.value);
-                                console.log(myContext.formState);
+                                <input type="number" className="form-control form-pat" rows="1" value={myContext.formState.home_and_economy.place_bedroom_quantity} onChange={(e) => {
+                                    myContext.updateFormState("home_and_economy","place_bedroom_quantity", e.target.value);
+                                    console.log(myContext.formState);
                             }}min="0" step="any" />
                             </div>
                         </div>
@@ -331,7 +331,7 @@ class QuintaIteracion extends Component {
                             <div className="col-md-1" />
                             <div className="col-md-1">Otros</div>
                                 <div className="form-group col-md-3">
-                                    <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                    <textarea className="form-control form-pat" rows="1" value={myContext.formState.home_and_economy.place_others} onChange={(e) => {
                                     myContext.updateFormState("home_and_economy","place_others", e.target.value);
                                     console.log(myContext.formState);
                                     }}/>
@@ -426,7 +426,7 @@ class QuintaIteracion extends Component {
                             </div>
                             <div className="col-md-1">Otros</div>
                             <div className="form-group col-md-4">
-                                <textarea className="form-control form-pat" rows="1" placeholder="Urbana" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={myContext.formState.home_and_economy.place_exposition} onChange={(e) => {
                                     myContext.updateFormState("home_and_economy","place_exposition", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -549,7 +549,7 @@ class QuintaIteracion extends Component {
                             <div className="col-md-1" />
                             <div className="col-md-1">Marca</div>
                             <div className="form-group col-md-2">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={myContext.formState.home_and_economy.car_brand} onChange={(e) => {
                                     myContext.updateFormState("home_and_economy","car_brand", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -557,7 +557,7 @@ class QuintaIteracion extends Component {
                             <div className="col-md-1" />
                             <div className="col-md-1">Modelo</div>
                             <div className="form-group col-md-2">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={myContext.formState.home_and_economy.car_model} onChange={(e) => {
                                     myContext.updateFormState("home_and_economy","car_model", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>

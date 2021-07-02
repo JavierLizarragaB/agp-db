@@ -44,183 +44,183 @@ class CuartaIteracion extends Component {
                         </thead>
                         <tbody className="table-custom-two">
                             <tr className="table-custom-two">
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.first_member_name} onChange={(e) => {
                                     myContext.updateFormState("family_data", "first_member_name",e.target.value);
                                     console.log(myContext.formState);
                                 }} /></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.first_member_age} onChange={(e) => {
                                     myContext.updateFormState("family_data", "first_member_age",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.first_member_relationship} onChange={(e) => {
                                     myContext.updateFormState("family_data", "first_member_relationship",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.first_member_civil_state} onChange={(e) => {
                                     myContext.updateFormState("family_data", "first_member_civil_state",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.first_member_ocupation} onChange={(e) => {
                                     myContext.updateFormState("family_data", "first_member_ocupation",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.first_member_income} onChange={(e) => {
                                     myContext.updateFormState("family_data", "first_member_income",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
                             </tr>
                             <tr>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.second_member_name} onChange={(e) => {
                                     myContext.updateFormState("family_data", "second_member_name",e.target.value);
                                     console.log(myContext.formState);
                                 }} /></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.second_member_age} onChange={(e) => {
                                     myContext.updateFormState("family_data", "second_member_age",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.second_member_relationship} onChange={(e) => {
                                     myContext.updateFormState("family_data", "second_member_relationship",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.second_member_civil_state} onChange={(e) => {
                                     myContext.updateFormState("family_data", "second_member_civil_state",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.second_member_ocupation} onChange={(e) => {
                                     myContext.updateFormState("family_data", "second_member_ocupation",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.second_member_income} onChange={(e) => {
                                     myContext.updateFormState("family_data", "second_member_income",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
                             </tr>
                             <tr className="table-custom-two">
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.third_member_name} onChange={(e) => {
                                     myContext.updateFormState("family_data", "third_member_name",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.third_member_age} onChange={(e) => {
                                     myContext.updateFormState("family_data", "third_member_age",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.third_member_relationship} onChange={(e) => {
                                     myContext.updateFormState("family_data", "third_member_relationship",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.third_member_civil_state} onChange={(e) => {
                                     myContext.updateFormState("family_data", "third_member_civil_state",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.third_member_ocupation} onChange={(e) => {
                                     myContext.updateFormState("family_data", "third_member_ocupation",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.third_member_income} onChange={(e) => {
                                     myContext.updateFormState("family_data", "third_member_income",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
                             </tr>
                             <tr>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.fourth_member_name} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fourth_member_name",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.fourth_member_age} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fourth_member_age",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.fourth_member_relationship} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fourth_member_relationship",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.fourth_member_civil_state} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fourth_member_civil_state",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.fourth_member_ocupation} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fourth_member_ocupation",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.fourth_member_income} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fourth_member_income",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
                             </tr>
                             <tr className="table-custom-two">
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.fifth_member_name} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fifth_member_name",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.fifth_member_age} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fifth_member_age",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.fifth_member_relationship} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fifth_member_relationship",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.fifth_member_civil_state} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fifth_member_civil_state",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.fifth_member_ocupation} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fifth_member_ocupation",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.fifth_member_income} onChange={(e) => {
                                     myContext.updateFormState("family_data", "fifth_member_income",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
                             </tr>
                             <tr>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.sixth_member_name} onChange={(e) => {
                                     myContext.updateFormState("family_data", "sixth_member_name",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.sixth_member_age} onChange={(e) => {
                                     myContext.updateFormState("family_data", "sixth_member_age",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.sixth_member_relationship} onChange={(e) => {
                                     myContext.updateFormState("family_data", "sixth_member_relationship",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.sixth_member_civil_state} onChange={(e) => {
                                     myContext.updateFormState("family_data", "sixth_member_civil_state",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.sixth_member_ocupation} onChange={(e) => {
                                     myContext.updateFormState("family_data", "sixth_member_ocupation",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td><input type="text" className="form-control table-input" onChange={(e) => {
+                                <td><input type="text" className="form-control table-input" value={myContext.formState.family_data.sixth_member_income} onChange={(e) => {
                                     myContext.updateFormState("family_data", "sixth_member_income",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
                             </tr>
                             <tr className="table-custom-two">
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.seventh_member_name} onChange={(e) => {
                                     myContext.updateFormState("family_data", "seventh_member_name",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.seventh_member_age} onChange={(e) => {
                                     myContext.updateFormState("family_data", "seventh_member_age",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.seventh_member_relationship} onChange={(e) => {
                                     myContext.updateFormState("family_data", "seventh_member_relationship",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.seventh_member_civil_state} onChange={(e) => {
                                     myContext.updateFormState("family_data", "seventh_member_civil_state",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.seventh_member_ocupation} onChange={(e) => {
                                     myContext.updateFormState("family_data", "seventh_member_ocupation",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>
-                                <td className="td-input"><input type="text" className="form-control form-pat table-input" onChange={(e) => {
+                                <td className="td-input"><input type="text" className="form-control form-pat table-input" value={myContext.formState.family_data.seventh_member_income} onChange={(e) => {
                                     myContext.updateFormState("family_data", "seventh_member_income",e.target.value);
                                     console.log(myContext.formState);
                                 }}/></td>

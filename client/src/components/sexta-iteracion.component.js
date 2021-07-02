@@ -58,7 +58,7 @@ class SextaIteracion extends Component {
                         <div className="form-row col-md-12">
                             <div className="form-text col-md-3">Número de Comidas al Día:</div>
                             <div className="form-group col-md-2">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={mycontext.formState.diet.meals_per_day} onChange={(e) => {
                                     mycontext.updateFormState("diet","meals_per_day",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -69,7 +69,7 @@ class SextaIteracion extends Component {
                             <div className="form-text col-md-2">Preparación de los Alimentos:</div>
                             <div className="col-md-1" />
                             <div className="form-group col-md-6">
-                                <textarea className="form-control form-pat" rows="3" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="3" value={mycontext.formState.diet.food_preparation} onChange={(e) => {
                                     mycontext.updateFormState("diet","food_preparation",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -79,7 +79,7 @@ class SextaIteracion extends Component {
                         <div className="form-row col-md-12">
                             <div className="form-text col-md-3">Cantidad de Agua al Día:</div>
                             <div className="form-group col-md-3">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={mycontext.formState.diet.water_per_day} onChange={(e) => {
                                     mycontext.updateFormState("diet","water_per_day",e.target.value);
                                 }} ></textarea>
                             </div>

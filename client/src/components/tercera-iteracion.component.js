@@ -247,7 +247,7 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">ASTIGMATISMO</div>
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-11" onChange={(e) => {
-                                myContext.handleBooleanCheckbox(e.target.id,"patient_data","astigmatism");
+                                myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_astigmatism");
                                 console.log(myContext.formState);
                             }}/>
                         </div>
