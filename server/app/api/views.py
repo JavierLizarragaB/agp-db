@@ -440,7 +440,7 @@ def send_forms():
                     age_first_pregnancy = json["formState"]["patient_data"]["female_age_first_pregnancy"],
                     family_planning_methods = json["formState"]["patient_data"]["female_family_planning_methods"],
                     date_last_menstruation = json["formState"]["patient_data"]["female_date_last_menstruation"],
-                    menopause = json["formState"]["patient_data"]["female_menopause"],
+                    #menopause = json["formState"]["patient_data"]["female_menopause"],
                     hormonal_therapy = json["formState"]["patient_data"]["female_hormonal_therapy"],
                     breastfeeding = json["formState"]["patient_data"]["female_breastfeeding"],
                     last_pap_smear = CancerTest(
@@ -467,7 +467,7 @@ def send_forms():
                         eruptions = json["formState"]["patient_data"]["skin_eruptions"],
                         spots = json["formState"]["patient_data"]["skin_spots"],
                         pruritus = json["formState"]["patient_data"]["skin_pruritus"],
-                        dryness = json["formState"]["patient_data"]["skin_dryness"],
+                        #dryness = json["formState"]["patient_data"]["skin_dryness"],
                         volume_increase = json["formState"]["patient_data"]["skin_volume_increase"],
                         nails_hair = json["formState"]["patient_data"]["skin_nails_hair"],
                         nodules = json["formState"]["patient_data"]["skin_nodules"],
@@ -487,8 +487,8 @@ def send_forms():
                         nyctalopia = json["formState"]["patient_data"]["ophthalmic_nyctalopia"],
 
                         ##Uso de lentes
-                        myopia = json["formState"]["patient_data"]["ophthalmic_myopia"],
-                        astigmatism = json["formState"]["patient_data"]["astigmatism"],
+                        #myopia = json["formState"]["patient_data"]["ophthalmic_myopia"],
+                        #astigmatism = json["formState"]["patient_data"]["ophthalmic_astigmatism"],
 
                         observations = json["formState"]["patient_data"]["ophthalmic_observations"]
                     ),
@@ -630,7 +630,7 @@ def send_forms():
                         ecchymosis = json["formState"]["patient_data"]["hematological_ecchymosis"],
                         bruises = json["formState"]["patient_data"]["hematological_bruises"],
                         lymphadenopathy  = json["formState"]["patient_data"]["hematological_lymphadenopathy"],
-                        observations = json["formState"]["patient_data"]["hematological_observations"]
+                        #observations = json["formState"]["patient_data"]["hematological_observations"]
                     ),
 
                     nervous_system = NervousSystem(
@@ -766,9 +766,9 @@ def send_forms():
 
                 substance_abuse = SubstanceAbuse(
                     household_member_substance = json["formState"]["family_data"]["household_member_substance"],
-                    substance_consumed = json["formState"]["family_data"]["substance_consumed"],
-                    consuming_member = json["formState"]["family_data"]["consuming_member"],
-                    consuming_frequency = json["formState"]["family_data"]["consuming_frequency"]
+                    #substance_consumed = json["formState"]["family_data"]["substance_consumed"],
+                    #consuming_member = json["formState"]["family_data"]["consuming_member"],
+                    #consuming_frequency = json["formState"]["family_data"]["consuming_frequency"]
                 )
             ),
 
@@ -779,31 +779,31 @@ def send_forms():
                     place_services = json["formState"]["home_and_economy"]["place_services"],
                     place_material = json["formState"]["home_and_economy"]["place_material"],
                     place_distribution = PlaceDistribution(
-                        kitchen = json["formState"]["home_and_economy"]["place_kitchen"],
-                        lounge = json["formState"]["home_and_economy"]["place_lounge"],
-                        dining_room = json["formState"]["home_and_economy"]["place_dining_room"],
-                        bedroom = json["formState"]["home_and_economy"]["place_bedroom"],
+                        #kitchen = json["formState"]["home_and_economy"]["place_kitchen"],
+                        #lounge = json["formState"]["home_and_economy"]["place_lounge"],
+                        #dining_room = json["formState"]["home_and_economy"]["place_dining_room"],
+                        #bedroom = json["formState"]["home_and_economy"]["place_bedroom"],
                         bedroom_quantity = json["formState"]["home_and_economy"]["place_bedroom_quantity"],
                         other_rooms = json["formState"]["home_and_economy"]["place_others"]
                     ),
                     place_person_per_room = json["formState"]["home_and_economy"]["place_person_per_room"],
                     place_location = json["formState"]["home_and_economy"]["place_location"],
-                    place_exposition = json["formState"]["home_and_economy"]["place_exposition"]
+                    #place_exposition = json["formState"]["home_and_economy"]["place_exposition"]
                 ),
 
                 household_goods = HouseholdGoods(
                     electrodomestics = json["formState"]["home_and_economy"]["electrodomestics"],
-                    air_conditioner = json["formState"]["home_and_economy"]["air_conditioner"]
+                    #air_conditioner = json["formState"]["home_and_economy"]["air_conditioner"]
                 ),
 
                 family_transportation = FamilyTransportation(
-                    transportation = json["formState"]["home_and_economy"]["transportation"],
+                    #transportation = json["formState"]["home_and_economy"]["transportation"],
                     car_brand = json["formState"]["home_and_economy"]["car_brand"],
                     car_model = json["formState"]["home_and_economy"]["car_model"]
                 ),
                 
                 geographic_area = json["formState"]["home_and_economy"]["geographic_area"],
-                sick_members = json["formState"]["home_and_economy"]["sick_members"],
+                #sick_members = json["formState"]["home_and_economy"]["sick_members"],
 
                 outcome = Outcome(
                     outcome_electric_power = json["formState"]["home_and_economy"]["outcome_electric_power"],
@@ -822,7 +822,7 @@ def send_forms():
 
             # Diet
             diet = Diet(
-                perceived_quality = json["formState"]["diet"]["perceived_quality"],
+                #perceived_quality = json["formState"]["diet"]["perceived_quality"],
                 meals_per_day = json["formState"]["diet"]["meals_per_day"],
                 food_preparation = json["formState"]["diet"]["food_preparation"],
                 water_per_day = json["formState"]["diet"]["water_per_day"],
@@ -862,7 +862,7 @@ def send_forms():
                 ),
                 observations = json["formState"]["others"]["observations"],
                 social_plan = json["formState"]["others"]["social_plan"],
-                socioeconomic_class = json["formState"]["others"]["socioeconomic_class"],
+                #socioeconomic_class = json["formState"]["others"]["socioeconomic_class"],
                 social_worker = json["formState"]["others"]["social_worker"],
                 animals = json["formState"]["others"]["animals"],
                 vaccinated_animals = json["formState"]["others"]["vaccinated_animals"],
@@ -878,11 +878,21 @@ def send_forms():
         print("This is the form id:",theId)
         print("This is the patient folio:",json["formState"]["patient_folio"])
 
-        patient = Patients.objects(folio=json["formState"]["patient_folio"]).first()
-        patient.forms.append(theId)
-        patient.save()
+        #patient = Patients.objects(folio=json["formState"]["patient_folio"]).first()
+        #patient.forms.append(theId)
+        #patient.save()
 
         return ({ 'message': "Formulario creado"}, 200)
     except Exception as e:
         print(e)
         return (e.__str__(), 500)
+
+
+@api.route("/forms/edit", methods=["GET"])
+def edit_forms():
+    """Gets a form"""
+    form = FormInfo.objects[len(FormInfo.objects)-1]
+    
+    if form == None:
+        return ({ 'message': "Formulario inexistente"}, 200)
+    return (jsonify(form), 200)

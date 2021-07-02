@@ -40,11 +40,11 @@ def load_user(id):
 ### ----------------------------------- Datos Paciente Classes ----------------------------------- ###
 class Address(EmbeddedDocument):
     street = StringField(required=False, db_field="calle")
-    num = IntField(required=False, db_field="num")
+    num = StringField(required=False, db_field="num")
     suburb = StringField(required=False, db_field="colonia")
     locality = StringField(required=False, db_field="localidad")
-    municipality = StringField(required=False, db_field="muicipio")
-    zip_code = IntField(required=False, db_field="cp")
+    municipality = StringField(required=False, db_field="municipio")
+    zip_code = StringField(required=False, db_field="cp")
     phone = IntField(required=False, db_field="tel")
     phone2 = IntField(required=False, db_field="tel2")
 
@@ -52,13 +52,6 @@ class ResponsableFamilyMember(EmbeddedDocument):
     responsable_name = StringField(required=False, db_field="nombre_responsable")
     responsable_address = EmbeddedDocumentField(Address, db_field="direccion_responsable")
     responsable_relationship = StringField(required=False, db_field="parentesco_responsable")
-
-class ChronicDegenerativeDisease(EmbeddedDocument):
-    disease_name = StringField(required=False, db_field="nombre_enfermedad")
-    time_since_diagnosis = StringField(required=False, db_field="tiempo_desde_diagnostico")
-    treatment = StringField(required=False, db_field="tratamiento")
-    complications = StringField(required=False, db_field="complicaciones")
-    adherance_treatment = StringField(required=False, db_field="apego_tratamiento")
 
 class SubstanceConsumption(EmbeddedDocument):
     consumption = BooleanField(required=False, db_field="consumo")
@@ -84,8 +77,8 @@ class Pathological(EmbeddedDocument):
     drug_addictions = EmbeddedDocumentField(SubstanceConsumption, required=False, db_field="toxicomanias")
 
 class MaleSexualHealth(EmbeddedDocument):
-    start_sexual_life = IntField(required=False, db_field="inicio_vida_sexual")
-    sexual_partners = IntField(required=False, db_field="parejas_sexuales")
+    start_sexual_life = StringField(required=False, db_field="inicio_vida_sexual")
+    sexual_partners = StringField(required=False, db_field="parejas_sexuales")
     std = StringField(required=False, db_field="ets")
     contraceptive_methods = StringField(required=False, db_field="metodos_anticonceptivos")
 
@@ -100,7 +93,9 @@ class FemaleSexualHealth(EmbeddedDocument):
     start_sexual_life = IntField(required=False, db_field="inicio_vida_sexual")
     high_risk_partners = BooleanField(required=False, db_field="parejas_alto_riesgo")
     sexual_partners = IntField(required=False, db_field="parejas_sexuales")
+
     std = EmbeddedDocumentField(Background, required=False, db_field="ets")
+    
     gestations = StringField(required=False, db_field="gestas")
     deliveries = StringField(required=False, db_field="partos")
     cesarean_births = StringField(required=False, db_field="cesareas")
@@ -112,6 +107,7 @@ class FemaleSexualHealth(EmbeddedDocument):
     menopause = BooleanField(required=False, db_field="menopausia")
     hormonal_therapy = StringField(required=False, db_field="terapia_remplazo_hormonal")
     breastfeeding = BooleanField(required=False, db_field="lactancia_materna")
+    
     last_pap_smear = EmbeddedDocumentField(CancerTest, required=False, db_field="ultimo_papanicolaou")
     last_hybrid_test = EmbeddedDocumentField(CancerTest, required=False, db_field="ultima_prueba_hibridos")
     last_mammography = EmbeddedDocumentField(CancerTest, required=False, db_field="ultima_mamografia")
@@ -283,7 +279,7 @@ class HematologicalSystem(EmbeddedDocument):
 
 class NervousSystem(EmbeddedDocument):
     headache = BooleanField(required=False, db_field="cefalea")
-    seizures = BooleanField(required=False, db_field="convulciones")
+    seizures = BooleanField(required=False, db_field="convulsiones")
     memory_changes = BooleanField(required=False, db_field="cambios_memoria")
     sphincters_changes = BooleanField(required=False, db_field="cambios_esfinteres")
     loss_of_feeling = BooleanField(required=False, db_field="perdida_sensacion")
@@ -339,7 +335,7 @@ class PatientDataForm(EmbeddedDocument):
     permanent_address = EmbeddedDocumentField(Address, required=False, db_field="direccion_permanente")
 
     email = StringField(required=False, db_field="correo")
-    income = IntField(required=False, db_field="ingreso")
+    income = StringField(required=False, db_field="ingreso")
     medical_service = StringField(required=False, db_field="servicio_medico")
     scholarship = StringField(required=False, db_field="escolaridad")
     ocupation = StringField(required=False, db_field="ocupacion")
