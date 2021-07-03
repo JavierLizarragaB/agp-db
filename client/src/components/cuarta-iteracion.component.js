@@ -257,7 +257,7 @@ class CuartaIteracion extends Component {
                             </div>
                             <div className="col-md-2">Enfermedades</div>
                             <div className="form-group col-md-6">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={myContext.formState.family_data.paternal_grandfather_diseases} onChange={(e) => {
                                     myContext.updateFormState("family_data", "paternal_grandfather_diseases", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -266,7 +266,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3"  onChange={(e) => {
+                            <textarea className="form-control form-pat" rows="3" value={myContext.formState.family_data.paternal_grandfather_cause_of_death} onChange={(e) => {
                                     myContext.updateFormState("family_data", "paternal_grandfather_cause_of_death", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -291,7 +291,7 @@ class CuartaIteracion extends Component {
                             </div>
                             <div className="col-md-2">Enfermedades</div>
                             <div className="form-group col-md-6">
-                                <textarea className="form-control form-pat" rows="1"  onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={myContext.formState.family_data.paternal_grandmother_diseases} onChange={(e) => {
                                     myContext.updateFormState("family_data", "paternal_grandmother_diseases", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -300,7 +300,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3"  onChange={(e) => {
+                            <textarea className="form-control form-pat" rows="3" value={myContext.formState.family_data.paternal_grandmother_cause_of_death} onChange={(e) => {
                                     myContext.updateFormState("family_data", "paternal_grandmother_cause_of_death", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -325,7 +325,7 @@ class CuartaIteracion extends Component {
                             </div>
                             <div className="col-md-2">Enfermedades</div>
                             <div className="form-group col-md-6">
-                                <textarea className="form-control form-pat" rows="1"  onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={myContext.formState.family_data.maternal_grandfather_diseases} onChange={(e) => {
                                     myContext.updateFormState("family_data", "maternal_grandfather_diseases", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -334,10 +334,10 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3"  onChange={(e) => {
-                                    myContext.updateFormState("family_data", "maternal_grandfather_cause_of_death", e.target.value);
-                                    console.log(myContext.formState);
-                                }}/>
+                            <textarea className="form-control form-pat" rows="3" value={myContext.formState.family_data.maternal_grandfather_cause_of_death} onChange={(e) => {
+                                myContext.updateFormState("family_data", "maternal_grandfather_cause_of_death", e.target.value);
+                                console.log(myContext.formState);
+                            }}/>
                         </div>
                     </div>
 
@@ -359,7 +359,7 @@ class CuartaIteracion extends Component {
                             </div>
                             <div className="col-md-2">Enfermedades</div>
                             <div className="form-group col-md-6">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={myContext.formState.family_data.maternal_grandmother_diseases} onChange={(e) => {
                                     myContext.updateFormState("family_data", "maternal_grandmother_diseases", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -368,7 +368,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3" onChange={(e) => {
+                            <textarea className="form-control form-pat" rows="3" value={myContext.formState.family_data.maternal_grandmother_cause_of_death} onChange={(e) => {
                                     myContext.updateFormState("family_data", "maternal_grandmother_cause_of_death", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -393,7 +393,7 @@ class CuartaIteracion extends Component {
                             </div>
                             <div className="col-md-2">Enfermedades</div>
                             <div className="form-group col-md-6">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={myContext.formState.family_data.father_diseases} onChange={(e) => {
                                     myContext.updateFormState("family_data", "father_diseases", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -402,7 +402,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3" onChange={(e) => {
+                            <textarea className="form-control form-pat" rows="3" value={myContext.formState.family_data.father_cause_of_death} onChange={(e) => {
                                     myContext.updateFormState("family_data", "father_cause_of_death", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -427,7 +427,7 @@ class CuartaIteracion extends Component {
                             </div>
                             <div className="col-md-2">Enfermedades</div>
                             <div className="form-group col-md-6">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={myContext.formState.family_data.mother_diseases} onChange={(e) => {
                                     myContext.updateFormState("family_data", "mother_diseases", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -436,7 +436,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3" onChange={(e) => {
+                            <textarea className="form-control form-pat" rows="3" value={myContext.formState.family_data.mother_cause_of_death} onChange={(e) => {
                                     myContext.updateFormState("family_data", "mother_cause_of_death", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -448,7 +448,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                     <div className="col-md-2">¿Cuántos?</div>
                             <div className="form-group col-md-1">
-                                <input type="number" className="form-control form-pat" min="0" onChange={(e) => {
+                                <input type="number" className="form-control form-pat" min="0" value={myContext.formState.family_data.siblings_quantity} onChange={(e) => {
                                     myContext.updateFormState("family_data", "siblings_quantity", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -458,7 +458,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Enfermedades</div>
                         <div className="form-group col-md-6">
-                            <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                            <textarea className="form-control form-pat" rows="1" value={myContext.formState.family_data.siblings_diseases} onChange={(e) => {
                                     myContext.updateFormState("family_data", "siblings_diseases", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -467,7 +467,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3" onChange={(e) => {
+                            <textarea className="form-control form-pat" rows="3" value={myContext.formState.family_data.siblings_cause_of_death} onChange={(e) => {
                                     myContext.updateFormState("family_data", "siblings_cause_of_death", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -479,7 +479,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                     <div className="col-md-2">¿Cuántos?</div>
                             <div className="form-group col-md-1">
-                                <input type="number" className="form-control form-pat" min="0" onChange={(e) => {
+                                <input type="number" className="form-control form-pat" min="0" value={myContext.formState.family_data.sons_quantity} onChange={(e) => {
                                     myContext.updateFormState("family_data", "sons_quantity", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -489,7 +489,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Enfermedades</div>
                         <div className="form-group col-md-6">
-                            <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                            <textarea className="form-control form-pat" rows="1" value={myContext.formState.family_data.sons_diseases} onChange={(e) => {
                                     myContext.updateFormState("family_data", "sons_diseases", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>
@@ -498,7 +498,7 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                         <div className="col-md-2">Causa de Defunción</div>
                         <div className="form-group col-md-10">
-                            <textarea className="form-control form-pat" rows="3" onChange={(e) => {
+                            <textarea className="form-control form-pat" rows="3" value={myContext.formState.family_data.sons_cause_of_death} onChange={(e) => {
                                     myContext.updateFormState("family_data", "sons_cause_of_death", e.target.value);
                                     console.log(myContext.formState);
                                 }}/>

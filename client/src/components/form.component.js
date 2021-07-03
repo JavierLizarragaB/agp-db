@@ -213,21 +213,21 @@ function Form() {
             formState.patient_data.female_deliveries= response.data.datos_paciente.en_caso_de_ser_mujer.partos;
             formState.patient_data.female_cesarean_births= response.data.datos_paciente.en_caso_de_ser_mujer.cesareas;
             formState.patient_data.female_abortions= response.data.datos_paciente.en_caso_de_ser_mujer.abortos;
-            formState.patient_data.female_date_last_delivery= response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultimo_parto;
+            formState.patient_data.female_date_last_delivery= response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultimo_parto.$date;
             formState.patient_data.female_age_first_pregnancy= response.data.datos_paciente.en_caso_de_ser_mujer.edad_primer_embarazo;
             formState.patient_data.female_family_planning_methods= response.data.datos_paciente.en_caso_de_ser_mujer.metodos_planificacion_familiar;
-            formState.patient_data.female_date_last_menstruation= response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultima_regla;
+            formState.patient_data.female_date_last_menstruation= response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultima_regla.$date;
             formState.patient_data.female_menopause= response.data.datos_paciente.en_caso_de_ser_mujer.menopausia;
             formState.patient_data.female_hormonal_therapy= response.data.datos_paciente.en_caso_de_ser_mujer.terapia_remplazo_hormonal;
             formState.patient_data.female_breastfeeding= response.data.datos_paciente.en_caso_de_ser_mujer.lactancia_materna;
             
-            formState.patient_data.female_last_pap_smear= response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.fecha;
+            formState.patient_data.female_last_pap_smear= response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.fecha.$date;
             formState.patient_data.female_last_pap_smear_result= response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.resultado;
             
-            formState.patient_data.female_last_hybrid_test= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.fecha;
+            formState.patient_data.female_last_hybrid_test= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.fecha.$date;
             formState.patient_data.female_last_hybrid_test_result= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.resultado;
             
-            formState.patient_data.female_last_mammography= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.fecha;
+            formState.patient_data.female_last_mammography= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.fecha.$date;
             formState.patient_data.female_last_mammography_result= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.resultado;
     
     
@@ -277,6 +277,7 @@ function Form() {
             formState.patient_data.ent_smelling_changes= response.data.datos_paciente.aparatos_y_sistemas.sistema_otorrinolaringologico.cambios_olfato;
             formState.patient_data.ent_fluid_leaking_nose= response.data.datos_paciente.aparatos_y_sistemas.sistema_otorrinolaringologico.salida_liquido_nariz;
             formState.patient_data.ent_nose_pain= response.data.datos_paciente.aparatos_y_sistemas.sistema_otorrinolaringologico.dolor_nariz;
+            formState.patient_data.ent_observations= response.data.datos_paciente.aparatos_y_sistemas.sistema_otorrinolaringologico.observaciones;
     
             /*Dientes*/
             formState.patient_data.mouth_throat_cavities= response.data.datos_paciente.aparatos_y_sistemas.boca_garganta.caries;
