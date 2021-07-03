@@ -509,6 +509,8 @@ def send_forms():
                         smelling_changes = json["formState"]["patient_data"]["ent_smelling_changes"],
                         fluid_leaking_nose = json["formState"]["patient_data"]["ent_fluid_leaking_nose"],
                         nose_pain = json["formState"]["patient_data"]["ent_nose_pain"],
+
+                        observations = json["formState"]["patient_data"]["ent_observations"],
                     ),
 
                     mouth_throat = MouthThroat(

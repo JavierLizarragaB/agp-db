@@ -162,6 +162,8 @@ class EntSystem(EmbeddedDocument):
     fluid_leaking_nose = BooleanField(required=False, db_field="salida_liquido_nariz")
     nose_pain = BooleanField(required=False, db_field="dolor_nariz")
 
+    observations = StringField(required=False, db_field="observaciones")
+
 class MouthThroat(EmbeddedDocument):
     ##Dientes
     cavities = BooleanField(required=False, db_field="caries")

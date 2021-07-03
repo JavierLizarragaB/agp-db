@@ -171,6 +171,7 @@ class FormContextProvider extends Component {
         ent_smelling_changes: null,
         ent_fluid_leaking_nose: null,
         ent_nose_pain: null,
+        ent_observations: null,
 
         /*mouth_throat: mouth_throat,*/
         /*Dientes*/
