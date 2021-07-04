@@ -263,6 +263,7 @@ class FormContextProvider extends Component {
         /*genitourinary_system: genitourinary_system,*/
         genitourinary_urinating_changes: null,
         genitourinary_urinating_pain: null,
+        genitourinary_urinating_difficulty: null,
         genitourinary_jet_changes: null,
         genitourinary_menstruation_changes: null,
         genitourinary_dyspareunia: null,

@@ -355,7 +355,7 @@ function Form() {
             formState.patient_data.cardiovascular_dyspnoea= response.data.datos_paciente.aparatos_y_sistemas.aparato_cardiovascular.disnea;
             formState.patient_data.cardiovascular_orthopnea= response.data.datos_paciente.aparatos_y_sistemas.aparato_cardiovascular.ortopnea;
             formState.patient_data.cardiovascular_lipothymia= response.data.datos_paciente.aparatos_y_sistemas.aparato_cardiovascular.lipotimia;
-            formState.patient_data.cardiovascular_syncope= response.data.datos_paciente.aparatos_y_sistemas.aparato_cardiovascular;
+            formState.patient_data.cardiovascular_syncope= response.data.datos_paciente.aparatos_y_sistemas.aparato_cardiovascular.sincope;
             formState.patient_data.cardiovascular_edema= response.data.datos_paciente.aparatos_y_sistemas.aparato_cardiovascular.edema;
             formState.patient_data.cardiovascular_cyanosis= response.data.datos_paciente.aparatos_y_sistemas.aparato_cardiovascular.cianosis;
             formState.patient_data.cardiovascular_chest_pain= response.data.datos_paciente.aparatos_y_sistemas.aparato_cardiovascular.color_toracico;
@@ -364,6 +364,7 @@ function Form() {
     
             formState.patient_data.genitourinary_urinating_changes= response.data.datos_paciente.aparatos_y_sistemas.sistema_genitourinario.cambios_miccionar;
             formState.patient_data.genitourinary_urinating_pain= response.data.datos_paciente.aparatos_y_sistemas.sistema_genitourinario.dolor_miccionar;
+            formState.patient_data.genitourinary_urinating_difficulty = response.data.datos_paciente.aparatos_y_sistemas.sistema_genitourinario.dificultad_miccionar;
             formState.patient_data.genitourinary_jet_changes= response.data.datos_paciente.aparatos_y_sistemas.sistema_genitourinario.cambios_chorro;
             formState.patient_data.genitourinary_menstruation_changes= response.data.datos_paciente.aparatos_y_sistemas.sistema_genitourinario.cambios_menstruacion;
             formState.patient_data.genitourinary_dyspareunia= response.data.datos_paciente.aparatos_y_sistemas.sistema_genitourinario.dispareunia;
@@ -515,7 +516,7 @@ function Form() {
             formState.home_and_economy.place_lounge= response.data.casa_economia.vivienda.distribucion_vivienda.sala;
             formState.home_and_economy.place_dining_room= response.data.casa_economia.vivienda.distribucion_vivienda.comedor;
             formState.home_and_economy.place_bedroom= response.data.casa_economia.vivienda.distribucion_vivienda.recamara;
-            formState.home_and_economy.place_bedroom_quantity= response.data.casa_economia.vivienda.distribucion_vivienda.cantidad_de_recamaras;
+            formState.home_and_economy.place_bedroom_quantity= response.data.casa_economia.vivienda.distribucion_vivienda.cantidad_de_recámaras;
             formState.home_and_economy.place_others= response.data.casa_economia.vivienda.distribucion_vivienda.otros_cuartos;
             formState.home_and_economy.place_person_per_room= response.data.casa_economia.vivienda.personas_por_cuarto_vivienda;
             formState.home_and_economy.place_location= response.data.casa_economia.vivienda.zona_vivienda;

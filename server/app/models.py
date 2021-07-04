@@ -254,6 +254,7 @@ class CardiovascularApparatus(EmbeddedDocument):
 class GenitourinarySystem(EmbeddedDocument):
     urinating_changes = BooleanField(required=False, db_field="cambios_miccionar")
     urinating_pain = BooleanField(required=False, db_field="dolor_miccionar")
+    urinating_difficulty = BooleanField(required=False, db_field="dificultad_miccionar")
     jet_changes = BooleanField(required=False, db_field="cambios_chorro")
     menstruation_changes = BooleanField(required=False, db_field="cambios_menstruacion")
     dyspareunia = BooleanField(required=False, db_field="dispareunia")
@@ -465,7 +466,7 @@ class PlaceDistribution(EmbeddedDocument):
     dining_room = BooleanField(required=False, db_field="comedor")
     bedroom = BooleanField(required=False, db_field="recámara")
     bedroom_quantity = IntField(required=False, db_field="cantidad_de_recámaras")
-    other_rooms = BooleanField(required=False, db_field="otros_cuartos")
+    other_rooms = StringField(required=False, db_field="otros_cuartos")
 
 class LivingPlace(EmbeddedDocument):
     place_type = StringField(required=False, db_field="tipo_vivienda")

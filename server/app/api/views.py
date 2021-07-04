@@ -607,6 +607,7 @@ def send_forms():
                     genitourinary_system = GenitourinarySystem(
                         urinating_changes = json["formState"]["patient_data"]["genitourinary_urinating_changes"],
                         urinating_pain = json["formState"]["patient_data"]["genitourinary_urinating_pain"],
+                        urinating_difficulty = json["formState"]["patient_data"]["genitourinary_urinating_difficulty"],
                         jet_changes = json["formState"]["patient_data"]["genitourinary_jet_changes"],
                         menstruation_changes = json["formState"]["patient_data"]["genitourinary_menstruation_changes"],
                         dyspareunia = json["formState"]["patient_data"]["genitourinary_dyspareunia"],
