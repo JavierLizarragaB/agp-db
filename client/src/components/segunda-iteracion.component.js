@@ -12,11 +12,36 @@ class SegundaIteracion extends Component {
     constructor(){
         super();
         this.state ={
-            open: false     
+            open: false,
+            first: true
         };
     }
     render() {
         const myContext = this.context;
+
+        if(this.state.first && myContext.formState.finished){
+            myContext.setCheckboxGroup("patient_data cb 1", myContext.formState.patient_data.surgeries);
+            myContext.setCheckboxGroup("patient_data cb 2", myContext.formState.patient_data.jail);
+            myContext.setCheckboxGroup("patient_data cb 3", myContext.formState.patient_data.blood_transfusions);
+            myContext.setCheckboxGroup("patient_data cb 4", myContext.formState.patient_data.allergies);
+            myContext.setCheckboxGroup("patient_data cb 5", myContext.formState.patient_data.trauma);
+            myContext.setCheckboxGroup("patient_data cb 6", myContext.formState.patient_data.alcoholism_consumption);
+            myContext.setCheckboxGroup("patient_data cb 7", myContext.formState.patient_data.smoking_consumption);
+            myContext.setCheckboxGroup("patient_data cb 8", myContext.formState.patient_data.drug_consumption);
+
+            myContext.setCheckboxGroup("patient_data cb 10", myContext.formState.patient_data.female_high_risk_partners);
+
+            myContext.setCheckboxGroup("patient_data cb 12", myContext.formState.patient_data.female_gestations);
+            myContext.setCheckboxGroup("patient_data cb 13", myContext.formState.patient_data.female_deliveries);
+            myContext.setCheckboxGroup("patient_data cb 14", myContext.formState.patient_data.female_cesarean_births);
+            myContext.setCheckboxGroup("patient_data cb 15", myContext.formState.patient_data.female_abortions);
+
+            myContext.setCheckboxGroup("patient_data cb 16", myContext.formState.patient_data.female_menopause);
+            myContext.setCheckboxGroup("patient_data cb 17", myContext.formState.patient_data.female_breastfeeding);
+            myContext.setCheckboxGroup("patient_data cb 18", myContext.formState.patient_data.female_last_hybrid_test_result);
+
+            this.state.first = false;
+        }
 
         return (
             <>
@@ -63,11 +88,11 @@ class SegundaIteracion extends Component {
                             <div>No</div>           
                         </div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 1" id="patient_data cb 1-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 1" id="patient_data cb 1-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","surgeries");
                                 console.log(myContext.formState);
                             }}></input>
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 1" id="patient_data cb 1-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 1" id="patient_data cb 1-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","surgeries");
                                 console.log(myContext.formState);
                             }}></input>
@@ -446,7 +471,7 @@ class SegundaIteracion extends Component {
                         <div className="form-group col-md-4">Enfermedades de Transmisión Sexual</div>
 
                         <div className="form-group col-md-2">
-                            <input type="checkbox" className="form-control form-pat" id="patient_data cb 11-1" checked={myContext.formState.patient_data.female_menarche} onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="patient_data cb 11-1" checked={myContext.formState.patient_data.female_std} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","female_std");
                                 console.log(myContext.formState);
                             }}/>
@@ -661,14 +686,14 @@ class SegundaIteracion extends Component {
                         <div>Si</div>
                         <div className="form-group col-md-1">
                             <input type="checkbox" className="form-control form-pat" name="patient_data cb 16" id="patient_data cb 16-1" value="true" onChange={(e) => {
-                                myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_abortions");
+                                myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_menopause");
                                 console.log(myContext.formState);
                             }}/>
                         </div>
                         <div>No</div>
                         <div className="form-group col-md-1">
                             <input type="checkbox" className="form-control form-pat" name="patient_data cb 16" id="patient_data cb 16-2" value="false" onChange={(e) => {
-                                myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_abortions");
+                                myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_menopause");
                                 console.log(myContext.formState);
                             }}/>
                         </div>

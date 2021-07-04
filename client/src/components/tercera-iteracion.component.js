@@ -7,11 +7,19 @@ class TerceraIteracion extends Component {
     constructor(){
         super();
         this.state ={
-            open: false     
+            open: false,
+            first: true
         };
     }
     render() {
         const myContext = this.context;
+        
+        if(this.state.first && myContext.formState.finished){
+            myContext.setCheckboxGroup("patient_data cb x", myContext.formState.patient_data.follow_up_treatment_changes);
+
+            this.state.first = false;
+        }
+
         return (
             <>
                 <div

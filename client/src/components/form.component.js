@@ -584,6 +584,7 @@ function Form() {
             formState.others.ticks_animals= response.data.otros.animales_garrapatas;
             formState.others.diseases_animals= response.data.otros.animales_enfermedades;
             formState.others.vaccination_card= response.data.otros.cartilla_vacunacion;
+            formState.finished= true;
             console.log(formState);
         })
     }

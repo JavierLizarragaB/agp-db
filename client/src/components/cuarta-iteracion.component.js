@@ -12,12 +12,29 @@ class CuartaIteracion extends Component {
             open1: false,
             open2: false,
             open3: false,
-            open4: false
+            open4: false,
+            first: true
         };
     }
 
     render() {
         const myContext = this.context;
+
+        if(this.state.first && myContext.formState.finished){
+            myContext.setCheckboxGroup("family_data cb 1", myContext.formState.family_data.paternal_grandfather_living);
+            myContext.setCheckboxGroup("family_data cb 2", myContext.formState.family_data.paternal_grandmother_living);
+            myContext.setCheckboxGroup("family_data cb 3", myContext.formState.family_data.maternal_grandfather_living);
+            myContext.setCheckboxGroup("family_data cb 4", myContext.formState.family_data.maternal_grandmother_living);
+            myContext.setCheckboxGroup("family_data cb 5", myContext.formState.family_data.father_living);
+            myContext.setCheckboxGroup("family_data cb 6", myContext.formState.family_data.mother_living);
+
+            myContext.setCheckboxGroup("family_data cb 7", myContext.formState.family_data.number_sicks);
+
+            myContext.setCheckboxGroup("family_data cb 8", myContext.formState.family_data.household_member_substance);
+            myContext.setCheckboxGroup("family_data cb 11", myContext.formState.family_data.consuming_frequency);
+
+            this.state.first = false;
+        }
 
         return (
         <>
@@ -580,28 +597,28 @@ class CuartaIteracion extends Component {
                         <div className="col-md-1"/>
                         <div className="col-md-1">Alcohol</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-1" value="alcohol" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-1" value="Alcohol" onChange={(e) => {
                                     myContext.handleBooleanCheckbox(e.target.id,"family_data","substance_consumed");
                                     console.log(myContext.formState);
                                 }}/>
                         </div>
                         <div className="col-md-1">Resistol</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-2" value="resistol" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-2" value="Resistol" onChange={(e) => {
                                     myContext.handleBooleanCheckbox(e.target.id,"family_data","substance_consumed");
                                     console.log(myContext.formState);
                                 }}/>
                         </div>
                         <div className="col-md-1">Cocaína</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-3" value="cocaína" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-3" value="Cocaína" onChange={(e) => {
                                     myContext.handleBooleanCheckbox(e.target.id,"family_data","substance_consumed");
                                     console.log(myContext.formState);
                                 }}/>
                         </div>
                         <div className="col-md-1">Tabaco</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-4" value="tabaco" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-4" value="Tabaco" onChange={(e) => {
                                     myContext.handleBooleanCheckbox(e.target.id,"family_data","substance_consumed");
                                     console.log(myContext.formState);
                                 }}/>
@@ -612,21 +629,21 @@ class CuartaIteracion extends Component {
                         <div className="col-md-4"/>
                         <div className="col-md-1">Marihuana</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-5" value="marihuana" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-5" value="Marihuana" onChange={(e) => {
                                     myContext.handleBooleanCheckbox(e.target.id,"family_data","substance_consumed");
                                     console.log(myContext.formState);
                                 }}/>
                         </div>
                         <div className="col-md-1">Pastillas</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-6" value="pastillas" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-6" value="Pastillas" onChange={(e) => {
                                     myContext.handleBooleanCheckbox(e.target.id,"family_data","substance_consumed");
                                     console.log(myContext.formState);
                                 }}/>
                         </div>
                         <div className="col-md-1">Cristal</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-7" value="cristal" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="family_data cb 9-7" value="Cristal" onChange={(e) => {
                                     myContext.handleBooleanCheckbox(e.target.id,"family_data","substance_consumed");
                                     console.log(myContext.formState);
                                 }}/>

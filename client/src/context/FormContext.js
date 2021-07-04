@@ -524,6 +524,7 @@ class FormContextProvider extends Component {
 
     state = {
         patient_folio: null,
+        finished: false,
         general_info: this.generalInfo,
         patient_data: this.patientData,
         family_data: this.familyData,
@@ -563,6 +564,23 @@ class FormContextProvider extends Component {
         else{
             this.updateFormState(key,subkey,false);
         }
+    }
+
+    setCheckboxGroup = (name, value) => {
+        var elements = document.getElementsByName(name);
+        console.log("Searching for value " + value + " in group " + name);
+
+        var i = 0;
+        var flag = false;
+        while(i < elements.length && !flag){
+            if(elements[i].value == String(value)){
+                elements[i].checked = true;
+                flag = true;
+                console.log("Found in element", i);
+            }
+            i++;
+        }
+
     }
 
     updateFormState = (key,subkey,value) => {
@@ -1094,7 +1112,8 @@ class FormContextProvider extends Component {
             updateFormState:this.updateFormState,
             setPatientFolio:this.setPatientFolio,
             handleCheckboxGroup:this.handleCheckboxGroup,
-            handleBooleanCheckbox:this.handleBooleanCheckbox
+            handleBooleanCheckbox:this.handleBooleanCheckbox,
+            setCheckboxGroup:this.setCheckboxGroup
         }
         return(
             <FormContext.Provider value={contextValue}>
