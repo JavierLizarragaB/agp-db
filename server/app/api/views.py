@@ -30,8 +30,10 @@ def token_required(f):
 @token_required
 def is_logged(current_user):
     if current_user:
-        return (jsonify(True), 200)
-    return(jsonify(True), 200)
+        if current_user['type']==3:
+            return ({'auth': True, 'login':True}, 200)
+        return ({'auth': False, 'login':True}, 200)
+    return({'auth': False, 'login':False}, 200)
 
 @api.route("/verify_role", methods=["GET", "POST"])
 @token_required

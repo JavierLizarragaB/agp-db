@@ -12,6 +12,9 @@ function AdminProtectedRoute({ component: Component, ...rest}) {
         Axios.post('./api/verify_role?token=' + localStorage.getItem("token")).then((response) => {
             setIsLogged(response.data['login']);
             setIsAuth(response.data['auth']);
+            if (response.data['auth']){
+                localStorage.setItem("showUserPanel", true);
+            }
             setLoading(false);
         });
     }, []);

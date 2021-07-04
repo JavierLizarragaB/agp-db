@@ -32,7 +32,6 @@ function App() {
                             <Route path="/log-in" component={Login} />
                             <AdminProtectedRoute path="/user-panel" component={UserPanel} />
                             <AdminProtectedRoute path="/panel-usuarios" component={UserPanel2} />
-                            
                             <ProtectedRoute path="/datos-paciente" component={Form} />
                             <ProtectedRoute path="/directorio-paciente" component={DirectorioPaciente} />
                             <ProtectedRoute path="/historial-formulario" component={HistorialFormulario} />

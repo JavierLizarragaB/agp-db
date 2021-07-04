@@ -12,10 +12,18 @@ export const NavBar = () => {
     
     const logOut = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('showUserPanel');
         history.push('/log-in');
     }
 
+    let showUserPanel;
 
+    if (localStorage.getItem('showUserPanel')) {
+        showUserPanel = <a><Link className="nav-item" onClick={()=>{history.push('/panel-usuarios');}}>Panel Usuarios</Link>{' '}</a>;
+    } else {
+        showUserPanel = <a> </a>;
+    }
+    
     return (
         
         <div>
@@ -34,9 +42,7 @@ export const NavBar = () => {
                             <a><Link className="nav-item" onClick={()=>{history.push('/directorio-paciente');}}>
                             Pacientes
                             </Link>{' '}</a>
-                            <a><Link className="nav-item" onClick={()=>{history.push('/panel-usuarios');}}>
-                            Panel Usuarios
-                            </Link>{' '}</a>
+                            {showUserPanel}
                             <a><Link className="nav-item" onClick={logOut}>
                             Cerrar Sesión
                             </Link>{' '}</a>
