@@ -219,21 +219,21 @@ function Form() {
             formState.patient_data.female_age_first_pregnancy= response.data.datos_paciente.en_caso_de_ser_mujer.edad_primer_embarazo;
             formState.patient_data.female_family_planning_methods= response.data.datos_paciente.en_caso_de_ser_mujer.metodos_planificacion_familiar;
 
-            formState.patient_data.female_date_last_menstruation= typeof response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultima_regla != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultima_regla.$date/999.95).format("MM/DD/YYYY") : formState.patient_data.female_date_last_menstruation;
+            formState.patient_data.female_date_last_menstruation= typeof response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultima_regla != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultima_regla.$date/999.95).format("yyyy-MM-DD") : formState.patient_data.female_date_last_menstruation;
 
 
             formState.patient_data.female_menopause= response.data.datos_paciente.en_caso_de_ser_mujer.menopausia;
             formState.patient_data.female_hormonal_therapy= response.data.datos_paciente.en_caso_de_ser_mujer.terapia_remplazo_hormonal;
             formState.patient_data.female_breastfeeding= response.data.datos_paciente.en_caso_de_ser_mujer.lactancia_materna;
 
-            formState.patient_data.female_last_pap_smear= typeof response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.fecha != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.fecha.$date/999.95).format("MM/DD/YYYY") : formState.patient_data.female_last_pap_smear;
+            formState.patient_data.female_last_pap_smear= typeof response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.fecha != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.fecha.$date/999.95).format("yyyy-MM-DD") : formState.patient_data.female_last_pap_smear;
 
             formState.patient_data.female_last_pap_smear_result= response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.resultado;
             
-            formState.patient_data.female_last_hybrid_test= typeof response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.fecha != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.fecha.$date/999.95).format("MM/DD/YYYY") : formState.patient_data.female_last_hybrid_test;
+            formState.patient_data.female_last_hybrid_test= typeof response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.fecha != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.fecha.$date/999.95).format("yyyy-MM-DD") : formState.patient_data.female_last_hybrid_test;
             formState.patient_data.female_last_hybrid_test_result= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.resultado;
             
-            formState.patient_data.female_last_mammography= typeof response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.fecha != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.fecha.$date/999.95).format("MM/DD/YYYY") : formState.patient_data.female_last_mammography;
+            formState.patient_data.female_last_mammography= typeof response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.fecha != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.fecha.$date/999.95).format("yyyy-MM-DD") : formState.patient_data.female_last_mammography;
             formState.patient_data.female_last_mammography_result= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.resultado;
     
     

@@ -45,8 +45,8 @@ class Address(EmbeddedDocument):
     locality = StringField(required=False, db_field="localidad")
     municipality = StringField(required=False, db_field="municipio")
     zip_code = StringField(required=False, db_field="cp")
-    phone = IntField(required=False, db_field="tel")
-    phone2 = IntField(required=False, db_field="tel2")
+    phone = StringField(required=False, db_field="tel")
+    phone2 = StringField(required=False, db_field="tel2")
 
 class ResponsableFamilyMember(EmbeddedDocument):
     responsable_name = StringField(required=False, db_field="nombre_responsable")
