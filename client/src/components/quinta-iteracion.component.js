@@ -292,38 +292,38 @@ class QuintaIteracion extends Component {
                             <div className="col-md-1" />
                             <div className="col-md-1">Cocina</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" id="home_and_economy cb 4-1" onChange={(e) => {
-                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_kitchen");
+                                <input type="checkbox" className="form-control form-pat" id="home_and_economy cb 4-1" checked={myContext.formState.patient_data.place_kitchen} onChange={(e) => {
+                                    myContext.handleBooleanCheckbox(e.target.id,"home_and_economy","place_kitchen");
                                     console.log(myContext.formState);
                             }}/>
                             </div>
                             <div className="col-md-1">Sala</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" id="home_and_economy cb 4-2" onChange={(e) => {
-                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_lounge");
+                                <input type="checkbox" className="form-control form-pat" id="home_and_economy cb 4-2" checked={myContext.formState.patient_data.place_kitchen} onChange={(e) => {
+                                    myContext.handleBooleanCheckbox(e.target.id,"home_and_economy","place_lounge");
                                     console.log(myContext.formState);
                             }}/>
                             </div>
                             <div className="col-md-1">Comedor</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" id="home_and_economy cb 4-3" onChange={(e) => {
-                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_dining_room");
+                                <input type="checkbox" className="form-control form-pat" id="home_and_economy cb 4-3" checked={myContext.formState.patient_data.place_kitchen} onChange={(e) => {
+                                    myContext.handleBooleanCheckbox(e.target.id,"home_and_economy","place_dining_room");
                                     console.log(myContext.formState);
                             }}/>
                             </div>
                             <div className="col-md-1">Recámara</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" id="home_and_economy cb 4-4" onChange={(e) => {
-                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","place_bedroom");
+                                <input type="checkbox" className="form-control form-pat" id="home_and_economy cb 4-4" checked={myContext.formState.patient_data.place_kitchen} onChange={(e) => {
+                                    myContext.handleBooleanCheckbox(e.target.id,"home_and_economy","place_bedroom");
                                     console.log(myContext.formState);
                             }}/>
                             </div>
                             <div className="col-md-1">NO.</div>
                             <div className="form-group col-md-1">
-                                <input type="number" className="form-control form-pat" rows="1" value={myContext.formState.home_and_economy.place_bedroom_quantity} onChange={(e) => {
+                                <input type="number" className="form-control form-pat" rows="1" value={myContext.formState.home_and_economy.place_bedroom_quantity} min="0" step="any" onChange={(e) => {
                                     myContext.updateFormState("home_and_economy","place_bedroom_quantity", e.target.value);
                                     console.log(myContext.formState);
-                            }}min="0" step="any" />
+                            }}/>
                             </div>
                         </div>
 
@@ -535,7 +535,7 @@ class QuintaIteracion extends Component {
                                     console.log(myContext.formState);
                                 }}/>
                             </div>
-                            <div className="col-md-1">Automovil</div>
+                            <div className="col-md-1">Automóvil</div>
                             <div className="form-group col-md-1">
                                 <input type="checkbox" className="form-control form-pat" name="home_and_economy cb 10" id="home_and_economy cb 10-3" value="Automóvil" onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","transportation");

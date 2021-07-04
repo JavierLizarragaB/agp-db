@@ -383,7 +383,7 @@ class SegundaIteracion extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-1">Menarca</div>
                         <div className="form-group col-md-2">
-                            <input type="checkbox" className="form-control form-pat" id="patient_data cb 9-1" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="patient_data cb 9-1" checked={myContext.formState.patient_data.female_menarche} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","female_menarche");
                                 console.log(myContext.formState);
                             }}/>
@@ -446,7 +446,7 @@ class SegundaIteracion extends Component {
                         <div className="form-group col-md-4">Enfermedades de Transmisión Sexual</div>
 
                         <div className="form-group col-md-2">
-                            <input type="checkbox" className="form-control form-pat" id="patient_data cb 11-1" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" id="patient_data cb 11-1" checked={myContext.formState.patient_data.female_menarche} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","female_std");
                                 console.log(myContext.formState);
                             }}/>
