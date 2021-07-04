@@ -510,24 +510,21 @@ class QuintaIteracion extends Component {
                             <div className="col-md-1">Abaníco</div>
                             <div className="form-group col-md-1">
                                 <input type="checkbox" className="form-control form-pat" name="home_and_economy cb 9" id="home_and_economy cb 9-1" value="Abaníco" onChange={(e) => {
-                                    //myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","air_conditioner");
-                                    myContext.handleBooleanCheckbox(e.target.id,"home_and_economy","air_conditioner");
+                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","air_conditioner");
                                     console.log(myContext.formState);
                                 }}/>
                             </div>
                             <div className="col-md-1">Cooler</div>
                             <div className="form-group col-md-1">
                                 <input type="checkbox" className="form-control form-pat" name="home_and_economy cb 9" id="home_and_economy cb 9-2" value="Cooler" onChange={(e) => {
-                                    // myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","air_conditioner");
-                                    myContext.handleBooleanCheckbox(e.target.id,"home_and_economy","air_conditioner");
+                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","air_conditioner");
                                     console.log(myContext.formState);
                                 }}/>
                             </div>
                             <div className="col-md-4">Aire Acondicionado o Mini Split</div>
                             <div className="form-group col-md-1">
                                 <input type="checkbox" className="form-control form-pat" name="home_and_economy cb 9" id="home_and_economy cb 9-3" value="Aire Acondicionado o Mini Split" onChange={(e) => {
-                                    //myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","air_conditioner");
-                                    myContext.handleBooleanCheckbox(e.target.id,"home_and_economy","air_conditioner");
+                                    myContext.handleCheckboxGroup(e.target.name,e.target.id,"home_and_economy","air_conditioner");
                                     console.log(myContext.formState);
                                 }}/>
                             </div>

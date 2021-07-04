@@ -145,16 +145,16 @@ class OctavaIteracion extends Component {
                                 </thead>
                                 <tbody className="table-custom-two">
                                     <tr className="table-custom-two">
-                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" value={mycontext.formState.others.socioeconomic_class_1} onChange={(e) => {
-                                            mycontext.updateFormState("others","socioeconomic_class_1",e.target.value);
+                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" value={mycontext.formState.others.socioeconomic_class_3} onChange={(e) => {
+                                            mycontext.updateFormState("others","socioeconomic_class_3",e.target.value);
                                         }}/>
                                         <td />
                                         <input type="number" className="form-control form-pat col-md-12" placeholder="$" value={mycontext.formState.others.socioeconomic_class_2} onChange={(e) => {
                                             mycontext.updateFormState("others","socioeconomic_class_2",e.target.value);
                                         }}/>
                                         <td />
-                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" value={mycontext.formState.others.socioeconomic_class_3} onChange={(e) => {
-                                            mycontext.updateFormState("others","socioeconomic_class_3",e.target.value);
+                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" value={mycontext.formState.others.socioeconomic_class_1} onChange={(e) => {
+                                            mycontext.updateFormState("others","socioeconomic_class_1",e.target.value);
                                         }}/>
                                     </tr>
                                 </tbody>

@@ -133,7 +133,7 @@ function Form() {
             formState.patient_data.religion= response.data.datos_paciente.religion;
             formState.patient_data.civil_state= response.data.datos_paciente.estado_civil;
     
-            formState.patient_data.clinic_record_date= response.data.datos_paciente.realizacion_historial_clinico.$date;
+            formState.patient_data.clinic_record_date= typeof response.data.datos_paciente.realizacion_historial_clinico != "undefined" ? moment.unix(response.data.datos_paciente.realizacion_historial_clinico.$date/999.95).format("yyyy-MM-DD"): formState.patient_data.clinic_record_date;
     
             formState.patient_data.temp_street= response.data.datos_paciente.direccion_temporal.calle;
             formState.patient_data.temp_num= response.data.datos_paciente.direccion_temporal.num;
@@ -213,21 +213,27 @@ function Form() {
             formState.patient_data.female_deliveries= response.data.datos_paciente.en_caso_de_ser_mujer.partos;
             formState.patient_data.female_cesarean_births= response.data.datos_paciente.en_caso_de_ser_mujer.cesareas;
             formState.patient_data.female_abortions= response.data.datos_paciente.en_caso_de_ser_mujer.abortos;
-            formState.patient_data.female_date_last_delivery= response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultimo_parto.$date;
+
+            formState.patient_data.female_date_last_delivery= typeof response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultimo_parto != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultimo_parto.$date/999.95).format("yyyy-MM-DD") : formState.patient_data.female_date_last_delivery;
+            
             formState.patient_data.female_age_first_pregnancy= response.data.datos_paciente.en_caso_de_ser_mujer.edad_primer_embarazo;
             formState.patient_data.female_family_planning_methods= response.data.datos_paciente.en_caso_de_ser_mujer.metodos_planificacion_familiar;
-            formState.patient_data.female_date_last_menstruation= response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultima_regla.$date;
+
+            formState.patient_data.female_date_last_menstruation= typeof response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultima_regla != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.fecha_ultima_regla.$date/999.95).format("MM/DD/YYYY") : formState.patient_data.female_date_last_menstruation;
+
+
             formState.patient_data.female_menopause= response.data.datos_paciente.en_caso_de_ser_mujer.menopausia;
             formState.patient_data.female_hormonal_therapy= response.data.datos_paciente.en_caso_de_ser_mujer.terapia_remplazo_hormonal;
             formState.patient_data.female_breastfeeding= response.data.datos_paciente.en_caso_de_ser_mujer.lactancia_materna;
-            
-            formState.patient_data.female_last_pap_smear= response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.fecha.$date;
+
+            formState.patient_data.female_last_pap_smear= typeof response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.fecha != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.fecha.$date/999.95).format("MM/DD/YYYY") : formState.patient_data.female_last_pap_smear;
+
             formState.patient_data.female_last_pap_smear_result= response.data.datos_paciente.en_caso_de_ser_mujer.ultimo_papanicolaou.resultado;
             
-            formState.patient_data.female_last_hybrid_test= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.fecha.$date;
+            formState.patient_data.female_last_hybrid_test= typeof response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.fecha != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.fecha.$date/999.95).format("MM/DD/YYYY") : formState.patient_data.female_last_hybrid_test;
             formState.patient_data.female_last_hybrid_test_result= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_prueba_hibridos.resultado;
             
-            formState.patient_data.female_last_mammography= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.fecha.$date;
+            formState.patient_data.female_last_mammography= typeof response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.fecha != "undefined" ? moment.unix(response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.fecha.$date/999.95).format("MM/DD/YYYY") : formState.patient_data.female_last_mammography;
             formState.patient_data.female_last_mammography_result= response.data.datos_paciente.en_caso_de_ser_mujer.ultima_mamografia.resultado;
     
     
@@ -529,15 +535,20 @@ function Form() {
             formState.home_and_economy.place_type= response.data.casa_economia.vivienda.tipo_vivienda;
             formState.home_and_economy.place_services= response.data.casa_economia.vivienda.servicios_vivienda;
             formState.home_and_economy.place_material= response.data.casa_economia.vivienda.material_vivienda;
+            
             formState.home_and_economy.place_kitchen= response.data.casa_economia.vivienda.distribucion_vivienda.cocina;
             formState.home_and_economy.place_lounge= response.data.casa_economia.vivienda.distribucion_vivienda.sala;
             formState.home_and_economy.place_dining_room= response.data.casa_economia.vivienda.distribucion_vivienda.comedor;
-            formState.home_and_economy.place_bedroom= response.data.casa_economia.vivienda.distribucion_vivienda.recamara;
+            formState.home_and_economy.place_bedroom= response.data.casa_economia.vivienda.distribucion_vivienda.recámara;
             formState.home_and_economy.place_bedroom_quantity= response.data.casa_economia.vivienda.distribucion_vivienda.cantidad_de_recámaras;
             formState.home_and_economy.place_others= response.data.casa_economia.vivienda.distribucion_vivienda.otros_cuartos;
+            
             formState.home_and_economy.place_person_per_room= response.data.casa_economia.vivienda.personas_por_cuarto_vivienda;
             formState.home_and_economy.place_location= response.data.casa_economia.vivienda.zona_vivienda;
-            formState.home_and_economy.place_exposition= response.data.casa_economia.vivienda.exposicion_biomasas;
+
+            formState.home_and_economy.place_dust= response.data.casa_economia.vivienda.polvo;
+            formState.home_and_economy.place_wood_smoke= response.data.casa_economia.vivienda.humo_leña;
+            formState.home_and_economy.place_others_exposition= response.data.casa_economia.vivienda.otros;
         
             formState.home_and_economy.electrodomestics= response.data.casa_economia.bienes_hogar.electrodomesticos;
             formState.home_and_economy.air_conditioner= response.data.casa_economia.bienes_hogar.refrigeracion;
@@ -594,7 +605,11 @@ function Form() {
             formState.others.notes_support_background= response.data.otros.antecedentes_apoyo.notas;
             formState.others.observations= response.data.otros.observations;
             formState.others.social_plan= response.data.otros.plan_social;
-            formState.others.socioeconomic_class= response.data.otros.clase_socioeconomica;
+
+            formState.others.socioeconomic_class_1= response.data.otros.clase_socioeconomica_1;
+            formState.others.socioeconomic_class_2= response.data.otros.clase_socioeconomica_2;
+            formState.others.socioeconomic_class_3= response.data.otros.clase_socioeconomica_3;
+
             formState.others.social_worker= response.data.otros.trabajador_social;
             formState.others.animals= response.data.otros.animales;
             formState.others.vaccinated_animals= response.data.otros.animales_vacunados;
@@ -841,7 +856,7 @@ function Form() {
                                 <div className="form-row">
                                     <div className="form-group col-md-3">Realización Historial Clínico</div>
                                     <div className="form-group col-md-2">
-                                        <input type="date" className="form-control form-pat" value={moment.unix(formState.patient_data.clinic_record_date/999.95).format("yyyy-MM-DD")} onChange={(e) => {
+                                        <input type="date" className="form-control form-pat" value={formState.patient_data.clinic_record_date} onChange={(e) => {
                                         updateFormState("patient_data", "clinic_record_date",e.target.value);
                                         console.log(formState);
                                     }} />

@@ -341,7 +341,7 @@ def send_forms():
                 religion = json["formState"]["patient_data"]["religion"],
                 civil_state = json["formState"]["patient_data"]["civil_state"],
 
-                #clinic_record_date = json["formState"]["patient_data"]["clinic_record_date"],
+                clinic_record_date = json["formState"]["patient_data"]["clinic_record_date"],
 
                 temp_address=Address(
                     street=json["formState"]["patient_data"]["temp_street"],
@@ -436,23 +436,23 @@ def send_forms():
                     deliveries = json["formState"]["patient_data"]["female_deliveries"],
                     cesarean_births = json["formState"]["patient_data"]["female_cesarean_births"],
                     abortions = json["formState"]["patient_data"]["female_abortions"],
-                    #date_last_delivery = json["formState"]["patient_data"]["female_date_last_delivery"],
+                    date_last_delivery = json["formState"]["patient_data"]["female_date_last_delivery"],
                     age_first_pregnancy = json["formState"]["patient_data"]["female_age_first_pregnancy"],
                     family_planning_methods = json["formState"]["patient_data"]["female_family_planning_methods"],
-                    #date_last_menstruation = json["formState"]["patient_data"]["female_date_last_menstruation"],
+                    date_last_menstruation = json["formState"]["patient_data"]["female_date_last_menstruation"],
                     menopause = json["formState"]["patient_data"]["female_menopause"],
                     hormonal_therapy = json["formState"]["patient_data"]["female_hormonal_therapy"],
                     breastfeeding = json["formState"]["patient_data"]["female_breastfeeding"],
                     last_pap_smear = CancerTest(
-                        #date = json["formState"]["patient_data"]["female_last_pap_smear"],
+                        date = json["formState"]["patient_data"]["female_last_pap_smear"],
                         result = json["formState"]["patient_data"]["female_last_pap_smear_result"]
                     ),
                     last_hybrid_test = CancerTest(
-                        #date = json["formState"]["patient_data"]["female_last_hybrid_test"],
+                        date = json["formState"]["patient_data"]["female_last_hybrid_test"],
                         result = json["formState"]["patient_data"]["female_last_hybrid_test_result"]
                     ),
                     last_mammography = CancerTest(
-                        #date = json["formState"]["patient_data"]["female_last_mammography"],
+                        date = json["formState"]["patient_data"]["female_last_mammography"],
                         result = json["formState"]["patient_data"]["female_last_mammography_result"]
                     ),
                 ),
@@ -716,7 +716,21 @@ def send_forms():
                     fifth_member_relationship = json["formState"]["family_data"]["fifth_member_relationship"],
                     fifth_member_civil_state = json["formState"]["family_data"]["fifth_member_civil_state"],
                     fifth_member_ocupation = json["formState"]["family_data"]["fifth_member_ocupation"],
-                    fifth_member_income = json["formState"]["family_data"]["fifth_member_income"]
+                    fifth_member_income = json["formState"]["family_data"]["fifth_member_income"],
+
+                    sixth_member_name= json["formState"]["family_data"]["sixth_member_name"],
+                    sixth_member_age= json["formState"]["family_data"]["sixth_member_age"],
+                    sixth_member_relationship= json["formState"]["family_data"]["sixth_member_relationship"],
+                    sixth_member_civil_state= json["formState"]["family_data"]["sixth_member_civil_state"],
+                    sixth_member_ocupation= json["formState"]["family_data"]["sixth_member_ocupation"],
+                    sixth_member_income= json["formState"]["family_data"]["sixth_member_income"],
+
+                    seventh_member_name= json["formState"]["family_data"]["seventh_member_name"],
+                    seventh_member_age= json["formState"]["family_data"]["seventh_member_age"],
+                    seventh_member_relationship= json["formState"]["family_data"]["seventh_member_relationship"],
+                    seventh_member_civil_state= json["formState"]["family_data"]["seventh_member_civil_state"],
+                    seventh_member_ocupation= json["formState"]["family_data"]["seventh_member_ocupation"],
+                    seventh_member_income= json["formState"]["family_data"]["seventh_member_income"],
                 ),
                 family_history = FamilyHistory(
                     paternal_grandfather = FamilyHistoryClass(
@@ -816,7 +830,7 @@ def send_forms():
 
                 household_goods = HouseholdGoods(
                     electrodomestics = json["formState"]["home_and_economy"]["electrodomestics"],
-                    #air_conditioner = json["formState"]["home_and_economy"]["air_conditioner"]
+                    air_conditioner = json["formState"]["home_and_economy"]["air_conditioner"]
                 ),
 
                 family_transportation = FamilyTransportation(

@@ -1,6 +1,5 @@
 import React, { Component} from "react";
 import { Button, Collapse } from 'react-bootstrap';
-import moment from 'moment';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {FormContext} from '../context/FormContext';
@@ -644,7 +643,7 @@ class SegundaIteracion extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-4">Fecha del último parto</div>
                         <div className="form-group col-md-2">
-                            <input type="date" className="form-control form-pat" value={moment.unix(myContext.formState.patient_data.female_date_last_delivery/999.95).format("yyyy-MM-DD")} onChange={(e) => {
+                            <input type="date" className="form-control form-pat" value={myContext.formState.patient_data.female_date_last_delivery} onChange={(e) => {
                                 myContext.updateFormState("patient_data","female_date_last_delivery", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -674,7 +673,7 @@ class SegundaIteracion extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-4">Fecha de última regla</div>
                         <div className="form-group col-md-2">
-                            <input type="date" className="form-control form-pat" value={moment.unix(myContext.formState.patient_data.female_date_last_menstruation/999.95).format("yyyy-MM-DD")} onChange={(e) => {
+                            <input type="date" className="form-control form-pat" value={myContext.formState.patient_data.female_date_last_menstruation} onChange={(e) => {
                                 myContext.updateFormState("patient_data","female_date_last_menstruation", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -730,7 +729,7 @@ class SegundaIteracion extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-4">Fecha del último papanicolau</div>
                         <div className="form-group col-md-2">
-                            <input type="date" className="form-control form-pat" value={moment.unix(myContext.formState.patient_data.female_last_pap_smear/999.95).format("yyyy-MM-DD")} onChange={(e) => {
+                            <input type="date" className="form-control form-pat" value={myContext.formState.patient_data.female_last_pap_smear} onChange={(e) => {
                                 myContext.updateFormState("patient_data","female_last_pap_smear", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -750,7 +749,7 @@ class SegundaIteracion extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-4">Fecha de prueba de híbridos</div>
                         <div className="form-group col-md-2">
-                            <input type="date" className="form-control form-pat" value={moment.unix(myContext.formState.patient_data.female_last_hybrid_test/999.95).format("yyyy-MM-DD")} onChange={(e) => {
+                            <input type="date" className="form-control form-pat" value={myContext.formState.patient_data.female_last_hybrid_test} onChange={(e) => {
                                 myContext.updateFormState("patient_data","female_last_hybrid_test", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
@@ -778,7 +777,7 @@ class SegundaIteracion extends Component {
                     <div className="form-row">
                         <div className="form-group col-md-4">Fecha de última mamografía</div>
                         <div className="form-group col-md-2">
-                            <input type="date" className="form-control form-pat" value={moment.unix(myContext.formState.patient_data.female_last_mammography/999.95).format("yyyy-MM-DD")} onChange={(e) => {
+                            <input type="date" className="form-control form-pat" value={myContext.formState.patient_data.female_last_mammography} onChange={(e) => {
                                 myContext.updateFormState("patient_data","female_last_mammography", e.target.value);
                                 console.log(myContext.formState);
                             }}/>
