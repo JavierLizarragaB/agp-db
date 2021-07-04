@@ -200,7 +200,7 @@ class DigestiveSystem(EmbeddedDocument):
     ##Esofago
     gastralgia = BooleanField(required=False, db_field="gastralgia")
     acidity = BooleanField(required=False, db_field="acidez")
-    postrandial_fullnes = BooleanField(required=False, db_field="llenura_postprandial")
+    postrandial_fullness = BooleanField(required=False, db_field="llenura_postprandial")
 
     ##Cambios en evacuaciones
     tenesmus = BooleanField(required=False, db_field="tenesmo")
@@ -436,11 +436,30 @@ class FamilyHistory(EmbeddedDocument):
 
     sons = EmbeddedDocumentField(FamilyMemberQuantity, required=False, db_field="hijos")
 
+class SubstanceConsumed(EmbeddedDocument):
+    alcohol = BooleanField(required=False, db_field="alcohol")
+    glue = BooleanField(required=False, db_field="resistol")
+    cocaine = BooleanField(required=False, db_field="cocaina")
+    tobacco = BooleanField(required=False, db_field="tabaco")
+    marijuana = BooleanField(required=False, db_field="marihuana")
+    tablets = BooleanField(required=False, db_field="pastillas")
+    methamphetamine = BooleanField(required=False, db_field="cristal")
+    others = StringField(required=False, db_field="otros")
+
+class ConsumingMember(EmbeddedDocument):
+    father = BooleanField(required=False, db_field="consume_padre")
+    mother = BooleanField(required=False, db_field="consume_madre")
+    tutor = BooleanField(required=False, db_field="consume_tutor")
+    son = BooleanField(required=False, db_field="consume_hijo")
+    spouse = BooleanField(required=False, db_field="consume_cónyuge")
+    uncle = BooleanField(required=False, db_field="consume_tío")
+    grandparent = BooleanField(required=False, db_field="consume_abuelo")
+    others = StringField(required=False, db_field="consume_otro")
 
 class SubstanceAbuse(EmbeddedDocument):
     household_member_substance = BooleanField(required=False, db_field="consume_miembro_vivienda")
-    substance_consumed = StringField(required=False, db_field="sustancia_consumida")
-    consuming_member = StringField(required=False,  db_field="miembro_consumidor")
+    substance_consumed = EmbeddedDocumentField(SubstanceConsumed, required=False, db_field="sustancia_consumida")
+    consuming_member = EmbeddedDocumentField(ConsumingMember, required=False,  db_field="miembro_consumidor")
     consuming_frequency = StringField(required=False, db_field="frecuencia_consumo")
 
 ### --------------------------------- End Family Data Classes --------------------------------- ###
@@ -475,7 +494,10 @@ class LivingPlace(EmbeddedDocument):
     place_distribution = EmbeddedDocumentField(PlaceDistribution, required=False, db_field="distribucion_vivienda")
     place_person_per_room = StringField(required=False, db_field="personas_por_cuarto_vivienda")
     place_location = StringField(required=False, db_field="zona_vivienda")
-    place_exposition = StringField(required=False, db_field="exposicion_biomasas")
+
+    place_dust = BooleanField(required=False, db_field="polvo")
+    place_wood_smoke = BooleanField(required=False, db_field="humo_leña")
+    place_others_exposition = StringField(required=False, db_field="otros")
 
 class HouseholdGoods(EmbeddedDocument):
     electrodomestics = StringField(required=False, db_field="electrodomesticos")
@@ -512,13 +534,11 @@ class HomeAndEconomyForm(EmbeddedDocument):
     
     geographic_area = StringField(required=False, db_field="area_geografica")
     
-    sick_members = StringField(required=False, db_field="familiares_enfermos")
-    
     outcome = EmbeddedDocumentField(Outcome, required=False, db_field="egresos")
 
 ### ----------------------------------- End Home and Economy ---------------------------------- ###
 
-### ----------------------------------- Alimentacion ----------------------------------- ###
+### ----------------------------------- Diet ----------------------------------- ###
 class Diet(EmbeddedDocument):
     perceived_quality = StringField(required=False, db_field="calidad_percibida")
     meals_per_day = StringField(required=False, db_field="comidas_al_dia")
@@ -540,31 +560,36 @@ class Diet(EmbeddedDocument):
     bread_pasta_month = IntField(required=False, db_field="bread_pasta_mes")
     vegetables_fruits_week = IntField(required=False, db_field="verduras_frutas_semana")
     vegetables_fruits_month = IntField(required=False, db_field="verduras_frutas_mes")
-### ----------------------------------- End Alimentacion ----------------------------------- ###
+### ----------------------------------- End Diet ----------------------------------- ###
 
-### ----------------------------------- Higiene / Actividad Fisica / Pasatiempo ----------------------------------- ###
+### ----------------------------------- Hygiene / Physical Activity / Passtime ----------------------------------- ###
 class HygienePhysActPasstime(EmbeddedDocument):
     shower_frequency = StringField(required=False, db_field="frecuencia_duchas")
     toothbrushing_frequency = StringField(required=False, db_field="frecuencia_lavar_dientes")
     home_hygiene = StringField(required=False, db_field="higiene_hogar")
     phys_activity = StringField(required=False, db_field="actividad_fisica")
     passtime = StringField(required=False, db_field="pasatiempo")
-### ----------------------------------- End Higiene / Actividad Fisica / Pasatiempo ----------------------------------- ###
+### ----------------------------------- End Hygiene / Physical Activity / Passtime ----------------------------------- ###
 
-### ----------------------------------- Otros ----------------------------------- ###
+### ----------------------------------- Others ----------------------------------- ###
 class Others(EmbeddedDocument):
     how_found_out = StringField(required=False, db_field="como_se_entero")
     support_background = EmbeddedDocumentField(Background, required=False, db_field="antecedentes_apoyo")
     observations = StringField(required=False, db_field="observations")
     social_plan = StringField(required=False, db_field="plan_social")
-    socioeconomic_class = StringField(required=False, db_field="clase_socioeconomica")
+
+    socioeconomic_class_1 = StringField(required=False, db_field="clase_socioeconomica_1")
+    socioeconomic_class_2 = StringField(required=False, db_field="clase_socioeconomica_2")
+    socioeconomic_class_3 = StringField(required=False, db_field="clase_socioeconomica_3")
+
     social_worker = StringField(required=False, db_field="trabajador_social")
     animals = StringField(required=False, db_field="animales")
+    
     vaccinated_animals = BooleanField(required=False, db_field="animales_vacunados")
     ticks_animals = BooleanField(required=False, db_field="animales_garrapatas")
     diseases_animals = BooleanField(required=False, db_field="animales_enfermedades")
     vaccination_card = StringField(required=False, db_field="cartilla_vacunacion")
-### ----------------------------------- End Otros ----------------------------------- ###
+### ----------------------------------- End Others ----------------------------------- ###
 
 class GeneralInfo(Document):
     meta = {"collection": "informacion_general"}

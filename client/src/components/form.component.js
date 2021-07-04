@@ -313,7 +313,7 @@ function Form() {
             /*Esofago*/
             formState.patient_data.digestive_abdominal_gastralgia= response.data.datos_paciente.aparatos_y_sistemas.sistema_digestivo.gastralgia;
             formState.patient_data.digestive_abdominal_acidity= response.data.datos_paciente.aparatos_y_sistemas.sistema_digestivo.acidez;
-            formState.patient_data.digestive_abdominal_postrandial_fullnes= response.data.datos_paciente.aparatos_y_sistemas.sistema_digestivo.llenura_postprandial;
+            formState.patient_data.digestive_abdominal_postrandial_fullness= response.data.datos_paciente.aparatos_y_sistemas.sistema_digestivo.llenura_postprandial;
     
             /*Cambios de evacuacion*/
             formState.patient_data.digestive_abdominal_tenesmus= response.data.datos_paciente.aparatos_y_sistemas.sistema_digestivo.tenesmo;
@@ -505,8 +505,25 @@ function Form() {
             formState.family_data.number_sicks= response.data.datos_familia.numero_de_enfermos;
     
             formState.family_data.household_member_substance= response.data.datos_familia.consume_sustancias_toxicas.consume_miembro_vivienda;
-            formState.family_data.substance_consumed= response.data.datos_familia.consume_sustancias_toxicas.sustancia_consumida;
-            formState.family_data.consuming_member= response.data.datos_familia.consume_sustancias_toxicas.miembro_consumidor;
+            
+            formState.family_data.substance_alcohol= response.data.datos_familia.consume_sustancias_toxicas.sustancia_consumida.alcohol;
+            formState.family_data.substance_glue= response.data.datos_familia.consume_sustancias_toxicas.sustancia_consumida.resistol;
+            formState.family_data.substance_cocaine= response.data.datos_familia.consume_sustancias_toxicas.sustancia_consumida.cocaina;
+            formState.family_data.substance_tobacco= response.data.datos_familia.consume_sustancias_toxicas.sustancia_consumida.tabaco;
+            formState.family_data.substance_marijuana= response.data.datos_familia.consume_sustancias_toxicas.sustancia_consumida.marihuana;
+            formState.family_data.substance_tablets= response.data.datos_familia.consume_sustancias_toxicas.sustancia_consumida.pastillas;
+            formState.family_data.substance_metamphetamine= response.data.datos_familia.consume_sustancias_toxicas.sustancia_consumida.cristal;
+            formState.family_data.substance_others= response.data.datos_familia.consume_sustancias_toxicas.sustancia_consumida.otros;
+            
+            formState.family_data.consuming_father= response.data.datos_familia.consume_sustancias_toxicas.miembro_consumidor.consume_padre;
+            formState.family_data.consuming_mother= response.data.datos_familia.consume_sustancias_toxicas.miembro_consumidor.consume_madre;
+            formState.family_data.consuming_tutor= response.data.datos_familia.consume_sustancias_toxicas.miembro_consumidor.consume_tutor;
+            formState.family_data.consuming_son= response.data.datos_familia.consume_sustancias_toxicas.miembro_consumidor.consume_hijo;
+            formState.family_data.consuming_spouse= response.data.datos_familia.consume_sustancias_toxicas.miembro_consumidor.consume_cónyuge;
+            formState.family_data.consuming_uncle= response.data.datos_familia.consume_sustancias_toxicas.miembro_consumidor.consume_tío;
+            formState.family_data.consuming_grandparent= response.data.datos_familia.consume_sustancias_toxicas.miembro_consumidor.consume_abuelo;
+            formState.family_data.consuming_others= response.data.datos_familia.consume_sustancias_toxicas.miembro_consumidor.consume_otro;
+
             formState.family_data.consuming_frequency= response.data.datos_familia.consume_sustancias_toxicas.frecuencia_consumo
 
             formState.home_and_economy.place_type= response.data.casa_economia.vivienda.tipo_vivienda;

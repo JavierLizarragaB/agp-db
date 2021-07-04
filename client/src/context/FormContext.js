@@ -94,7 +94,7 @@ class FormContextProvider extends Component {
         male_contraceptive_methods: null,
 
         /*female_sexual_health: female_sexual_health,*/
-        female_menarche: null,
+        female_menarche: false,
         female_menarche_age: null,
         female_rhythm: null,
         female_start_sexual_life: null,
@@ -124,195 +124,195 @@ class FormContextProvider extends Component {
         /*skin: skin,*/
 
         /*Cambios coloracion*/
-        skin_paleness: null,
-        skin_icterus: null,
-        skin_cyanosis: null,
+        skin_paleness: false,
+        skin_icterus: false,
+        skin_cyanosis: false,
 
-        skin_eruptions: null,
-        skin_spots: null,
-        skin_pruritus: null,
-        skin_dryness: null,
-        skin_volume_increase: null,
-        skin_nails_hair: null,
-        skin_nodules: null,
+        skin_eruptions: false,
+        skin_spots: false,
+        skin_pruritus: false,
+        skin_dryness: false,
+        skin_volume_increase: false,
+        skin_nails_hair: false,
+        skin_nodules: false,
         skin_observations: null,
 
         /*ophthalmic_system: ophthalmic_system,*/
         /*Cambios vision*/
-        ophthalmic_diplopia: null,
-        ophthalmic_eye_pain: null,
-        ophthalmic_photophobia: null,
-        ophthalmic_amaurosis: null,
-        ophthalmic_photopsies: null,
-        ophthalmic_myodesopsias: null,
-        ophthalmic_scotomas: null,
-        ophthalmic_hemeralopia: null,
-        ophthalmic_nyctalopia: null,
+        ophthalmic_diplopia: false,
+        ophthalmic_eye_pain: false,
+        ophthalmic_photophobia: false,
+        ophthalmic_amaurosis: false,
+        ophthalmic_photopsies: false,
+        ophthalmic_myodesopsias: false,
+        ophthalmic_scotomas: false,
+        ophthalmic_hemeralopia: false,
+        ophthalmic_nyctalopia: false,
 
         /*Uso de lentes*/
-        ophthalmic_myopia: null,
-        ophthalmic_astigmatism: null,
+        ophthalmic_myopia: false,
+        ophthalmic_astigmatism: false,
 
         ophthalmic_observations: null,
 
         /*ent_system: ent_system,*/
         /*Cambios en la audicion*/
-        ent_otalgia: null,
-        ent_algiacusis: null,
-        ent_presbycusis: null,
-        ent_anacusis: null,
-        ent_tinnitus: null,
-        ent_ear_ringing: null,
-        ent_hearing_loss: null,
+        ent_otalgia: false,
+        ent_algiacusis: false,
+        ent_presbycusis: false,
+        ent_anacusis: false,
+        ent_tinnitus: false,
+        ent_ear_ringing: false,
+        ent_hearing_loss: false,
 
-        ent_ear_pain: null,
-        ent_vertigo: null,
-        ent_fluid_leaking_ear: null,
-        ent_smelling_changes: null,
-        ent_fluid_leaking_nose: null,
-        ent_nose_pain: null,
+        ent_ear_pain: false,
+        ent_vertigo: false,
+        ent_fluid_leaking_ear: false,
+        ent_smelling_changes: false,
+        ent_fluid_leaking_nose: false,
+        ent_nose_pain: false,
         ent_observations: null,
 
         /*mouth_throat: mouth_throat,*/
         /*Dientes*/
-        mouth_throat_cavities: null,
-        mouth_throat_dental_agenesis: null,
-        mouth_throat_prothesis: null,
+        mouth_throat_cavities: false,
+        mouth_throat_dental_agenesis: false,
+        mouth_throat_prothesis: false,
 
         /*Encias */
-        mouth_throat_gingivorrhea: null,
-        mouth_throat_gingivorrhagia: null,
-        mouth_throat_pain: null,
-        mouth_throat_gums_ulcerations: null,
+        mouth_throat_gingivorrhea: false,
+        mouth_throat_gingivorrhagia: false,
+        mouth_throat_pain: false,
+        mouth_throat_gums_ulcerations: false,
 
         /*Lengua*/
-        mouth_throat_colorations: null,
-        mouth_throat_size: null,
-        mouth_throat_plaque_presence: null,
-        mouth_throat_tongue_ulcerations: null,
+        mouth_throat_colorations: false,
+        mouth_throat_size: false,
+        mouth_throat_plaque_presence: false,
+        mouth_throat_tongue_ulcerations: false,
 
         /*Problemas de hablar*/
-        mouth_throat_dysphonia: null,
-        mouth_throat_aphonia: null,
+        mouth_throat_dysphonia: false,
+        mouth_throat_aphonia: false,
 
-        mouth_throat_thirst: null,
-        mouth_throat_speaking_eating_pain: null,
-        mouth_throat_bad_breath: null,
-        mouth_throat_excess_salivation: null,
+        mouth_throat_thirst: false,
+        mouth_throat_speaking_eating_pain: false,
+        mouth_throat_bad_breath: false,
+        mouth_throat_excess_salivation: false,
         mouth_throat_observations: null,
 
         /*digestive_system: digestive_system,*/
-        digestive_apettite_changes: null,
-        digestive_sickness_vomit: null,
-        digestive_abdominal_distention: null,
+        digestive_apettite_changes: false,
+        digestive_sickness_vomit: false,
+        digestive_abdominal_distention: false,
 
         /*Esofago*/
-        digestive_abdominal_gastralgia: null,
-        digestive_abdominal_acidity: null,
-        digestive_abdominal_postrandial_fullnes: null,
+        digestive_abdominal_gastralgia: false,
+        digestive_abdominal_acidity: false,
+        digestive_abdominal_postrandial_fullness: false,
 
         /*Cambios de evacuacion*/
-        digestive_abdominal_tenesmus: null,
-        digestive_abdominal_bids: null,
-        digestive_abdominal_encopresis: null,
-        digestive_abdominal_anal_pain: null,
-        digestive_abdominal_constipation: null,
-        digestive_abdominal_rectal_bleeding: null,
-        digestive_abdominal_hematochezia: null,
+        digestive_abdominal_tenesmus: false,
+        digestive_abdominal_bids: false,
+        digestive_abdominal_encopresis: false,
+        digestive_abdominal_anal_pain: false,
+        digestive_abdominal_constipation: false,
+        digestive_abdominal_rectal_bleeding: false,
+        digestive_abdominal_hematochezia: false,
 
         /*Higado y vias biliares*/
-        digestive_abdominal_jaundice: null,
-        digestive_abdominal_pruritus: null,
-        digestive_abdominal_fever: null,
-        digestive_abdominal_ascites: null,
-        digestive_abdominal_biliary_colic: null,
-        digestive_abdominal_hepatic_colic: null,
-        digestive_abdominal_acholia: null,
+        digestive_abdominal_jaundice: false,
+        digestive_abdominal_pruritus: false,
+        digestive_abdominal_fever: false,
+        digestive_abdominal_ascites: false,
+        digestive_abdominal_biliary_colic: false,
+        digestive_abdominal_hepatic_colic: false,
+        digestive_abdominal_acholia: false,
 
         /*Pancreas*/
-        digestive_abdominal_steatorrhea: null,
-        digestive_abdominal_diarrhea: null,
-        digestive_abdominal_hypersalivation: null,
-        digestive_abdominal_abdominal_pain: null,
-        digestive_abdominal_back_pain: null,
+        digestive_abdominal_steatorrhea: false,
+        digestive_abdominal_diarrhea: false,
+        digestive_abdominal_hypersalivation: false,
+        digestive_abdominal_abdominal_pain: false,
+        digestive_abdominal_back_pain: false,
 
         digestive_observations: null,
 
         /*respiratory_apparatus: respiratory_apparatus,*/
-        respiratory_cough: null,
-        respiratory_chest_pain: null,
-        respiratory_hemoptysis: null,
-        respiratory_vomiting_cough: null,
-        respiratory_cyanosis: null,
-        respiratory_fatigue: null,
-        respiratory_breathing_problems: null,
-        respiratory_breathing_changes: null,
+        respiratory_cough: false,
+        respiratory_chest_pain: false,
+        respiratory_hemoptysis: false,
+        respiratory_vomiting_cough: false,
+        respiratory_cyanosis: false,
+        respiratory_fatigue: false,
+        respiratory_breathing_problems: false,
+        respiratory_breathing_changes: false,
         respiratory_observations: null,
 
         /*cardiovascular_apparatus: cardiovascular_apparatus,*/
-        cardiovascular_dyspnoea: null,
-        cardiovascular_orthopnea: null,
-        cardiovascular_lipothymia: null,
-        cardiovascular_syncope: null,
-        cardiovascular_edema: null,
-        cardiovascular_cyanosis: null,
-        cardiovascular_chest_pain: null,
-        cardiovascular_palpitations: null,
+        cardiovascular_dyspnoea: false,
+        cardiovascular_orthopnea: false,
+        cardiovascular_lipothymia: false,
+        cardiovascular_syncope: false,
+        cardiovascular_edema: false,
+        cardiovascular_cyanosis: false,
+        cardiovascular_chest_pain: false,
+        cardiovascular_palpitations: false,
         cardiovascular_observations: null,
 
         /*genitourinary_system: genitourinary_system,*/
-        genitourinary_urinating_changes: null,
-        genitourinary_urinating_pain: null,
-        genitourinary_urinating_difficulty: null,
-        genitourinary_jet_changes: null,
-        genitourinary_menstruation_changes: null,
-        genitourinary_dyspareunia: null,
-        genitourinary_libido_changes: null,
+        genitourinary_urinating_changes: false,
+        genitourinary_urinating_pain: false,
+        genitourinary_urinating_difficulty: false,
+        genitourinary_jet_changes: false,
+        genitourinary_menstruation_changes: false,
+        genitourinary_dyspareunia: false,
+        genitourinary_libido_changes: false,
         genitourinary_observations: null,
 
         /*musculoskeletal_system: musculoskeletal_system,*/
-        musculoskeletal_muscle_pain: null,
-        musculoskeletal_joint_pain: null,
-        musculoskeletal_joint_stiffness: null,
-        musculoskeletal_nodules: null,
-        musculoskeletal_bone_pain: null,
-        musculoskeletal_ambulation_changes: null,
+        musculoskeletal_muscle_pain: false,
+        musculoskeletal_joint_pain: false,
+        musculoskeletal_joint_stiffness: false,
+        musculoskeletal_nodules: false,
+        musculoskeletal_bone_pain: false,
+        musculoskeletal_ambulation_changes: false,
         musculoskeletal_observations: null,
 
         /*hematological_system: hematological_system,*/
-        hematological_weakness: null,
-        hematological_color_changes: null,
-        hematological_bleeding: null,
-        hematological_petechiae: null,
-        hematological_ecchymosis: null,
-        hematological_bruises: null,
-        hematological_lymphadenopathy: null,
+        hematological_weakness: false,
+        hematological_color_changes: false,
+        hematological_bleeding: false,
+        hematological_petechiae: false,
+        hematological_ecchymosis: false,
+        hematological_bruises: false,
+        hematological_lymphadenopathy: false,
         hematological_observations: null,
 
         /*nervous_system: nervous_system,*/
-        nervous_headache: null,
-        nervous_seizures: null,
-        nervous_memory_changes: null,
-        nervous_sphincters_changes: null,
-        nervous_loss_of_feeling: null,
-        nervous_loss_of_movement: null,
-        nervous_loss_of_balance: null,
-        nervous_language_disorders: null,
-        nervous_gait_changes: null,
-        nervous_tremors: null,
-        nervous_paralysis: null,
-        nervous_parasthesia: null,
-        nervous_paresis: null,
+        nervous_headache: false,
+        nervous_seizures: false,
+        nervous_memory_changes: false,
+        nervous_sphincters_changes: false,
+        nervous_loss_of_feeling: false,
+        nervous_loss_of_movement: false,
+        nervous_loss_of_balance: false,
+        nervous_language_disorders: false,
+        nervous_gait_changes: false,
+        nervous_tremors: false,
+        nervous_paralysis: false,
+        nervous_parasthesia: false,
+        nervous_paresis: false,
         nervous_observations: null,
 
         /*psychic_system: psychic_system,*/
-        psychic_distress: null,
-        psychic_depression: null,
-        psychic_interest_changes: null,
-        psychic_guilt: null,
-        psychic_suicidal_thoughts: null,
-        psychic_hallucinations: null,
-        psychic_delirium: null,
+        psychic_distress: false,
+        psychic_depression: false,
+        psychic_interest_changes: false,
+        psychic_guilt: false,
+        psychic_suicidal_thoughts: false,
+        psychic_hallucinations: false,
+        psychic_delirium: false,
         psychic_observations: null,
 
         physical_observations: null,
@@ -433,8 +433,25 @@ class FormContextProvider extends Component {
         number_sicks: null,
 
         household_member_substance: null,
-        substance_consumed: null,
-        consuming_member: null,
+        
+        substance_alcohol: false,
+        substance_glue: false,
+        substance_cocaine: false,
+        substance_tobacco: false,
+        substance_marijuana: false,
+        substance_tablets: false,
+        substance_metamphetamine: false,
+        substance_others: null,
+        
+        consuming_father: false,
+        consuming_mother: false,
+        consuming_tutor: false,
+        consuming_son: false,
+        consuming_spouse: false,
+        consuming_uncle: false,
+        consuming_grandparent: false,
+        consuming_others: null,
+
         consuming_frequency: null
     }
 
@@ -450,7 +467,9 @@ class FormContextProvider extends Component {
         place_others: null,
         place_person_per_room: null,
         place_location: null,
-        place_exposition: null,
+        place_dust: false,
+        place_wood_smoke: false,
+        place_others_exposition: null,
 
         electrodomestics: null,
         air_conditioner: null,
@@ -460,8 +479,6 @@ class FormContextProvider extends Component {
         car_model: null,
 
         geographic_area: null,
-
-        sick_members: null,
 
         outcome_electric_power: null,
         outcome_water: null,
@@ -513,8 +530,13 @@ class FormContextProvider extends Component {
         notes_support_background: null,
         observations: null,
         social_plan: null,
-        socioeconomic_class: null,
+
+        socioeconomic_class_1: null,
+        socioeconomic_class_2: null,
+        socioeconomic_class_3: null,
+
         social_worker: null,
+
         animals: null,
         vaccinated_animals: false,
         ticks_animals: false,
@@ -567,20 +589,23 @@ class FormContextProvider extends Component {
     }
 
     setCheckboxGroup = (name, value) => {
-        var elements = document.getElementsByName(name);
-        console.log("Searching for value " + value + " in group " + name);
+        if(typeof value != "undefined"){
+            var elements = document.getElementsByName(name);
+            console.log("Searching for value " + value + " in group " + name);
 
-        var i = 0;
-        var flag = false;
-        while(i < elements.length && !flag){
-            if(elements[i].value == String(value)){
-                elements[i].checked = true;
-                flag = true;
-                console.log("Found in element", i);
+            var i = 0;
+            var flag = false;
+            while(i < elements.length && !flag){
+                if(elements[i].value === String(value)){
+                    elements[i].checked = true;
+                    flag = true;
+                    console.log("Found in element", i);
+                }
+                i++;
             }
-            i++;
+        } else {
+            console.log("No value to search in group", name);
         }
-
     }
 
     updateFormState = (key,subkey,value) => {
