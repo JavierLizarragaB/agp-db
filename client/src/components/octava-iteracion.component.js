@@ -9,10 +9,18 @@ class OctavaIteracion extends Component {
         super();
         this.state ={
             open: false,
+            first: true
         };
     }
     render() {
         const mycontext = this.context;
+        
+        if(this.state.first && mycontext.formState.finished){
+            mycontext.setCheckboxGroup("others-cb-1", mycontext.formState.others.how_found_out);
+            mycontext.setCheckboxGroup("others-cb-2", mycontext.formState.others.has_support_background);
+
+            this.state.first = false;
+        }
 
         return (
             <>
@@ -71,7 +79,7 @@ class OctavaIteracion extends Component {
                             <div className="col-md-2"/>
                             <div>Si</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="others-cb-2" id="others-cb-2-1" value="1"
+                                <input type="checkbox" className="form-control form-pat" name="others-cb-2" id="others-cb-2-1" value={true}
                                 onChange={(e) => {
                                     mycontext.handleCheckboxGroup(e.target.name,e.target.id,"others","has_support_background");
                                 }}/>
@@ -79,7 +87,7 @@ class OctavaIteracion extends Component {
                             <div className="col-md-1" />
                             <div>No</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="others-cb-2" id="others-cb-2-2" value="0"
+                                <input type="checkbox" className="form-control form-pat" name="others-cb-2" id="others-cb-2-2" value={false}
                                 onChange={(e) => {
                                     mycontext.handleCheckboxGroup(e.target.name,e.target.id,"others","has_support_background");
                                 }}/>
@@ -89,7 +97,8 @@ class OctavaIteracion extends Component {
                             <div className="col-md-6" />
                             <div className="col-md-2">¿De qué tipo?</div>
                             <div className="form-group col-md-2">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={mycontext.formState.others.notes_support_background} onChange={(e) => {
+                                    console.log(mycontext);
                                     mycontext.updateFormState("others","notes_support_background",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -99,7 +108,7 @@ class OctavaIteracion extends Component {
                         <div className="form-row col-md-12">
                             <div className="form-text col-md-4">Observaciones:</div>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="4" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="4" value={mycontext.formState.others.observations} onChange={(e) => {
                                     mycontext.updateFormState("others","observations",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -109,7 +118,7 @@ class OctavaIteracion extends Component {
                         <div className="form-row col-md-12">
                             <div className="form-text col-md-4">Plan Social:</div>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="4" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="4" value={mycontext.formState.others.social_plan} onChange={(e) => {
                                     mycontext.updateFormState("others","social_plan",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -136,11 +145,17 @@ class OctavaIteracion extends Component {
                                 </thead>
                                 <tbody className="table-custom-two">
                                     <tr className="table-custom-two">
-                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" />
+                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" value={mycontext.formState.others.socioeconomic_class_3} onChange={(e) => {
+                                            mycontext.updateFormState("others","socioeconomic_class_3",e.target.value);
+                                        }}/>
                                         <td />
-                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" />
+                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" value={mycontext.formState.others.socioeconomic_class_2} onChange={(e) => {
+                                            mycontext.updateFormState("others","socioeconomic_class_2",e.target.value);
+                                        }}/>
                                         <td />
-                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" />
+                                        <input type="number" className="form-control form-pat col-md-12" placeholder="$" value={mycontext.formState.others.socioeconomic_class_1} onChange={(e) => {
+                                            mycontext.updateFormState("others","socioeconomic_class_1",e.target.value);
+                                        }}/>
                                     </tr>
                                 </tbody>
                             </table>
@@ -151,7 +166,7 @@ class OctavaIteracion extends Component {
                         <div className="form-row col-md-12">
                             <div className="form-text col-md-4">Trabajador Social:</div>
                             <div className="form group col-md-8">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={mycontext.formState.others.social_worker} onChange={(e) => {
                                     mycontext.updateFormState("others","social_worker",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -162,7 +177,7 @@ class OctavaIteracion extends Component {
                         <div className="form-row col-md-12">
                             <div className="form-text col-md-4">Animales Dentro o Fuera de la Casa:</div>
                             <div className="form group col-md-4">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={mycontext.formState.others.animals} onChange={(e) => {
                                     mycontext.updateFormState("others","animals",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -173,19 +188,19 @@ class OctavaIteracion extends Component {
                             <div className="col-md-1" />
                             <div className="col-md-1">Vacunados</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" id="others-cb-3-1" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" id="others-cb-3-1" checked={mycontext.formState.others.vaccinated_animals} onChange={(e) => {
                                     mycontext.handleBooleanCheckbox(e.target.id,"others","vaccinated_animals");
                                 }}/>
                             </div>
                             <div className="col-md-1">Garrapatas</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" id="others-cb-3-2" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" id="others-cb-3-2" checked={mycontext.formState.others.ticks_animals} onChange={(e) => {
                                     mycontext.handleBooleanCheckbox(e.target.id,"others","ticks_animals");
                                 }}/>
                             </div>
                             <div className="">Enfermedades Transmitidas por Animales</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" id="others-cb-3-3" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" id="others-cb-3-3" checked={mycontext.formState.others.diseases_animals} onChange={(e) => {
                                     mycontext.handleBooleanCheckbox(e.target.id,"others","diseases_animals");
                                 }}/>
                             </div>
@@ -196,7 +211,7 @@ class OctavaIteracion extends Component {
                         <div className="form-row col-md-12">
                             <div className="col-md-4 form-text">Cartilla de Vacunación:</div>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="5" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="5" value={mycontext.formState.others.vaccination_card} onChange={(e) => {
                                     mycontext.updateFormState("others","vaccination_card",e.target.value);
                                 }} ></textarea>
                             </div>

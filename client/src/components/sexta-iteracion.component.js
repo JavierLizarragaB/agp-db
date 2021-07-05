@@ -10,11 +10,35 @@ class SextaIteracion extends Component {
         this.state ={
             open1: false,
 	        open2: false,
+            first: true
         };
     }
 
     render() {
         const mycontext = this.context;
+
+        if(this.state.first && mycontext.formState.finished){
+            mycontext.setCheckboxGroup("diet-cb-1", mycontext.formState.diet.perceived_quality);
+
+            mycontext.setCheckboxGroup("diet-cb-2", mycontext.formState.diet.red_meat_week);
+            mycontext.setCheckboxGroup("diet-cb-3", mycontext.formState.diet.red_meat_month);
+            mycontext.setCheckboxGroup("diet-cb-4", mycontext.formState.diet.chicken_week);
+            mycontext.setCheckboxGroup("diet-cb-5", mycontext.formState.diet.chicken_month);
+            mycontext.setCheckboxGroup("diet-cb-6", mycontext.formState.diet.fish_week);
+            mycontext.setCheckboxGroup("diet-cb-7", mycontext.formState.diet.fish_month);
+            mycontext.setCheckboxGroup("diet-cb-8", mycontext.formState.diet.grain_week);
+            mycontext.setCheckboxGroup("diet-cb-9", mycontext.formState.diet.grain_month);
+            mycontext.setCheckboxGroup("diet-cb-10", mycontext.formState.diet.dairy_week);
+            mycontext.setCheckboxGroup("diet-cb-11", mycontext.formState.diet.dairy_month);
+            mycontext.setCheckboxGroup("diet-cb-12", mycontext.formState.diet.bread_week);
+            mycontext.setCheckboxGroup("diet-cb-13", mycontext.formState.diet.bread_month);
+            mycontext.setCheckboxGroup("diet-cb-14", mycontext.formState.diet.bread_pasta_week);
+            mycontext.setCheckboxGroup("diet-cb-15", mycontext.formState.diet.bread_pasta_month);
+            mycontext.setCheckboxGroup("diet-cb-16", mycontext.formState.diet.vegetables_fruits_week);
+            mycontext.setCheckboxGroup("diet-cb-17", mycontext.formState.diet.vegetables_fruits_month);
+
+            this.state.first = false;
+        }
 
         return (
             <>
@@ -58,7 +82,7 @@ class SextaIteracion extends Component {
                         <div className="form-row col-md-12">
                             <div className="form-text col-md-3">Número de Comidas al Día:</div>
                             <div className="form-group col-md-2">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={mycontext.formState.diet.meals_per_day} onChange={(e) => {
                                     mycontext.updateFormState("diet","meals_per_day",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -69,7 +93,7 @@ class SextaIteracion extends Component {
                             <div className="form-text col-md-2">Preparación de los Alimentos:</div>
                             <div className="col-md-1" />
                             <div className="form-group col-md-6">
-                                <textarea className="form-control form-pat" rows="3" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="3" value={mycontext.formState.diet.food_preparation} onChange={(e) => {
                                     mycontext.updateFormState("diet","food_preparation",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -79,7 +103,7 @@ class SextaIteracion extends Component {
                         <div className="form-row col-md-12">
                             <div className="form-text col-md-3">Cantidad de Agua al Día:</div>
                             <div className="form-group col-md-3">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={mycontext.formState.diet.water_per_day} onChange={(e) => {
                                     mycontext.updateFormState("diet","water_per_day",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -470,7 +494,7 @@ class SextaIteracion extends Component {
                             <div className="col-md-1" />
                             <div className="">1</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="diet-cb-17" id="diet-cb-17-2" value="2"
+                                <input type="checkbox" className="form-control form-pat" name="diet-cb-17" id="diet-cb-17-2" value="1"
                                 onChange={(e) => {
                                     mycontext.handleCheckboxGroup(e.target.name,e.target.id,"diet","vegetables_fruits_month");
                                 }}/>

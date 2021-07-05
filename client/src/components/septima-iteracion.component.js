@@ -33,7 +33,7 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">¿Cuántas veces a la semana se baña?</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={mycontext.formState.hygiene_pass_physact.shower_frequency} onChange={(e) => {
                                     mycontext.updateFormState("hygiene_pass_physact","shower_frequency",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -44,7 +44,7 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">¿Cuántas veces se cepilla los dientes?</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="1" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="1" value={mycontext.formState.hygiene_pass_physact.toothbrushing_frequency} onChange={(e) => {
                                     mycontext.updateFormState("hygiene_pass_physact","toothbrushing_frequency",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -55,7 +55,7 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">Higiene del Hogar:</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="4" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="4" value={mycontext.formState.hygiene_pass_physact.home_hygiene} onChange={(e) => {
                                     mycontext.updateFormState("hygiene_pass_physact","home_hygiene",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -77,7 +77,7 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">Actividad Física</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="6" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="6" value={mycontext.formState.hygiene_pass_physact.phys_activity} onChange={(e) => {
                                     mycontext.updateFormState("hygiene_pass_physact","phys_activity",e.target.value);
                                 }} ></textarea>
                             </div>
@@ -99,7 +99,7 @@ class SeptimaIteracion extends Component {
                             <div className="form-text col-md-3">Pasatiempo</div>
                             <div className="col-md-1"/>
                             <div className="form-group col-md-8">
-                                <textarea className="form-control form-pat" rows="6" onChange={(e) => {
+                                <textarea className="form-control form-pat" rows="6" value={mycontext.formState.hygiene_pass_physact.passtime} onChange={(e) => {
                                     mycontext.updateFormState("hygiene_pass_physact","passtime",e.target.value);
                                 }} ></textarea>
                             </div>

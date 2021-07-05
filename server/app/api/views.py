@@ -6,7 +6,7 @@ from functools import wraps
 
 from . import api
 
-from ..models import FormInfo, FormHistory, Address, Appointments, Background, FamilyMemberQuantity, Medicine, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, FamilyHistory, SubstanceAbuse, HomeAndEconomyForm, LivingPlace, PlaceDistribution, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others, Studies, Medicine
+from ..models import FormInfo, FormHistory, Address, Appointments, Background, FamilyMemberQuantity, Medicine, Patients, PatientDataForm, User, ResponsableFamilyMember, SubstanceConsumption, Pathological, MaleSexualHealth, CancerTest, FemaleSexualHealth, Skin, OphthalmicSystem, EntSystem, MouthThroat, DigestiveSystem, RespiratoryApparatus, CardiovascularApparatus, GenitourinarySystem, MusculoskeletalSystem, HematologicalSystem, NervousSystem, PsychicSystem, FollowUp, ApparatusAndSystems, FamilyDataForm, FamilyHistoryClass, FamilyStructure, SubstanceConsumed, ConsumingMember, SubstanceAbuse, FamilyHistory, HomeAndEconomyForm, LivingPlace, PlaceDistribution, HouseholdGoods, FamilyTransportation, Outcome, Diet, HygienePhysActPasstime, Others, Studies, Medicine
 
 
 def token_required(f):
@@ -501,7 +501,7 @@ def send_forms():
 
                         ##Uso de lentes
                         myopia = json["formState"]["patient_data"]["ophthalmic_myopia"],
-                        astigmatism = json["formState"]["patient_data"]["astigmatism"],
+                        astigmatism = json["formState"]["patient_data"]["ophthalmic_astigmatism"],
 
                         observations = json["formState"]["patient_data"]["ophthalmic_observations"]
                     ),
@@ -522,6 +522,8 @@ def send_forms():
                         smelling_changes = json["formState"]["patient_data"]["ent_smelling_changes"],
                         fluid_leaking_nose = json["formState"]["patient_data"]["ent_fluid_leaking_nose"],
                         nose_pain = json["formState"]["patient_data"]["ent_nose_pain"],
+
+                        observations = json["formState"]["patient_data"]["ent_observations"],
                     ),
 
                     mouth_throat = MouthThroat(
@@ -561,7 +563,7 @@ def send_forms():
                         ##Esofago
                         gastralgia = json["formState"]["patient_data"]["digestive_abdominal_gastralgia"],
                         acidity = json["formState"]["patient_data"]["digestive_abdominal_acidity"],
-                        postrandial_fullnes = json["formState"]["patient_data"]["digestive_abdominal_postrandial_fullnes"],
+                        postrandial_fullness = json["formState"]["patient_data"]["digestive_abdominal_postrandial_fullness"],
 
                         ##Cambios en evacuaciones
                         tenesmus = json["formState"]["patient_data"]["digestive_abdominal_tenesmus"],
@@ -618,6 +620,7 @@ def send_forms():
                     genitourinary_system = GenitourinarySystem(
                         urinating_changes = json["formState"]["patient_data"]["genitourinary_urinating_changes"],
                         urinating_pain = json["formState"]["patient_data"]["genitourinary_urinating_pain"],
+                        urinating_difficulty = json["formState"]["patient_data"]["genitourinary_urinating_difficulty"],
                         jet_changes = json["formState"]["patient_data"]["genitourinary_jet_changes"],
                         menstruation_changes = json["formState"]["patient_data"]["genitourinary_menstruation_changes"],
                         dyspareunia = json["formState"]["patient_data"]["genitourinary_dyspareunia"],
@@ -726,7 +729,21 @@ def send_forms():
                     fifth_member_relationship = json["formState"]["family_data"]["fifth_member_relationship"],
                     fifth_member_civil_state = json["formState"]["family_data"]["fifth_member_civil_state"],
                     fifth_member_ocupation = json["formState"]["family_data"]["fifth_member_ocupation"],
-                    fifth_member_income = json["formState"]["family_data"]["fifth_member_income"]
+                    fifth_member_income = json["formState"]["family_data"]["fifth_member_income"],
+
+                    sixth_member_name= json["formState"]["family_data"]["sixth_member_name"],
+                    sixth_member_age= json["formState"]["family_data"]["sixth_member_age"],
+                    sixth_member_relationship= json["formState"]["family_data"]["sixth_member_relationship"],
+                    sixth_member_civil_state= json["formState"]["family_data"]["sixth_member_civil_state"],
+                    sixth_member_ocupation= json["formState"]["family_data"]["sixth_member_ocupation"],
+                    sixth_member_income= json["formState"]["family_data"]["sixth_member_income"],
+
+                    seventh_member_name= json["formState"]["family_data"]["seventh_member_name"],
+                    seventh_member_age= json["formState"]["family_data"]["seventh_member_age"],
+                    seventh_member_relationship= json["formState"]["family_data"]["seventh_member_relationship"],
+                    seventh_member_civil_state= json["formState"]["family_data"]["seventh_member_civil_state"],
+                    seventh_member_ocupation= json["formState"]["family_data"]["seventh_member_ocupation"],
+                    seventh_member_income= json["formState"]["family_data"]["seventh_member_income"],
                 ),
                 family_history = FamilyHistory(
                     paternal_grandfather = FamilyHistoryClass(
@@ -779,8 +796,26 @@ def send_forms():
 
                 substance_abuse = SubstanceAbuse(
                     household_member_substance = json["formState"]["family_data"]["household_member_substance"],
-                    substance_consumed = json["formState"]["family_data"]["substance_consumed"],
-                    consuming_member = json["formState"]["family_data"]["consuming_member"],
+                    substance_consumed = SubstanceConsumed(
+                        alcohol = json["formState"]["family_data"]["substance_alcohol"],
+                        glue = json["formState"]["family_data"]["substance_glue"],
+                        cocaine = json["formState"]["family_data"]["substance_cocaine"],
+                        tobacco = json["formState"]["family_data"]["substance_tobacco"],
+                        marijuana = json["formState"]["family_data"]["substance_marijuana"],
+                        tablets = json["formState"]["family_data"]["substance_tablets"],
+                        methamphetamine = json["formState"]["family_data"]["substance_metamphetamine"],
+                        others = json["formState"]["family_data"]["substance_others"]
+                    ),
+                    consuming_member = ConsumingMember(
+                        father = json["formState"]["family_data"]["consuming_father"],
+                        mother = json["formState"]["family_data"]["consuming_mother"],
+                        tutor = json["formState"]["family_data"]["consuming_tutor"],
+                        son = json["formState"]["family_data"]["consuming_son"],
+                        spouse = json["formState"]["family_data"]["consuming_spouse"],
+                        uncle = json["formState"]["family_data"]["consuming_uncle"],
+                        grandparent = json["formState"]["family_data"]["consuming_grandparent"],
+                        others = json["formState"]["family_data"]["consuming_others"]
+                    ),
                     consuming_frequency = json["formState"]["family_data"]["consuming_frequency"]
                 )
             ),
@@ -801,7 +836,9 @@ def send_forms():
                     ),
                     place_person_per_room = json["formState"]["home_and_economy"]["place_person_per_room"],
                     place_location = json["formState"]["home_and_economy"]["place_location"],
-                    place_exposition = json["formState"]["home_and_economy"]["place_exposition"]
+                    place_dust = json["formState"]["home_and_economy"]["place_dust"],
+                    place_wood_smoke = json["formState"]["home_and_economy"]["place_wood_smoke"],
+                    place_others_exposition = json["formState"]["home_and_economy"]["place_others_exposition"]
                 ),
 
                 household_goods = HouseholdGoods(
@@ -816,7 +853,6 @@ def send_forms():
                 ),
                 
                 geographic_area = json["formState"]["home_and_economy"]["geographic_area"],
-                sick_members = json["formState"]["home_and_economy"]["sick_members"],
 
                 outcome = Outcome(
                     outcome_electric_power = json["formState"]["home_and_economy"]["outcome_electric_power"],
@@ -875,8 +911,13 @@ def send_forms():
                 ),
                 observations = json["formState"]["others"]["observations"],
                 social_plan = json["formState"]["others"]["social_plan"],
-                socioeconomic_class = json["formState"]["others"]["socioeconomic_class"],
+
+                socioeconomic_class_1 = json["formState"]["others"]["socioeconomic_class_1"],
+                socioeconomic_class_2 = json["formState"]["others"]["socioeconomic_class_2"],
+                socioeconomic_class_3 = json["formState"]["others"]["socioeconomic_class_3"],
+
                 social_worker = json["formState"]["others"]["social_worker"],
+
                 animals = json["formState"]["others"]["animals"],
                 vaccinated_animals = json["formState"]["others"]["vaccinated_animals"],
                 ticks_animals = json["formState"]["others"]["ticks_animals"],
@@ -905,3 +946,13 @@ def send_forms():
     except Exception as e:
         print(e)
         return (e.__str__(), 500)
+
+
+@api.route("/forms/edit", methods=["GET"])
+def edit_forms():
+    """Gets a form"""
+    form = FormInfo.objects[len(FormInfo.objects)-1]
+    
+    if form == None:
+        return ({ 'message': "Formulario inexistente"}, 200)
+    return (jsonify(form), 200)
