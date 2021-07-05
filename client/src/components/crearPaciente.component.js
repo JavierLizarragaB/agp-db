@@ -55,12 +55,23 @@ function CrearPaciente() {
                     <form className="info-form form-text-supra col-md-12">
                         <div className="form-row">
                             <div className="form-group col-md-4">Nombre del Paciente</div>
-                            <div className="form-group col-md-4">Fecha de Nacimiento</div>
                         </div>
                         <div className="form-row">
                             <div className="form-group col-md-4">
                                 <input type="text" className="form-control form-pat" id="inputNC" placeholder="Nombre Completo" required="true" onChange={(e) => {
                                     updateFormState("general_info", "name",e.target.value);
+                                    console.log(formState);
+                                }} />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-md-4">Edad del Paciente</div>
+                            <div className="form-group col-md-4">Fecha de Nacimiento</div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-md-4">
+                                <input type="number" className="form-control form-pat" id="inputED" placeholder="Edad" required="true" onChange={(e) => {
+                                    updateFormState("general_info", "age",e.target.value);
                                     console.log(formState);
                                 }} />
                             </div>

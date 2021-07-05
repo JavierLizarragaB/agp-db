@@ -621,12 +621,16 @@ class FormInfo(Document):
 
     others = EmbeddedDocumentField(Others, required=False, db_field="otros")
 
+class FormHistory(EmbeddedDocument):
+    formId = StringField(required=False, db_field="id_formulario")
+    formDate = StringField(required=False, db_field="fecha_formulario")
 
 class Patients(Document):
     meta = {"collection": "pacientes"}
 
     folio = IntField(primary_key=True, db_field="folio")
     name = StringField(required=True, db_field="nombre")
+    age = IntField(required=True, db_field="edad")
     birth_date = DateField(required=True, db_field="fecha_nacimiento")
     sex = StringField(required=True, db_field="sexo")
     blood_type = StringField(required=True, db_field="tipo_sangre")
@@ -636,7 +640,7 @@ class Patients(Document):
     companion = BooleanField(required=True, db_field="acompañante")
     shelter = BooleanField(required=True, db_field="shelter")
     quimio = BooleanField(required=True, db_field="quimio")
-    forms = ListField(StringField(), required=False, db_field="formularios")
+    form_history = EmbeddedDocumentListField(FormHistory, required=False, db_field="versiones_formulario")
     
     def __str__(self):
         return f"Patient({self.name + ' ' + self.paternal_last_name})"

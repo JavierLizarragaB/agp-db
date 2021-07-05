@@ -14,14 +14,12 @@ import SextaIteracion from './sexta-iteracion.component';
 import SeptimaIteracion from './septima-iteracion.component';
 import OctavaIteracion from './octava-iteracion.component';
 import TablaHorario from "./tablaHorario";
+import Agenda from './agenda.component';
 import axios from "axios";
 import { verify } from "crypto";
 
 
 function Form() {
-    //para citas
-    const [citas, setCitas] = useState([]);
-
     //para abrir el formulario general
     const [open, setOpen] = useState(false);
 
@@ -42,8 +40,10 @@ function Form() {
         e.preventDefault();
         formState.patient_folio = 2;
         console.log(formState);
+        var current_date = new Date();
         axios.post("./api/forms", {
-            formState
+            formState,
+            date: current_date.getDate() + "/" + (current_date.getMonth()+1) + "/" + current_date.getFullYear() + " - " + current_date.getHours() + ":" + (current_date.getMinutes() < 10 ? '0' : '') + current_date.getMinutes()
         }).then((response) => {
             console.log(response);
             
@@ -637,9 +637,9 @@ function Form() {
         getForm();
     }, []);
 
-    const jsonpaciente = {
-                        "edad":"9",
-                    }
+    // const jsonpaciente = {
+    //                     "edad":"9",
+    //                 }
 
     let icon = formState.general_info.sex == "Femenino" ? Femenino : Masculino;
 
@@ -656,7 +656,7 @@ function Form() {
                     </div>
                     <div className="col-lg-3">
                         <div className="patient-text-br"> {formState.general_info.name} </div>
-                        <div className="patient-text">Nacimiento: {formState.general_info.birth_date} - Años: {jsonpaciente.edad}</div>
+                        <div className="patient-text">Nacimiento: {formState.general_info.birth_date} - Años: {formState.general_info.age}</div>
                         <br></br>
                         <div className="patient-text-br">Sangre:</div>
                         <div className="patient-text">{formState.general_info.blood_type}</div>
@@ -1022,7 +1022,7 @@ function Form() {
 
                 {/* boton de enviar */}
                 <div>
-                    <button onClick={handleSubmit} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                    <button className="btn btn-custom btn-md btn-block col-md-2 btn-pat" onClick={handleSubmit}>
                         <b>Guardar Datos de Paciente</b>
                     </button>
                 </div>
@@ -1047,7 +1047,7 @@ function Form() {
                     ></textarea>
                     {/* boton de enviar */}
                     <div>
-                        <button onClick={handleSubmitStudies} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                        <button className="btn btn-custom btn-md btn-block col-md-2 btn-pat" onClick={handleSubmitStudies}>
                             <b>Guardar Estudios</b>
                         </button>
                     </div>
@@ -1119,40 +1119,9 @@ function Form() {
                             <textarea className="form-control col-md-6 form-pat" rows="4"
                                 onChange={(e) => {updateFormState("patient_data", "appointment_description",e.target.value);console.log(formState);}} 
                             ></textarea>
-                            <div className="horario col-md-4">
+                            <div className="horario col-md-6">
                                 {/* <TablaHorario/> */}
-                                <table className="table table-hover">
-                                    <th className="thead-custom">
-                                        Agenda
-                                    </th>
-                                    <tbody>
-                                        <table className="table table-hover">
-                                            <thead className="thead-custom">
-                                                <tr>
-                                                    <th>Fecha</th>
-                                                    <th>Hora</th>
-                                                    <th>Descripción</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {citas.map((citas) => (
-                                                    <tr key={citas._id.$_oid}>
-                                                        <td>
-                                                            {moment.unix(citas.fecha.$date/999.95).format("MM/DD/YYYY")}
-                                                        </td>
-                                                        <td>
-                                                            {citas.hora} 
-                                                        </td>
-                                                        <td>
-                                                            {citas.descripcion}
-                                                        </td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </tbody>
-                                </table>
-                                
+                                    <Agenda />
                             </div>
                             
                         <br></br><br></br>

@@ -2,6 +2,7 @@ import NavBar from "../navbar.component";
 import Carrusel from "../carrusel.component";
 import TablaHorario from "../tablaHorario";
 import ReactCalendar from "../calendar.component";
+import Agenda from '../agenda.component';
 
 export const PagInicio = () => {
     return (
@@ -15,8 +16,8 @@ export const PagInicio = () => {
                 <div className="calendario col-md-4">
                     <ReactCalendar />
                 </div>
-                <div className="horario col-md-4">
-                    <TablaHorario/>
+                <div className=" col-md-4">
+                    <Agenda/>
                 </div>
             </div>
         </div>

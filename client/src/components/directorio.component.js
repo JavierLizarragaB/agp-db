@@ -4,11 +4,15 @@ import NavBar from './navbar.component';
 import Axios from 'axios';
 import { Redirect, useHistory } from "react-router";
 import { Link } from 'react-router-dom';
+import {FormContext} from '../context/FormContext'
 
 export const Directorio = () => {
 
     const [patients, setPatients] = useState([]);
     let history = useHistory();
+
+    // Load context
+    const {setPatientFolio} = useContext(FormContext);
 
     const getPatients = () => {
         Axios.get('./api/directorio').then((response) => {
@@ -44,12 +48,14 @@ export const Directorio = () => {
                     <table className="table table-bordered table-hover">
                         <thead className="thead-custom">
                             <tr>
-                                <th>Pacientes</th>
+                                <th>Últimos pacientes registrados</th>
                             </tr>
                         </thead>
                         <tbody>
                             {patients.map((patient) => (
-                                <tr key={patient._id.$_oid}>
+                                <tr key={patient._id.$_oid} onClick={()=>{
+                                        history.push('/historial-formulario');
+                                        setPatientFolio(patient._id);}}>
                                     <td>
                                         {patient.nombre} 
                                         &nbsp;
