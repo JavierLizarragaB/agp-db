@@ -36,8 +36,36 @@ export const HistorialFormulario = () => {
         });
     };
 
+    const getPatient = () => {
+        Axios.get("./api/paciente?folio=" + formState.patient_folio).then((response) => {
+            console.log(response);
+            if(response.status === 200){
+                formState.general_info = {
+                    ...this,
+
+                    name: response.data.nombre,
+                    age: response.data.edad,
+                    sex: response.data.sexo,
+                    birth_date: response.data.fecha_nacimiento.$date,
+                    medical_dx: response.data.dx_medico,
+                    blood_type: response.data.tipo_sangre,
+                    emergency_contact_name: response.data.nombre_contacto_emergencia,
+                    emergency_contact_num: response.data.tel_contacto_emergencia,
+                    shelter: response.data.shelter,
+                    companion: response.data.acompañante,
+                    quimio: response.data.quimio
+                }
+                console.log(formState);
+            }
+            else {
+                console.log("Ha sucedido algo :(");
+            }
+        })
+    }
+
     useEffect(() => {
         getFormHistory();
+        getPatient();
     }, []);
 
         return (

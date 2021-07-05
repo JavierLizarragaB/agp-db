@@ -54,8 +54,8 @@ export const Directorio = () => {
                         <tbody>
                             {patients.map((patient) => (
                                 <tr key={patient._id.$_oid} onClick={()=>{
-                                        history.push('/historial-formulario');
-                                        setPatientFolio(patient._id);}}>
+                                        setPatientFolio(patient._id);
+                                        history.push('/historial-formulario');}}>
                                     <td>
                                         {patient.nombre} 
                                         &nbsp;
