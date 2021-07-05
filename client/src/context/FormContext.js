@@ -589,7 +589,7 @@ class FormContextProvider extends Component {
     }
 
     setCheckboxGroup = (name, value) => {
-        if(typeof value != "undefined"){
+        if(typeof value != "undefined" && value != null){
             var elements = document.getElementsByName(name);
             console.log("Searching for value " + value + " in group " + name);
 
@@ -631,7 +631,7 @@ class FormContextProvider extends Component {
             patient_data: {
                 ...this.state.patient_data,
 
-                //folio: form.datos_paciente,
+                folio: form.patient_folio,
         
                 birth_state: form.datos_paciente.entidad_nacimiento,
                 birth_city: form.datos_paciente.ciudad_nacimiento,
@@ -1136,6 +1136,7 @@ class FormContextProvider extends Component {
             formState:this.state,
             updateFormState:this.updateFormState,
             setPatientFolio:this.setPatientFolio,
+            setForm:this.setForm,
             handleCheckboxGroup:this.handleCheckboxGroup,
             handleBooleanCheckbox:this.handleBooleanCheckbox,
             setCheckboxGroup:this.setCheckboxGroup

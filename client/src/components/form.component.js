@@ -114,7 +114,12 @@ function Form() {
     const verifyValue = (value, ogValue) => { return typeof value != "undefined" ? value : ogValue }
 
     const getForm = () => {
-        axios.get("./api/forms/edit").then((response) => {
+        console.log(formState.patient_folio);
+        axios.get("./api/forms/edit", {
+            /*id: formState.patient_folio,
+            folio: formState.patient_data.folio*/
+        }).then((response) => {
+            console.log(response.data);
 
             formState.patient_data.birth_state= verifyValue(response.data.datos_paciente.entidad_nacimiento, formState.patient_data.birth_state);
             formState.patient_data.birth_city= verifyValue(response.data.datos_paciente.ciudad_nacimiento, formState.patient_data.birth_city);
@@ -147,7 +152,7 @@ function Form() {
             formState.patient_data.temp_phone= verifyValue(response.data.datos_paciente.direccion_temporal.tel, formState.patient_data.temp_phone);
             formState.patient_data.temp_phone2= verifyValue(response.data.datos_paciente.direccion_temporal.tel2, formState.patient_data.temp_phone2);
 
-            //responsable_name= response.data.datos_paciente.familiar_responsable.nombre_responsable;
+            formState.patient_data.responsable_name= verifyValue(response.data.datos_paciente.familiar_responsable.nombre_responsable, formState.patient_data.responsable_name);
     
             formState.patient_data.responsable_street= verifyValue(response.data.datos_paciente.familiar_responsable.direccion_responsable.calle, formState.patient_data.responsable_street);
             formState.patient_data.responsable_num= verifyValue(response.data.datos_paciente.familiar_responsable.direccion_responsable.num, formState.patient_data.responsable_num);
@@ -912,6 +917,15 @@ function Form() {
                                 </div>
                                 
                                 <div>Familia Responsable</div>
+                                <div className="form-row">
+                                    <div className="form-group col-md-4">
+                                        <input type="text" className="form-control form-pat" id="inputNombreFR" value={formState.patient_data.responsable_name} placeholder="Nombre del Responsable" onChange={(e) => {
+                                            updateFormState("patient_data", "responsable_name",e.target.value);
+                                            console.log(formState);
+                                        }} />
+                                    </div>
+                                </div>
+
                                 <div className="form-row">
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCalleFR" value={formState.patient_data.responsable_street} placeholder="Calle" onChange={(e) => {
