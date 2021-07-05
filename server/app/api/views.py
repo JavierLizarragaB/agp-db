@@ -919,9 +919,9 @@ def send_forms():
         print("This is the form id:",theId)
         print("This is the patient folio:",json["formState"]["patient_folio"])
 
-        #patient = Patients.objects(folio=json["formState"]["patient_folio"]).first()
-        #patient.forms.append(theId)
-        #patient.save()
+        patient = Patients.objects(folio=json["formState"]["patient_folio"]).first()
+        patient.forms.append(theId)
+        patient.save()
 
         return ({ 'message': "Formulario creado"}, 200)
     except Exception as e:
