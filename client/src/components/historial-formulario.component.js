@@ -10,7 +10,7 @@ import {FormContext} from '../context/FormContext'
 export const HistorialFormulario = () => {
 
     //Context
-    const {formState} = useContext(FormContext);
+    const {formState, updateFormState} = useContext(FormContext);
 
     //Page history
     const [formHistory, setFormHistory] = useState([]);
@@ -38,7 +38,6 @@ export const HistorialFormulario = () => {
 
     const getPatient = () => {
         Axios.get("./api/paciente?folio=" + formState.patient_folio).then((response) => {
-            console.log(response);
             if(response.status === 200){
                 formState.general_info = {
                     ...this,
@@ -55,7 +54,6 @@ export const HistorialFormulario = () => {
                     companion: response.data.acompañante,
                     quimio: response.data.quimio
                 }
-                console.log(formState);
             }
             else {
                 console.log("Ha sucedido algo :(");
@@ -84,7 +82,12 @@ export const HistorialFormulario = () => {
                         <tbody>
                             {formHistory.map((version) => (
                                 <tr>
-                                    <td>
+                                    <td onClick= {() => {
+                                        updateFormState("patient_data", "folio", version.id_formulario);
+                                        console.log(formState.patient_data);
+                                        //updateFormState("patient_data", "folio_date", version.fecha_formulario);
+                                        history.push('/datos-paciente');
+                                    }}>
                                         Fecha de modificación:
                                         &nbsp;
                                         {version.fecha_formulario}
@@ -97,10 +100,10 @@ export const HistorialFormulario = () => {
                 </div>
             </div>
             
-            {!state.hasForms ?
+            {!state.hasForms &&
                 <div className="col-md-12">
                     <Link className="btn-dir" onClick={()=>{history.push('/datos-paciente');}}>CREAR FORMULARIO</Link>
-                </div> : ''}
+                </div>}
         </>
         );
 };

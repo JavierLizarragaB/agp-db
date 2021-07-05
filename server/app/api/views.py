@@ -182,7 +182,10 @@ def get_form_history(id):
 @api.route("/citas_paciente/<id>", methods=["GET"])
 def get_citas_patient(id):
     """All Appointments"""
-    citas = Appointments.objects(folio=id)
+    citas = Appointments.objects(patient_folio=id)
+    
+    if(len(citas) < 1):
+        return ({'message': "El usuario no tiene citas"}, 200)
     return (jsonify(citas), 200)
 
 @api.route("/citas_dia/<date>", methods=["GET"])
@@ -957,11 +960,19 @@ def send_forms():
         return (e.__str__(), 500)
 
 
-@api.route("/forms/edit", methods=["GET"])
+@api.route("/forms", methods=["GET"])
 def edit_forms():
     """Gets a form"""
-    form = FormInfo.objects[len(FormInfo.objects)-1]
+
+    folio = request.args.get("folio")
+    print(folio)
+
+    if(folio == None):
+        return ({'message': "Sucedió un error, por favor regrese al inicio"}, 501)
+    
+    form = FormInfo.objects(id=folio).first()
+
     
     if form == None:
-        return ({ 'message': "Formulario inexistente"}, 200)
+        return ({ 'message': "Formulario inexistente"}, 501)
     return (jsonify(form), 200)
