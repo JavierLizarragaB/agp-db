@@ -138,8 +138,8 @@ export const Userpanel2 = () => {
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>Correo</th>
-                                <th>Operaciones</th>
                                 <th>Tipo</th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead>
                         <tbody>
