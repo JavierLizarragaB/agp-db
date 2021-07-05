@@ -36,6 +36,16 @@ function Form() {
     // Load context
     const {formState, updateFormState} = useContext(FormContext);
 
+    const [citas, setCitas] = useState([]);
+
+    const getCitas = () => {
+        
+        axios.get('./api/citas_paciente/' + citas ).then((response) => {
+            setCitas(response.data);
+            console.log(response.data);
+        });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         formState.patient_folio = 2;
@@ -631,6 +641,7 @@ function Form() {
 
     useEffect(() => {
         getForm();
+        getCitas();
     }, []);
 
     // const jsonpaciente = {
@@ -1126,7 +1137,39 @@ function Form() {
                             ></textarea>
                             <div className="horario col-md-6">
                                 {/* <TablaHorario/> */}
-                                    <Agenda />
+                                <>
+                                    <table className="table table-hover">
+                                        <th className="thead-custom">
+                                            Agenda
+                                            </th>
+                                            <tbody>
+                                            <table className="table table-hover">
+                                                <thead className="thead-custom">
+                                                    <tr>
+                                                        <th>Fecha</th>
+                                                        <th>Hora</th>
+                                                        <th>Descripción</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                {citas.map((citas) => (
+                                                            <tr key={citas._id.$_oid}>
+                                                                <td>
+                                                                    {moment.unix(citas.fecha.$date/999.95).format("MM/DD/YYYY")}
+                                                                </td>
+                                                                <td>
+                                                                    {citas.hora} 
+                                                                </td>
+                                                                <td>
+                                                                    {citas.descripcion}
+                                                                </td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                        </tbody>
+                                    </table>
+                                </>
                             </div>
                             
                         <br></br><br></br>

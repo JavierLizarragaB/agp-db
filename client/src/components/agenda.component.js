@@ -3,15 +3,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import moment from 'moment';
 
-export const Agenda = () => {
+export const Agenda = (filter, filter_type) => {
     //para citas
     const [citas, setCitas] = useState([]);
 
     const getCitas = () => {
-        axios.get('./api/citas').then((response) => {
-            setCitas(response.data);
-            console.log(response.data);
-        });
+        
+        if (filter_type=="folio") {    
+            axios.get('./api/citas_paciente/' + filter ).then((response) => {
+                setCitas(response.data);
+                console.log(response.data);
+            });
+        } else if (filter_type=="fecha") {
+            axios.get('./api/citas_dia/' + filter ).then((response) => {
+                setCitas(response.data);
+                console.log(response.data);
+            });
+        } else {
+            console.log('filter');
+            console.log(filter);
+            console.log(filter_type);
+        }
     };
 
     useEffect(() => {

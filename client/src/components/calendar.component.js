@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from "moment";
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
 
@@ -7,13 +8,13 @@ const ReactCalendar = () => {
 
   const onChange = date => {
     setDate(date);
+    /*console.log(moment(date).format('YYYY-MM-DD'));*/
   };
 
   return (
     <div>
-      <Calendar showWeekNumbers onChange={onChange} value={date} />
+      <Calendar onChange={onChange} value={date} />
 
-      {date.toString}
     </div>
   );
 };

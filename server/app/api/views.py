@@ -179,11 +179,20 @@ def get_form_history(id):
     versions.reverse()
     return (jsonify(versions), 200)
 
-@api.route("/citas", methods=["GET"])
-def get_citas():
+@api.route("/citas_paciente/<id>", methods=["GET"])
+def get_citas_patient(id):
     """All Appointments"""
-    citas = Appointments.objects()
+    citas = Appointments.objects(folio=id)
     return (jsonify(citas), 200)
+
+@api.route("/citas_dia/<date>", methods=["GET"])
+def get_citas_day(date):
+    """All Appointments"""
+    citas = Appointments.objects(appointments=date)
+    if citas:
+        return (jsonify(citas), 200)
+    else: 
+        return ({ 'message': "Error"}, 200)
 
 @api.route("/user-panel/signup", methods=["POST"])
 def set_user():
