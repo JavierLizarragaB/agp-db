@@ -5,7 +5,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Login from './components/login.component';
-import UserPanel from './components/userpanel.component';
+//import UserPanel from './components/userpanel.component';
 import Form from './components/form.component';
 import UserProvider, { Example as UserCtxExample } from './context/UserProvider';
 import Carrusel from './components/carrusel.component';
@@ -30,7 +30,7 @@ function App() {
                         <Switch>
                             <Route exact path="/" component={Login} />
                             <Route path="/log-in" component={Login} />
-                            <AdminProtectedRoute path="/user-panel" component={UserPanel} />
+                            
                             <AdminProtectedRoute path="/panel-usuarios" component={UserPanel2} />
                             <ProtectedRoute path="/datos-paciente" component={Form} />
                             <ProtectedRoute path="/directorio-paciente" component={DirectorioPaciente} />

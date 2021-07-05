@@ -139,6 +139,7 @@ export const Userpanel2 = () => {
                                 <th>Apellidos</th>
                                 <th>Correo</th>
                                 <th>Operaciones</th>
+                                <th>Tipo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -150,6 +151,7 @@ export const Userpanel2 = () => {
                                     </td>
                                     <td>{user.apellido_paterno} {user.apellido_materno}</td>
                                     <td>{user.usuario}</td>
+                                    <td>{user.type}</td>
                                     <td>
                                         <button className="btn btn-secondary btn-sm btn-block" onClick={() => editUser(user.usuario)}>Editar</button>
                                         <button className="btn btn-danger btn-sm btn-block" onClick={() => deleteUser(user.usuario)}>
