@@ -623,17 +623,8 @@ function Form() {
             console.log(formState);
         })
     }
-    
-    
-    const getCitas = () => {
-        axios.get('./api/citas').then((response) => {
-            setCitas(response.data);
-            console.log(response.data);
-        });
-    };
 
     useEffect(() => {
-        getCitas();
         getForm();
     }, []);
 
