@@ -288,7 +288,8 @@ def send_studies():
     
     try:
         studiesForm = Studies(
-            studies = json.get("studies")
+            studies = json.get("studies"),
+            patient_folio = str(json.get("patient_folio"))
         )
 
         studiesForm.save()
@@ -307,7 +308,8 @@ def send_medicine():
     
     try:
         medicineForm = Medicine(
-            medicine = json.get("medicine")
+            medicine = json.get("medicine"),
+            patient_folio = str(json.get("patient_folio"))
         )
 
         medicineForm.save()
@@ -329,7 +331,7 @@ def send_appointments():
             appointments = json.get("appointments"),
             appointments_time = json.get("appointments_time"),
             appointment_description = json.get("appointment_description"),
-            patient_folio = '2'
+            patient_folio = str(json.get("patient_folio"))
         )
 
         appointmentsForm.save()

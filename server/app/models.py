@@ -651,11 +651,13 @@ class Patients(Document):
 class Studies(Document):
     meta = {"collection": "estudios"}
 
+    patient_folio = StringField(required=True, db_field="folio_paciente")
     studies = StringField(required=True, db_field="estudios_campo")
 
 class Medicine(Document):
     meta = {"collection": "medicamentos"}
 
+    patient_folio = StringField(required=True, db_field="folio_paciente")
     medicine = StringField(required=True, db_field="medicina")
 
 class Appointments(Document):

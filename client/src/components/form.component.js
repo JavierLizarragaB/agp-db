@@ -69,7 +69,8 @@ function Form() {
     const handleSubmitStudies = (e) => {
         e.preventDefault();
         axios.post("./api/studies", {
-            studies: formState.patient_data.studies
+            studies: formState.patient_data.studies,
+            patient_folio: formState.patient_folio
         }).then((response) => {
             console.log(response);
             
@@ -85,7 +86,8 @@ function Form() {
     const handleSubmitMedicine = (e) => {
         e.preventDefault();
         axios.post("./api/medicine", {
-            medicine: formState.patient_data.medicine
+            medicine: formState.patient_data.medicine,
+            patient_folio: formState.patient_folio
         }).then((response) => {
             console.log(response);
             
@@ -98,13 +100,13 @@ function Form() {
         });
     };
 
-    const handelSubmitAppointment = (e) => {
+    const handleSubmitAppointment = (e) => {
         e.preventDefault();
         var appointments_json = {
             appointments: formState.patient_data.appointments,
             appointments_time: formState.patient_data.appointments_time,
             appointment_description: formState.patient_data.appointment_description,
-            patient_folio: formState.patient_data.folio,
+            patient_folio: formState.patient_folio
         }
         console.log(appointments_json)
         axios.post("./api/appointments", 
@@ -114,11 +116,12 @@ function Form() {
 
             if(response.data.message) {
                 setMessage(response.data.message);
-                setOpen2(false);
+                setOpen3(!open3)
             } else {
                 setMessage("Ha sucedido algo :o");
             }
         });
+        getCitas();
     };
 
     const verifyValue = (value, ogValue) => { return typeof value != "undefined" ? value : ogValue }
@@ -1175,7 +1178,7 @@ function Form() {
                     <div>
                         {/* boton de enviar */}
                     <div>
-                        <button onClick={handelSubmitAppointment} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
+                        <button onClick={handleSubmitAppointment} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
                             <b>Guardar Cita</b>
                         </button>
                     </div>
