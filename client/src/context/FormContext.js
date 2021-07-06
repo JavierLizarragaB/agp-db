@@ -558,7 +558,6 @@ class FormContextProvider extends Component {
 
     // Function to handle checkbox validation
     handleCheckboxGroup = (name,id,key,subkey) => {
-        console.log("Calling cb handler for group:",name);
         var elements = document.getElementsByName(name);
 
         // Uncheck all the rest
@@ -591,7 +590,6 @@ class FormContextProvider extends Component {
     setCheckboxGroup = (name, value) => {
         if(typeof value != "undefined" && value != null){
             var elements = document.getElementsByName(name);
-            console.log("Searching for value " + value + " in group " + name);
 
             var i = 0;
             var flag = false;
@@ -599,12 +597,9 @@ class FormContextProvider extends Component {
                 if(elements[i].value === String(value)){
                     elements[i].checked = true;
                     flag = true;
-                    console.log("Found in element", i);
                 }
                 i++;
             }
-        } else {
-            console.log("No value to search in group", name);
         }
     }
 

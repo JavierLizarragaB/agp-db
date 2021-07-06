@@ -8,7 +8,6 @@ const ReactCalendar = () => {
 
   const onChange = date => {
     setDate(date);
-    /*console.log(moment(date).format('YYYY-MM-DD'));*/
   };
 
   return (

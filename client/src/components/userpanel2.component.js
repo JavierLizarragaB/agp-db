@@ -29,7 +29,6 @@ export const Userpanel2 = () => {
                 type,
             };
             Axios.post('./api/user-panel/signup', userjson).then((response) => {
-                console.log(response);
     
                 if (response.data.message) {
                     setRegStatus(response.data.message);
@@ -53,7 +52,6 @@ export const Userpanel2 = () => {
                 type,
             };
             Axios.post('./api/user-panel/update', userjson).then((response) => {
-                console.log(response);
     
                 if (response.data.message) {
                     setRegStatus(response.data.message);
@@ -74,7 +72,6 @@ export const Userpanel2 = () => {
 
     const getUsers = () => {
         Axios.get('./api/user-panel/todos', { params: { type } }).then((response) => {
-            console.log(type);
             setUsers(response.data);
         });
     };
@@ -85,7 +82,6 @@ export const Userpanel2 = () => {
 
     const deleteUser = (email) => {
         Axios.post('./api/user-panel/delete', { "email": email }).then((response) => {
-            console.log(response);
 
             if (response.data.message) {
                 setRegStatus(response.data.message);
@@ -98,7 +94,6 @@ export const Userpanel2 = () => {
 
     const editUser = (email) => {
         Axios.get('./api/user-panel/edit', { params: { email } }).then((response) => {
-            console.log(response);
 
             setId(response.data._id.$oid);
             setEmail(response.data.usuario);
@@ -113,7 +108,6 @@ export const Userpanel2 = () => {
     };
 
     useEffect(() => {
-        console.log(id)
     }, [isEditing]);
 
     return (

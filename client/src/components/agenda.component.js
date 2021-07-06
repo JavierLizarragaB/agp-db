@@ -12,17 +12,11 @@ export const Agenda = (filter, filter_type) => {
         if (filter_type=="folio") {    
             axios.get('./api/citas_paciente/' + filter ).then((response) => {
                 setCitas(response.data);
-                console.log(response.data);
             });
         } else if (filter_type=="fecha") {
             axios.get('./api/citas_dia/' + filter ).then((response) => {
                 setCitas(response.data);
-                console.log(response.data);
             });
-        } else {
-            console.log('filter');
-            console.log(filter);
-            console.log(filter_type);
         }
     };
 

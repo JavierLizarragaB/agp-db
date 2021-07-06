@@ -39,8 +39,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-1" checked={myContext.formState.patient_data.skin_paleness} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_paleness");
-                                console.log(myContext.formState);
-                                console.log(e.target.checked);
                             }}/>
 
                         </div>
@@ -51,7 +49,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-2" checked={myContext.formState.patient_data.skin_icterus} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_icterus");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -61,7 +58,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-3" checked={myContext.formState.patient_data.skin_cyanosis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_cyanosis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -73,7 +69,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-4" checked={myContext.formState.patient_data.skin_eruptions} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_eruptions");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -83,7 +78,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-5" checked={myContext.formState.patient_data.skin_spots} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_spots");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -93,7 +87,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-6" checked={myContext.formState.patient_data.skin_pruritus} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_pruritus");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -103,7 +96,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-7" checked={myContext.formState.patient_data.skin_dryness} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_dryness");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -113,7 +105,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-8" checked={myContext.formState.patient_data.skin_volume_increase} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_volume_increase");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -123,7 +114,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-9" checked={myContext.formState.patient_data.skin_nails_hair} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_nails_hair");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -133,7 +123,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 19-10" checked={myContext.formState.patient_data.skin_nodules} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","skin_nodules");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -143,7 +132,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent1" placeholder="Observaciones" value={myContext.formState.patient_data.skin_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","skin_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -155,7 +143,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-1" checked={myContext.formState.patient_data.ophthalmic_diplopia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_diplopia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -165,7 +152,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-2" checked={myContext.formState.patient_data.ophthalmic_eye_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_eye_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -175,7 +161,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-3" checked={myContext.formState.patient_data.ophthalmic_photophobia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_photophobia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -185,7 +170,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-4" checked={myContext.formState.patient_data.ophthalmic_amaurosis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_amaurosis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -195,7 +179,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-5" checked={myContext.formState.patient_data.ophthalmic_photopsies} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_photopsies");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -205,7 +188,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-6" checked={myContext.formState.patient_data.ophthalmic_myodesopsias} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_myodesopsias");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -215,7 +197,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-7" checked={myContext.formState.patient_data.ophthalmic_scotomas} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_scotomas");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -225,7 +206,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-8" checked={myContext.formState.patient_data.ophthalmic_hemeralopia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_hemeralopia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -235,7 +215,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-9" checked={myContext.formState.patient_data.ophthalmic_nyctalopia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_nyctalopia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -247,7 +226,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-10" checked={myContext.formState.patient_data.ophthalmic_myopia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_myopia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -257,7 +235,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 20-11" checked={myContext.formState.patient_data.ophthalmic_astigmatism} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ophthalmic_astigmatism");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -267,7 +244,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent2" placeholder="Observaciones" value={myContext.formState.patient_data.ophthalmic_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","ophthalmic_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -279,7 +255,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-1" checked={myContext.formState.patient_data.ent_otalgia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_otalgia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -289,7 +264,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-2" checked={myContext.formState.patient_data.ent_algiacusis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_algiacusis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -299,7 +273,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-3" checked={myContext.formState.patient_data.ent_presbycusis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_presbycusis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -309,7 +282,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-4" checked={myContext.formState.patient_data.ent_anacusis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_anacusis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -319,7 +291,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-5" checked={myContext.formState.patient_data.ent_tinnitus} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_tinnitus");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -329,7 +300,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-6" checked={myContext.formState.patient_data.ent_ear_ringing} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_ear_ringing");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -339,7 +309,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-7" checked={myContext.formState.patient_data.ent_hearing_loss} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_hearing_loss");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -350,7 +319,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-8" checked={myContext.formState.patient_data.ent_ear_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_ear_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -359,7 +327,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-9" checked={myContext.formState.patient_data.ent_vertigo} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_vertigo");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -369,7 +336,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-10" checked={myContext.formState.patient_data.ent_fluid_leaking_ear} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_fluid_leaking_ear");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -379,7 +345,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-11" checked={myContext.formState.patient_data.ent_smelling_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_smelling_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -389,7 +354,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-12" checked={myContext.formState.patient_data.ent_fluid_leaking_nose} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_fluid_leaking_nose");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -399,7 +363,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 21-13" checked={myContext.formState.patient_data.ent_nose_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","ent_nose_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -409,7 +372,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent3" placeholder="Observaciones" value={myContext.formState.patient_data.ent_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","ent_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                         <br></br><br></br>
@@ -422,7 +384,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-1" checked={myContext.formState.patient_data.mouth_throat_cavities} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_cavities");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -431,7 +392,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-2" checked={myContext.formState.patient_data.mouth_throat_dental_agenesis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_dental_agenesis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -440,7 +400,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-3" checked={myContext.formState.patient_data.mouth_throat_prothesis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_prothesis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -450,7 +409,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-4" checked={myContext.formState.patient_data.mouth_throat_gingivorrhea} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_gingivorrhea");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -459,7 +417,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-5" checked={myContext.formState.patient_data.mouth_throat_gingivorrhagia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_gingivorrhagia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -468,7 +425,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-6" checked={myContext.formState.patient_data.mouth_throat_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -477,7 +433,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-7" checked={myContext.formState.patient_data.mouth_throat_gums_ulcerations} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_gums_ulcerations");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -488,7 +443,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-8" checked={myContext.formState.patient_data.mouth_throat_colorations} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_colorations");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -497,7 +451,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-9" checked={myContext.formState.patient_data.mouth_throat_size} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_size");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -506,7 +459,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-10" checked={myContext.formState.patient_data.mouth_throat_plaque_presence} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_plaque_presence");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -515,7 +467,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-11" checked={myContext.formState.patient_data.mouth_throat_tongue_ulcerations} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_tongue_ulcerations");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -526,7 +477,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-12" checked={myContext.formState.patient_data.mouth_throat_dysphonia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_dysphonia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -535,7 +485,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-13" checked={myContext.formState.patient_data.mouth_throat_aphonia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_aphonia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -544,7 +493,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-14" checked={myContext.formState.patient_data.mouth_throat_thirst} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_thirst");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -553,7 +501,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-15" checked={myContext.formState.patient_data.mouth_throat_speaking_eating_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_speaking_eating_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -562,7 +509,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-16" checked={myContext.formState.patient_data.mouth_throat_bad_breath} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_bad_breath");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -571,7 +517,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 22-17" checked={myContext.formState.patient_data.mouth_throat_excess_salivation} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","mouth_throat_excess_salivation");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -580,7 +525,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent4" placeholder="Observaciones" value={myContext.formState.patient_data.mouth_throat_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","mouth_throat_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                         <br></br><br></br>
@@ -591,7 +535,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-1" checked={myContext.formState.patient_data.digestive_apettite_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_apettite_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -600,7 +543,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-2" checked={myContext.formState.patient_data.digestive_sickness_vomit} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_sickness_vomit");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -609,7 +551,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-3" checked={myContext.formState.patient_data.digestive_abdominal_distention} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_distention");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -620,7 +561,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-4" checked={myContext.formState.patient_data.digestive_abdominal_gastralgia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_gastralgia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -629,7 +569,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-5" checked={myContext.formState.patient_data.digestive_abdominal_acidity} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_acidity");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -638,7 +577,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-6" checked={myContext.formState.patient_data.digestive_abdominal_postrandial_fullness} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_postrandial_fullness");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -649,7 +587,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-7" checked={myContext.formState.patient_data.digestive_abdominal_tenesmus} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_tenesmus");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -658,7 +595,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-8" checked={myContext.formState.patient_data.digestive_abdominal_bids} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_bids");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -667,7 +603,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-9" checked={myContext.formState.patient_data.digestive_abdominal_encopresis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_encopresis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -676,7 +611,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-10" checked={myContext.formState.patient_data.digestive_abdominal_anal_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_anal_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -685,7 +619,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-11" checked={myContext.formState.patient_data.digestive_abdominal_constipation} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_constipation");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -694,7 +627,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-12" checked={myContext.formState.patient_data.digestive_abdominal_rectal_bleeding} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_rectal_bleeding");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -703,7 +635,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-13" checked={myContext.formState.patient_data.digestive_abdominal_hematochezia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_hematochezia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -715,7 +646,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-14" checked={myContext.formState.patient_data.digestive_abdominal_jaundice} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_jaundice");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -724,7 +654,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-15" checked={myContext.formState.patient_data.digestive_abdominal_pruritus} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_pruritus");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -733,7 +662,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-16" checked={myContext.formState.patient_data.digestive_abdominal_fever} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_fever");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -742,7 +670,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-17" checked={myContext.formState.patient_data.digestive_abdominal_ascites} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_ascites");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -751,7 +678,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-18" checked={myContext.formState.patient_data.digestive_abdominal_biliary_colic} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_biliary_colic");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -760,7 +686,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-19" checked={myContext.formState.patient_data.digestive_abdominal_hepatic_colic} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_hepatic_colic");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -769,7 +694,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-20" checked={myContext.formState.patient_data.digestive_abdominal_acholia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_acholia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -780,7 +704,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-21" checked={myContext.formState.patient_data.digestive_abdominal_steatorrhea} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_steatorrhea");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -789,7 +712,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-22" checked={myContext.formState.patient_data.digestive_abdominal_diarrhea} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_diarrhea");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -798,7 +720,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-23" checked={myContext.formState.patient_data.digestive_abdominal_hypersalivation} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_hypersalivation");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -807,7 +728,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-24" checked={myContext.formState.patient_data.digestive_abdominal_abdominal_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_abdominal_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -816,7 +736,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 23-25" checked={myContext.formState.patient_data.digestive_abdominal_back_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","digestive_abdominal_back_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -824,7 +743,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent5" placeholder="Observaciones" value={myContext.formState.patient_data.digestive_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","digestive_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -835,7 +753,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 24-1" checked={myContext.formState.patient_data.respiratory_cough} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","respiratory_cough");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -844,7 +761,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 24-2" checked={myContext.formState.patient_data.respiratory_chest_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","respiratory_chest_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -853,7 +769,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 24-3" checked={myContext.formState.patient_data.respiratory_hemoptysis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","respiratory_hemoptysis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -862,7 +777,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 24-4" checked={myContext.formState.patient_data.respiratory_vomiting_cough} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","respiratory_vomiting_cough");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -871,7 +785,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 24-5" checked={myContext.formState.patient_data.respiratory_cyanosis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","respiratory_cyanosis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -880,7 +793,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 24-6" checked={myContext.formState.patient_data.respiratory_fatigue} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","respiratory_fatigue");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -889,7 +801,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 24-7" checked={myContext.formState.patient_data.respiratory_breathing_problems} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","respiratory_breathing_problems");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -898,7 +809,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 24-8" checked={myContext.formState.patient_data.respiratory_breathing_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","respiratory_breathing_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -906,7 +816,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent6" placeholder="Observaciones" value={myContext.formState.patient_data.respiratory_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","respiratory_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -918,7 +827,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 25-1" checked={myContext.formState.patient_data.cardiovascular_dyspnoea} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","cardiovascular_dyspnoea");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -927,7 +835,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 25-2" checked={myContext.formState.patient_data.cardiovascular_orthopnea} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","cardiovascular_orthopnea");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -936,7 +843,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 25-3" checked={myContext.formState.patient_data.cardiovascular_lipothymia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","cardiovascular_lipothymia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -945,7 +851,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 25-4" checked={myContext.formState.patient_data.cardiovascular_syncope} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","cardiovascular_syncope");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -954,7 +859,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 25-5" checked={myContext.formState.patient_data.cardiovascular_edema} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","cardiovascular_edema");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -963,7 +867,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 25-6" checked={myContext.formState.patient_data.cardiovascular_cyanosis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","cardiovascular_cyanosis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -972,7 +875,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 25-7" checked={myContext.formState.patient_data.cardiovascular_chest_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","cardiovascular_chest_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -981,7 +883,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 25-8" checked={myContext.formState.patient_data.cardiovascular_palpitations} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","cardiovascular_palpitations");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -990,7 +891,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent7" placeholder="Observaciones" value={myContext.formState.patient_data.cardiovascular_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","cardiovascular_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -1001,7 +901,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 26-1" checked={myContext.formState.patient_data.genitourinary_urinating_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","genitourinary_urinating_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1010,7 +909,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 26-2" checked={myContext.formState.patient_data.genitourinary_urinating_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","genitourinary_urinating_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1019,7 +917,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 26-3" checked={myContext.formState.patient_data.genitourinary_urinating_difficulty} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","genitourinary_urinating_difficulty");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1028,7 +925,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 26-4" checked={myContext.formState.patient_data.genitourinary_jet_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","genitourinary_jet_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1037,7 +933,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 26-5" checked={myContext.formState.patient_data.genitourinary_menstruation_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","genitourinary_menstruation_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1046,7 +941,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 26-6" checked={myContext.formState.patient_data.genitourinary_dyspareunia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","genitourinary_dyspareunia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1055,7 +949,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 26-7" checked={myContext.formState.patient_data.genitourinary_libido_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","genitourinary_libido_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1064,7 +957,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent8" placeholder="Observaciones" value={myContext.formState.patient_data.genitourinary_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","genitourinary_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -1075,7 +967,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 27-1" checked={myContext.formState.patient_data.musculoskeletal_muscle_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","musculoskeletal_muscle_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1084,7 +975,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 27-2" checked={myContext.formState.patient_data.musculoskeletal_joint_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","musculoskeletal_joint_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1093,7 +983,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 27-3" checked={myContext.formState.patient_data.musculoskeletal_joint_stiffness} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","musculoskeletal_joint_stiffness");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1102,7 +991,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 27-4" checked={myContext.formState.patient_data.musculoskeletal_nodules} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","musculoskeletal_nodules");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1111,7 +999,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 27-5" checked={myContext.formState.patient_data.musculoskeletal_bone_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","musculoskeletal_bone_pain");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1120,7 +1007,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 27-6" checked={myContext.formState.patient_data.musculoskeletal_ambulation_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","musculoskeletal_ambulation_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1129,7 +1015,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent9" placeholder="Observaciones" value={myContext.formState.patient_data.musculoskeletal_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","musculoskeletal_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -1140,7 +1025,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 28-1" checked={myContext.formState.patient_data.hematological_weakness} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","hematological_weakness");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1149,7 +1033,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 28-2" checked={myContext.formState.patient_data.hematological_color_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","hematological_color_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1158,7 +1041,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 28-3" checked={myContext.formState.patient_data.hematological_bleeding} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","hematological_bleeding");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1167,7 +1049,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 28-4" checked={myContext.formState.patient_data.hematological_petechiae} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","hematological_petechiae");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1176,7 +1057,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 28-5" checked={myContext.formState.patient_data.hematological_ecchymosis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","hematological_ecchymosis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1185,7 +1065,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 28-6" checked={myContext.formState.patient_data.hematological_bruises} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","hematological_bruises");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1194,7 +1073,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 28-7" checked={myContext.formState.patient_data.hematological_lymphadenopathy} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","hematological_lymphadenopathy");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1203,7 +1081,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent10" placeholder="Observaciones" value={myContext.formState.patient_data.hematological_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","hematological_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -1214,7 +1091,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-1" checked={myContext.formState.patient_data.nervous_headache} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_headache");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1223,7 +1099,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-2" checked={myContext.formState.patient_data.nervous_seizures} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_seizures");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1232,7 +1107,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-3" checked={myContext.formState.patient_data.nervous_memory_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_memory_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1241,7 +1115,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-4" checked={myContext.formState.patient_data.nervous_sphincters_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_sphincters_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1250,7 +1123,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-5" checked={myContext.formState.patient_data.nervous_loss_of_feeling} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_loss_of_feeling");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1259,7 +1131,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-6" checked={myContext.formState.patient_data.nervous_loss_of_movement} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_loss_of_movement");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1268,7 +1139,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-7" checked={myContext.formState.patient_data.nervous_loss_of_balance} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_loss_of_balance");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1277,7 +1147,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-8" checked={myContext.formState.patient_data.nervous_language_disorders} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_language_disorders");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1286,7 +1155,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-9" checked={myContext.formState.patient_data.nervous_gait_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_gait_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1295,7 +1163,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-10" checked={myContext.formState.patient_data.nervous_tremors} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_tremors");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1304,7 +1171,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-11" checked={myContext.formState.patient_data.digestive_abdominal_back_pain} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_paralysis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1313,7 +1179,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-12" checked={myContext.formState.patient_data.nervous_parasthesia} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_parasthesia");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1322,7 +1187,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 29-13" checked={myContext.formState.patient_data.nervous_paresis} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","nervous_paresis");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1331,7 +1195,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent11" placeholder="Observaciones" value={myContext.formState.patient_data.nervous_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","nervous_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -1342,7 +1205,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 30-1" checked={myContext.formState.patient_data.psychic_distress} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","psychic_distress");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1351,7 +1213,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 30-3" checked={myContext.formState.patient_data.psychic_depression} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","psychic_depression");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1360,7 +1221,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 30-4" checked={myContext.formState.patient_data.psychic_interest_changes} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","psychic_interest_changes");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1369,7 +1229,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 30-5" checked={myContext.formState.patient_data.psychic_guilt} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","psychic_guilt");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1378,7 +1237,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 30-6"checked={myContext.formState.patient_data.psychic_suicidal_thoughts} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","psychic_suicidal_thoughts");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1387,7 +1245,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 30-7" checked={myContext.formState.patient_data.psychic_hallucinations} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","psychic_hallucinations");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1396,7 +1253,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-4">
                             <input type="checkbox" className="form-control form-pat" id="patient_data cb 30-8" checked={myContext.formState.patient_data.psychic_delirium} onChange={(e) => {
                                 myContext.handleBooleanCheckbox(e.target.id,"patient_data","psychic_delirium");
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>
@@ -1405,7 +1261,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent12" placeholder="Observaciones" value={myContext.formState.patient_data.psychic_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","psychic_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -1416,7 +1271,6 @@ class TerceraIteracion extends Component {
                         <div>
                             <input type="text" className="form-control form-pat col-md-8" id="inputParent13" placeholder="Observaciones" value={myContext.formState.patient_data.physical_observations} onChange={(e) => {
                                 myContext.updateFormState("patient_data","physical_observations", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     <br></br><br></br>
@@ -1433,11 +1287,9 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-1">
                             <input type="checkbox" className="form-control form-pat" name="patient_data cb x" id="patient_data cb x-1" value="true" onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","follow_up_treatment_changes");
-                                console.log(myContext.formState);
                             }}></input>
                             <input type="checkbox" className="form-control form-pat" name="patient_data cb x" id="patient_data cb x-2" value="false" onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","follow_up_treatment_changes");
-                                console.log(myContext.formState);
                             }}></input>
                         </div>
 
@@ -1445,7 +1297,6 @@ class TerceraIteracion extends Component {
                             <textarea className="form-control form-pat" rows="2" value={myContext.formState.patient_data.follow_up_treatment_changes_notes} onChange={(e) => {
                                 myContext.updateFormState("patient_data","follow_up_treatment_changes_notes", e.target.value);
 
-                                console.log(myContext.formState);
                             }}/>
                         </div>
 
@@ -1455,7 +1306,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-8">
                             <textarea className="form-control form-pat" rows="3" value={myContext.formState.patient_data.follow_up_actual_symptoms} onChange={(e) => {
                                 myContext.updateFormState("patient_data","follow_up_actual_symptoms", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
 
@@ -1465,7 +1315,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-7">
                             <textarea className="form-control form-pat" rows="3" value={myContext.formState.patient_data.follow_up_last_medication_efects} onChange={(e) => {
                                 myContext.updateFormState("patient_data","follow_up_last_medication_efects", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
 
@@ -1475,7 +1324,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-8">
                             <textarea className="form-control form-pat" rows="3" value={myContext.formState.patient_data.follow_up_psychology_follow_up} onChange={(e) => {
                                 myContext.updateFormState("patient_data","follow_up_psychology_follow_up", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
 
@@ -1485,7 +1333,6 @@ class TerceraIteracion extends Component {
                         <div className="form-group col-md-8">
                             <textarea className="form-control form-pat" rows="3" value={myContext.formState.patient_data.follow_up_actual_diagnostic} onChange={(e) => {
                                 myContext.updateFormState("patient_data","follow_up_actual_diagnostic", e.target.value);
-                                console.log(myContext.formState);
                             }}/>
                         </div>
                     </div>

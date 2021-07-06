@@ -39,7 +39,7 @@ export const HistorialFormulario = () => {
 
     const getPatient = () => {
         Axios.get("./api/paciente?folio=" + formState.patient_folio).then((response) => {
-            if(response.status === 200){
+            if(!response.data.message){
                 formState.general_info = {
                     ...this,
 
@@ -55,9 +55,6 @@ export const HistorialFormulario = () => {
                     companion: response.data.acompañante,
                     quimio: response.data.quimio
                 }
-            }
-            else {
-                console.log("Ha sucedido algo :(");
             }
         })
     }
@@ -85,8 +82,6 @@ export const HistorialFormulario = () => {
                                 <tr className="simplehover">
                                     <td onClick= {() => {
                                         updateFormState("patient_data", "folio", version.id_formulario);
-                                        console.log(formState.patient_data);
-                                        //updateFormState("patient_data", "folio_date", version.fecha_formulario);
                                         history.push('/datos-paciente');
                                     }}>
                                         Fecha de modificación:

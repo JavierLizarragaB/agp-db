@@ -17,7 +17,6 @@ export const PagInicio = () => {
     const onChange = date => {
         setDate(date);
         setFecha(moment(date).format('YYYY-MM-DD'));
-        console.log(fecha);
     };
 
     const getCitas = () => {
@@ -26,7 +25,6 @@ export const PagInicio = () => {
             if (response.data.message){
 
             } else {
-                console.log(response.data);
                 setCitas(response.data);
             }
         });

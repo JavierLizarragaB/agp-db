@@ -98,7 +98,6 @@ class OctavaIteracion extends Component {
                             <div className="col-md-2">¿De qué tipo?</div>
                             <div className="form-group col-md-2">
                                 <textarea className="form-control form-pat" rows="1" value={mycontext.formState.others.notes_support_background} onChange={(e) => {
-                                    console.log(mycontext);
                                     mycontext.updateFormState("others","notes_support_background",e.target.value);
                                 }} ></textarea>
                             </div>

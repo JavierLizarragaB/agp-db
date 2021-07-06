@@ -21,7 +21,6 @@ export const Login = () => {
             user,
             passwrd,
         }).then((response) => {
-            console.log(response);
 
             if (response.data.message) {
                 setLoginStatus(response.data.message);
