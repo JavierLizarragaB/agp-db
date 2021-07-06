@@ -23,7 +23,7 @@ export const PagInicio = () => {
         
         axios.get('./api/citas_dia/' + fecha ).then((response) => {
             if (response.data.message){
-
+                setCitas(response.data);
             } else {
                 setCitas(response.data);
             }
