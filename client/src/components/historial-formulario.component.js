@@ -1,6 +1,7 @@
 import React, { Component, useState, useContext, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './navbar.component';
+import moment from 'moment';
 import Axios from 'axios';
 import { Redirect, useHistory } from "react-router";
 import { Link } from 'react-router-dom';
@@ -45,7 +46,7 @@ export const HistorialFormulario = () => {
                     name: response.data.nombre,
                     age: response.data.edad,
                     sex: response.data.sexo,
-                    birth_date: response.data.fecha_nacimiento.$date,
+                    birth_date: moment.unix(response.data.fecha_nacimiento.$date/999.95).format("DD/MM/YYYY"),
                     medical_dx: response.data.dx_medico,
                     blood_type: response.data.tipo_sangre,
                     emergency_contact_name: response.data.nombre_contacto_emergencia,
