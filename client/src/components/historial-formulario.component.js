@@ -80,33 +80,33 @@ export const HistorialFormulario = () => {
 
         return (
         <>
-            <div>
-                <NavBar />
 
+            <NavBar />
+            <div className="Tabla-Historial">
                 <div className="col-md-12">
-                <div className="col-md-8 cont-dir">
-                    <table className="table table-bordered table-hover">
-                        <thead className="thead-custom">
-                            <tr>
-                                <th>{state.tableTitle}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {formHistory.map((version) => (
-                                <tr className="simplehover">
-                                    <td onClick= {() => {
-                                        updateFormState("patient_data", "folio", version.id_formulario);
-                                        history.push('/datos-paciente');
-                                    }}>
-                                        Fecha de modificación:
-                                        &nbsp;
-                                        {version.fecha_formulario}
-                                    </td>
+                    <div className="col-md-8 cont-dir">
+                        <table className="table table-bordered table-hover">
+                            <thead className="thead-custom">
+                                <tr>
+                                    <th>{state.tableTitle}</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                                {formHistory.map((version) => (
+                                    <tr className="simplehover">
+                                        <td onClick= {() => {
+                                            updateFormState("patient_data", "folio", version.id_formulario);
+                                            history.push('/datos-paciente');
+                                        }}>
+                                            Fecha de modificación:
+                                            &nbsp;
+                                            {version.fecha_formulario}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             
