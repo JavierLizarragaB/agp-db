@@ -81,7 +81,7 @@ export const HistorialFormulario = () => {
                         </thead>
                         <tbody>
                             {formHistory.map((version) => (
-                                <tr>
+                                <tr className="simplehover">
                                     <td onClick= {() => {
                                         updateFormState("patient_data", "folio", version.id_formulario);
                                         console.log(formState.patient_data);

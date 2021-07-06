@@ -626,7 +626,7 @@ class FormContextProvider extends Component {
     }
 
     resetFormState = () => {
-        state = {
+        this.state = {
             patient_folio: null,
             finished: false,
             general_info: this.generalInfo,

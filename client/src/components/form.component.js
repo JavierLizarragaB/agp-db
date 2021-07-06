@@ -722,7 +722,7 @@ function Form() {
                 </div>
         </div>
 
-        <p>{message}</p>
+        <p className="alertita col-md-12 center">{message}</p>
 
         <div
             onClick={() => setOpen(!open)}

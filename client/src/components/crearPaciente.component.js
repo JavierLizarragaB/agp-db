@@ -1,4 +1,4 @@
-import React, { Component, useState, useContext} from "react";
+import React, { Component, useState, useContext, useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormContext} from '../context/FormContext'
 import { useHistory } from 'react-router';
@@ -47,7 +47,7 @@ function CrearPaciente() {
 
         <NavBar />
 
-        <p>{message}</p>
+        <p className="alertita-en-rojo">{message}</p>
 
         
             <div id="info-collapse-text" className="info-text">
