@@ -75,7 +75,10 @@
   margin-top: 8%;
 }
 
-
+.row {
+  margin-right: 1px;
+  margin-left: 10px;
+}
 
 .title-carrusel{
   color:#333;
