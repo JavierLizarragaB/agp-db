@@ -43,25 +43,22 @@ function Form() {
         axios.get('./api/citas_paciente/' + formState.patient_folio ).then((response) => {
             if(!response.data.message)
                 setCitas(response.data);
-            console.log(response.data);
         });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formState);
         var current_date = new Date();
         axios.post("./api/forms", {
             formState,
             date: current_date.getDate() + "/" + (current_date.getMonth()+1) + "/" + current_date.getFullYear() + " - " + current_date.getHours() + ":" + (current_date.getMinutes() < 10 ? '0' : '') + current_date.getMinutes()
         }).then((response) => {
-            console.log(response);
             
             if(response.data.message) {
                 setMessage(response.data.message);
                 setOpen(false);
             } else {
-                setMessage("Ha sucedido algo :(");
+                setMessage("Ha sucedido un problema");
             }
         });
     };
@@ -72,13 +69,12 @@ function Form() {
             studies: formState.patient_data.studies,
             patient_folio: formState.patient_folio
         }).then((response) => {
-            console.log(response);
             
             if(response.data.message) {
                 setMessage(response.data.message);
                 setOpen1(false);
             } else {
-                setMessage("Ha sucedido algo :(");
+                setMessage("Ha sucedido un problema");
             }
         });
     };
@@ -89,13 +85,12 @@ function Form() {
             medicine: formState.patient_data.medicine,
             patient_folio: formState.patient_folio
         }).then((response) => {
-            console.log(response);
             
             if(response.data.message) {
                 setMessage(response.data.message);
                 setOpen2(false);
             } else {
-                setMessage("Ha sucedido algo :(");
+                setMessage("Ha sucedido un problema");
             }
         });
     };
@@ -108,17 +103,16 @@ function Form() {
             appointment_description: formState.patient_data.appointment_description,
             patient_folio: formState.patient_folio
         }
-        console.log(appointments_json)
+
         axios.post("./api/appointments", 
             appointments_json
         ).then((response) => {
-            console.log(response);
 
             if(response.data.message) {
                 setMessage(response.data.message);
                 setOpen3(!open3)
             } else {
-                setMessage("Ha sucedido algo :o");
+                setMessage("Ha sucedido un problema");
             }
         });
         getCitas();
@@ -129,7 +123,7 @@ function Form() {
     const getForm = () => {
         axios.get("./api/forms?folio=" + formState.patient_data.folio).then((response) => {
 
-            if(response.status == 200){
+            if(!response.data.message){
                 formState.patient_data.birth_state= verifyValue(response.data.datos_paciente.entidad_nacimiento, formState.patient_data.birth_state);
                 formState.patient_data.birth_city= verifyValue(response.data.datos_paciente.ciudad_nacimiento, formState.patient_data.birth_city);
         
@@ -636,7 +630,22 @@ function Form() {
 
                 formState.finished= true;
             }
-            console.log(formState);
+        })
+
+        axios.get("./api/studies?folio=" + formState.patient_folio).
+        then((response) => {
+
+            if(!response.data.message && typeof response.data.estudios_campo != "undefined") {
+                updateFormState("patient_data", "studies", response.data.estudios_campo);
+            }
+        })
+
+        axios.get("./api/medicine?folio=" + formState.patient_folio).
+        then((response) => {
+
+            if(!response.data.message && typeof response.data.medicina != "undefined") { 
+                updateFormState("patient_data", "medicine", response.data.medicina);
+            }
         })
     }
 
@@ -750,13 +759,11 @@ function Form() {
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputEN" value={formState.patient_data.birth_state} placeholder="Entidad de Nacimiento" onChange={(e) => {
                                             updateFormState("patient_data", "birth_state",e.target.value);
-                                            console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCN" value={formState.patient_data.birth_city} placeholder="Ciudad de Nacimiento" onChange={(e) => {
                                             updateFormState("patient_data", "birth_city",e.target.value);
-                                            console.log(formState);
                                         }} />
                                     </div>
                                 </div>
@@ -765,49 +772,41 @@ function Form() {
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCDP" value={formState.patient_data.permanent_street}  placeholder="Calle" onChange={(e) => {
                                             updateFormState("patient_data", "permanent_street",e.target.value);
-                                            console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputNDP" value={formState.patient_data.permanent_num}  placeholder="Número" onChange={(e) => {
                                             updateFormState("patient_data", "permanent_num",e.target.value);
-                                            console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputColDP" value={formState.patient_data.permanent_suburb}  placeholder="Colonia" onChange={(e) => {
                                             updateFormState("patient_data", "permanent_suburb",e.target.value);
-                                            console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputLocalDP" value={formState.patient_data.permanent_locality}  placeholder="Localidad" onChange={(e) => {
                                             updateFormState("patient_data", "permanent_locality",e.target.value);
-                                            console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputMunDP" value={formState.patient_data.permanent_municipality} placeholder="Municipio" onChange={(e) => {
                                             updateFormState("patient_data", "permanent_municipality",e.target.value);
-                                            console.log(formState);
                                         }} />
                                     </div>
                                     <div className="form-group col-md-2">
                                     <input className="form-control form-pat" id="inputCPDP" value={formState.patient_data.permanent_zip_code} placeholder="C.P." onChange={(e) => {
                                         updateFormState("patient_data", "permanent_zip_code",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel1DP" value={formState.patient_data.permanent_phone} placeholder="Telefóno (1)" onChange={(e) => {
                                         updateFormState("patient_data", "permanent_phone",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel2DP" value={formState.patient_data.permanent_phone2} placeholder="Telefóno (2)" onChange={(e) => {
                                         updateFormState("patient_data", "permanent_phone2",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                 </div>
@@ -817,13 +816,11 @@ function Form() {
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" value={formState.patient_data.email} placeholder="Correo Electrónico" onChange={(e) => {
                                         updateFormState("patient_data", "email",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-2">
                                         <input type="text" className="form-control form-pat" value={formState.patient_data.income} placeholder="Ingresos" onChange={(e) => {
                                         updateFormState("patient_data", "income",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                 </div>
@@ -832,19 +829,16 @@ function Form() {
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" value={formState.patient_data.medical_service} placeholder="Servicio Médico" onChange={(e) => {
                                         updateFormState("patient_data", "medical_service",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" value={formState.patient_data.scholarship} placeholder="Escolaridad" onChange={(e) => {
                                         updateFormState("patient_data", "scholarship",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" value={formState.patient_data.ocupation} placeholder="Ocupación" onChange={(e) => {
                                         updateFormState("patient_data", "ocupation",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                 </div>
@@ -853,13 +847,11 @@ function Form() {
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" value={formState.patient_data.religion} placeholder="Religión" onChange={(e) => {
                                         updateFormState("patient_data", "religion",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-3">
                                         <input type="text" className="form-control form-pat" value={formState.patient_data.civil_state} placeholder="Estado Civil" onChange={(e) => {
                                         updateFormState("patient_data", "civil_state",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                 </div>
@@ -869,7 +861,6 @@ function Form() {
                                     <div className="form-group col-md-2">
                                         <input type="date" className="form-control form-pat" value={formState.patient_data.clinic_record_date} onChange={(e) => {
                                         updateFormState("patient_data", "clinic_record_date",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                 </div>
@@ -879,19 +870,16 @@ function Form() {
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCalle" value={formState.patient_data.temp_street} placeholder="Calle" onChange={(e) => {
                                         updateFormState("patient_data", "temp_street",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputNum" value={formState.patient_data.temp_num} placeholder="Número" onChange={(e) => {
                                         updateFormState("patient_data", "temp_num",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCol" value={formState.patient_data.temp_suburb} placeholder="Colonia" onChange={(e) => {
                                         updateFormState("patient_data", "temp_suburb",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                 </div>
@@ -899,31 +887,26 @@ function Form() {
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputLocal" value={formState.patient_data.temp_locality} placeholder="Localidad" onChange={(e) => {
                                         updateFormState("patient_data", "temp_locality",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputMun" value={formState.patient_data.temp_municipality} placeholder="Municipio" onChange={(e) => {
                                         updateFormState("patient_data", "temp_municipality",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-2">
                                         <input className="form-control form-pat" id="inputCP" value={formState.patient_data.temp_zip_code} placeholder="C.P." onChange={(e) => {
                                         updateFormState("patient_data", "temp_zip_code",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputTel1" value={formState.patient_data.temp_phone} placeholder="Telefóno (1)" onChange={(e) => {
                                         updateFormState("patient_data", "temp_phone",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel2" value={formState.patient_data.temp_phone2} placeholder="Telefóno (2)" onChange={(e) => {
                                         updateFormState("patient_data", "temp_phone2",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                 </div>
@@ -933,7 +916,6 @@ function Form() {
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputNombreFR" value={formState.patient_data.responsable_name} placeholder="Nombre del Responsable" onChange={(e) => {
                                             updateFormState("patient_data", "responsable_name",e.target.value);
-                                            console.log(formState);
                                         }} />
                                     </div>
                                 </div>
@@ -942,19 +924,16 @@ function Form() {
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputCalleFR" value={formState.patient_data.responsable_street} placeholder="Calle" onChange={(e) => {
                                         updateFormState("patient_data", "responsable_street",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputNumFR" value={formState.patient_data.responsable_num} placeholder="Número" onChange={(e) => {
                                         updateFormState("patient_data", "responsable_num",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputColFR" value={formState.patient_data.responsable_suburb} placeholder="Colonia" onChange={(e) => {
                                         updateFormState("patient_data", "responsable_suburb",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                 </div>
@@ -962,31 +941,26 @@ function Form() {
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputLocalFR" value={formState.patient_data.responsable_locality} placeholder="Localidad" onChange={(e) => {
                                         updateFormState("patient_data", "responsable_locality",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                         <input type="text" className="form-control form-pat" id="inputMunFR" value={formState.patient_data.responsable_municipality} placeholder="Municipio" onChange={(e) => {
                                         updateFormState("patient_data", "responsable_municipality",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-2">
                                     <input className="form-control form-pat" id="inputCPFR" value={formState.patient_data.responsable_zip_code} placeholder="C.P." onChange={(e) => {
                                         updateFormState("patient_data", "responsable_zip_code",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel1FR" value={formState.patient_data.responsable_phone} placeholder="Telefóno (1)" onChange={(e) => {
                                         updateFormState("patient_data", "responsable_phone",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                     <div className="form-group col-md-4">
                                     <input type="text" className="form-control form-pat" id="inputTel2FR" value={formState.patient_data.responsable_phone2} placeholder="Telefóno (2)" onChange={(e) => {
                                         updateFormState("patient_data", "responsable_phone2",e.target.value);
-                                        console.log(formState);
                                     }} />
                                     </div>
                                 </div>
@@ -994,7 +968,6 @@ function Form() {
                                 <div>
                                     <input type="text" className="form-control form-pat col-md-4" id="inputParent" value={formState.patient_data.responsable_relationship} placeholder="Parentesco" onChange={(e) => {
                                         updateFormState("patient_data", "responsable_relationship",e.target.value);
-                                        console.log(formState);
                                     }} />
                                 </div>
                             </form>
@@ -1059,7 +1032,7 @@ function Form() {
         <div id="est-collapse-text">
             <div className="col-md-6"/>
                 <div className="form-group col-md-12 info-text">
-                    <textarea className="form-control form-pat" rows="6"
+                    <textarea className="form-control form-pat" rows="6" value={formState.patient_data.studies}
                     onChange={(e) => {updateFormState("patient_data", "studies", e.target.value);}} 
                     ></textarea>
                     {/* boton de enviar */}
@@ -1084,7 +1057,7 @@ function Form() {
         <div id="med-collapse-text">
             <div className="col-md-6"/>
                 <div className="form-group col-md-12 info-text">
-                    <textarea className="form-control form-pat" rows="6"
+                    <textarea className="form-control form-pat" value={formState.patient_data.medicine} rows="6"
                     onChange={(e) => {updateFormState("patient_data", "medicine",e.target.value);}} 
                     ></textarea>
                     {/* boton de enviar */}
@@ -1115,7 +1088,6 @@ function Form() {
                                     
                                     <input style={{textAlign: "center"}} type="date" className="form-control form-pat" onChange={(e) => {
                                     updateFormState("patient_data", "appointments",e.target.value);
-                                    console.log(formState);
                                     }} />
                                     
                                 </div>
@@ -1124,7 +1096,6 @@ function Form() {
                                     
                                     <input style={{textAlign: "center"}} type="time" className="form-control form-pat" onChange={(e) => {
                                     updateFormState("patient_data", "appointments_time",e.target.value);
-                                    console.log(formState);
                                     }} />
                                     
                                 </div>
@@ -1134,7 +1105,7 @@ function Form() {
                             
                         
                             <textarea className="form-control col-md-6 form-pat" rows="4"
-                                onChange={(e) => {updateFormState("patient_data", "appointment_description",e.target.value);console.log(formState);}} 
+                                onChange={(e) => {updateFormState("patient_data", "appointment_description",e.target.value);}} 
                             ></textarea>
                             <div className="horario col-md-6">
                                 {/* <TablaHorario/> */}

@@ -89,7 +89,7 @@ def post_patient():
         json["formState"]["general_info"]["companion"] == None or
         json["formState"]["general_info"]["shelter"] == None or
         json["formState"]["general_info"]["quimio"] == None):
-        return ({ 'message': "Por favor llena todos los campos"}, 200)
+        return ({ 'message': "Por favor llene todos los campos"}, 200)
 
     name = json["formState"]["general_info"]["name"]
 
@@ -283,17 +283,26 @@ def send_studies():
     "Saves studies camp"
     json = request.get_json()
 
-    if (json == None):
-        return ({ 'message': "Camp empty"}, 400)
+    if (json["patient_folio"] == None or json["studies"] == None):
+        return ({ 'message': "Favor de llenar todos los campos"}, 200)
     
     try:
-        studiesForm = Studies(
-            studies = json.get("studies"),
-            patient_folio = str(json.get("patient_folio"))
-        )
+
+        studiesForm = Studies.objects(patient_folio=str(json["patient_folio"])).first()
+
+        if studiesForm:
+            studiesForm.studies = json["studies"]
+        
+        else:
+            print("Creating new studies camp")
+            studiesForm = Studies(
+                studies = json["studies"],
+                patient_folio = str(json["patient_folio"])
+            )
 
         studiesForm.save()
         return ({ 'message': "Campo actualizado"}, 200)
+
     except Exception as e:
         print(e)
         return(e.__str__(), 500)
@@ -303,17 +312,26 @@ def send_medicine():
     "Saves medicine camp"
     json = request.get_json()
 
-    if (json == None):
-        return ({ 'message': "Camp empty"}, 400)
+    if (json["patient_folio"] == None or json["medicine"] == None):
+        return ({ 'message': "Favor de llenar todos los campos"}, 200)
     
     try:
-        medicineForm = Medicine(
-            medicine = json.get("medicine"),
-            patient_folio = str(json.get("patient_folio"))
-        )
+
+        medicineForm = Medicine.objects(patient_folio=str(json["patient_folio"])).first()
+
+        if medicineForm:
+            medicineForm.medicine = json["medicine"]
+
+        else:
+            print("Creating new medicine camp")
+            medicineForm = Medicine(
+                medicine = json.get("medicine"),
+                patient_folio = str(json.get("patient_folio"))
+            )
 
         medicineForm.save()
         return ({ 'message': "Campo actualizado"}, 200)
+
     except Exception as e:
         print(e)
         return(e.__str__(), 500)
@@ -324,7 +342,7 @@ def send_appointments():
     json = request.get_json()
 
     if (json == None):
-        return({ 'message': "Camp empty"}, 400)
+        return({ 'message': "Favor de llenar todos los campos"}, 200)
 
     try:
         appointmentsForm = Appointments(
@@ -962,6 +980,40 @@ def send_forms():
         return (e.__str__(), 500)
 
 
+@api.route("/studies", methods=["GET"])
+def get_studies():
+    """Gets studies form"""
+
+    folio = request.args.get("folio")
+    print(folio)
+
+    if(folio == None):
+        return ({'message': "Sucedió un error, por favor regrese al inicio"}, 200)
+    
+    studiesForm = Studies.objects(patient_folio=str(folio)).first()
+
+    
+    if studiesForm == None:
+        return ({ 'message': "Formulario inexistente"}, 200)
+    return (jsonify(studiesForm), 200)
+
+@api.route("/medicine", methods=["GET"])
+def get_medicine():
+    """Gets medicine form"""
+
+    folio = request.args.get("folio")
+    print(folio)
+
+    if(folio == None):
+        return ({'message': "Sucedió un error, por favor regrese al inicio"}, 200)
+    
+    medicineForm = Medicine.objects(patient_folio=str(folio)).first()
+
+    
+    if medicineForm == None:
+        return ({ 'message': "Formulario inexistente"}, 200)
+    return (jsonify(medicineForm), 200)
+
 @api.route("/forms", methods=["GET"])
 def edit_forms():
     """Gets a form"""
@@ -970,11 +1022,11 @@ def edit_forms():
     print(folio)
 
     if(folio == None):
-        return ({'message': "Sucedió un error, por favor regrese al inicio"}, 501)
+        return ({'message': "Sucedió un error, por favor regrese al inicio"}, 200)
     
     form = FormInfo.objects(id=folio).first()
 
     
     if form == None:
-        return ({ 'message': "Formulario inexistente"}, 501)
+        return ({ 'message': "Formulario inexistente"}, 200)
     return (jsonify(form), 200)
