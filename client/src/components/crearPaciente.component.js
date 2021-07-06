@@ -14,7 +14,12 @@ function CrearPaciente() {
     const [message, setMessage] = useState("");
 
     // Load context
-    const {formState, updateFormState, setPatientFolio, handleCheckboxGroup} = useContext(FormContext);
+    const {formState, resetFormState, updateFormState, setPatientFolio, handleCheckboxGroup} = useContext(FormContext);
+
+    // Load initial state, erasing previous form state
+    useEffect(() => {
+        resetFormState();
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();

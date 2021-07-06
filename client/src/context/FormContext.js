@@ -625,6 +625,20 @@ class FormContextProvider extends Component {
         })
     }
 
+    resetFormState = () => {
+        state = {
+            patient_folio: null,
+            finished: false,
+            general_info: this.generalInfo,
+            patient_data: this.patientData,
+            family_data: this.familyData,
+            home_and_economy: this.homeAndEconomy,
+            diet: this.diet,
+            hygiene_pass_physact: this.hygienePassPhysAct,
+            others: this.others
+        }
+    }
+
     setForm = (form) => {
         this.setState({
             ...this.state,
@@ -1135,6 +1149,7 @@ class FormContextProvider extends Component {
         const contextValue = {
             formState:this.state,
             updateFormState:this.updateFormState,
+            resetFormState:this.resetFormState,
             setPatientFolio:this.setPatientFolio,
             setForm:this.setForm,
             handleCheckboxGroup:this.handleCheckboxGroup,
