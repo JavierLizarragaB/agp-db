@@ -588,13 +588,15 @@ class FormContextProvider extends Component {
     }
 
     setCheckboxGroup = (name, value) => {
-        if(typeof value != "undefined" && value != null){
+        if(value != null){
             var elements = document.getElementsByName(name);
+            console.log(elements);
 
             var i = 0;
             var flag = false;
             while(i < elements.length && !flag){
-                if(elements[i].value === String(value)){
+                console.log(elements[i].value);
+                if(elements[i].value == String(value)){
                     elements[i].checked = true;
                     flag = true;
                 }

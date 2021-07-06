@@ -59,9 +59,23 @@ export const HistorialFormulario = () => {
         })
     }
 
+    const getStudiesandMedicine = () => {
+        Axios.get("./api/studies?folio=" + formState.patient_folio).
+        then((response) => {
+
+            if(!response.data.message) {
+                if(typeof response.data.estudios_campo != "undefined")
+                    updateFormState("patient_data", "studies", response.data.estudios_campo);
+                if(typeof response.data.medicina != "undefined")
+                    updateFormState("patient_data", "medicine", response.data.estudios_campo);
+            }
+        })
+    }
+
     useEffect(() => {
         getFormHistory();
         getPatient();
+        getStudiesandMedicine();
     }, []);
 
         return (

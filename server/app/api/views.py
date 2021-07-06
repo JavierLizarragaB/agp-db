@@ -949,6 +949,9 @@ def send_forms():
         )
         form.save()
 
+        print(json["formState"]["others"]["has_support_background"])
+        print(form.others.support_background)
+
         "Connect form to patient"
         theId = str(form.id)
         print("This is the form id:",theId)
@@ -981,41 +984,25 @@ def get_studies():
         return ({'message': "Sucedió un error, por favor regrese al inicio"}, 200)
     
     studiesForm = Studies.objects(patient_folio=str(folio)).first()
-
-    
-    if studiesForm == None:
-        return ({ 'message': "Formulario inexistente"}, 200)
-    return (jsonify(studiesForm), 200)
-
-@api.route("/medicine", methods=["GET"])
-def get_medicine():
-    """Gets medicine form"""
-
-    folio = request.args.get("folio")
-    print(folio)
-
-    if(folio == None):
-        return ({'message': "Sucedió un error, por favor regrese al inicio"}, 200)
-    
     medicineForm = Medicine.objects(patient_folio=str(folio)).first()
-
     
-    if medicineForm == None:
+    if studiesForm == None and medicineForm == None:
         return ({ 'message': "Formulario inexistente"}, 200)
-    return (jsonify(medicineForm), 200)
+    
+    dict = {'estudios_campo': studiesForm.studies, 'medicina': medicineForm.medicine}
+
+    return (jsonify(dict), 200)
 
 @api.route("/forms", methods=["GET"])
 def edit_forms():
     """Gets a form"""
 
     folio = request.args.get("folio")
-    print(folio)
 
     if(folio == None):
         return ({'message': "Sucedió un error, por favor regrese al inicio"}, 200)
     
     form = FormInfo.objects(id=folio).first()
-
     
     if form == None:
         return ({ 'message': "Formulario inexistente"}, 200)

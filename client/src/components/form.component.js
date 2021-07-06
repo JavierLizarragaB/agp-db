@@ -110,7 +110,7 @@ function Form() {
 
             if(response.data.message) {
                 setMessage(response.data.message);
-                setOpen3(!open3)
+                setOpen3(false)
             } else {
                 setMessage("Ha sucedido un problema");
             }
@@ -627,36 +627,20 @@ function Form() {
                 formState.others.ticks_animals= verifyValue(response.data.otros.animales_garrapatas, formState.others.ticks_animals);
                 formState.others.diseases_animals= verifyValue(response.data.otros.animales_enfermedades, formState.others.diseases_animals);
                 formState.others.vaccination_card= verifyValue(response.data.otros.cartilla_vacunacion, formState.others.vaccination_card);
-
+                    
                 formState.finished= true;
-            }
-        })
-
-        axios.get("./api/studies?folio=" + formState.patient_folio).
-        then((response) => {
-
-            if(!response.data.message && typeof response.data.estudios_campo != "undefined") {
-                updateFormState("patient_data", "studies", response.data.estudios_campo);
-            }
-        })
-
-        axios.get("./api/medicine?folio=" + formState.patient_folio).
-        then((response) => {
-
-            if(!response.data.message && typeof response.data.medicina != "undefined") { 
-                updateFormState("patient_data", "medicine", response.data.medicina);
             }
         })
     }
 
+
+
     useEffect(() => {
-        if(formState.patient_data.folio){ getForm(); }
+        if(formState.patient_data.folio){
+            getForm();
+        }
         getCitas();
     }, []);
-
-    /// const jsonpaciente = {
-    //                     "edad":"9",
-    //                 }
 
     let icon = formState.general_info.sex == "Femenino" ? Femenino : Masculino;
 
