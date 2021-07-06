@@ -96,19 +96,9 @@ def post_patient():
     try:
         patient = Patients.objects(name=name).first()
         
-        # Update existing patient
+        # Return error message: patient already exists
         if patient:
-            patient.name = name
-            patient.age = json["formState"]["general_info"]["age"]
-            patient.birth_date = json["formState"]["general_info"]["birth_date"]
-            patient.sex = json["formState"]["general_info"]["sex"]
-            patient.blood_type = json["formState"]["general_info"]["blood_type"]
-            patient.emergency_contact_name = json["formState"]["general_info"]["emergency_contact_name"]
-            patient.emergency_contact_num = json["formState"]["general_info"]["emergency_contact_num"]
-            patient.medical_dx = json["formState"]["general_info"]["medical_dx"]
-            patient.companion = bool(json["formState"]["general_info"]["companion"])
-            patient.shelter = bool(json["formState"]["general_info"]["shelter"])
-            patient.quimio = bool(json["formState"]["general_info"]["quimio"])
+            return ({ 'message': "El paciente ya existe. Por favor búscalo en el directorio para editar sus datos."}, 200)
         
         # Create new patient
         else:
