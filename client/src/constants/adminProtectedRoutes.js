@@ -14,6 +14,8 @@ function AdminProtectedRoute({ component: Component, ...rest}) {
             setIsAuth(response.data['auth']);
             if (response.data['auth']){
                 localStorage.setItem("showUserPanel", true);
+            } else if (response.data['module']){
+                localStorage.setItem("showOnlyAgenda", true);
             }
             setLoading(false);
         });

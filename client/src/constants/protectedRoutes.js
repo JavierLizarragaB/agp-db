@@ -6,16 +6,15 @@ function ProtectedRoute({ component: Component, ...rest}) {
 
     const [isLoading, setLoading] = useState(true);
     const [isLogged, setIsLogged] = useState(false);
-    const [isAuth, setIsAuth] = useState(false);
 
     useEffect(() => {
         Axios.post('./api/verify_login?token=' + localStorage.getItem("token")).then((response) => {
             setIsLogged(response.data['login']);
-            setIsAuth(response.data['auth']);
             if (response.data['auth']){
                 localStorage.setItem("showUserPanel", true);
+            } else if (response.data['module']){
+                localStorage.setItem("showOnlyAgenda", true);
             }
-            setLoading(false);
             setLoading(false);
         });
     }, []);

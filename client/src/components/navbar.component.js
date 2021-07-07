@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import logo from '../img/agp-logo.png';
-import { Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -13,15 +12,23 @@ export const NavBar = () => {
     const logOut = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('showUserPanel');
+        localStorage.removeItem('showOnlyAgenda');
         history.push('/log-in');
     }
 
     let showUserPanel;
+    let showOnlyAgenda;
 
     if (localStorage.getItem('showUserPanel')) {
         showUserPanel = <a><Link className="nav-item" onClick={()=>{history.push('/panel-usuarios');}}>Panel Usuarios</Link>{' '}</a>;
     } else {
         showUserPanel = <a> </a>;
+    }
+
+    if (localStorage.getItem('showOnlyAgenda')) {
+        showOnlyAgenda = <a> </a>;
+    } else {
+        showOnlyAgenda = <a><Link className="nav-item" onClick={()=>{history.push('/directorio-paciente');}}>Pacientes</Link>{' '}</a>;
     }
     
     return (
@@ -39,9 +46,7 @@ export const NavBar = () => {
                             <a><Link className="nav-item" onClick={()=>{history.push('/pag-inicio');}}>
                             Inicio
                             </Link>{' '}</a>
-                            <a><Link className="nav-item" onClick={()=>{history.push('/directorio-paciente');}}>
-                            Pacientes
-                            </Link>{' '}</a>
+                            {showOnlyAgenda}
                             {showUserPanel}
                             <a><Link className="nav-item" onClick={logOut}>
                             Cerrar Sesión
