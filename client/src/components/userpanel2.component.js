@@ -126,6 +126,14 @@ export const Userpanel2 = () => {
                         Trabajador Social
                     </button>
 
+                    <button id="Administrador" className="btn btn-custom " onClick={() => setType(3)}>
+                        Administrador
+                    </button>
+
+                    <button id="Modulo" className="btn btn-custom " onClick={() => setType(4)}>
+                        Modulo
+                    </button>
+
                     <table id="Tabla" className="table table-bordered table-hover">
                         <thead className="thead-custom">
                             <tr>
@@ -157,9 +165,6 @@ export const Userpanel2 = () => {
                         </tbody>
                     </table>
 
-                    <button id="Administrador" className="btn btn-custom " onClick={() => setType(3)}>
-                        Administrador
-                    </button>
                     <form id="Registro" onSubmit={handleSubmit} className="card card-body bg-custom">
                             <h4 className="h4-custom">Registro</h4>
                             <div className="form-group">
