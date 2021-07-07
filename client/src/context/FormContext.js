@@ -559,12 +559,17 @@ class FormContextProvider extends Component {
     // Function to handle checkbox validation
     handleCheckboxGroup = (name,id,key,subkey) => {
         var elements = document.getElementsByName(name);
+        console.log(elements);
 
         // Uncheck all the rest
         for(var i = 0; i < elements.length; i++){
             if (elements[i].id === id) {
                 if(elements[i].checked){
-                    this.updateFormState(key,subkey,elements[i].value);
+                    if (elements[i].value == "false"){
+                        this.updateFormState(key,subkey,false);
+                    } else {
+                        this.updateFormState(key,subkey,elements[i].value);
+                    }
                 }
                 else{
                     this.updateFormState(key,subkey,null);

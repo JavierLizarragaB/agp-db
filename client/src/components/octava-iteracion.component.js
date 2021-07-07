@@ -79,7 +79,7 @@ class OctavaIteracion extends Component {
                             <div className="col-md-2"/>
                             <div>Si</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="others-cb-2" id="others-cb-2-1" value="true"
+                                <input type="checkbox" className="form-control form-pat" name="others-cb-2" id="others-cb-2-1" value={true}
                                 onChange={(e) => {
                                     mycontext.handleCheckboxGroup(e.target.name,e.target.id,"others","has_support_background");
                                 }}/>
@@ -87,7 +87,7 @@ class OctavaIteracion extends Component {
                             <div className="col-md-1" />
                             <div>No</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="others-cb-2" id="others-cb-2-2" value=""
+                                <input type="checkbox" className="form-control form-pat" name="others-cb-2" id="others-cb-2-2" value={false}
                                 onChange={(e) => {
                                     mycontext.handleCheckboxGroup(e.target.name,e.target.id,"others","has_support_background");
                                 }}/>

@@ -110,10 +110,10 @@ class SegundaIteracion extends Component {
                             <div>No</div>           
                         </div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 2" id="patient_data cb 2-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 2" id="patient_data cb 2-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","jail");
                             }}></input>
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 2" id="patient_data cb 2-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 2" id="patient_data cb 2-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","jail");
                             }}></input>
                         </div>
@@ -134,10 +134,10 @@ class SegundaIteracion extends Component {
                             <div>No</div>           
                         </div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 3" id="patient_data cb 3-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 3" id="patient_data cb 3-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","blood_transfusions");
                             }}></input>
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 3" id="patient_data cb 3-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 3" id="patient_data cb 3-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","blood_transfusions");
                             }}></input>
                         </div>
@@ -158,10 +158,10 @@ class SegundaIteracion extends Component {
                             <div>No</div>           
                         </div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 4" id="patient_data cb 4-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 4" id="patient_data cb 4-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","allergies");
                             }}></input>
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 4" id="patient_data cb 4-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 4" id="patient_data cb 4-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","allergies");
                             }}></input>
                         </div>
@@ -182,10 +182,10 @@ class SegundaIteracion extends Component {
                             <div>No</div>           
                         </div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 5" id="patient_data cb 5-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 5" id="patient_data cb 5-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","trauma");
                             }}></input>
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 5" id="patient_data cb 5-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 5" id="patient_data cb 5-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","trauma");
                             }}></input>
                         </div>
@@ -207,10 +207,10 @@ class SegundaIteracion extends Component {
                             <div>No</div>           
                         </div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 6" id="patient_data cb 6-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 6" id="patient_data cb 6-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","alcoholism_consumption");
                             }}></input>
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 6" id="patient_data cb 6-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 6" id="patient_data cb 6-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","alcoholism_consumption")
                             }}></input>
                         </div>
@@ -248,10 +248,10 @@ class SegundaIteracion extends Component {
                             <div>No</div>           
                         </div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 7" id="patient_data cb 7-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 7" id="patient_data cb 7-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","smoking_consumption");
                             }}></input>
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 7" id="patient_data cb 7-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 7" id="patient_data cb 7-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","smoking_consumption");
                             }}></input>
                         </div>
@@ -288,10 +288,10 @@ class SegundaIteracion extends Component {
                             <div>No</div>           
                         </div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 8" id="patient_data cb 8-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 8" id="patient_data cb 8-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","drug_consumption");
                             }}></input>
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 8" id="patient_data cb 8-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 8" id="patient_data cb 8-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","drug_consumption");
                             }}></input>
                         </div>
@@ -399,13 +399,13 @@ class SegundaIteracion extends Component {
                         <div className="form-group col-md-4">Parejas de Alto Riesgo</div>
                         <div>Si</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 10" id="patient_data cb 10-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 10" id="patient_data cb 10-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_high_risk_partners");
                             }}/>
                         </div>
                         <div>No</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 10" id="patient_data cb 10-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 10" id="patient_data cb 10-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_high_risk_partners");
                             }}/>
                         </div>
@@ -612,13 +612,13 @@ class SegundaIteracion extends Component {
                         <div className="form-group col-md-4">Menopausia</div>
                         <div>Si</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 16" id="patient_data cb 16-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 16" id="patient_data cb 16-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_menopause");
                             }}/>
                         </div>
                         <div>No</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 16" id="patient_data cb 16-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 16" id="patient_data cb 16-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_menopause");
                             }}/>
                         </div>
@@ -637,13 +637,13 @@ class SegundaIteracion extends Component {
                         <div className="form-group col-md-4">Lactancia Materna</div>
                         <div>Si</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 17" id="patient_data cb 17-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 17" id="patient_data cb 17-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_breastfeeding");
                             }}/>
                         </div>
                         <div>No</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 17" id="patient_data cb 17-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb 17" id="patient_data cb 17-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","female_breastfeeding");
                             }}/>
                         </div>

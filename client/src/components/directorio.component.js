@@ -12,7 +12,7 @@ export const Directorio = () => {
     let history = useHistory();
 
     // Load context
-    const {setPatientFolio} = useContext(FormContext);
+    const {setPatientFolio, resetFormState} = useContext(FormContext);
 
     const getPatients = () => {
         Axios.get('./api/directorio').then((response) => {
@@ -22,6 +22,7 @@ export const Directorio = () => {
 
     useEffect(() => {
         getPatients();
+        resetFormState();
     }, []);
 
         return (

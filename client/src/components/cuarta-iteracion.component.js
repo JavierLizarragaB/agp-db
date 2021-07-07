@@ -218,13 +218,13 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                             <div className="col-md-1">Vivo</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 1" id="family_data cb 1-1" value="true" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 1" id="family_data cb 1-1" value={true} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","paternal_grandfather_living");
                                 }}/>
                             </div>
                             <div className="col-md-1">Finado</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 1" id="family_data cb 1-2" value="false" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 1" id="family_data cb 1-2" value={false} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","paternal_grandfather_living");
                                 }}/>
                             </div>
@@ -248,13 +248,13 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                             <div className="col-md-1">Vivo</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 2" id="family_data cb 2-1" value="true" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 2" id="family_data cb 2-1" value={true} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","paternal_grandmother_living");
                                 }}/>
                             </div>
                             <div className="col-md-1">Finado</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 2" id="family_data cb 2-2" value="false" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 2" id="family_data cb 2-2" value={false} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","paternal_grandmother_living");
                                 }}/>
                             </div>
@@ -278,13 +278,13 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                             <div className="col-md-1">Vivo</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 3" id="family_data cb 3-1" value="true" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 3" id="family_data cb 3-1" value={true} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","maternal_grandfather_living");
                                 }}/>
                             </div>
                             <div className="col-md-1">Finado</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 3" id="family_data cb 3-2" value="false" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 3" id="family_data cb 3-2" value={false} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","maternal_grandfather_living");
                                 }}/>
                             </div>
@@ -308,13 +308,13 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                             <div className="col-md-1">Vivo</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 4" id="family_data cb 4-1" value="true" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 4" id="family_data cb 4-1" value={true} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","maternal_grandmother_living");
                                 }}/>
                             </div>
                             <div className="col-md-1">Finado</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 4" id="family_data cb 4-2" value="true" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 4" id="family_data cb 4-2" value={false} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","maternal_grandmother_living");
                                 }}/>
                             </div>
@@ -338,13 +338,13 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                             <div className="col-md-1">Vivo</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 5" id="family_data cb 5-1" value="true" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 5" id="family_data cb 5-1" value={true} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","father_living");
                                 }}/>
                             </div>
                             <div className="col-md-1">Finado</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 5" id="family_data cb 5-2" value="false" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 5" id="family_data cb 5-2" value={false} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","father_living");
                                 }}/>
                             </div>
@@ -368,13 +368,13 @@ class CuartaIteracion extends Component {
                     <div className="form-row">
                             <div className="col-md-1">Vivo</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 6" id="family_data cb 6-1" value="true" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 6" id="family_data cb 6-1" value={true} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","mother_living");
                                 }}/>
                             </div>
                             <div className="col-md-1">Finado</div>
                             <div className="form-group col-md-1">
-                                <input type="checkbox" className="form-control form-pat" name="family_data cb 6" id="family_data cb 6-2" value="false" onChange={(e) => {
+                                <input type="checkbox" className="form-control form-pat" name="family_data cb 6" id="family_data cb 6-2" value={false} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","mother_living");
                                 }}/>
                             </div>
@@ -502,13 +502,13 @@ class CuartaIteracion extends Component {
                         <div className="col-md-1"/>
                         <div className="col-md-1">Si</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="family_data cb 8" id="family_data cb 8-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="family_data cb 8" id="family_data cb 8-1" value={true} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","household_member_substance");
                                 }}/>
                         </div>
                         <div className="col-md-1">No</div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="family_data cb 8" id="family_data cb 8-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="family_data cb 8" id="family_data cb 8-2" value={false} onChange={(e) => {
                                     myContext.handleCheckboxGroup(e.target.name,e.target.id,"family_data","household_member_substance");
                                 }}/>
                         </div>

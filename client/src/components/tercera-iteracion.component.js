@@ -1285,10 +1285,10 @@ class TerceraIteracion extends Component {
                             <div>No</div>           
                         </div>
                         <div className="form-group col-md-1">
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb x" id="patient_data cb x-1" value="true" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb x" id="patient_data cb x-1" value={true} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","follow_up_treatment_changes");
                             }}></input>
-                            <input type="checkbox" className="form-control form-pat" name="patient_data cb x" id="patient_data cb x-2" value="false" onChange={(e) => {
+                            <input type="checkbox" className="form-control form-pat" name="patient_data cb x" id="patient_data cb x-2" value={false} onChange={(e) => {
                                 myContext.handleCheckboxGroup(e.target.name,e.target.id,"patient_data","follow_up_treatment_changes");
                             }}></input>
                         </div>
