@@ -26,6 +26,10 @@
   background: #F7ADA4;
 }
 
+.Resize{
+  max-width: 100%;
+}
+
 .inner {
   background: #FDEDC6;
   width: 50%;  
@@ -216,7 +220,7 @@ span {
   grid-template-rows: 0.07fr 0.07fr 0.65fr;
   grid-template-areas:
   "Médico TrabajadorSocial Tabla"
-  "Administrador Administrador Tabla"
+  "Administrador Modulo Tabla"
   "Registro Registro Tabla"; 
   grid-gap: 0.3rem;
 }
@@ -241,16 +245,25 @@ span {
   grid-area: Registro;
 }
 
+#Modulo {
+  grid-area: Modulo;
+}
+
 @media only screen and (max-width:800px) {
   .container{
     grid-template-columns: 1fr;
-    grid-template-rows: 0.05fr 0.05fr 0.05fr 5fr 1fr; 
+    grid-template-rows: 0.002fr 0.002fr 0.002fr 0.002fr 20fr 1fr; 
     grid-template-areas: 
     "Médico"
     "TrabajadorSocial"
     "Administrador"
+    "Modulo"
     "Registro"
     "Tabla";
+  }
+
+  .thead-custom{
+    font-size: 2.8vw;
   }
 }
 

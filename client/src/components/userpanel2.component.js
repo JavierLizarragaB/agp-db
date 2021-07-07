@@ -118,25 +118,28 @@ export const Userpanel2 = () => {
             <br></br>
             
             <div class="container">
-                    <button id="Médico" className="btn btn-custom" onClick={() => setType(2)}>
+                
+                    <button id="Médico" className="btn btn-custom Resize" onClick={() => setType(2)}>
                         Medico
                     </button>
 
-                    <button id="TrabajadorSocial" className="btn btn-custom" onClick={() => setType(1)}>
+                    <button id="TrabajadorSocial" className="btn btn-custom Resize" onClick={() => setType(1)}>
                         Trabajador Social
                     </button>
 
-                    <button id="Administrador" className="btn btn-custom " onClick={() => setType(3)}>
+                    <button id="Administrador" className="btn btn-custom Resize" onClick={() => setType(3)}>
                         Administrador
                     </button>
 
-                    <button id="Modulo" className="btn btn-custom " onClick={() => setType(4)}>
+                    <button id="Modulo" className="btn btn-custom Resize" onClick={() => setType(4)}>
                         Modulo
                     </button>
-
-                    <table id="Tabla" className="table table-bordered table-hover">
-                        <thead className="thead-custom">
-                            <tr>
+                
+                    
+                    
+                    <table id="Tabla" className="table table-bordered table-hover Resize">
+                        <thead className="thead-custom ">
+                            <tr className="thead-custom ">
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>Correo</th>
@@ -145,8 +148,10 @@ export const Userpanel2 = () => {
                             </tr>
                         </thead>
                         <tbody>
+                        
                             {users.map((user) => (
                                 /* Conseguir id de usuarios */
+                                
                                 <tr key={user._id.$_oid}>
                                     <td>
                                         {user.nombre} 
@@ -155,8 +160,8 @@ export const Userpanel2 = () => {
                                     <td>{user.usuario}</td>
                                     <td>{user.type}</td>
                                     <td>
-                                        <button className="btn btn-secondary btn-sm btn-block" onClick={() => editUser(user.usuario)}>Editar</button>
-                                        <button className="btn btn-danger btn-sm btn-block" onClick={() => deleteUser(user.usuario)}>
+                                        <button className="btn btn-secondary btn-sm btn-block Resize" onClick={() => editUser(user.usuario)}>Editar</button>
+                                        <button className="btn btn-danger btn-sm btn-block Resize" onClick={() => deleteUser(user.usuario)}>
                                             Borrar
                                         </button>
                                     </td>
@@ -164,8 +169,10 @@ export const Userpanel2 = () => {
                             ))}
                         </tbody>
                     </table>
+                            
 
-                    <form id="Registro" onSubmit={handleSubmit} className="card card-body bg-custom">
+                    
+                    <form id="Registro" onSubmit={handleSubmit} className="card card-body bg-custom Resize">
                             <h4 className="h4-custom">Registro</h4>
                             <div className="form-group">
                                 <input 
@@ -219,7 +226,8 @@ export const Userpanel2 = () => {
                                 Guardar
                             </button>
                     </form>
-                
+                    
+                                              
             </div>
 
         </div>
