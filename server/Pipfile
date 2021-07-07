@@ -19,6 +19,8 @@ flask-admin = "*"
 gunicorn = "*"
 pyjwt = "*"
 colorama = "*"
+pandas = "*"
+openpyxl = "*"
 
 [requires]
 python_version = "3.9"
