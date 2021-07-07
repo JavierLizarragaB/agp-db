@@ -12,7 +12,6 @@ import PagInicio from './components/Inicio/inicio';
 import DirectorioPaciente from './components/directorio.component';
 import HistorialFormulario from './components/historial-formulario.component';
 import ProtectedRoute from './constants/protectedRoutes';
-import SuperProtectedRoute from './constants/superProtectedRoutes';
 import AdminProtectedRoute from './constants/adminProtectedRoutes';
 
 import UserPanel2 from './components/userpanel2.component';
