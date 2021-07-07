@@ -13,6 +13,7 @@ export const PagInicio = () => {
     const [date, setDate] = useState(new Date());
     const [fecha, setFecha] = useState(moment(date).format('YYYY-MM-DD'));
     const [citas, setCitas] = useState([]);
+    const[mensajeTablaVacia, setMensajeTablaVacia] = useState(new Boolean);
 
     const onChange = date => {
         setDate(date);
@@ -23,8 +24,9 @@ export const PagInicio = () => {
         
         axios.get('./api/citas_dia/' + fecha ).then((response) => {
             if (response.data.message){
-                setCitas(response.data);
+                setMensajeTablaVacia(true);
             } else {
+                setMensajeTablaVacia(false);
                 setCitas(response.data);
             }
         });
@@ -34,6 +36,7 @@ export const PagInicio = () => {
         getCitas();
     }, [date]);
 
+    if(mensajeTablaVacia == false){
     return (
         <div>
             <NavBar/>
@@ -82,6 +85,38 @@ export const PagInicio = () => {
                 </div>
             </div>
         </div>
-    )
+    )}else{
+        return (
+            <div>
+                <NavBar/>
+                <div/>
+                <Carrusel/>
+                <br />
+                <div className="row col-md-12">
+                    <div className="col-md-2" />
+                    <div className="calendario col-md-4">
+                        <Calendar onChange={onChange} value={date} />
+                    </div>
+                    <div className=" col-md-4">
+                    <>
+                        <table className="table table-hover">
+                            <th className="thead-custom">
+                                Agenda
+                                </th>
+                                <tbody>
+                                <table className="table table-hover">
+                                    <thead className="thead-custom">
+                                        <tr>
+                                            <th>No hay citas programadas este día</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </tbody>
+                        </table>
+                    </>
+                    </div>
+                </div>
+            </div>
+        )}
 };
 export default PagInicio;
