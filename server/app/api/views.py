@@ -1,4 +1,6 @@
-from flask import json, request, jsonify, current_app
+from flask import request, jsonify, current_app
+import json
+import pandas as pd
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
@@ -185,7 +187,7 @@ def get_citas_day(date):
     if citas:
         return (jsonify(citas), 200)
     else: 
-        return ({ 'message': "Error"}, 200)
+        return ({'message': "No hay citas este dia"}, 200)
 
 @api.route("/user-panel/signup", methods=["POST"])
 def set_user():
@@ -1007,3 +1009,28 @@ def edit_forms():
     if form == None:
         return ({ 'message': "Formulario inexistente"}, 200)
     return (jsonify(form), 200)
+
+@api.route("/json_to_excel", methods=["GET"])
+def forms_to_file():
+    """covert json to file"""
+    
+    json_data = []
+    for patient in Patients.objects():
+        list_len = len(patient.form_history)
+        if list_len > 0:
+            form = patient.form_history[list_len - 1]['formId']
+            json_data.append(form)
+
+    data = []
+    for json_id in json_data:
+        new_data = FormInfo.objects.get(id=json_id)
+        data.append(new_data)
+
+    if data:
+        data_id=data
+        return jsonify(data_id)
+        df = pd.DataFrame(data)
+        df.to_excel('pacientes.xlsx')
+        return ({ 'message': "Formulario descargado"}, 200)
+    else:
+        return ({ 'message': "Formulario inexistente"}, 200)
