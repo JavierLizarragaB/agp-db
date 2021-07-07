@@ -27,8 +27,8 @@ export const Carrusel = () => {
                     alt="First slide"
                     />
                 <Carousel.Caption style={{color: "black", backgroundColor: "lightblue", padding: "1%"}}>
-                    <h3 classname="title-carrusel">First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h3 classname="title-carrusel">Agrupación George Papanicolau, A.C.</h3>
+                    <p>Mientras hay vida, hay esperanza. Juntos continuamos ante la adversidad.</p>
                 </Carousel.Caption>    
             </Carousel.Item>
                 
@@ -41,8 +41,8 @@ export const Carrusel = () => {
                     alt="Second slide"
                     />
                 <Carousel.Caption style={{color: "black", backgroundColor: "lightblue", padding: "1%"}}>
-                    <h3 classname="title-carrusel">Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h3 classname="title-carrusel">Agrupación George Papanicolau, A.C.</h3>
+                    <p>Mientras hay vida, hay esperanza. Juntos continuamos ante la adversidad.</p>
                 </Carousel.Caption>
             </Carousel.Item>
                 
@@ -56,8 +56,8 @@ export const Carrusel = () => {
                     />
 
                     <Carousel.Caption style={{color: "black", backgroundColor: "lightblue", padding: "1%"}}>
-                    <h3 classname="title-carrusel">Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    <h3 classname="title-carrusel">Agrupación George Papanicolau, A.C.</h3>
+                    <p>Mientras hay vida, hay esperanza. Juntos continuamos ante la adversidad.</p>
                     </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
