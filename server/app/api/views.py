@@ -32,24 +32,13 @@ def token_required(f):
 @token_required
 def is_logged(current_user):
     if current_user:
-        if current_user['type']==3:
-            return ({'auth': True, 'login':True}, 200)
-        return ({'auth': False, 'login':True}, 200)
-    return({'auth': False, 'login':False}, 200)
-
-@api.route("/verify_role", methods=["GET", "POST"])
-@token_required
-def is_auth(current_user):
-    if current_user:
-        if current_user['type']==3:
-            return ({'auth': True, 'login':True}, 200)
-        return ({'auth': False, 'login':True}, 200)
-    return({'auth': False, 'login':False}, 200)
-
-@api.route("/time", methods=["GET"])
-def time():
-    return {"time": str(datetime.now())}
-
+        if current_user['type']==4:
+            return ({'module': True, 'auth': False, 'login':True}, 200)
+        elif current_user['type']==3:
+            return ({'module': False, 'auth': True, 'login':True}, 200)
+        else:
+            return ({'module': False, 'auth': False, 'login':True}, 200)
+    return({'module': False, 'auth': False, 'login':False}, 200)
 
 @api.route("/paciente/<id>", methods=["GET"])
 def get_patient_by_mdb_id(id):
