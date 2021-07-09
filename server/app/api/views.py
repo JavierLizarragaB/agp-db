@@ -55,7 +55,6 @@ def get_patient_by_name():
     """GET Lookup patient by database name."""
 
     searchName = request.args.get("patientName")
-    print(searchName)
     patient = Patients.objects(name__icontains=searchName).first()
     if patient:
         return (patient.to_json(), 200)
