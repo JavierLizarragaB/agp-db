@@ -26,9 +26,9 @@ export const NavBar = () => {
     }
 
     if (localStorage.getItem('showOnlyAgenda')) {
-        showOnlyAgenda = <a> </a>;
-    } else {
         showOnlyAgenda = <a><Link className="nav-item" onClick={()=>{history.push('/directorio-paciente');}}>Pacientes</Link>{' '}</a>;
+    } else {
+        showOnlyAgenda = <a> </a>;
     }
     
     return (

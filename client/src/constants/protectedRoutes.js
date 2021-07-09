@@ -12,9 +12,12 @@ function ProtectedRoute({ component: Component, ...rest}) {
             setIsLogged(response.data['login']);
             if (response.data['auth']){
                 localStorage.setItem("showUserPanel", true);
-            } else if (response.data['module']){
+            } 
+            if (response.data['module']){
+                
                 localStorage.setItem("showOnlyAgenda", true);
             }
+            console.log("here")
             setLoading(false);
         });
     }, []);
