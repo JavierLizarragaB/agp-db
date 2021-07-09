@@ -8,12 +8,16 @@ import {FormContext} from '../context/FormContext'
 
 export const Directorio = () => {
 
+    const defaultName = "Ultimos Pacientes Agregados";    
+    const [tableName, setTableName] = useState(defaultName);
+    const [busquedaHecha, setBusquedaHecha] = useState(false);
+    const [message, setMessage] = useState("");
     const [patients, setPatients] = useState([]);
     let history = useHistory();
 
     // Load context
     const {setPatientFolio, resetFormState} = useContext(FormContext);
-
+    
     const getPatients = () => {
         Axios.get('./api/directorio').then((response) => {
             setPatients(response.data);
@@ -25,17 +29,49 @@ export const Directorio = () => {
         resetFormState();
     }, []);
 
+    const enterPatient = (e) => {
+        if (e.key === 'Enter') {
+            setBusquedaHecha(true);
+            Axios.get('./api/buscar-paciente', {params: {patientName: e.target.value}}).then((response) => {
+                if (response.data.message) {
+                    setMessage(response.data.message);
+                } else {
+                    setMessage("");
+                    setTableName("Resultados de Búsqueda");
+                    setPatients([response.data]);
+                }
+            });
+        }
+    };
+
         return (
         <>
             <div>
                 <NavBar />
-                <div className="col-lg-12 text-center mt-5 row">
+
+                <p className="alertita-en-rojo">{message}</p>
+
+                <div className="col-lg-12 text-center mt-5">
                     <div className="col-md-4 offset-md-4 mt-5 pt-3">
-                        <div className="input-group mb-3">
-                        <input type="text" className="form-control" placeholder="Buscar Paciente" aria-label="Nombre del Paciente" />
-                        </div>
+                            <div className="input-group mb-3">
+                                <input 
+                                    type="text" 
+                                    className="form-control" 
+                                    placeholder="Buscar Paciente" 
+                                    aria-label="Nombre del Paciente"
+                                    onKeyPress={enterPatient}
+                                />
+                            </div>
                     </div>
                 </div>
+
+                <div className="col-md-12">
+                    {busquedaHecha &&
+                    <div className="col-md-12">
+                        <Link className="btn-dir-alt" onClick={() => {setBusquedaHecha(false); getPatients(); setMessage("");}}>LIMPIAR BÚSQUEDA</Link>
+                    </div>}
+                </div>
+                <br />
                 
                 <div className="col-md-12">
                     <Link className="btn-dir" onClick={()=>{history.push('/crear-paciente');}}>REGISTRAR NUEVO PACIENTE</Link>
@@ -49,7 +85,7 @@ export const Directorio = () => {
                     <table className="table table-bordered table-hover">
                         <thead className="thead-custom">
                             <tr>
-                                <th>Últimos pacientes registrados</th>
+                                <th>{tableName}</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -475,6 +475,23 @@ span {
   text-decoration: none;
 }
 
+.btn-dir-alt {
+  display: block;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  color: #5D9FC8;
+  border: solid 3px #5D9FC8;
+  border-radius: 9999px;
+}
+
+.btn-dir-alt:hover {
+  background-color: #5D9FC8;
+  color: #ffff;
+  text-decoration: none;
+}
+
 .cont-dir {
   display: block;
   margin-left: auto;

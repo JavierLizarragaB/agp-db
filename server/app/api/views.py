@@ -50,6 +50,17 @@ def get_patient_by_mdb_id(id):
 
     return ("Patient not found", 404)
 
+@api.route("/buscar-paciente", methods=["GET"])
+def get_patient_by_name():
+    """GET Lookup patient by database name."""
+
+    searchName = request.args.get("patientName")
+    print(searchName)
+    patient = Patients.objects(name=searchName).first()
+    if patient:
+        return (patient.to_json(), 200)
+
+    return ({"message": "No existe el paciente"}, 200)
 
 @api.route("/paciente", methods=["GET"])
 def get_patient_by_folio():
