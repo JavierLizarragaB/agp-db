@@ -33,11 +33,11 @@ def token_required(f):
 def is_logged(current_user):
     if current_user:
         if current_user['type']==4:
-            return ({'module': True, 'auth': False, 'login':True}, 200)
-        elif current_user['type']==3:
-            return ({'module': False, 'auth': True, 'login':True}, 200)
-        else:
             return ({'module': False, 'auth': False, 'login':True}, 200)
+        elif current_user['type']==3:
+            return ({'module': True, 'auth': True, 'login':True}, 200)
+        else:
+            return ({'module': True, 'auth': False, 'login':True}, 200)
     return({'module': False, 'auth': False, 'login':False}, 200)
 
 @api.route("/paciente/<id>", methods=["GET"])
@@ -56,7 +56,7 @@ def get_patient_by_name():
 
     searchName = request.args.get("patientName")
     print(searchName)
-    patient = Patients.objects(name=searchName).first()
+    patient = Patients.objects(name__icontains=searchName).first()
     if patient:
         return (patient.to_json(), 200)
 
