@@ -11,7 +11,7 @@ import {FormContext} from '../context/FormContext'
 export const HistorialFormulario = () => {
 
     //Context
-    const {formState, updateFormState} = useContext(FormContext);
+    const {formState, updateFormState, resetFormContent} = useContext(FormContext);
 
     //Page history
     const [formHistory, setFormHistory] = useState([]);
@@ -74,6 +74,9 @@ export const HistorialFormulario = () => {
 
     useEffect(() => {
         getFormHistory();
+        if (formState.patient_data.folio != null){
+            resetFormContent();
+        }
         getPatient();
         getStudiesandMedicine();
     }, []);

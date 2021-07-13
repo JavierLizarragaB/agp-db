@@ -459,10 +459,10 @@ class FormContextProvider extends Component {
         place_type: null,
         place_services: null,
         place_material: null,
-        place_kitchen: null,
-        place_lounge: null,
-        place_dining_room: null,
-        place_bedroom: null,
+        place_kitchen: false,
+        place_lounge: false,
+        place_dining_room: false,
+        place_bedroom: false,
         place_bedroom_quantity: null,
         place_others: null,
         place_person_per_room: null,
@@ -565,7 +565,7 @@ class FormContextProvider extends Component {
         for(var i = 0; i < elements.length; i++){
             if (elements[i].id === id) {
                 if(elements[i].checked){
-                    if (elements[i].value == "false"){
+                    if (elements[i].value === "false"){
                         this.updateFormState(key,subkey,false);
                     } else {
                         this.updateFormState(key,subkey,elements[i].value);
@@ -601,7 +601,7 @@ class FormContextProvider extends Component {
             var flag = false;
             while(i < elements.length && !flag){
                 console.log(elements[i].value);
-                if(elements[i].value == String(value)){
+                if(elements[i].value === String(value)){
                     elements[i].checked = true;
                     flag = true;
                 }
@@ -641,11 +641,33 @@ class FormContextProvider extends Component {
         }
     }
 
+    resetFormContent = () => {
+        const studies = this.state.patient_data.studies;
+        const medicine = this.state.patient_data.medicine;
+
+        this.state = {
+            ...this.state,
+            finished: false,
+            patient_data: this.patientData,
+            family_data: this.familyData,
+            home_and_economy: this.homeAndEconomy,
+            diet: this.diet,
+            hygiene_pass_physact: this.hygienePassPhysAct,
+            others: this.others
+        }
+
+        console.log(this.state);
+
+        this.updateFormState("patient_data", "studies", studies);
+        this.updateFormState("patient_data", "medicine", medicine);
+    }
+
     render(){
         const contextValue = {
             formState:this.state,
             updateFormState:this.updateFormState,
             resetFormState:this.resetFormState,
+            resetFormContent:this.resetFormContent,
             setPatientFolio:this.setPatientFolio,
             handleCheckboxGroup:this.handleCheckboxGroup,
             handleBooleanCheckbox:this.handleBooleanCheckbox,
