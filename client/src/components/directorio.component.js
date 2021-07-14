@@ -36,9 +36,9 @@ export const Directorio = () => {
                 if (response.data.message) {
                     setMessage(response.data.message);
                 } else {
+                    setPatients(response.data);
                     setMessage("");
                     setTableName("Resultados de Búsqueda");
-                    setPatients([response.data]);
                 }
             });
         }
@@ -68,7 +68,12 @@ export const Directorio = () => {
                 <div className="col-md-12">
                     {busquedaHecha &&
                     <div className="col-md-12">
-                        <Link className="btn-dir-alt" onClick={() => {setBusquedaHecha(false); getPatients(); setMessage("");}}>LIMPIAR BÚSQUEDA</Link>
+                        <Link className="btn-dir-alt" onClick={() => {
+                            setBusquedaHecha(false);
+                            getPatients();
+                            setMessage("");
+                            setTableName(defaultName);
+                            }}>LIMPIAR BÚSQUEDA</Link>
                     </div>}
                 </div>
                 <br />
