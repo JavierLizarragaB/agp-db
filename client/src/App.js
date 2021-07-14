@@ -5,7 +5,6 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Login from './components/login.component';
-//import UserPanel from './components/userpanel.component';
 import Form from './components/form.component';
 import UserProvider, { Example as UserCtxExample } from './context/UserProvider';
 import PagInicio from './components/Inicio/inicio';

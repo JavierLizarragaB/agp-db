@@ -34,7 +34,7 @@ function AdminProtectedRoute({ component: Component, ...rest}) {
                     return <Component />;
                 } else if (isLogged && !!isAuth) {
                     return(
-                        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+                        <Redirect to={{ pathname: "/pag-inicio", state: { from: props.location } }} />
                     );
                 } else {
                     return(

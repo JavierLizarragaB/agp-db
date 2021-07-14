@@ -1,11 +1,11 @@
-import React, { Component, useState, useContext, useEffect} from "react";
-import { Button, Collapse } from 'react-bootstrap';
+import React, { useState, useContext, useEffect} from "react";
+import { Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {FormContext} from '../context/FormContext'
+import axios from "axios";
 import moment from 'moment';
+import { useHistory } from "react-router";
+
 import NavBar from './navbar.component';
-import Masculino from '../img/male.png';
-import Femenino from '../img/female.png';
 import SegundaIteracion from "./segunda-iteracion.component";
 import TerceraIteracion from './tercera-iteracion.component';
 import CuartaIteracion from './cuarta-iteracion.component';
@@ -13,32 +13,38 @@ import QuintaIteracion from './quinta-iteracion.component';
 import SextaIteracion from './sexta-iteracion.component';
 import SeptimaIteracion from './septima-iteracion.component';
 import OctavaIteracion from './octava-iteracion.component';
-import TablaHorario from "./tablaHorario";
-import Agenda from './agenda.component';
-import axios from "axios";
-import { verify } from "crypto";
 
+import Masculino from '../img/male.png';
+import Femenino from '../img/female.png';
+
+import { FormContext } from '../context/FormContext'
 
 function Form() {
-    //para abrir el formulario general
+
+    // Load history
+    let history = useHistory();
+
+    // To open principal form
     const [open, setOpen] = useState(false);
 
-    //para abrir los 3 textos
+    // To open the other 3 texts (studies, medicine, etc.)
     const [open1, setOpen1] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
 
-    //para la que esta adentro de formulario general (abrir iteracion 1)
+    // To open first iteration
     const [open4, setOpen4] = useState(false);
 
+    // Message of error or success
     const [message, setMessage] = useState("");
 
     // Load context
     const {formState, updateFormState} = useContext(FormContext);
 
+    // For appointments
     const [citas, setCitas] = useState([]);
 
-    const getCitas = () => {
+    const getAppointments = () => {
         
         axios.get('./api/citas_paciente/' + formState.patient_folio ).then((response) => {
             if(!response.data.message)
@@ -115,7 +121,7 @@ function Form() {
                 setMessage("Ha sucedido un problema");
             }
         });
-        getCitas();
+        getAppointments();
     };
 
     const verifyValue = (value, ogValue) => { return typeof value != "undefined" ? value : ogValue }
@@ -631,13 +637,14 @@ function Form() {
         })
     }
 
-
-
     useEffect(() => {
-        if(formState.patient_data.folio){
+        if(formState.patient_folio == null){
+            history.push("/directorio-paciente");
+        }
+        else if(formState.patient_data.folio){
             getForm();
         }
-        getCitas();
+        getAppointments();
     }, []);
 
     let icon = formState.general_info.sex == "Femenino" ? Femenino : Masculino;
@@ -725,6 +732,8 @@ function Form() {
         </div>
         <Collapse in={open}>
             <div id="info-collapse-text" className="info-text">
+
+                {/* First iteration */}
 
                     <div
                     onClick={() => setOpen4(!open4)}
@@ -958,41 +967,40 @@ function Form() {
                     </Collapse>
 
                 
-                {/* Segunda Iteracion */}
+                {/* Second Iteration */}
 
                 <SegundaIteracion />
                 <br />
 
-                {/* Tercera Iteracion */}
+                {/* Third Iteration */}
 
                 <TerceraIteracion />
                 <br />
                 
-                {/* Cuarta iteracion */}
+                {/* Fourth Iteration */}
                 
                 <CuartaIteracion />
                 <br />
 
-                {/* Quinta Iteracion */}
+                {/* Fifth Iteration */}
 
                 <QuintaIteracion />
                 <br />
 
-                {/* Sexta Iteracion */}
+                {/* Sixth Iteration */}
 
                 <SextaIteracion />
                 <br />
 
-                {/* Septima Iteracion */}
+                {/* Seventh Iteration */}
 
                 <SeptimaIteracion />
                 <br />
 
-                {/* Octava Iteracion */}
+                {/* Eight Iteration */}
                 <OctavaIteracion />
                 <br />
 
-                {/* boton de enviar */}
                 <div>
                     <button className="btn btn-custom btn-md btn-block col-md-2 btn-pat" onClick={handleSubmit}>
                         <b>Guardar Datos de Paciente</b>
@@ -1042,7 +1050,7 @@ function Form() {
                     <textarea className="form-control form-pat" value={formState.patient_data.medicine} rows="6"
                     onChange={(e) => {updateFormState("patient_data", "medicine",e.target.value);}} 
                     ></textarea>
-                    {/* boton de enviar */}
+                    
                     <div>
                         <button onClick={handleSubmitMedicine} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
                             <b>Guardar Medicamentos</b>
@@ -1090,7 +1098,6 @@ function Form() {
                                 onChange={(e) => {updateFormState("patient_data", "appointment_description",e.target.value);}} 
                             ></textarea>
                             <div className="horario col-md-6">
-                                {/* <TablaHorario/> */}
                                 <>
                                     <table className="table table-hover">
                                         <th className="thead-custom">
@@ -1129,7 +1136,7 @@ function Form() {
                         <br></br><br></br>
                     </div>
                     <div>
-                        {/* boton de enviar */}
+                        
                     <div>
                         <button onClick={handleSubmitAppointment} className="btn btn-custom btn-md btn-block col-md-2 btn-pat">
                             <b>Guardar Cita</b>
