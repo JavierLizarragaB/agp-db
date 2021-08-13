@@ -31,6 +31,7 @@
         "yup": "^0.32.9"
     },
     "scripts": {
+        "env_creation": "printenv > ../server/.env",
         "prestart": "node setDevPackageJson.js",
         "start": "react-scripts start",
         "prebuild": "node setProdPackageJson.js && node recreateBuildDir.js",
