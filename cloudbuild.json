@@ -12,12 +12,6 @@
         "entrypoint": "npm",
         "args": ["run", "build"]
     }, {
-        "id": "create_env_variables",
-        "name": "node",
-        "dir": "client",
-        "entrypoint": "npm",
-        "args": ["run", "env_creation"]
-    }, {
         "id": "deploy",
         "name": "gcr.io/google.com/cloudsdktool/cloud-sdk",
         "entrypoint": "gcloud",
