@@ -1,6 +1,7 @@
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import {Helmet} from "react-helmet";
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
@@ -19,12 +20,17 @@ import FormContextProvider from './context/FormContext';
 import CrearPaciente from './components/crearPaciente.component';
 
 function App() {
-  return (
+  return (      
           <Router>
             <UserProvider>
               <FormContextProvider>
                 <div className="App">
-                    <div>
+                    <Helmet>
+                        <title>Base de Datos AGP</title>
+                        <meta name="description" content="Página elaborada por alumnos del Instituo Tecnológico de 
+                        Monterrey Campus Sonora Norte, en colaboración con Agrupación George Papanicolaou Hermosillo"/>
+                    </Helmet>
+                    <div>      
                         <Switch>
                             <Route exact path="/" component={Login} />
                             <Route path="/log-in" component={Login} />
