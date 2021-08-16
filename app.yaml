@@ -2,10 +2,10 @@ runtime: python39
 entrypoint: gunicorn --chdir ./server -b :$PORT main:app
 env_variables:
     FLASK_ENV: "production"
-    FLASK_TOKEN: E57575CCB34E29EA023ECCB2F2AE628BC2895879A9AA3D9CAF5ED838682033DA
-    SECRET_KEY: std::cout<<"HelloWorld!"<<std::endl;
-    MONGO_DBNAME: "agp_db"
-    MONGO_URI: mongodb+srv://backend:uTK0ZgIv6jlDzfXY@agp-db.glaly.mongodb.net/agp_db?retryWrites=true&w=majority
+    FLASK_TOKEN: $_FLASK_TOKEN
+    SECRET_KEY: $_SECRET_KEY
+    MONGO_DBNAME: $_MONGO_DBNAME
+    MONGO_URI: $_MONGO_URI
 handlers:
     - url: /.*
       script: auto
