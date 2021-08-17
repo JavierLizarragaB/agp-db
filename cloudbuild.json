@@ -7,7 +7,7 @@
         "args": ["install"]
     }, {
         "id": "add_env_variables",
-        "name": "'gcr.io/cloud-builders/gcloud'",
+        "name": "gcr.io/cloud-builders/gcloud",
         "entrypoint": "bash",
         "args": ["-c", "|", "sed -i 's/%_FLASK_TOKEN%/'${_FLASK_TOKEN}'/g' app.yaml", "sed -i 's/%_SECRET_KEY%/'${_SECRET_KEY}'/g' app.yaml", "sed -i 's/%_MONGO_URI%/'${_MONGO_URI}'/g' app.yaml", "gcloud app deploy  app.yaml"]
     }, {
