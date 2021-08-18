@@ -5,7 +5,7 @@ env_variables:
     FLASK_TOKEN: %FLASK_TOKEN%
     SECRET_KEY: %SECRET_KEY%
     MONGO_DBNAME: "agp_db"
-    MONGO_URI: %MONGO_URI%
+    MONGO_URI: mongodb+srv://%MONGO_URI%/agp_db?retryWrites=true&w=majority
 handlers:
     - url: /.*
       script: auto
