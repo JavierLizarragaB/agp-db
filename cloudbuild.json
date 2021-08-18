@@ -9,7 +9,7 @@
         "id": "add_env_variables",
         "name": "gcr.io/cloud-builders/gcloud",
         "entrypoint": "bash",
-        "args": ["-c", "sed -e '/%FLASK_TOKEN%/${_FLASK_TOKEN}' -e '/%SECRET_KEY%/'${_SECRET_KEY}' -e '/%MONGO_URI%/'${_MONGO_URI}' app.yaml", "gcloud app deploy  app.yaml"]
+        "args": ["-c", "sed -e '/%FLASK_TOKEN%/'$_FLASK_TOKEN -e '/%SECRET_KEY%/'$_SECRET_KEY -e '/%MONGO_URI%/'$_MONGO_URI app.yaml"]
     }, {
         "id": "build_react_app",
         "name": "node",
