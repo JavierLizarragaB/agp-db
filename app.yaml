@@ -2,8 +2,8 @@ runtime: python39
 entrypoint: gunicorn --chdir ./server -b :$PORT main:app
 env_variables:
     FLASK_ENV: "production"
-    FLASK_TOKEN: %FLASK_TOKEN%
-    SECRET_KEY: %SECRET_KEY%
+    FLASK_TOKEN: FLASK_TOKEN%
+    SECRET_KEY: SECRET_KEY%
     MONGO_DBNAME: "agp_db"
     MONGO_URI: mongodb+srv://%MONGO_URI%/agp_db?retryWrites=true&w=majority
 handlers:
