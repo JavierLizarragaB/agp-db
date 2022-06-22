@@ -1,4 +1,5 @@
 # Agrupación George Papanicolaou - Base de Datos
+AGP DB is a patient administration system to help the institution bring information resilience and digitalize their processes.
 
 ### Frontend
 
